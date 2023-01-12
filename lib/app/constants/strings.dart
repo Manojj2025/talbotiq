@@ -14,6 +14,7 @@ class MyImages {
   static const createclient = 'assets/image/createclient.png';
   static const sort = 'assets/image/sort.png';
   static const filter = 'assets/image/filter.png';
+  static const bag = 'assets/image/bag.png';
 }
 
 class HomeName {
@@ -27,4 +28,10 @@ class HomeName {
 class JobsName {
   static const filters = 'Filters';
   static const sortby = 'Sort By';
+  static const jobdetail = 'Job Details';
+  static const jobDescription = 'Job Description';
+
+  static const professionalSkills = 'Professional Skills';
+
+  static const softSkills = 'Soft Skills';
 }

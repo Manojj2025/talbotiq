@@ -1,15 +1,18 @@
 import 'package:get/get.dart';
 
-import 'package:talbotiq/app/modules/home/controllers/bottombar_controller.dart';
-import 'package:talbotiq/app/modules/home/controllers/interviews_controller.dart';
-import 'package:talbotiq/app/modules/home/controllers/jobs_controller.dart';
-import 'package:talbotiq/app/modules/home/controllers/more_controller.dart';
-
+import '../controllers/bottombar_controller.dart';
 import '../controllers/home_controller.dart';
+import '../controllers/interviews_controller.dart';
+import '../controllers/jobdetail_controller.dart';
+import '../controllers/jobs_controller.dart';
+import '../controllers/more_controller.dart';
 
 class HomeBinding extends Bindings {
   @override
   void dependencies() {
+    Get.lazyPut<JobdetailController>(
+      () => JobdetailController(),
+    );
     Get.lazyPut<MoreController>(
       () => MoreController(),
     );

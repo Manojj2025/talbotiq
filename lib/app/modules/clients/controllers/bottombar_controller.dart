@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:talbotiq/app/modules/home/views/interviews_view.dart';
-import 'package:talbotiq/app/modules/home/views/jobs_view.dart';
-import 'package:talbotiq/app/modules/home/views/more_view.dart';
 
 import '../views/home_view.dart';
+import '../views/interviews_view.dart';
+import '../views/jobs_view.dart';
+import '../views/more_view.dart';
 
 class BottombarController extends GetxController {
   //TODO: Implement BottombarController

@@ -4,10 +4,14 @@ class AppColors {
   static const bluebackground = Color(0XFFC4E1F9);
   static const primaryColor = Color(0xff3DB389);
   static const redcolor = Color(0XFFB51010);
+  static const activecolor = Color(0XFF02E140);
   static const secondarydarkColor = Color(0xffF2994A);
-  static const drawerblue = Color(0XFFCB086B);
+
+  static const orangecolor = Color(0xffF2994A);
+  static const primaryColor2 = Color(0XFF55C79E);
   static const whiteColor = Colors.white;
   static const blackColor = Colors.black;
+  static const lightblackColor = Color(0xff4F4F4F);
   static const greyprimarycolor = Colors.grey;
   static const greycolor = Color(0xff3B3434);
 }

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:talbotiq/app/modules/home/controllers/bottombar_controller.dart';
 import 'package:talbotiq/app/widgets/decoration.dart';
 
 import '../../../constants/values.dart';
+import '../controllers/bottombar_controller.dart';
 import 'bottom_nav_item.dart';
 
 class BottombarView extends GetView<BottombarController> {

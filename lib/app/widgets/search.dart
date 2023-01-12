@@ -23,10 +23,7 @@ mysearch(
       decoration: InputDecoration(
         prefixIcon: IconButton(
           padding: EdgeInsets.zero,
-          onPressed: () {
-            // controller.searchc.clear();
-            // controller.doctorlist.clear();
-          },
+          onPressed: () {},
           icon: const Icon(
             Icons.search,
             color: AppColors.greyprimarycolor,

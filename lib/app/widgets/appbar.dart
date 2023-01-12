@@ -29,3 +29,67 @@ myappbar() {
         ),
       ));
 }
+
+myappbar2({title, show}) {
+  return AppBar(
+    title: Text(
+      title ?? "",
+      style: BaseStyles.whitebold14,
+    ),
+    actions: [
+      show
+          ? Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryColor2,
+                      borderRadius: BorderRadius.circular(3),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          spreadRadius: 1.0,
+                          blurRadius: 2,
+                          offset: Offset(0, 2), // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    height: 30,
+                    width: 30,
+                    child: Icon(
+                      Icons.person_add_alt_rounded,
+                      color: AppColors.whiteColor,
+                      size: 18,
+                    ),
+                  ),
+                  widthSpace10,
+                  widthSpace5,
+                  Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryColor2,
+                      borderRadius: BorderRadius.circular(3),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          spreadRadius: 1.0,
+                          blurRadius: 2,
+                          offset: Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    height: 30,
+                    width: 30,
+                    child: Icon(
+                      Icons.more_vert_sharp,
+                      color: AppColors.whiteColor,
+                      size: 18,
+                    ),
+                  )
+                ],
+              ),
+            )
+          : Container()
+    ],
+  );
+}
