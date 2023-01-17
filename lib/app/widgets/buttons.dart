@@ -1,0 +1,54 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../constants/values.dart';
+
+mybuttons(
+    {required name,
+    action,
+    color,
+    gradient,
+    namecolor,
+    height,
+    width,
+    fontSize,
+    radius}) {
+  return GestureDetector(
+    onTap: action,
+    child: Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      height: height ?? 45,
+      width: width ?? Get.width * 0.90,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        gradient: gradient ?? null,
+        color: color ?? AppColors.primaryColor,
+        borderRadius: BorderRadius.circular(radius ?? 4.0),
+      ),
+      child: Text(
+        name,
+        style: BaseStyles.whitelarge16,
+        textAlign: TextAlign.center,
+      ),
+    ),
+  );
+}
+
+mybutton2({title, radius, color}) {
+  return Container(
+    alignment: Alignment.center,
+    height: 45,
+    width: Get.width,
+    decoration: BoxDecoration(
+      color: color,
+      borderRadius: BorderRadius.circular(
+        radius ?? 4,
+      ),
+    ),
+    child: Text(
+      title,
+      style: BaseStyles.whitelarge16,
+      textAlign: TextAlign.center,
+    ),
+  );
+}

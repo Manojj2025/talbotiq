@@ -1,9 +1,9 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
-class MoreController extends GetxController {
-  //TODO: Implement MoreController
+class EnterjobController extends GetxController {
+  //TODO: Implement EnterjobController
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -19,5 +19,5 @@ class MoreController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  // void increment() => count.value++;
 }

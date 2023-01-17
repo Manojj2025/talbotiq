@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class InterviewsController extends GetxController {
-  //TODO: Implement InterviewsController
+class InterController extends GetxController {
+  //TODO: Implement InterController
 
   final count = 0.obs;
   @override

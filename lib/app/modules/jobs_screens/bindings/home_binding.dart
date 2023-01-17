@@ -2,10 +2,10 @@ import 'package:get/get.dart';
 
 import '../controllers/bottombar_controller.dart';
 import '../controllers/home_controller.dart';
-import '../controllers/interviews_controller.dart';
+import '../../interview_screens/controllers/interviews_controller.dart';
 import '../controllers/jobdetail_controller.dart';
 import '../controllers/jobs_controller.dart';
-import '../controllers/more_controller.dart';
+import '../../profile_screens/controllers/more_controller.dart';
 
 class HomeBinding extends Bindings {
   @override

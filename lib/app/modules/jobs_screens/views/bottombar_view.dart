@@ -7,6 +7,7 @@ import 'package:talbotiq/app/widgets/decoration.dart';
 import '../../../constants/values.dart';
 import '../controllers/bottombar_controller.dart';
 import 'bottom_nav_item.dart';
+import 'createnewjob_view.dart';
 
 class BottombarView extends GetView<BottombarController> {
   const BottombarView({Key? key}) : super(key: key);
@@ -57,20 +58,26 @@ class BottombarView extends GetView<BottombarController> {
                                   HomeName.create,
                                   style: BaseStyles.blackMedium16,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15.0),
-                                  child: Row(
-                                    children: [
-                                      Image.asset(MyImages.jobs,
-                                          height: 25,
-                                          width: 25,
-                                          color: AppColors.blackColor),
-                                      widthSpace8,
-                                      Text(
-                                        HomeName.createjob,
-                                        style: BaseStyles.blacNormal16,
-                                      ),
-                                    ],
+                                GestureDetector(
+                                  onTap: () {
+                                    Get.back();
+                                    Get.to(CreatenewjobView());
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 15.0),
+                                    child: Row(
+                                      children: [
+                                        Image.asset(MyImages.jobs,
+                                            height: 20,
+                                            width: 20,
+                                            color: AppColors.greycolor2),
+                                        widthSpace8,
+                                        Text(
+                                          HomeName.createjob,
+                                          style: BaseStyles.blacNormal14,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 heightSpace20,
@@ -79,13 +86,13 @@ class BottombarView extends GetView<BottombarController> {
                                   child: Row(
                                     children: [
                                       Image.asset(MyImages.interviews,
-                                          height: 25,
-                                          width: 25,
-                                          color: AppColors.blackColor),
+                                          height: 20,
+                                          width: 20,
+                                          color: AppColors.greycolor2),
                                       widthSpace8,
                                       Text(
                                         HomeName.createinterview,
-                                        style: BaseStyles.blacNormal16,
+                                        style: BaseStyles.blacNormal14,
                                       ),
                                     ],
                                   ),
@@ -96,13 +103,13 @@ class BottombarView extends GetView<BottombarController> {
                                   child: Row(
                                     children: [
                                       Image.asset(MyImages.createcandidate,
-                                          height: 25,
-                                          width: 25,
-                                          color: AppColors.blackColor),
+                                          height: 20,
+                                          width: 20,
+                                          color: AppColors.greycolor2),
                                       widthSpace8,
                                       Text(
                                         HomeName.createcandidate,
-                                        style: BaseStyles.blacNormal16,
+                                        style: BaseStyles.blacNormal14,
                                       ),
                                     ],
                                   ),
@@ -113,13 +120,13 @@ class BottombarView extends GetView<BottombarController> {
                                   child: Row(
                                     children: [
                                       Image.asset(MyImages.createclient,
-                                          height: 25,
-                                          width: 25,
-                                          color: AppColors.blackColor),
+                                          height: 20,
+                                          width: 20,
+                                          color: AppColors.greycolor2),
                                       widthSpace8,
                                       Text(
                                         HomeName.createclient,
-                                        style: BaseStyles.blacNormal16,
+                                        style: BaseStyles.blacNormal14,
                                       ),
                                     ],
                                   ),

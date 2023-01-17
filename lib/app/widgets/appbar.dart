@@ -30,13 +30,15 @@ myappbar() {
       ));
 }
 
-myappbar2({title, show}) {
+myappbar2({title, show, widget}) {
   return AppBar(
+    leadingWidth: 30,
     title: Text(
       title ?? "",
-      style: BaseStyles.whitebold14,
+      style: BaseStyles.whiteMedium16,
     ),
     actions: [
+      widget ?? Container(),
       show
           ? Padding(
               padding: const EdgeInsets.only(right: 15.0),

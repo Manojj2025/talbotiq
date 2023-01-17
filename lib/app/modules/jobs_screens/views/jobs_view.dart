@@ -5,6 +5,7 @@ import 'package:talbotiq/app/widgets/decoration.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
+import '../../../widgets/filters.dart';
 import '../controllers/jobs_controller.dart';
 import 'jobdetail_view.dart';
 
@@ -28,47 +29,57 @@ class JobsView extends GetView<JobsController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            MyImages.filter,
-                            height: 25,
-                            width: 25,
-                          ),
-                          widthSpace10,
-                          Text(
-                            JobsName.filters,
-                            style: BaseStyles.lightblackMedium16,
-                          ),
-                          widthSpace5,
-                          CircleAvatar(
-                            radius: 10,
-                            backgroundColor: AppColors.primaryColor,
-                            child: Text(
-                              '2',
-                              style: BaseStyles.whitesmall10,
+                      GestureDetector(
+                        onTap: () {
+                          filter(context, controller);
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              MyImages.filter,
+                              height: 20,
+                              width: 20,
                             ),
-                          )
-                        ],
+                            widthSpace10,
+                            Text(
+                              JobsName.filters,
+                              style: BaseStyles.lightblackMedium14,
+                            ),
+                            widthSpace5,
+                            CircleAvatar(
+                              radius: 10,
+                              backgroundColor: AppColors.primaryColor,
+                              child: Text(
+                                '2',
+                                style: BaseStyles.whitesmall10,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                       Container(
                         height: 40,
                         width: 1,
                         color: AppColors.greyprimarycolor,
                       ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            MyImages.sort,
-                            height: 25,
-                            width: 25,
-                          ),
-                          widthSpace10,
-                          Text(
-                            JobsName.sortby,
-                            style: BaseStyles.lightblackMedium16,
-                          ),
-                        ],
+                      GestureDetector(
+                        onTap: () {
+                          sortby(context, controller);
+                        },
+                        child: Row(
+                          children: [
+                            Image.asset(
+                              MyImages.sort,
+                              height: 20,
+                              width: 20,
+                            ),
+                            widthSpace10,
+                            Text(
+                              JobsName.sortby,
+                              style: BaseStyles.lightblackMedium14,
+                            ),
+                          ],
+                        ),
                       )
                     ],
                   ),
@@ -164,8 +175,9 @@ class JobsView extends GetView<JobsController> {
                               // crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 CircleAvatar(
-                                  backgroundColor: AppColors.primaryColor,
-                                  radius: 25,
+                                  // backgroundColor: AppColors.primaryColor,
+                                  radius: 20,
+                                  child: Image.asset('assets/image/bajaj.png'),
                                 ),
                                 widthSpace10,
                                 Column(
@@ -175,7 +187,7 @@ class JobsView extends GetView<JobsController> {
                                       children: [
                                         Text(
                                           'UI/UX Designer',
-                                          style: BaseStyles.blackBoldMedium18,
+                                          style: BaseStyles.blackMedium16,
                                         ),
                                         widthSpace5,
                                         Container(
@@ -195,7 +207,7 @@ class JobsView extends GetView<JobsController> {
                                     heightSpace5,
                                     Text(
                                       'Tech Mahindra',
-                                      style: BaseStyles.blackMedium13,
+                                      style: BaseStyles.blackMedium12,
                                     )
                                   ],
                                 ),
@@ -205,7 +217,8 @@ class JobsView extends GetView<JobsController> {
                               padding: const EdgeInsets.all(8.0),
                               child: Icon(
                                 Icons.more_vert_outlined,
-                                color: AppColors.greycolor,
+                                size: 18,
+                                color: AppColors.greyprimarycolor,
                               ),
                             )
                           ],
@@ -264,7 +277,9 @@ class JobsView extends GetView<JobsController> {
                           ],
                         ),
                         heightSpace5,
-                        Divider(),
+                        Divider(
+                          thickness: 0.5,
+                        ),
                         // heightSpace10,
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -273,7 +288,7 @@ class JobsView extends GetView<JobsController> {
                             children: [
                               Text(
                                 'MS Office,MIS,Tally,Exce...',
-                                style: BaseStyles.greyMedium13,
+                                style: BaseStyles.lightblackMedium12,
                               ),
                               Row(
                                 children: [
@@ -284,7 +299,7 @@ class JobsView extends GetView<JobsController> {
                                   widthSpace5,
                                   Text(
                                     'Active',
-                                    style: BaseStyles.greyMedium13,
+                                    style: BaseStyles.greyNormal12,
                                   ),
                                   widthSpace5,
                                   Icon(

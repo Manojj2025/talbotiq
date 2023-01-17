@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../views/home_view.dart';
-import '../views/interviews_view.dart';
+import '../../interview_screens/views/interviews_view.dart';
 import '../views/jobs_view.dart';
-import '../views/more_view.dart';
+import '../../profile_screens/views/more_view.dart';
 
 class BottombarController extends GetxController {
   //TODO: Implement BottombarController

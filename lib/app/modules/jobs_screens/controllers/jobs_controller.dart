@@ -9,6 +9,20 @@ class JobsController extends GetxController {
     {"name": "In Review", "value": "22"},
   ].obs;
   final jobselectname = 'All Jobs'.obs;
+  final filterlist = [
+    "Select Organization",
+    "Select Job Type",
+    "Skills",
+    "Department",
+    "CTC",
+    "Experience"
+  ].obs;
+  final sortlist = [
+    "Job",
+    "Created Date",
+    "Location",
+    "Company",
+  ].obs;
   @override
   void onInit() {
     super.onInit();

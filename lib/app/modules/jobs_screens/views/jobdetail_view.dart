@@ -32,8 +32,9 @@ class JobdetailView extends GetView<JobdetailController> {
                           // crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CircleAvatar(
-                              backgroundColor: AppColors.primaryColor,
-                              radius: 25,
+                              // backgroundColor: AppColors.primaryColor,
+                              radius: 20,
+                              child: Image.asset('assets/image/bajaj.png'),
                             ),
                             widthSpace10,
                             Column(
@@ -43,11 +44,11 @@ class JobdetailView extends GetView<JobdetailController> {
                                   children: [
                                     Text(
                                       'UI/UX Designer',
-                                      style: BaseStyles.blackBoldMedium18,
+                                      style: BaseStyles.blackMedium16,
                                     ),
                                     widthSpace5,
                                     Container(
-                                      padding: EdgeInsets.symmetric(
+                                      padding: const EdgeInsets.symmetric(
                                           horizontal: 8, vertical: 3),
                                       decoration: decorationbox2(
                                           color: AppColors.primaryColor2
@@ -63,7 +64,7 @@ class JobdetailView extends GetView<JobdetailController> {
                                 heightSpace5,
                                 Text(
                                   'Tech Mahindra',
-                                  style: BaseStyles.blackMedium13,
+                                  style: BaseStyles.blackMedium12,
                                 )
                               ],
                             ),
@@ -90,7 +91,7 @@ class JobdetailView extends GetView<JobdetailController> {
                               widthSpace3,
                               Text(
                                 'New Delhi',
-                                style: BaseStyles.lightblacknormal16,
+                                style: BaseStyles.lightblackMedium14,
                               )
                             ],
                           ),
@@ -141,13 +142,95 @@ class JobdetailView extends GetView<JobdetailController> {
                                 _summary()
                               ],
                             )
-                          : Container(),
+                          : controller.jobselectname.value == "Job Boards"
+                              ? _JobBoards()
+                              : _Jobanalytics(),
             ],
           ),
         ));
   }
 
-  Widget _jobrecommaneded() {
+/////////////jobboards////////////////////////////////////////////////
+  Widget _Jobanalytics() {
+    return Column(
+      children: [
+        Container(
+          margin: const EdgeInsets.only(top: 10),
+          width: Get.width,
+          color: AppColors.whiteColor,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          'Job Analytics',
+                          style: BaseStyles.blackMedium14,
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.calendar_today_outlined,
+                          color: AppColors.greyprimarycolor,
+                          size: 13,
+                        ),
+                        widthSpace5,
+                        Text(
+                          'Today',
+                          style: BaseStyles.grey2Medium12,
+                        ),
+                        widthSpace3,
+                        Icon(
+                          Icons.arrow_drop_down,
+                          size: 13,
+                          color: AppColors.greyprimarycolor,
+                        )
+                      ],
+                    )
+                    // widthSpace10
+                  ],
+                ),
+                // heightSpace5,
+                // Divider(
+                //   thickness: 0.5,
+                // ),
+                // _boardlistWidget()
+              ],
+            ),
+          ),
+        ),
+        heightSpace10,
+        Container(
+          width: Get.width,
+          color: AppColors.whiteColor,
+          child: Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Total Applications',
+                      style: BaseStyles.blackMedium14,
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+/////////////jobboards////////////////////////////////////////////////
+  Widget _JobBoards() {
     return Container(
       margin: const EdgeInsets.only(top: 10),
       width: Get.width,
@@ -162,14 +245,292 @@ class JobdetailView extends GetView<JobdetailController> {
                 Row(
                   children: [
                     Text(
+                      'Job Boards',
+                      style: BaseStyles.blackMedium14,
+                    )
+                  ],
+                ),
+                Obx(
+                  () => Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          controller.selected.value = 0;
+                        },
+                        child: Image.asset(
+                          controller.selected.value == 0
+                              ? MyImages.hc1
+                              : MyImages.h1,
+                          height: 25,
+                          width: 25,
+                          // color: AppColors.greyprimarycolor,
+                        ),
+                      ),
+                      widthSpace10,
+                      GestureDetector(
+                        onTap: () {
+                          controller.selected.value = 1;
+                        },
+                        child: Image.asset(
+                          controller.selected.value == 1
+                              ? MyImages.vc1
+                              : MyImages.v1,
+                          height: 25,
+                          width: 25,
+                          // color: AppColors.greyprimarycolor,
+                        ),
+                      ),
+                      widthSpace10
+                    ],
+                  ),
+                ),
+                // widthSpace10
+              ],
+            ),
+            heightSpace5,
+            Divider(
+              thickness: 0.5,
+            ),
+            _boardlistWidget()
+          ],
+        ),
+      ),
+    );
+  }
+
+  //////////////////// job application list widget ui////////////////////////////////
+  _boardlistWidget() {
+    return SizedBox(
+      height: Get.height,
+      child: ListView.builder(
+          scrollDirection:
+              controller.selected.value == 1 ? Axis.horizontal : Axis.vertical,
+          shrinkWrap: true,
+          physics: ScrollPhysics(),
+          itemCount: controller.joboardlist.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Get.to(const JobdetailView());
+                  },
+                  child: Container(
+                    width: Get.width,
+                    padding: EdgeInsets.all(8.0),
+                    color: AppColors.whiteColor,
+                    child: Column(
+                      children: [
+                        // Divider(
+                        //   thickness: 0.5,
+                        // ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Image.asset(
+                                  controller.joboardlist[index]['img']
+                                      .toString(),
+                                  height: 20,
+                                  width: 20,
+                                ),
+                                widthSpace5,
+                                Text(
+                                  controller.joboardlist[index]['title']
+                                      .toString(),
+                                  style: BaseStyles.blacNormal14,
+                                )
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor:
+                                      AppColors.greyprimarycolor.shade200,
+                                  radius: 10,
+                                  child: Text(
+                                    '2',
+                                    style: BaseStyles.greyNormal12,
+                                  ),
+                                ),
+                                widthSpace5,
+                                Icon(
+                                  Icons.more_vert_outlined,
+                                  color: AppColors.greyprimarycolor,
+                                  size: 18,
+                                )
+                              ],
+                            )
+                          ],
+                        ),
+                        heightSpace10,
+                        Container(
+                          decoration: decorationbox(
+                              color: AppColors.greyprimarycolor.shade100),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Container(
+                                  color: AppColors.whiteColor,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: Row(
+                                      // crossAxisAlignment:
+                                      //     CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          // crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Image.asset(
+                                              'assets/image/category.png',
+                                              height: 20,
+                                              width: 20,
+                                            ),
+                                            widthSpace10,
+                                            CircleAvatar(
+                                              // backgroundColor: AppColors.primaryColor,
+                                              radius: 15,
+                                              child: Image.asset(
+                                                  'assets/image/bajaj.png'),
+                                            ),
+                                            widthSpace10,
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      'Nikita Sharma',
+                                                      style: BaseStyles
+                                                          .blackMedium14,
+                                                    ),
+                                                  ],
+                                                ),
+                                                heightSpace3,
+                                                Text(
+                                                  '2 days ago',
+                                                  style:
+                                                      BaseStyles.grey2Medium12,
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        Icon(
+                                          Icons.more_vert_outlined,
+                                          size: 18,
+                                          color: AppColors.greyprimarycolor,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                heightSpace5,
+                                heightSpace3,
+                                Container(
+                                  color: AppColors.whiteColor,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: Row(
+                                      // crossAxisAlignment:
+                                      //     CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          // crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Image.asset(
+                                              'assets/image/category.png',
+                                              height: 20,
+                                              width: 20,
+                                            ),
+                                            widthSpace10,
+                                            CircleAvatar(
+                                              // backgroundColor: AppColors.primaryColor,
+                                              radius: 15,
+                                              child: Image.asset(
+                                                  'assets/image/bajaj.png'),
+                                            ),
+                                            widthSpace10,
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      'Nikita Sharma',
+                                                      style: BaseStyles
+                                                          .blackMedium14,
+                                                    ),
+                                                  ],
+                                                ),
+                                                heightSpace3,
+                                                Text(
+                                                  '2 days ago',
+                                                  style:
+                                                      BaseStyles.grey2Medium12,
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        Icon(
+                                          Icons.more_vert_outlined,
+                                          size: 18,
+                                          color: AppColors.greyprimarycolor,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                // heightSpace10
+              ],
+            );
+          }),
+    );
+  }
+  ////////jobrecomm////////////////////////////////
+
+  Widget _jobrecommaneded() {
+    return Container(
+      margin: const EdgeInsets.only(top: 10),
+      width: Get.width,
+      color: AppColors.whiteColor,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            heightSpace10,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Text(
                       'Recommended(4)',
-                      style: BaseStyles.blackMedium15,
+                      style: BaseStyles.blackMedium14,
                     )
                   ],
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.search,
                       color: AppColors.greyprimarycolor,
                     ),
@@ -203,16 +564,17 @@ class JobdetailView extends GetView<JobdetailController> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              heightSpace10,
               GestureDetector(
                 onTap: () {
                   Get.to(const JobdetailView());
                 },
                 child: Container(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(3.0),
                   color: AppColors.whiteColor,
                   child: Column(
                     children: [
-                      Divider(
+                      const Divider(
                         thickness: 0.5,
                       ),
                       Row(
@@ -223,8 +585,9 @@ class JobdetailView extends GetView<JobdetailController> {
                             // crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CircleAvatar(
-                                backgroundColor: AppColors.primaryColor,
-                                radius: 20,
+                                // backgroundColor: AppColors.primaryColor,
+                                radius: 18,
+                                child: Image.asset('assets/image/bajaj.png'),
                               ),
                               widthSpace10,
                               Column(
@@ -241,7 +604,7 @@ class JobdetailView extends GetView<JobdetailController> {
                                   heightSpace5,
                                   Text(
                                     'Flutter Developer',
-                                    style: BaseStyles.blackMedium13,
+                                    style: BaseStyles.grey2Medium12,
                                   )
                                 ],
                               ),
@@ -359,14 +722,15 @@ class JobdetailView extends GetView<JobdetailController> {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
+            heightSpace10,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
                     Text(
-                      'Application(4)',
-                      style: BaseStyles.blackMedium15,
+                      'Applications(4)',
+                      style: BaseStyles.blackMedium14,
                     )
                   ],
                 ),
@@ -406,12 +770,13 @@ class JobdetailView extends GetView<JobdetailController> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              heightSpace10,
               GestureDetector(
                 onTap: () {
                   Get.to(const JobdetailView());
                 },
                 child: Container(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(3.0),
                   color: AppColors.whiteColor,
                   child: Column(
                     children: [
@@ -426,8 +791,9 @@ class JobdetailView extends GetView<JobdetailController> {
                             // crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               CircleAvatar(
-                                backgroundColor: AppColors.primaryColor,
-                                radius: 20,
+                                // backgroundColor: AppColors.primaryColor,
+                                radius: 18,
+                                child: Image.asset('assets/image/bajaj.png'),
                               ),
                               widthSpace10,
                               Column(
@@ -444,7 +810,7 @@ class JobdetailView extends GetView<JobdetailController> {
                                   heightSpace5,
                                   Text(
                                     'Tech Mahindra',
-                                    style: BaseStyles.blackMedium13,
+                                    style: BaseStyles.grey2Medium12,
                                   )
                                 ],
                               ),
@@ -454,6 +820,7 @@ class JobdetailView extends GetView<JobdetailController> {
                             padding: const EdgeInsets.all(0.0),
                             child: Icon(
                               Icons.more_vert_outlined,
+                              size: 18,
                               color: AppColors.greyprimarycolor,
                             ),
                           )
@@ -468,13 +835,13 @@ class JobdetailView extends GetView<JobdetailController> {
                             children: [
                               Icon(
                                 Icons.location_on_outlined,
-                                color: AppColors.greyprimarycolor,
+                                color: AppColors.greycolor2,
                                 size: 18,
                               ),
                               widthSpace3,
                               Text(
                                 'New Delhi',
-                                style: BaseStyles.lightblackMedium12,
+                                style: BaseStyles.grey2Medium12,
                               )
                             ],
                           ),
@@ -483,14 +850,14 @@ class JobdetailView extends GetView<JobdetailController> {
                             children: [
                               Image.asset(
                                 MyImages.bag,
-                                color: AppColors.greyprimarycolor,
+                                color: AppColors.greycolor2,
                                 height: 16,
                                 width: 16,
                               ),
                               widthSpace3,
                               Text(
                                 '14 year',
-                                style: BaseStyles.lightblackMedium12,
+                                style: BaseStyles.grey2Medium12,
                               )
                             ],
                           ),
@@ -511,33 +878,33 @@ class JobdetailView extends GetView<JobdetailController> {
                           // ),
                           Text(
                             '₹ 20 LPA',
-                            style: BaseStyles.lightblackMedium12,
+                            style: BaseStyles.grey2Medium12,
                           )
                         ],
                       ),
 
                       // heightSpace10,
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0, top: 5.0),
+                        padding: const EdgeInsets.only(left: 5.0, top: 5.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: [
                                 Text(
-                                  'Skills:',
-                                  style: BaseStyles.blackMedium13,
+                                  'Skills: ',
+                                  style: BaseStyles.blackMedium12,
                                 ),
                                 Text(
                                   'MS Office,MIS,Tally,Exce...',
-                                  style: BaseStyles.greyMedium13,
+                                  style: BaseStyles.lightblackMedium12,
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ],
                             ),
                             Text(
                               'Aug 15,22',
-                              style: BaseStyles.greyMedium13,
+                              style: BaseStyles.lightblackMedium12,
                             )
                           ],
                         ),
@@ -649,7 +1016,7 @@ class JobdetailView extends GetView<JobdetailController> {
             children: [
               Text(
                 JobsName.jobdetail,
-                style: BaseStyles.blackMedium15,
+                style: BaseStyles.blackMedium14,
               ),
               heightSpace10,
               heightSpace5,
@@ -723,14 +1090,14 @@ class JobdetailView extends GetView<JobdetailController> {
             children: [
               Text(
                 JobsName.jobDescription,
-                style: BaseStyles.blackMedium15,
+                style: BaseStyles.blackMedium14,
               ),
               heightSpace10,
               heightSpace5,
               ReadMoreText(
                 "We are looking for a Java developer responsible for building Java applications with Springboot Framework. This includes anything between complex groups of back-end services and their client-end (desktop and mobile) counterparts. Your primary responsibility",
                 trimLines: 4,
-                style: BaseStyles.blacknormal13,
+                style: BaseStyles.blacNormal14,
                 colorClickableText: AppColors.primaryColor,
                 trimMode: TrimMode.Line,
                 trimCollapsedText: '...Show more',
@@ -755,7 +1122,7 @@ class JobdetailView extends GetView<JobdetailController> {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               JobsName.professionalSkills,
-              style: BaseStyles.blackMedium15,
+              style: BaseStyles.blackMedium14,
             ),
           ),
           Expanded(
@@ -793,8 +1160,8 @@ class JobdetailView extends GetView<JobdetailController> {
                                     controller.joblist2[index].toString(),
                                     style: controller.jobselectname2.value ==
                                             controller.joblist2[index]
-                                        ? BaseStyles.whitemedium14
-                                        : BaseStyles.blacNormal14,
+                                        ? BaseStyles.whitenormal12
+                                        : BaseStyles.grey2Medium12,
                                   ),
                                 ),
                               ),
@@ -825,7 +1192,7 @@ class JobdetailView extends GetView<JobdetailController> {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               JobsName.softSkills,
-              style: BaseStyles.blackMedium15,
+              style: BaseStyles.blackMedium14,
             ),
           ),
           Expanded(
@@ -863,8 +1230,8 @@ class JobdetailView extends GetView<JobdetailController> {
                                     controller.joblist2[index].toString(),
                                     style: controller.jobselectname3.value ==
                                             controller.joblist2[index]
-                                        ? BaseStyles.whitemedium14
-                                        : BaseStyles.blacNormal14,
+                                        ? BaseStyles.whitenormal12
+                                        : BaseStyles.grey2Medium12,
                                   ),
                                 ),
                               ),
@@ -903,7 +1270,7 @@ class JobdetailView extends GetView<JobdetailController> {
                       heightSpace5,
                       Text(
                         'UX Designer',
-                        style: BaseStyles.blacNormal15,
+                        style: BaseStyles.blacNormal14,
                       )
                     ],
                   ),
@@ -920,7 +1287,7 @@ class JobdetailView extends GetView<JobdetailController> {
                       heightSpace5,
                       Text(
                         'Design',
-                        style: BaseStyles.blacNormal15,
+                        style: BaseStyles.blacNormal14,
                       )
                     ],
                   ),
@@ -943,7 +1310,7 @@ class JobdetailView extends GetView<JobdetailController> {
                       heightSpace5,
                       Text(
                         'B Tech',
-                        style: BaseStyles.blacNormal15,
+                        style: BaseStyles.blacNormal14,
                       )
                     ],
                   ),
@@ -960,7 +1327,7 @@ class JobdetailView extends GetView<JobdetailController> {
                       heightSpace5,
                       Text(
                         '28th Feb 2022',
-                        style: BaseStyles.blacNormal15,
+                        style: BaseStyles.blacNormal14,
                       )
                     ],
                   ),
@@ -990,4 +1357,11 @@ class JobdetailView extends GetView<JobdetailController> {
       ),
     );
   }
+}
+
+class _ChartData {
+  _ChartData(this.x, this.y);
+
+  final String x;
+  final double y;
 }

@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
-import '../modules/clients/bindings/home_binding.dart';
-import '../modules/clients/views/bottombar_view.dart';
-import '../modules/clients/views/home_view.dart';
+import '../modules/jobs_screens/bindings/home_binding.dart';
+import '../modules/jobs_screens/views/bottombar_view.dart';
+import '../modules/jobs_screens/views/home_view.dart';
 
 part 'app_routes.dart';
 

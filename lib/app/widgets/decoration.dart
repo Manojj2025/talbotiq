@@ -73,17 +73,27 @@ BoxDecoration decorationbox2({color, radius, opacity}) {
   );
 }
 
-BoxDecoration decorationbox({color}) {
+BoxDecoration decorationbox({color, border}) {
   return BoxDecoration(
+    border: border,
     color: color == null ? Colors.white : color,
-    borderRadius: BorderRadius.circular(8),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.grey.shade300,
-        spreadRadius: 0.2,
-        blurRadius: 2,
-        offset: Offset(0, 1), // changes position of shadow
-      ),
-    ],
+    borderRadius: BorderRadius.circular(5),
+    // boxShadow: [
+    //   BoxShadow(
+    //     color: Colors.grey.shade100,
+    //     spreadRadius: 0.2,
+    //     blurRadius: 0,
+    //     offset: Offset(0, 1), // changes position of shadow
+    //   ),
+    // ],
+  );
+}
+
+BoxDecoration decorationbox3({color, radius, gradient, border}) {
+  return BoxDecoration(
+    // gradient: gradient ?? null,
+    color: color == null ? Colors.white : color,
+    border: border ?? null,
+    borderRadius: BorderRadius.circular(radius ?? 0.0),
   );
 }

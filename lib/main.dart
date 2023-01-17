@@ -28,6 +28,12 @@ Future<void> main() async {
             debugShowCheckedModeBanner: false,
             title: "Talbotiq",
             initialRoute: AppPages.INITIAL,
+            builder: (context, child) {
+              return MediaQuery(
+                data: MediaQuery.of(context).copyWith(textScaleFactor: 0.85),
+                child: child!,
+              );
+            },
             getPages: AppPages.routes,
             theme: ThemeData(
               appBarTheme: const AppBarTheme(
