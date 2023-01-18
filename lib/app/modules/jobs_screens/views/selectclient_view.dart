@@ -43,8 +43,10 @@ class SelectclientView extends GetView<SelectclientController> {
                         // contentPadding: const EdgeInsets.only(left: 5),
                         leading: CircleAvatar(
                           // backgroundColor: AppColors.primaryColor,
-                          radius: 12,
-                          child: Image.asset('assets/image/bajaj.png'),
+                          radius: 16,
+                          child: Image.asset(
+                            'assets/image/bajaj.png',
+                          ),
                         ),
                         trailing: Obx(
                           () => Radio(

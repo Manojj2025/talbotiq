@@ -43,7 +43,7 @@ class CreatenewjobView extends GetView<CreatenewjobController> {
                             children: [
                               CircleAvatar(
                                 // backgroundColor: AppColors.primaryColor,
-                                radius: 12,
+                                radius: 16,
                                 child: Image.asset('assets/image/bajaj.png'),
                               ),
                               widthSpace5,
@@ -73,8 +73,8 @@ class CreatenewjobView extends GetView<CreatenewjobController> {
                             },
                             child: Image.asset(
                               MyImages.edit,
-                              height: 17,
-                              width: 17,
+                              height: 20,
+                              width: 20,
                             ),
                           )
                         ],
@@ -213,6 +213,7 @@ class CreatenewjobView extends GetView<CreatenewjobController> {
                       heightSpace10,
                       heightSpace5,
                       Container(
+                        padding: EdgeInsets.symmetric(horizontal: 5),
                         // height: 20,
                         decoration: decorationbox2(
                           radius: 20.0,

@@ -57,6 +57,7 @@ class JobformView extends GetView<CreatenewjobController> {
                         children: [
                           Icon(
                             Icons.keyboard_arrow_left_sharp,
+                            size: 25,
                             color: controller.index.value < 3
                                 ? AppColors.greyprimarycolor.withOpacity(0.6)
                                 : AppColors.whiteColor,
@@ -190,6 +191,7 @@ class JobformView extends GetView<CreatenewjobController> {
                           Icon(
                             Icons.keyboard_arrow_right_sharp,
                             color: AppColors.whiteColor,
+                            size: 25,
                           ),
                         ],
                       ),
@@ -238,7 +240,7 @@ class JobformView extends GetView<CreatenewjobController> {
                                               children: [
                                                 CircleAvatar(
                                                   // backgroundColor: AppColors.primaryColor,
-                                                  radius: 15,
+                                                  radius: 16,
                                                   child: Image.asset(
                                                       'assets/image/bajaj.png'),
                                                 ),
@@ -272,8 +274,8 @@ class JobformView extends GetView<CreatenewjobController> {
                                               },
                                               child: Image.asset(
                                                 MyImages.edit,
-                                                height: 17,
-                                                width: 17,
+                                                height: 20,
+                                                width: 20,
                                               ),
                                             )
                                           ],

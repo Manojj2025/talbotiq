@@ -7,7 +7,9 @@ class BottombarName {
 
 class MyImages {
   static const home = 'assets/image/home.png';
-
+  static const logo = 'assets/image/logo.png';
+  static const intro = 'assets/image/intro.png';
+  static const check = 'assets/image/check.png';
   static const edit = 'assets/image/edit.png';
   static const jobs = 'assets/image/jobs.png';
   static const interviews = 'assets/image/interviews.png';
@@ -23,7 +25,8 @@ class MyImages {
   static const v1 = 'assets/image/v1.png';
   static const hc1 = 'assets/image/hc1.png';
   static const vc1 = 'assets/image/vc1.png';
-
+  static const linkdin = 'assets/image/linkdin.png';
+  static const google = 'assets/image/google.png';
   static const eye = 'assets/image/eye.png';
 
   static const file = 'assets/image/searchfile.png';
@@ -34,7 +37,21 @@ class MyImages {
 }
 
 class HomeName {
+  static const resetpass = 'Reset Password';
+
+  static const enterdigit = 'Enter 4 Digit OTP';
+  static const verify = 'Verify';
+  static const gotoHome = 'Go to Home';
+  static const loginwith = 'or login with';
+  static const linkedIn = 'LinkedIn';
+  static const google = 'Google';
   static const reset = 'Reset';
+  static const backtoLogin = 'Back to Login';
+  static const otp = 'Get OTP';
+  static const login = 'Login';
+  static const email = 'Email';
+  static const password = 'Password';
+  static const emailstart = 'Enter your email to get started';
   static const apply = 'Apply';
   static const create = 'Create';
   static const createjob = 'Create Job';

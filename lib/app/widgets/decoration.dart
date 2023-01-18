@@ -51,15 +51,15 @@ class MyDecoration {
     );
   }
 
-  static simple2decoration({color}) {
+  static simple2decoration({color, radius}) {
     return BoxDecoration(
         color: color == null ? AppColors.whiteColor : AppColors.whiteColor,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(radius ?? 10),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 0.0,
-            blurRadius: 1,
+            color: AppColors.greyprimarycolor.withOpacity(0.2),
+            spreadRadius: 1.0,
+            blurRadius: 10,
             offset: const Offset(0, 1), // changes position of shadow
           )
         ]);
@@ -92,8 +92,8 @@ BoxDecoration decorationbox({color, border}) {
 BoxDecoration decorationbox3({color, radius, gradient, border}) {
   return BoxDecoration(
     // gradient: gradient ?? null,
-    color: color == null ? Colors.white : color,
-    border: border ?? null,
+    color: color ?? Colors.white,
+    border: border,
     borderRadius: BorderRadius.circular(radius ?? 0.0),
   );
 }

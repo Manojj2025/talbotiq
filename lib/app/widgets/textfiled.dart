@@ -10,6 +10,7 @@ textfiled(
     width,
     controller,
     ontap,
+    eyeshow,
     readonly,
     minline,
     maxline,
@@ -22,7 +23,7 @@ textfiled(
     ),
     width: width,
     // margin: const EdgeInsets.only(left: 5, right: 5),
-    // height: height ?? 45,
+
     child: TextField(
       onTap: ontap,
       readOnly: readonly,
@@ -31,13 +32,18 @@ textfiled(
       controller: controller,
       // inputFormatters: [LengthLimitingTextInputFormatter(10)],
       keyboardType: TextInputType.text,
-      // cursorColor: Theme.of(context).primaryColor,
       style: style ?? BaseStyles.blacNormal14,
 
       decoration: InputDecoration(
+        suffixIcon: eyeshow == true
+            ? const Icon(
+                Icons.remove_red_eye_outlined,
+                color: AppColors.greyprimarycolor,
+              )
+            : const SizedBox(),
         hintStyle: BaseStyles.grey3Normal14,
         isDense: true,
-        contentPadding: EdgeInsets.all(15.0),
+        contentPadding: const EdgeInsets.all(15.0),
         hintText: text,
         border: InputBorder.none,
       ),
