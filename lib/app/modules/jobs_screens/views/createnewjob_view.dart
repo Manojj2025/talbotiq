@@ -152,6 +152,7 @@ class CreatenewjobView extends GetView<CreatenewjobController> {
   _listWidget() {
     return ListView.builder(
         shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
         itemCount: 5,
         itemBuilder: (BuildContext context, int index) {
           return Column(

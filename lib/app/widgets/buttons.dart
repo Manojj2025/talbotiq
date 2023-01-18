@@ -18,7 +18,7 @@ mybuttons(
     child: Container(
       margin: const EdgeInsets.only(bottom: 10),
       height: height ?? 45,
-      width: width ?? Get.width * 0.90,
+      width: width ?? Get.width,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         gradient: gradient ?? null,

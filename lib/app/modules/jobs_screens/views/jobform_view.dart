@@ -17,636 +17,648 @@ class JobformView extends GetView<CreatenewjobController> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => CreatenewjobController());
-    return Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(100),
-          child: Column(children: [
-            Container(
-              height: 55,
-              color: AppColors.primaryColor,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () => Get.back(),
-                      child: Icon(
-                        Icons.arrow_back,
-                        color: AppColors.whiteColor,
-                      ),
-                    ),
-                    widthSpace10,
-                    Text(
-                      JobsName.jobdetail,
-                      style: BaseStyles.whiteMedium16,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Container(
-              color: AppColors.primaryColor3,
-              height: 45,
-              child: Obx(
-                () => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(
-                          Icons.keyboard_arrow_left_sharp,
-                          color: controller.index.value < 3
-                              ? AppColors.greyprimarycolor.withOpacity(0.6)
-                              : AppColors.whiteColor,
-                        ),
-                        Expanded(
-                          child: TimelineNode(
-                            direction: Axis.horizontal,
-                            indicator: GestureDetector(
-                              onTap: () {
-                                controller.pageController.animateToPage(0,
-                                    duration: const Duration(milliseconds: 500),
-                                    curve: Curves.ease);
-                              },
-                              child: Container(
-                                padding: const EdgeInsets.all(7),
-                                decoration: BoxDecoration(
-                                  color: controller.index.value >= 0
-                                      ? AppColors.primaryColor
-                                      : AppColors.greyprimarycolor.shade300,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
-                                  MyImages.form,
-                                  height: 20,
-                                  width: 20,
-                                ),
-                              ),
-                            ),
-                            endConnector: SolidLineConnector(
-                                // thickness: 3,
-                                color: AppColors.greyprimarycolor.shade300),
-                          ),
-                        ),
-                        Expanded(
-                          child: TimelineNode(
-                            direction: Axis.horizontal,
-                            indicator: GestureDetector(
-                              onTap: () {
-                                controller.pageController.animateToPage(0,
-                                    duration: const Duration(milliseconds: 500),
-                                    curve: Curves.ease);
-                              },
-                              child: Container(
-                                padding: const EdgeInsets.all(7),
-                                decoration: BoxDecoration(
-                                  color: controller.index.value >= 1
-                                      ? AppColors.primaryColor
-                                      : AppColors.greyprimarycolor.shade300,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
-                                  MyImages.file,
-                                  height: 20,
-                                  width: 20,
-                                ),
-                              ),
-                            ),
-                            startConnector: SolidLineConnector(
-                                // thickness: 3,
-                                color: AppColors.greyprimarycolor.shade300),
-                            endConnector: SolidLineConnector(
-                                // thickness: 3,
-                                color: AppColors.greyprimarycolor.shade300),
-                          ),
-                        ),
-                        Expanded(
-                          child: TimelineNode(
-                            direction: Axis.horizontal,
-                            indicator: GestureDetector(
-                              onTap: () {
-                                controller.pageController.animateToPage(1,
-                                    duration: const Duration(milliseconds: 500),
-                                    curve: Curves.ease);
-                              },
-                              child: Container(
-                                padding: const EdgeInsets.all(7),
-                                decoration: BoxDecoration(
-                                  color: controller.index.value >= 2
-                                      ? AppColors.primaryColor
-                                      : AppColors.greyprimarycolor.shade300,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
-                                  MyImages.on,
-                                  height: 20,
-                                  width: 20,
-                                ),
-                              ),
-                            ),
-                            startConnector: SolidLineConnector(
-                                // thickness: 3,
-                                color: AppColors.greyprimarycolor.shade300),
-                            endConnector: SolidLineConnector(
-                                // thickness: 3,
-                                color: AppColors.greyprimarycolor.shade300),
-                          ),
-                        ),
-                        Expanded(
-                          child: TimelineNode(
-                            direction: Axis.horizontal,
-                            indicator: GestureDetector(
-                              onTap: () {
-                                controller.pageController.animateToPage(2,
-                                    duration: const Duration(milliseconds: 500),
-                                    curve: Curves.ease);
-                              },
-                              child: Container(
-                                padding: const EdgeInsets.all(7),
-                                decoration: BoxDecoration(
-                                  color: controller.index.value >= 3
-                                      ? AppColors.primaryColor
-                                      : AppColors.greyprimarycolor.shade300,
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Image.asset(
-                                  MyImages.eye,
-                                  height: 20,
-                                  width: 20,
-                                ),
-                              ),
-                            ),
-                            startConnector: SolidLineConnector(
-                                // thickness: 3,
-                                color: AppColors.greyprimarycolor.shade300),
-                          ),
-                        ),
-                        Icon(
-                          Icons.keyboard_arrow_right_sharp,
+    return SafeArea(
+      child: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(100),
+            child: Column(children: [
+              Container(
+                height: 55,
+                color: AppColors.primaryColor,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () => Get.back(),
+                        child: Icon(
+                          Icons.arrow_back,
                           color: AppColors.whiteColor,
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      widthSpace10,
+                      Text(
+                        JobsName.jobdetail,
+                        style: BaseStyles.whiteMedium16,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ]),
-        ),
-        body: PageView(
-          controller: controller.pageController,
-          physics: const NeverScrollableScrollPhysics(),
-          onPageChanged: (int index) {
-            controller.index.value = index;
-          },
-          children: [
-            Obx(() => controller.index.value == 0
-                ? Column(
+              Container(
+                color: AppColors.primaryColor3,
+                height: 45,
+                child: Obx(
+                  () => Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Container(
-                                color: AppColors.whiteColor,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Job Role',
-                                        style: BaseStyles.grey2Medium12,
-                                      ),
-                                      heightSpace5,
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              CircleAvatar(
-                                                // backgroundColor: AppColors.primaryColor,
-                                                radius: 15,
-                                                child: Image.asset(
-                                                    'assets/image/bajaj.png'),
-                                              ),
-                                              widthSpace5,
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Row(
-                                                    children: [
-                                                      Text(
-                                                        'Php Developer',
-                                                        style: BaseStyles
-                                                            .blackMedium14,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  heightSpace3,
-                                                  Text(
-                                                    'Bajaj Ltd.Noida',
-                                                    style: BaseStyles
-                                                        .grey2normal14,
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          GestureDetector(
-                                            onTap: () {
-                                              Get.to(SelectclientView());
-                                            },
-                                            child: Image.asset(
-                                              MyImages.edit,
-                                              height: 17,
-                                              width: 17,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ],
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(
+                            Icons.keyboard_arrow_left_sharp,
+                            color: controller.index.value < 3
+                                ? AppColors.greyprimarycolor.withOpacity(0.6)
+                                : AppColors.whiteColor,
+                          ),
+                          Expanded(
+                            child: TimelineNode(
+                              direction: Axis.horizontal,
+                              indicator: GestureDetector(
+                                onTap: () {
+                                  controller.pageController.animateToPage(0,
+                                      duration:
+                                          const Duration(milliseconds: 500),
+                                      curve: Curves.ease);
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(7),
+                                  decoration: BoxDecoration(
+                                    color: controller.index.value >= 0
+                                        ? AppColors.primaryColor
+                                        : AppColors.greyprimarycolor.shade300,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    MyImages.form,
+                                    height: 20,
+                                    width: 20,
                                   ),
                                 ),
                               ),
-                              heightSpace10,
-                              Container(
-                                width: Get.width,
-                                color: AppColors.whiteColor,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      textwidget(
-                                          name: 'Job ID',
-                                          text: '0984923842347398734'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget(
-                                          name: 'Opportunity Name',
-                                          text: 'Enter'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget2(
-                                          name: 'Department *',
-                                          text: 'Select',
-                                          onTap: () {
-                                            select(context);
-                                          }),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget2(
-                                          name: 'Country *', text: 'Select'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget2(
-                                          name: 'State *', text: 'Select'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Location *",
-                                            style: BaseStyles.grey1Medium14,
-                                          ),
-                                          heightSpace5,
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              singlefiled(
-                                                  style:
-                                                      BaseStyles.blacNormal14,
-                                                  name: 'Off Site',
-                                                  color: AppColors
-                                                      .greyprimarycolor
-                                                      .shade300),
-                                              Expanded(
-                                                child:
-                                                    singlefiled(name: 'Select'),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Experience (In Years) *",
-                                            style: BaseStyles.grey1Medium14,
-                                          ),
-                                          heightSpace5,
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Expanded(
-                                                child: singlefiled(
-                                                  name: 'From',
-                                                ),
-                                              ),
-                                              widthSpace10,
-                                              Expanded(
-                                                child: singlefiled(name: 'To'),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget2(
-                                          name: 'Job Type *', text: 'Select'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget2(
-                                          name: 'No. of Openings *',
-                                          text: 'Select'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget2(
-                                          name: 'Placement Currency*',
-                                          text: 'Select'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget2(
-                                          name: 'Placement Type*',
-                                          text: 'Select'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget2(
-                                          name: 'Placement Value*',
-                                          text: 'Select'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget2(
-                                          name: 'Division', text: 'Select'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Text(
-                                                "CTC per Annum *",
-                                                style: BaseStyles.grey1Medium14,
-                                              ),
-                                              singlefiled(
-                                                  height: 25.0,
-                                                  name: 'Currency',
-                                                  color: AppColors
-                                                      .greyprimarycolor
-                                                      .shade300,
-                                                  style:
-                                                      BaseStyles.blacNormal14),
-                                            ],
-                                          ),
-                                          heightSpace5,
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Expanded(
-                                                child: singlefiled(
-                                                  name: 'From',
-                                                ),
-                                              ),
-                                              widthSpace10,
-                                              Expanded(
-                                                child: singlefiled(name: 'To'),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      Row(
-                                        children: [
-                                          CircleAvatar(
-                                            radius: 8,
-                                            backgroundColor: Colors.blueAccent,
-                                            child: Icon(
-                                              Icons.check,
-                                              color: AppColors.whiteColor,
-                                              size: 12,
-                                            ),
-                                          ),
-                                          widthSpace5,
-                                          Text(
-                                            'Add due date',
-                                            style: BaseStyles.blacNormal14,
-                                          )
-                                        ],
-                                      ),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget2(
-                                          icon: Icons.calendar_today_outlined,
-                                          name: 'Select due date & time*',
-                                          text: 'Select'),
-                                      heightSpace50,
-                                      heightSpace30,
-                                      mybuttons(
-                                          action: () {
-                                            controller.index.value = 1;
-                                            print('object');
-                                          },
-                                          name: 'Next',
-                                          color: AppColors.orangecolor,
-                                          height: 40.0)
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
+                              endConnector: SolidLineConnector(
+                                  // thickness: 3,
+                                  color: AppColors.greyprimarycolor.shade300),
+                            ),
                           ),
-                        ),
-                      ),
-                    ],
-                  )
-                :
-                //////////////////job descriptions////////////////////////////////////////////////
-                Column(
-                    children: [
-                      Expanded(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Container(
-                                color: AppColors.whiteColor,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Job Role',
-                                        style: BaseStyles.grey2Medium12,
-                                      ),
-                                      heightSpace5,
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              CircleAvatar(
-                                                // backgroundColor: AppColors.primaryColor,
-                                                radius: 15,
-                                                child: Image.asset(
-                                                    'assets/image/bajaj.png'),
-                                              ),
-                                              widthSpace5,
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Row(
-                                                    children: [
-                                                      Text(
-                                                        'Php Developer',
-                                                        style: BaseStyles
-                                                            .blackMedium14,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                  heightSpace3,
-                                                  Text(
-                                                    'Bajaj Ltd.Noida',
-                                                    style: BaseStyles
-                                                        .grey2normal14,
-                                                  )
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          GestureDetector(
-                                            onTap: () {
-                                              Get.to(SelectclientView());
-                                            },
-                                            child: Image.asset(
-                                              MyImages.edit,
-                                              height: 17,
-                                              width: 17,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ],
+                          Expanded(
+                            child: TimelineNode(
+                              direction: Axis.horizontal,
+                              indicator: GestureDetector(
+                                onTap: () {
+                                  controller.pageController.animateToPage(0,
+                                      duration:
+                                          const Duration(milliseconds: 500),
+                                      curve: Curves.ease);
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(7),
+                                  decoration: BoxDecoration(
+                                    color: controller.index.value >= 1
+                                        ? AppColors.primaryColor
+                                        : AppColors.greyprimarycolor.shade300,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    MyImages.file,
+                                    height: 20,
+                                    width: 20,
                                   ),
                                 ),
                               ),
-                              heightSpace10,
-                              Container(
-                                height: Get.height * 0.75,
-                                width: Get.width,
-                                color: AppColors.whiteColor,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Column(
-                                    children: [
-                                      textwidget(
-                                          controller:
-                                              controller.descriptionstext,
-                                          readonly: true,
-                                          onTap: () {
-                                            Get.to(JobdescriptionView());
-                                          },
-                                          minline: 8,
-                                          maxline: 8,
-                                          name: 'Job Description*',
-                                          text: 'Enter'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget2(
-                                          name: 'Minimum Qualification',
-                                          text: 'Select'),
-                                      const Divider(
-                                        thickness: 0.3,
-                                        height: 25,
-                                      ),
-                                      textwidget(
-                                          name: 'Specialization',
-                                          text: 'Enter'),
-                                      Expanded(child: Container()),
-                                      mybuttons(
-                                          action: () {
-                                            controller.index.value = 1;
-                                            print('object');
-                                          },
-                                          name: 'Next',
-                                          color: AppColors.orangecolor,
-                                          height: 40.0)
-                                    ],
+                              startConnector: SolidLineConnector(
+                                  // thickness: 3,
+                                  color: AppColors.greyprimarycolor.shade300),
+                              endConnector: SolidLineConnector(
+                                  // thickness: 3,
+                                  color: AppColors.greyprimarycolor.shade300),
+                            ),
+                          ),
+                          Expanded(
+                            child: TimelineNode(
+                              direction: Axis.horizontal,
+                              indicator: GestureDetector(
+                                onTap: () {
+                                  controller.pageController.animateToPage(1,
+                                      duration:
+                                          const Duration(milliseconds: 500),
+                                      curve: Curves.ease);
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(7),
+                                  decoration: BoxDecoration(
+                                    color: controller.index.value >= 2
+                                        ? AppColors.primaryColor
+                                        : AppColors.greyprimarycolor.shade300,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    MyImages.on,
+                                    height: 20,
+                                    width: 20,
                                   ),
                                 ),
-                              )
-                            ],
+                              ),
+                              startConnector: SolidLineConnector(
+                                  // thickness: 3,
+                                  color: AppColors.greyprimarycolor.shade300),
+                              endConnector: SolidLineConnector(
+                                  // thickness: 3,
+                                  color: AppColors.greyprimarycolor.shade300),
+                            ),
                           ),
-                        ),
+                          Expanded(
+                            child: TimelineNode(
+                              direction: Axis.horizontal,
+                              indicator: GestureDetector(
+                                onTap: () {
+                                  controller.pageController.animateToPage(2,
+                                      duration:
+                                          const Duration(milliseconds: 500),
+                                      curve: Curves.ease);
+                                },
+                                child: Container(
+                                  padding: const EdgeInsets.all(7),
+                                  decoration: BoxDecoration(
+                                    color: controller.index.value >= 3
+                                        ? AppColors.primaryColor
+                                        : AppColors.greyprimarycolor.shade300,
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    MyImages.eye,
+                                    height: 20,
+                                    width: 20,
+                                  ),
+                                ),
+                              ),
+                              startConnector: SolidLineConnector(
+                                  // thickness: 3,
+                                  color: AppColors.greyprimarycolor.shade300),
+                            ),
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_right_sharp,
+                            color: AppColors.whiteColor,
+                          ),
+                        ],
                       ),
                     ],
-                  )),
-          ],
-        ));
+                  ),
+                ),
+              ),
+            ]),
+          ),
+          body: PageView(
+            controller: controller.pageController,
+            physics: const NeverScrollableScrollPhysics(),
+            onPageChanged: (int index) {
+              controller.index.value = index;
+            },
+            children: [
+              Obx(() => controller.index.value == 0
+                  ? Column(
+                      children: [
+                        Expanded(
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Container(
+                                  color: AppColors.whiteColor,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Job Role',
+                                          style: BaseStyles.grey2Medium12,
+                                        ),
+                                        heightSpace5,
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                CircleAvatar(
+                                                  // backgroundColor: AppColors.primaryColor,
+                                                  radius: 15,
+                                                  child: Image.asset(
+                                                      'assets/image/bajaj.png'),
+                                                ),
+                                                widthSpace5,
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Text(
+                                                          'Php Developer',
+                                                          style: BaseStyles
+                                                              .blackMedium14,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    heightSpace3,
+                                                    Text(
+                                                      'Bajaj Ltd.Noida',
+                                                      style: BaseStyles
+                                                          .grey2normal14,
+                                                    )
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            GestureDetector(
+                                              onTap: () {
+                                                Get.to(SelectclientView());
+                                              },
+                                              child: Image.asset(
+                                                MyImages.edit,
+                                                height: 17,
+                                                width: 17,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                heightSpace10,
+                                Container(
+                                  width: Get.width,
+                                  color: AppColors.whiteColor,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        textwidget(
+                                            name: 'Job ID',
+                                            text: '0984923842347398734'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget(
+                                            name: 'Opportunity Name',
+                                            text: 'Enter'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget2(
+                                            name: 'Department *',
+                                            text: 'Select',
+                                            onTap: () {
+                                              select(context);
+                                            }),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget2(
+                                            name: 'Country *', text: 'Select'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget2(
+                                            name: 'State *', text: 'Select'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Location *",
+                                              style: BaseStyles.grey1Medium14,
+                                            ),
+                                            heightSpace5,
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                singlefiled(
+                                                    style:
+                                                        BaseStyles.blacNormal14,
+                                                    name: 'Off Site',
+                                                    color: AppColors
+                                                        .greyprimarycolor
+                                                        .shade300),
+                                                widthSpace5,
+                                                Expanded(
+                                                  child: singlefiled(
+                                                      name: 'Select'),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Experience (In Years) *",
+                                              style: BaseStyles.grey1Medium14,
+                                            ),
+                                            heightSpace5,
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: singlefiled(
+                                                    name: 'From',
+                                                  ),
+                                                ),
+                                                widthSpace10,
+                                                Expanded(
+                                                  child:
+                                                      singlefiled(name: 'To'),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget2(
+                                            name: 'Job Type *', text: 'Select'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget2(
+                                            name: 'No. of Openings *',
+                                            text: 'Select'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget2(
+                                            name: 'Placement Currency*',
+                                            text: 'Select'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget2(
+                                            name: 'Placement Type*',
+                                            text: 'Select'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget2(
+                                            name: 'Placement Value*',
+                                            text: 'Select'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget2(
+                                            name: 'Division', text: 'Select'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  "CTC per Annum *",
+                                                  style:
+                                                      BaseStyles.grey1Medium14,
+                                                ),
+                                                singlefiled(
+                                                    height: 25.0,
+                                                    name: 'Currency',
+                                                    color: AppColors
+                                                        .greyprimarycolor
+                                                        .shade300,
+                                                    style: BaseStyles
+                                                        .blacNormal14),
+                                              ],
+                                            ),
+                                            heightSpace5,
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: singlefiled(
+                                                    name: 'From',
+                                                  ),
+                                                ),
+                                                widthSpace10,
+                                                Expanded(
+                                                  child:
+                                                      singlefiled(name: 'To'),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        Row(
+                                          children: [
+                                            CircleAvatar(
+                                              radius: 8,
+                                              backgroundColor:
+                                                  Colors.blueAccent,
+                                              child: Icon(
+                                                Icons.check,
+                                                color: AppColors.whiteColor,
+                                                size: 12,
+                                              ),
+                                            ),
+                                            widthSpace5,
+                                            Text(
+                                              'Add due date',
+                                              style: BaseStyles.blacNormal14,
+                                            )
+                                          ],
+                                        ),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget2(
+                                            icon: Icons.calendar_today_outlined,
+                                            name: 'Select due date & time*',
+                                            text: 'Select'),
+                                        heightSpace50,
+                                        heightSpace30,
+                                        mybuttons(
+                                            action: () {
+                                              controller.index.value = 1;
+                                              print('object');
+                                            },
+                                            name: 'Next',
+                                            color: AppColors.orangecolor,
+                                            height: 40.0)
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                  :
+                  //////////////////job descriptions////////////////////////////////////////////////
+                  Column(
+                      children: [
+                        Expanded(
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Container(
+                                  color: AppColors.whiteColor,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Job Role',
+                                          style: BaseStyles.grey2Medium12,
+                                        ),
+                                        heightSpace5,
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                CircleAvatar(
+                                                  // backgroundColor: AppColors.primaryColor,
+                                                  radius: 15,
+                                                  child: Image.asset(
+                                                      'assets/image/bajaj.png'),
+                                                ),
+                                                widthSpace5,
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Text(
+                                                          'Php Developer',
+                                                          style: BaseStyles
+                                                              .blackMedium14,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                    heightSpace3,
+                                                    Text(
+                                                      'Bajaj Ltd.Noida',
+                                                      style: BaseStyles
+                                                          .grey2normal14,
+                                                    )
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                            GestureDetector(
+                                              onTap: () {
+                                                Get.to(SelectclientView());
+                                              },
+                                              child: Image.asset(
+                                                MyImages.edit,
+                                                height: 17,
+                                                width: 17,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                heightSpace10,
+                                Container(
+                                  height: Get.height * 0.75,
+                                  width: Get.width,
+                                  color: AppColors.whiteColor,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Column(
+                                      children: [
+                                        textwidget(
+                                            controller:
+                                                controller.descriptionstext,
+                                            readonly: true,
+                                            onTap: () {
+                                              Get.to(JobdescriptionView());
+                                            },
+                                            minline: 8,
+                                            maxline: 8,
+                                            name: 'Job Description*',
+                                            text: 'Enter'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget2(
+                                            name: 'Minimum Qualification',
+                                            text: 'Select'),
+                                        const Divider(
+                                          thickness: 0.3,
+                                          height: 25,
+                                        ),
+                                        textwidget(
+                                            name: 'Specialization',
+                                            text: 'Enter'),
+                                        Expanded(child: Container()),
+                                        mybuttons(
+                                            action: () {
+                                              controller.index.value = 1;
+                                              print('object');
+                                            },
+                                            name: 'Next',
+                                            color: AppColors.orangecolor,
+                                            height: 40.0)
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    )),
+            ],
+          )),
+    );
   }
 
   //////////////select department////////////////////////////////////////////////////////////////
