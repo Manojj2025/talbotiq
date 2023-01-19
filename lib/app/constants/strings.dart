@@ -6,6 +6,10 @@ class BottombarName {
 }
 
 class MyImages {
+  static const client = 'assets/image/client.png';
+  static const interview = 'assets/image/interview.png';
+  static const job = 'assets/image/job.png';
+  static const candidate = 'assets/image/candidate.png';
   static const home = 'assets/image/home.png';
   static const logo = 'assets/image/logo.png';
   static const intro = 'assets/image/intro.png';
@@ -66,9 +70,11 @@ class JobsName {
   static const jobdescription = 'Description';
   static const newjob = 'Create New Job';
   static const selectclient = 'Select Client';
-
   static const jobtitle = 'Job Title';
+
+  static const addprofessional = 'Add Professional Skills';
   static const sortby = 'Sort By';
+  static const jobPosted = 'Job Posted';
   static const jobdetail = 'Job Details';
   static const jobDescription = 'Job Description';
 

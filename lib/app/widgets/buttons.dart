@@ -9,6 +9,7 @@ mybuttons(
     color,
     gradient,
     namecolor,
+    style,
     height,
     width,
     fontSize,
@@ -27,7 +28,7 @@ mybuttons(
       ),
       child: Text(
         name,
-        style: BaseStyles.whitelarge16,
+        style: style ?? BaseStyles.whitelarge16,
         textAlign: TextAlign.center,
       ),
     ),

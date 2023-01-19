@@ -89,7 +89,7 @@ BoxDecoration decorationbox({color, border}) {
   );
 }
 
-BoxDecoration decorationbox3({color, radius, gradient, border}) {
+BoxDecoration decorationbox3({color, radius, border}) {
   return BoxDecoration(
     // gradient: gradient ?? null,
     color: color ?? Colors.white,

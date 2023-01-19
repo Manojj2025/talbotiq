@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:talbotiq/app/widgets/buttons.dart';
+import 'package:talbotiq/app/widgets/textfiled.dart';
 
 import '../constants/values.dart';
 import 'decoration.dart';
@@ -231,6 +234,120 @@ sortby(context, controller) {
                 ),
                 heightSpace10
               ],
+            ),
+          ),
+        );
+      });
+}
+
+////
+skillswidget(context, controller) {
+  return showModalBottomSheet(
+      isDismissible: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(25.0),
+        ),
+      ),
+      builder: (context) {
+        return FractionallySizedBox(
+          heightFactor: 0.6,
+          child: Container(
+            // height: 300,
+            decoration: MyDecoration.radiusonlydecoration(),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  heightSpace20,
+                  Align(
+                    child: Container(
+                      height: 4,
+                      width: 160,
+                      decoration: MyDecoration.simpledecoration(
+                          color: AppColors.greyprimarycolor),
+                    ),
+                  ),
+                  heightSpace20,
+                  Text(
+                    JobsName.addprofessional,
+                    style: BaseStyles.blackMedium16,
+                  ),
+                  heightSpace10,
+                  textwidget(
+                      name: 'Professional skills*',
+                      text: 'Enter',
+                      controller: controller.psearchtxt),
+                  heightSpace10,
+                  controller.psearchtxt.text != '' ||
+                          controller.psearchtxt.text.isNotEmpty
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Nothing found named “Php”',
+                              style: BaseStyles.grey3medium12,
+                            ),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.add,
+                                  color: AppColors.orangecolor,
+                                  size: 18,
+                                ),
+                                Text(
+                                  'Add More',
+                                  style: BaseStyles.orangeMedium14,
+                                ),
+                              ],
+                            )
+                          ],
+                        )
+                      : Container(),
+                  Divider(
+                    thickness: 0.5,
+                  ),
+                  heightSpace5,
+                  Text(
+                    "Rate Skills*",
+                    style: BaseStyles.grey1Medium14,
+                  ),
+                  heightSpace5,
+                  RatingBar.builder(
+                    initialRating: 3,
+                    minRating: 1,
+                    direction: Axis.horizontal,
+                    allowHalfRating: true,
+                    unratedColor: AppColors.greyprimarycolor.shade300,
+                    itemSize: 30.0,
+                    itemCount: 5,
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 3.0),
+                    itemBuilder: (context, _) => const Icon(
+                      Icons.star,
+                      color: Colors.amber,
+                    ),
+                    onRatingUpdate: (rating) {
+                      print(rating);
+                    },
+                  ),
+                  heightSpace10,
+                  Divider(
+                    thickness: 0.5,
+                  ),
+                  heightSpace5,
+                  textwidget(name: 'Weightage*', text: 'Enter'),
+                  Expanded(child: Container()),
+                  mybuttons(
+                      style: BaseStyles.grey2medium16,
+                      name: 'Create',
+                      color: AppColors.greyprimarycolor.shade100,
+                      height: 45.0)
+                ],
+              ),
             ),
           ),
         );

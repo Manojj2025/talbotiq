@@ -10,6 +10,7 @@ textfiled(
     width,
     controller,
     ontap,
+    onchange,
     eyeshow,
     readonly,
     minline,
@@ -25,6 +26,8 @@ textfiled(
     // margin: const EdgeInsets.only(left: 5, right: 5),
 
     child: TextField(
+      focusNode: FocusNode(),
+      onChanged: onchange,
       onTap: ontap,
       readOnly: readonly,
       minLines: minline ?? 1,
@@ -164,5 +167,29 @@ alltextfiled({text, controller, show, icon}) {
         border: InputBorder.none,
       ),
     ),
+  );
+}
+
+textwidget(
+    {name, text, minline, readonly, onTap, maxline, controller, onchange}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        name,
+        style: BaseStyles.grey1Medium14,
+      ),
+      heightSpace5,
+      textfiled(
+        onchange: onchange,
+        controller: controller,
+        maxline: maxline,
+        ontap: onTap,
+        readonly: readonly ?? false,
+        text: text,
+        height: 40.0,
+        minline: minline,
+      )
+    ],
   );
 }

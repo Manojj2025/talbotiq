@@ -7,6 +7,7 @@ import 'package:readmore/readmore.dart';
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
 import '../../../widgets/decoration.dart';
+import '../../../widgets/jobdetailwidget.dart';
 import '../controllers/jobdetail_controller.dart';
 
 class JobdetailView extends GetView<JobdetailController> {
@@ -129,15 +130,15 @@ class JobdetailView extends GetView<JobdetailController> {
                           ? Column(
                               children: [
                                 heightSpace10,
-                                _jobDetails(),
+                                jobDetails(),
                                 heightSpace10,
-                                _jobDescription(),
+                                jobDescription(),
                                 heightSpace10,
-                                _jobprofessional(),
+                                jobprofessional(controller),
                                 heightSpace10,
-                                _jobsoftprofessional(),
+                                jobsoftprofessional(controller),
                                 heightSpace10,
-                                _jobprofile(),
+                                jobprofile(),
                                 heightSpace10,
                                 _summary()
                               ],
@@ -1002,361 +1003,361 @@ class JobdetailView extends GetView<JobdetailController> {
     );
   }
 
-  ////// job details////////////////////////////////
-  Widget _jobDetails() {
-    return Container(
-        // height: 50,
-        width: Get.width,
-        color: AppColors.whiteColor,
-        margin: EdgeInsets.zero,
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                JobsName.jobdetail,
-                style: BaseStyles.blackMedium14,
-              ),
-              heightSpace10,
-              heightSpace5,
-              jobdetails(
-                  icon: Icons.add, title: 'Experience', title2: '1 to 3 year'),
-              heightSpace10,
-              jobdetails(
-                  icon: Icons.add_box_sharp,
-                  title: 'CTC',
-                  title2: '6 to 8 LPA'),
-              heightSpace10,
-              jobdetails(
-                  icon: Icons.location_on,
-                  title: 'Job Location',
-                  title2: 'Gurugram'),
-              heightSpace10,
-              jobdetails(
-                  icon: Icons.person_add,
-                  title: 'Job Type',
-                  title2: 'Full Time'),
-              heightSpace10,
-              jobdetails(
-                  icon: Icons.add_box_sharp, title: 'No of Jobs', title2: '2'),
-            ],
-          ),
-        ));
-  }
+  // ////// job details////////////////////////////////
+  // Widget _jobDetails() {
+  //   return Container(
+  //       // height: 50,
+  //       width: Get.width,
+  //       color: AppColors.whiteColor,
+  //       margin: EdgeInsets.zero,
+  //       child: Padding(
+  //         padding: const EdgeInsets.all(10.0),
+  //         child: Column(
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           children: [
+  //             Text(
+  //               JobsName.jobdetail,
+  //               style: BaseStyles.blackMedium14,
+  //             ),
+  //             heightSpace10,
+  //             heightSpace5,
+  //             jobdetails(
+  //                 icon: Icons.add, title: 'Experience', title2: '1 to 3 year'),
+  //             heightSpace10,
+  //             jobdetails(
+  //                 icon: Icons.add_box_sharp,
+  //                 title: 'CTC',
+  //                 title2: '6 to 8 LPA'),
+  //             heightSpace10,
+  //             jobdetails(
+  //                 icon: Icons.location_on,
+  //                 title: 'Job Location',
+  //                 title2: 'Gurugram'),
+  //             heightSpace10,
+  //             jobdetails(
+  //                 icon: Icons.person_add,
+  //                 title: 'Job Type',
+  //                 title2: 'Full Time'),
+  //             heightSpace10,
+  //             jobdetails(
+  //                 icon: Icons.add_box_sharp, title: 'No of Jobs', title2: '2'),
+  //           ],
+  //         ),
+  //       ));
+  // }
 
-  Row jobdetails({icon, title, title2}) {
-    return Row(
-      children: [
-        CircleAvatar(
-          radius: 12,
-          backgroundColor: AppColors.primaryColor,
-          child: Icon(
-            icon,
-            color: AppColors.whiteColor,
-            size: 12,
-          ),
-        ),
-        widthSpace10,
-        SizedBox(
-          width: Get.width * 0.26,
-          child: Text(
-            '$title:',
-            style: BaseStyles.greyMedium14,
-          ),
-        ),
-        // widthSpace30,
-        Flexible(
-          child: Text(
-            title2,
-            style: BaseStyles.blackNormal14,
-          ),
-        )
-      ],
-    );
-  }
-  /////////job description////////////////////////////////////////////////////////////////
+  // Row jobdetails({icon, title, title2}) {
+  //   return Row(
+  //     children: [
+  //       CircleAvatar(
+  //         radius: 12,
+  //         backgroundColor: AppColors.primaryColor,
+  //         child: Icon(
+  //           icon,
+  //           color: AppColors.whiteColor,
+  //           size: 12,
+  //         ),
+  //       ),
+  //       widthSpace10,
+  //       SizedBox(
+  //         width: Get.width * 0.26,
+  //         child: Text(
+  //           '$title:',
+  //           style: BaseStyles.greyMedium14,
+  //         ),
+  //       ),
+  //       // widthSpace30,
+  //       Flexible(
+  //         child: Text(
+  //           title2,
+  //           style: BaseStyles.blackNormal14,
+  //         ),
+  //       )
+  //     ],
+  //   );
+  // }
+  // /////////job description////////////////////////////////////////////////////////////////
 
-  Widget _jobDescription() {
-    return Container(
-        // height: 50,
-        width: Get.width,
-        color: AppColors.whiteColor,
-        margin: EdgeInsets.zero,
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                JobsName.jobDescription,
-                style: BaseStyles.blackMedium14,
-              ),
-              heightSpace10,
-              heightSpace5,
-              ReadMoreText(
-                "We are looking for a Java developer responsible for building Java applications with Springboot Framework. This includes anything between complex groups of back-end services and their client-end (desktop and mobile) counterparts. Your primary responsibility",
-                trimLines: 4,
-                style: BaseStyles.blacNormal14,
-                colorClickableText: AppColors.primaryColor,
-                trimMode: TrimMode.Line,
-                trimCollapsedText: '...Show more',
-                trimExpandedText: ' show less',
-              ),
-            ],
-          ),
-        ));
-  }
-  ///////// professional skills////////////////////////////////
+  // Widget _jobDescription() {
+  //   return Container(
+  //       // height: 50,
+  //       width: Get.width,
+  //       color: AppColors.whiteColor,
+  //       margin: EdgeInsets.zero,
+  //       child: Padding(
+  //         padding: const EdgeInsets.all(10.0),
+  //         child: Column(
+  //           crossAxisAlignment: CrossAxisAlignment.start,
+  //           children: [
+  //             Text(
+  //               JobsName.jobDescription,
+  //               style: BaseStyles.blackMedium14,
+  //             ),
+  //             heightSpace10,
+  //             heightSpace5,
+  //             ReadMoreText(
+  //               "We are looking for a Java developer responsible for building Java applications with Springboot Framework. This includes anything between complex groups of back-end services and their client-end (desktop and mobile) counterparts. Your primary responsibility",
+  //               trimLines: 4,
+  //               style: BaseStyles.blacNormal14,
+  //               colorClickableText: AppColors.primaryColor,
+  //               trimMode: TrimMode.Line,
+  //               trimCollapsedText: '...Show more',
+  //               trimExpandedText: ' show less',
+  //             ),
+  //           ],
+  //         ),
+  //       ));
+  // }
+  // ///////// professional skills////////////////////////////////
 
-  Widget _jobprofessional() {
-    return Container(
-      height: 80,
-      width: Get.width,
-      color: AppColors.whiteColor,
-      margin: EdgeInsets.zero,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              JobsName.professionalSkills,
-              style: BaseStyles.blackMedium14,
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: controller.joblist2.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Obx(
-                    (() => Row(
-                          children: [
-                            widthSpace10,
-                            GestureDetector(
-                              onTap: () {
-                                controller.jobselectname2.value =
-                                    controller.joblist2[index].toString();
-                              },
-                              child: Container(
-                                height: 30,
-                                // width: 100,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    color: controller.jobselectname2.value ==
-                                            controller.joblist2[index]
-                                        ? AppColors.primaryColor
-                                        : AppColors.whiteColor,
-                                    border: Border.all(
-                                        color: AppColors.greyprimarycolor,
-                                        width: 0.2),
-                                    borderRadius: BorderRadius.circular(30)),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 10.0, right: 10.0),
-                                  child: Text(
-                                    controller.joblist2[index].toString(),
-                                    style: controller.jobselectname2.value ==
-                                            controller.joblist2[index]
-                                        ? BaseStyles.whitenormal12
-                                        : BaseStyles.grey2Medium12,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        )),
-                  );
-                }),
-          ),
-          heightSpace10
-        ],
-      ),
-    );
-  }
+  // Widget _jobprofessional() {
+  //   return Container(
+  //     height: 80,
+  //     width: Get.width,
+  //     color: AppColors.whiteColor,
+  //     margin: EdgeInsets.zero,
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Padding(
+  //           padding: const EdgeInsets.all(8.0),
+  //           child: Text(
+  //             JobsName.professionalSkills,
+  //             style: BaseStyles.blackMedium14,
+  //           ),
+  //         ),
+  //         Expanded(
+  //           child: ListView.builder(
+  //               shrinkWrap: true,
+  //               scrollDirection: Axis.horizontal,
+  //               itemCount: controller.joblist2.length,
+  //               itemBuilder: (BuildContext context, int index) {
+  //                 return Obx(
+  //                   (() => Row(
+  //                         children: [
+  //                           widthSpace10,
+  //                           GestureDetector(
+  //                             onTap: () {
+  //                               controller.jobselectname2.value =
+  //                                   controller.joblist2[index].toString();
+  //                             },
+  //                             child: Container(
+  //                               height: 30,
+  //                               // width: 100,
+  //                               alignment: Alignment.center,
+  //                               decoration: BoxDecoration(
+  //                                   color: controller.jobselectname2.value ==
+  //                                           controller.joblist2[index]
+  //                                       ? AppColors.primaryColor
+  //                                       : AppColors.whiteColor,
+  //                                   border: Border.all(
+  //                                       color: AppColors.greyprimarycolor,
+  //                                       width: 0.2),
+  //                                   borderRadius: BorderRadius.circular(30)),
+  //                               child: Padding(
+  //                                 padding: const EdgeInsets.only(
+  //                                     left: 10.0, right: 10.0),
+  //                                 child: Text(
+  //                                   controller.joblist2[index].toString(),
+  //                                   style: controller.jobselectname2.value ==
+  //                                           controller.joblist2[index]
+  //                                       ? BaseStyles.whitenormal12
+  //                                       : BaseStyles.grey2Medium12,
+  //                                 ),
+  //                               ),
+  //                             ),
+  //                           ),
+  //                         ],
+  //                       )),
+  //                 );
+  //               }),
+  //         ),
+  //         heightSpace10
+  //       ],
+  //     ),
+  //   );
+  // }
 
-  ///////// professional skills////////////////////////////////
+  // ///////// professional skills////////////////////////////////
 
-  Widget _jobsoftprofessional() {
-    return Container(
-      height: 80,
-      width: Get.width,
-      color: AppColors.whiteColor,
-      margin: EdgeInsets.zero,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              JobsName.softSkills,
-              style: BaseStyles.blackMedium14,
-            ),
-          ),
-          Expanded(
-            child: ListView.builder(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: controller.joblist2.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Obx(
-                    (() => Row(
-                          children: [
-                            widthSpace10,
-                            GestureDetector(
-                              onTap: () {
-                                controller.jobselectname3.value =
-                                    controller.joblist2[index].toString();
-                              },
-                              child: Container(
-                                height: 30,
-                                // width: 100,
-                                alignment: Alignment.center,
-                                decoration: BoxDecoration(
-                                    color: controller.jobselectname3.value ==
-                                            controller.joblist2[index]
-                                        ? AppColors.primaryColor
-                                        : AppColors.whiteColor,
-                                    border: Border.all(
-                                        color: AppColors.greyprimarycolor,
-                                        width: 0.2),
-                                    borderRadius: BorderRadius.circular(30)),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 10.0, right: 10.0),
-                                  child: Text(
-                                    controller.joblist2[index].toString(),
-                                    style: controller.jobselectname3.value ==
-                                            controller.joblist2[index]
-                                        ? BaseStyles.whitenormal12
-                                        : BaseStyles.grey2Medium12,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        )),
-                  );
-                }),
-          ),
-          heightSpace10
-        ],
-      ),
-    );
-  }
+  // Widget _jobsoftprofessional() {
+  //   return Container(
+  //     height: 80,
+  //     width: Get.width,
+  //     color: AppColors.whiteColor,
+  //     margin: EdgeInsets.zero,
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Padding(
+  //           padding: const EdgeInsets.all(8.0),
+  //           child: Text(
+  //             JobsName.softSkills,
+  //             style: BaseStyles.blackMedium14,
+  //           ),
+  //         ),
+  //         Expanded(
+  //           child: ListView.builder(
+  //               shrinkWrap: true,
+  //               scrollDirection: Axis.horizontal,
+  //               itemCount: controller.joblist2.length,
+  //               itemBuilder: (BuildContext context, int index) {
+  //                 return Obx(
+  //                   (() => Row(
+  //                         children: [
+  //                           widthSpace10,
+  //                           GestureDetector(
+  //                             onTap: () {
+  //                               controller.jobselectname3.value =
+  //                                   controller.joblist2[index].toString();
+  //                             },
+  //                             child: Container(
+  //                               height: 30,
+  //                               // width: 100,
+  //                               alignment: Alignment.center,
+  //                               decoration: BoxDecoration(
+  //                                   color: controller.jobselectname3.value ==
+  //                                           controller.joblist2[index]
+  //                                       ? AppColors.primaryColor
+  //                                       : AppColors.whiteColor,
+  //                                   border: Border.all(
+  //                                       color: AppColors.greyprimarycolor,
+  //                                       width: 0.2),
+  //                                   borderRadius: BorderRadius.circular(30)),
+  //                               child: Padding(
+  //                                 padding: const EdgeInsets.only(
+  //                                     left: 10.0, right: 10.0),
+  //                                 child: Text(
+  //                                   controller.joblist2[index].toString(),
+  //                                   style: controller.jobselectname3.value ==
+  //                                           controller.joblist2[index]
+  //                                       ? BaseStyles.whitenormal12
+  //                                       : BaseStyles.grey2Medium12,
+  //                                 ),
+  //                               ),
+  //                             ),
+  //                           ),
+  //                         ],
+  //                       )),
+  //                 );
+  //               }),
+  //         ),
+  //         heightSpace10
+  //       ],
+  //     ),
+  //   );
+  // }
 
-  /////// designation////////////////////////////////////////////////////////////////
-  Widget _jobprofile() {
-    return Container(
-      color: AppColors.whiteColor,
-      width: Get.width,
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            Row(
-              children: [
-                widthSpace10,
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Designation',
-                        style: BaseStyles.lightblackMedium12,
-                      ),
-                      heightSpace5,
-                      Text(
-                        'UX Designer',
-                        style: BaseStyles.blacNormal14,
-                      )
-                    ],
-                  ),
-                ),
-                // widthSpace20,
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Department',
-                        style: BaseStyles.lightblackMedium12,
-                      ),
-                      heightSpace5,
-                      Text(
-                        'Design',
-                        style: BaseStyles.blacNormal14,
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-            heightSpace20,
-            Row(
-              // mainAxisAlignment: MainAxisAlignment.s,
-              children: [
-                widthSpace10,
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Minimun Qualification',
-                        style: BaseStyles.lightblackMedium12,
-                      ),
-                      heightSpace5,
-                      Text(
-                        'B Tech',
-                        style: BaseStyles.blacNormal14,
-                      )
-                    ],
-                  ),
-                ),
-                // widthSpace50,
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Due Date',
-                        style: BaseStyles.lightblackMedium12,
-                      ),
-                      heightSpace5,
-                      Text(
-                        '28th Feb 2022',
-                        style: BaseStyles.blacNormal14,
-                      )
-                    ],
-                  ),
-                )
-              ],
-            ),
-            heightSpace10,
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 35,
-                width: Get.width,
-                decoration: decorationbox2(
-                    radius: 5.0,
-                    color: AppColors.primaryColor.withOpacity(0.1)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'No due Date',
-                    style: BaseStyles.greenMedium14,
-                  ),
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
+  // /////// designation////////////////////////////////////////////////////////////////
+  // Widget _jobprofile() {
+  //   return Container(
+  //     color: AppColors.whiteColor,
+  //     width: Get.width,
+  //     child: Padding(
+  //       padding: const EdgeInsets.all(10.0),
+  //       child: Column(
+  //         children: [
+  //           Row(
+  //             children: [
+  //               widthSpace10,
+  //               Expanded(
+  //                 child: Column(
+  //                   crossAxisAlignment: CrossAxisAlignment.start,
+  //                   children: [
+  //                     Text(
+  //                       'Designation',
+  //                       style: BaseStyles.lightblackMedium12,
+  //                     ),
+  //                     heightSpace5,
+  //                     Text(
+  //                       'UX Designer',
+  //                       style: BaseStyles.blacNormal14,
+  //                     )
+  //                   ],
+  //                 ),
+  //               ),
+  //               // widthSpace20,
+  //               Expanded(
+  //                 child: Column(
+  //                   crossAxisAlignment: CrossAxisAlignment.start,
+  //                   children: [
+  //                     Text(
+  //                       'Department',
+  //                       style: BaseStyles.lightblackMedium12,
+  //                     ),
+  //                     heightSpace5,
+  //                     Text(
+  //                       'Design',
+  //                       style: BaseStyles.blacNormal14,
+  //                     )
+  //                   ],
+  //                 ),
+  //               )
+  //             ],
+  //           ),
+  //           heightSpace20,
+  //           Row(
+  //             // mainAxisAlignment: MainAxisAlignment.s,
+  //             children: [
+  //               widthSpace10,
+  //               Expanded(
+  //                 child: Column(
+  //                   crossAxisAlignment: CrossAxisAlignment.start,
+  //                   children: [
+  //                     Text(
+  //                       'Minimun Qualification',
+  //                       style: BaseStyles.lightblackMedium12,
+  //                     ),
+  //                     heightSpace5,
+  //                     Text(
+  //                       'B Tech',
+  //                       style: BaseStyles.blacNormal14,
+  //                     )
+  //                   ],
+  //                 ),
+  //               ),
+  //               // widthSpace50,
+  //               Expanded(
+  //                 child: Column(
+  //                   crossAxisAlignment: CrossAxisAlignment.start,
+  //                   children: [
+  //                     Text(
+  //                       'Due Date',
+  //                       style: BaseStyles.lightblackMedium12,
+  //                     ),
+  //                     heightSpace5,
+  //                     Text(
+  //                       '28th Feb 2022',
+  //                       style: BaseStyles.blacNormal14,
+  //                     )
+  //                   ],
+  //                 ),
+  //               )
+  //             ],
+  //           ),
+  //           heightSpace10,
+  //           Padding(
+  //             padding: const EdgeInsets.all(8.0),
+  //             child: Container(
+  //               height: 35,
+  //               width: Get.width,
+  //               decoration: decorationbox2(
+  //                   radius: 5.0,
+  //                   color: AppColors.primaryColor.withOpacity(0.1)),
+  //               child: Padding(
+  //                 padding: const EdgeInsets.all(8.0),
+  //                 child: Text(
+  //                   'No due Date',
+  //                   style: BaseStyles.greenMedium14,
+  //                 ),
+  //               ),
+  //             ),
+  //           )
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 }
 
 class _ChartData {

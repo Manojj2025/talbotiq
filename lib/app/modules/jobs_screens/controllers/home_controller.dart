@@ -1,9 +1,15 @@
 import 'package:get/get.dart';
+import 'package:talbotiq/app/constants/values.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController
 
-  final count = 0.obs;
+  final list = [
+    {"img": MyImages.candidate, "value": "2", "title": "Candidates"},
+    {"img": MyImages.job, "value": "2", "title": "Total Jobs"},
+    {"img": MyImages.interview, "value": "2", "title": "Interviews"},
+    {"img": MyImages.client, "value": "2", "title": "Clients"},
+  ].obs;
   @override
   void onInit() {
     super.onInit();
@@ -18,6 +24,4 @@ class HomeController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

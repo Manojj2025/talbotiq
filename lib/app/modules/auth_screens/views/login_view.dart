@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:talbotiq/app/constants/strings.dart';
 import 'package:talbotiq/app/modules/auth_screens/views/resetpassword_view.dart';
+import 'package:talbotiq/app/modules/jobs_screens/views/bottombar_view.dart';
 import 'package:talbotiq/app/widgets/decoration.dart';
 import 'package:talbotiq/app/widgets/textfiled.dart';
 import '../../../constants/values.dart';
@@ -74,7 +75,7 @@ class LoginView extends GetView<LoginController> {
                     heightSpace30,
                     mybuttons(
                       action: () {
-                        Get.to(ResetpasswordView());
+                        Get.to(BottombarView());
                       },
                       // height: 45.0,
                       color: AppColors.orangecolor,
@@ -82,9 +83,14 @@ class LoginView extends GetView<LoginController> {
                       name: HomeName.login,
                     ),
                     heightSpace20,
-                    Text(
-                      HomeName.resetpass,
-                      style: BaseStyles.blueMediuml16,
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(ResetpasswordView());
+                      },
+                      child: Text(
+                        HomeName.resetpass,
+                        style: BaseStyles.blueMediuml16,
+                      ),
                     ),
                     heightSpace20,
                     Row(
