@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:talbotiq/app/modules/jobs_screens/controllers/createnewjob_controller.dart';
-import 'package:talbotiq/app/modules/jobs_screens/views/selectclient_view.dart';
-import 'package:talbotiq/app/widgets/buttons.dart';
-import 'package:talbotiq/app/widgets/decoration.dart';
-import 'package:talbotiq/app/widgets/textfiled.dart';
+import 'package:Talbotiq/app/modules/jobs_screens/controllers/createnewjob_controller.dart';
+import 'package:Talbotiq/app/modules/jobs_screens/views/selectclient_view.dart';
+import 'package:Talbotiq/app/widgets/buttons.dart';
+import 'package:Talbotiq/app/widgets/decoration.dart';
+import 'package:Talbotiq/app/widgets/textfiled.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';

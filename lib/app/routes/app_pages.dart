@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:talbotiq/app/modules/auth_screens/views/welcome_view.dart';
+import 'package:Talbotiq/app/modules/auth_screens/views/welcome_view.dart';
 
 import '../modules/jobs_screens/bindings/home_binding.dart';
 import '../modules/jobs_screens/views/bottombar_view.dart';

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:talbotiq/app/constants/values.dart';
-import 'package:talbotiq/app/modules/jobs_screens/controllers/enterjob_controller.dart';
+import 'package:Talbotiq/app/constants/values.dart';
+import 'package:Talbotiq/app/modules/jobs_screens/controllers/enterjob_controller.dart';
 
 import '../../../constants/strings.dart';
 import '../../../widgets/appbar.dart';

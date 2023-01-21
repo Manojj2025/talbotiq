@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:talbotiq/app/widgets/decoration.dart';
+import 'package:Talbotiq/app/widgets/decoration.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';

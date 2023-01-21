@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:talbotiq/app/constants/values.dart';
+import 'package:Talbotiq/app/constants/values.dart';
 
 class HomeController extends GetxController {
   //TODO: Implement HomeController

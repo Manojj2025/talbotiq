@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:talbotiq/app/modules/jobs_screens/views/bottombar_view.dart';
-import 'package:talbotiq/app/widgets/decoration.dart';
+import 'package:Talbotiq/app/modules/jobs_screens/views/bottombar_view.dart';
+import 'package:Talbotiq/app/widgets/decoration.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
@@ -150,7 +150,7 @@ class JobpostView extends GetView<CreatenewjobController> {
                 ),
               ),
             ),
-            heightSpace10,
+            // heightSpace10,
             jobapplication()
           ],
         ),

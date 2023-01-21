@@ -1,10 +1,11 @@
+import 'package:Talbotiq/app/constants/app_basestyles.dart';
+import 'package:Talbotiq/app/constants/values.dart';
+import 'package:Talbotiq/app/widgets/buttons.dart';
+import 'package:Talbotiq/app/widgets/textfiled.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
-import 'package:talbotiq/app/widgets/buttons.dart';
-import 'package:talbotiq/app/widgets/textfiled.dart';
 
-import '../constants/values.dart';
 import 'decoration.dart';
 
 filter(context, controller) {

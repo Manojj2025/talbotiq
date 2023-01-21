@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:talbotiq/app/constants/strings.dart';
+import 'package:Talbotiq/app/constants/strings.dart';
 
 class WelcomeController extends GetxController {
   //TODO: Implement WelcomeController

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:talbotiq/app/modules/auth_screens/controllers/otp_controller.dart';
-import 'package:talbotiq/app/modules/auth_screens/views/successfully_view.dart';
+import 'package:Talbotiq/app/modules/auth_screens/controllers/otp_controller.dart';
+import 'package:Talbotiq/app/modules/auth_screens/views/successfully_view.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/buttons.dart';

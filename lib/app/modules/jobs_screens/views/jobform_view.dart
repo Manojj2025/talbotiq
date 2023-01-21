@@ -4,10 +4,10 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:talbotiq/app/modules/jobs_screens/controllers/createnewjob_controller.dart';
-import 'package:talbotiq/app/modules/jobs_screens/views/selectclient_view.dart';
-import 'package:talbotiq/app/widgets/buttons.dart';
-import 'package:talbotiq/app/widgets/textfiled.dart';
+import 'package:Talbotiq/app/modules/jobs_screens/controllers/createnewjob_controller.dart';
+import 'package:Talbotiq/app/modules/jobs_screens/views/selectclient_view.dart';
+import 'package:Talbotiq/app/widgets/buttons.dart';
+import 'package:Talbotiq/app/widgets/textfiled.dart';
 import 'package:timelines/timelines.dart';
 
 import '../../../constants/values.dart';
@@ -217,409 +217,430 @@ class JobformView extends GetView<CreatenewjobController> {
               Obx(() => Column(
                     children: [
                       Expanded(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Container(
-                                color: AppColors.whiteColor,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Job Role',
-                                        style: BaseStyles.grey2Medium12,
-                                      ),
-                                      heightSpace5,
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
+                        child: Column(
+                          children: [
+                            Container(
+                              color: AppColors.whiteColor,
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Job Role',
+                                      style: BaseStyles.grey2Medium12,
+                                    ),
+                                    heightSpace5,
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            CircleAvatar(
+                                              // backgroundColor: AppColors.primaryColor,
+                                              radius: 16,
+                                              child: Image.asset(
+                                                  'assets/image/bajaj.png'),
+                                            ),
+                                            widthSpace5,
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Text(
+                                                      'Php Developer',
+                                                      style: BaseStyles
+                                                          .blackMedium14,
+                                                    ),
+                                                  ],
+                                                ),
+                                                heightSpace3,
+                                                Text(
+                                                  'Bajaj Ltd.Noida',
+                                                  style:
+                                                      BaseStyles.grey2normal14,
+                                                )
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        GestureDetector(
+                                          onTap: () {
+                                            Get.to(SelectclientView());
+                                          },
+                                          child: Image.asset(
+                                            MyImages.edit,
+                                            height: 20,
+                                            width: 20,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    heightSpace5,
+                                    controller.index.value == 3
+                                        ? Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Icon(
+                                                    Icons.location_on_outlined,
+                                                    color: AppColors
+                                                        .lightblackColor,
+                                                    size: 18,
+                                                  ),
+                                                  widthSpace3,
+                                                  Text(
+                                                    'New Delhi',
+                                                    style: BaseStyles
+                                                        .lightblackMedium14,
+                                                  )
+                                                ],
+                                              ),
+                                              Row(
+                                                children: [
+                                                  CircleAvatar(
+                                                    radius: 5,
+                                                    backgroundColor:
+                                                        AppColors.activecolor,
+                                                  ),
+                                                  widthSpace5,
+                                                  Text(
+                                                    'Active',
+                                                    style:
+                                                        BaseStyles.greyMedium14,
+                                                  ),
+                                                  widthSpace5,
+                                                  Icon(
+                                                    Icons.arrow_drop_down,
+                                                    color: AppColors
+                                                        .greyprimarycolor,
+                                                  )
+                                                ],
+                                              )
+                                            ],
+                                          )
+                                        : Container(),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            heightSpace10,
+                            controller.index.value == 0
+                                ? Expanded(
+                                    child: Container(
+                                      width: Get.width,
+                                      color: AppColors.whiteColor,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                          left: 10.0,
+                                          right: 10.0,
+                                          top: 10.0,
+                                        ),
+                                        child: SingleChildScrollView(
+                                          child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              CircleAvatar(
-                                                // backgroundColor: AppColors.primaryColor,
-                                                radius: 16,
-                                                child: Image.asset(
-                                                    'assets/image/bajaj.png'),
+                                              textwidget(
+                                                  name: 'Job ID',
+                                                  text: '0984923842347398734'),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
                                               ),
-                                              widthSpace5,
+                                              textwidget(
+                                                  name: 'Opportunity Name',
+                                                  text: 'Enter'),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              textwidget2(
+                                                  name: 'Department *',
+                                                  text: 'Select',
+                                                  onTap: () {
+                                                    select(context);
+                                                  }),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              textwidget2(
+                                                  name: 'Country *',
+                                                  text: 'Select'),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              textwidget2(
+                                                  name: 'State *',
+                                                  text: 'Select'),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "Location *",
+                                                    style: BaseStyles
+                                                        .grey1Medium14,
+                                                  ),
+                                                  heightSpace5,
+                                                  Row(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      singlefiled(
+                                                          style: BaseStyles
+                                                              .blacNormal14,
+                                                          name: 'Off Site',
+                                                          color: AppColors
+                                                              .greyprimarycolor
+                                                              .shade300),
+                                                      widthSpace5,
+                                                      Expanded(
+                                                        child: singlefiled(
+                                                            name: 'Select'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "Experience (In Years) *",
+                                                    style: BaseStyles
+                                                        .grey1Medium14,
+                                                  ),
+                                                  heightSpace5,
+                                                  Row(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Expanded(
+                                                        child: singlefiled(
+                                                          name: 'From',
+                                                        ),
+                                                      ),
+                                                      widthSpace10,
+                                                      Expanded(
+                                                        child: singlefiled(
+                                                            name: 'To'),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              textwidget2(
+                                                  name: 'Job Type *',
+                                                  text: 'Select'),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              textwidget2(
+                                                  name: 'No. of Openings *',
+                                                  text: 'Select'),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              textwidget2(
+                                                  name: 'Placement Currency*',
+                                                  text: 'Select'),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              textwidget2(
+                                                  name: 'Placement Type*',
+                                                  text: 'Select'),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              textwidget2(
+                                                  name: 'Placement Value*',
+                                                  text: 'Select'),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              textwidget2(
+                                                  name: 'Division',
+                                                  text: 'Select'),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
                                               Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
                                                   Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Text(
-                                                        'Php Developer',
+                                                        "CTC per Annum *",
                                                         style: BaseStyles
-                                                            .blackMedium14,
+                                                            .grey1Medium14,
+                                                      ),
+                                                      singlefiled(
+                                                          height: 25.0,
+                                                          name: 'Currency',
+                                                          color: AppColors
+                                                              .greyprimarycolor
+                                                              .shade300,
+                                                          style: BaseStyles
+                                                              .blacNormal14),
+                                                    ],
+                                                  ),
+                                                  heightSpace5,
+                                                  Row(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Expanded(
+                                                        child: singlefiled(
+                                                          name: 'From',
+                                                        ),
+                                                      ),
+                                                      widthSpace10,
+                                                      Expanded(
+                                                        child: singlefiled(
+                                                            name: 'To'),
                                                       ),
                                                     ],
                                                   ),
-                                                  heightSpace3,
+                                                ],
+                                              ),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  CircleAvatar(
+                                                    radius: 8,
+                                                    backgroundColor:
+                                                        Colors.blueAccent,
+                                                    child: Icon(
+                                                      Icons.check,
+                                                      color:
+                                                          AppColors.whiteColor,
+                                                      size: 12,
+                                                    ),
+                                                  ),
+                                                  widthSpace5,
                                                   Text(
-                                                    'Bajaj Ltd.Noida',
-                                                    style: BaseStyles
-                                                        .grey2normal14,
+                                                    'Add due date',
+                                                    style:
+                                                        BaseStyles.blacNormal14,
                                                   )
                                                 ],
                                               ),
+                                              const Divider(
+                                                thickness: 0.3,
+                                                height: 25,
+                                              ),
+                                              textwidget2(
+                                                  icon: Icons
+                                                      .calendar_today_outlined,
+                                                  name:
+                                                      'Select due date & time*',
+                                                  text: 'Select'),
+                                              heightSpace50,
+                                              heightSpace30,
+                                              mybuttons(
+                                                  action: () {
+                                                    controller.index.value = 1;
+                                                    print('object');
+                                                  },
+                                                  name: 'Next',
+                                                  color: AppColors.orangecolor,
+                                                  height: 40.0)
                                             ],
                                           ),
-                                          GestureDetector(
-                                            onTap: () {
-                                              Get.to(SelectclientView());
-                                            },
-                                            child: Image.asset(
-                                              MyImages.edit,
-                                              height: 20,
-                                              width: 20,
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      heightSpace5,
-                                      controller.index.value == 3
-                                          ? Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons
-                                                          .location_on_outlined,
-                                                      color: AppColors
-                                                          .lightblackColor,
-                                                      size: 18,
-                                                    ),
-                                                    widthSpace3,
-                                                    Text(
-                                                      'New Delhi',
-                                                      style: BaseStyles
-                                                          .lightblackMedium14,
-                                                    )
-                                                  ],
-                                                ),
-                                                Row(
-                                                  children: [
-                                                    CircleAvatar(
-                                                      radius: 5,
-                                                      backgroundColor:
-                                                          AppColors.activecolor,
-                                                    ),
-                                                    widthSpace5,
-                                                    Text(
-                                                      'Active',
-                                                      style: BaseStyles
-                                                          .greyMedium14,
-                                                    ),
-                                                    widthSpace5,
-                                                    Icon(
-                                                      Icons.arrow_drop_down,
-                                                      color: AppColors
-                                                          .greyprimarycolor,
-                                                    )
-                                                  ],
-                                                )
-                                              ],
-                                            )
-                                          : Container(),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              heightSpace10,
-                              controller.index.value == 0
-                                  ? Container(
-                                      width: Get.width,
-                                      color: AppColors.whiteColor,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            textwidget(
-                                                name: 'Job ID',
-                                                text: '0984923842347398734'),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            textwidget(
-                                                name: 'Opportunity Name',
-                                                text: 'Enter'),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            textwidget2(
-                                                name: 'Department *',
-                                                text: 'Select',
-                                                onTap: () {
-                                                  select(context);
-                                                }),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            textwidget2(
-                                                name: 'Country *',
-                                                text: 'Select'),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            textwidget2(
-                                                name: 'State *',
-                                                text: 'Select'),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "Location *",
-                                                  style:
-                                                      BaseStyles.grey1Medium14,
-                                                ),
-                                                heightSpace5,
-                                                Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    singlefiled(
-                                                        style: BaseStyles
-                                                            .blacNormal14,
-                                                        name: 'Off Site',
-                                                        color: AppColors
-                                                            .greyprimarycolor
-                                                            .shade300),
-                                                    widthSpace5,
-                                                    Expanded(
-                                                      child: singlefiled(
-                                                          name: 'Select'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "Experience (In Years) *",
-                                                  style:
-                                                      BaseStyles.grey1Medium14,
-                                                ),
-                                                heightSpace5,
-                                                Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Expanded(
-                                                      child: singlefiled(
-                                                        name: 'From',
-                                                      ),
-                                                    ),
-                                                    widthSpace10,
-                                                    Expanded(
-                                                      child: singlefiled(
-                                                          name: 'To'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            textwidget2(
-                                                name: 'Job Type *',
-                                                text: 'Select'),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            textwidget2(
-                                                name: 'No. of Openings *',
-                                                text: 'Select'),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            textwidget2(
-                                                name: 'Placement Currency*',
-                                                text: 'Select'),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            textwidget2(
-                                                name: 'Placement Type*',
-                                                text: 'Select'),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            textwidget2(
-                                                name: 'Placement Value*',
-                                                text: 'Select'),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            textwidget2(
-                                                name: 'Division',
-                                                text: 'Select'),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      "CTC per Annum *",
-                                                      style: BaseStyles
-                                                          .grey1Medium14,
-                                                    ),
-                                                    singlefiled(
-                                                        height: 25.0,
-                                                        name: 'Currency',
-                                                        color: AppColors
-                                                            .greyprimarycolor
-                                                            .shade300,
-                                                        style: BaseStyles
-                                                            .blacNormal14),
-                                                  ],
-                                                ),
-                                                heightSpace5,
-                                                Row(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Expanded(
-                                                      child: singlefiled(
-                                                        name: 'From',
-                                                      ),
-                                                    ),
-                                                    widthSpace10,
-                                                    Expanded(
-                                                      child: singlefiled(
-                                                          name: 'To'),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ],
-                                            ),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            Row(
-                                              children: [
-                                                CircleAvatar(
-                                                  radius: 8,
-                                                  backgroundColor:
-                                                      Colors.blueAccent,
-                                                  child: Icon(
-                                                    Icons.check,
-                                                    color: AppColors.whiteColor,
-                                                    size: 12,
-                                                  ),
-                                                ),
-                                                widthSpace5,
-                                                Text(
-                                                  'Add due date',
-                                                  style:
-                                                      BaseStyles.blacNormal14,
-                                                )
-                                              ],
-                                            ),
-                                            const Divider(
-                                              thickness: 0.3,
-                                              height: 25,
-                                            ),
-                                            textwidget2(
-                                                icon: Icons
-                                                    .calendar_today_outlined,
-                                                name: 'Select due date & time*',
-                                                text: 'Select'),
-                                            heightSpace50,
-                                            heightSpace30,
-                                            mybuttons(
-                                                action: () {
-                                                  controller.index.value = 1;
-                                                  print('object');
-                                                },
-                                                name: 'Next',
-                                                color: AppColors.orangecolor,
-                                                height: 40.0)
-                                          ],
                                         ),
                                       ),
-                                    )
-                                  : controller.index.value == 1
-                                      ? Container(
-                                          height: Get.height * 0.75,
+                                    ),
+                                  )
+                                : controller.index.value == 1
+                                    ? Expanded(
+                                        child: Container(
+                                          // height: Get.height * 0.75,
                                           width: Get.width,
                                           color: AppColors.whiteColor,
                                           child: Padding(
-                                            padding: const EdgeInsets.all(10.0),
+                                            padding: const EdgeInsets.only(
+                                                left: 10.0,
+                                                right: 10.0,
+                                                top: 10.0),
                                             child: Column(
                                               children: [
-                                                textwidget(
-                                                    controller: controller
-                                                        .descriptionstext,
-                                                    readonly: true,
-                                                    onTap: () {
-                                                      Get.to(
-                                                          JobdescriptionView());
-                                                    },
-                                                    minline: 8,
-                                                    maxline: 8,
-                                                    name: 'Job Description*',
-                                                    text: 'Enter'),
-                                                const Divider(
-                                                  thickness: 0.3,
-                                                  height: 25,
+                                                SingleChildScrollView(
+                                                  child: Column(
+                                                    children: [
+                                                      textwidget(
+                                                          controller: controller
+                                                              .descriptionstext,
+                                                          readonly: true,
+                                                          onTap: () {
+                                                            Get.to(
+                                                                JobdescriptionView());
+                                                          },
+                                                          minline: 8,
+                                                          maxline: 8,
+                                                          name:
+                                                              'Job Description*',
+                                                          text: 'Enter'),
+                                                      const Divider(
+                                                        thickness: 0.3,
+                                                        height: 25,
+                                                      ),
+                                                      textwidget2(
+                                                          name:
+                                                              'Minimum Qualification',
+                                                          text: 'Select'),
+                                                      const Divider(
+                                                        thickness: 0.3,
+                                                        height: 25,
+                                                      ),
+                                                      textwidget(
+                                                          name:
+                                                              'Specialization',
+                                                          text: 'Enter'),
+                                                    ],
+                                                  ),
                                                 ),
-                                                textwidget2(
-                                                    name:
-                                                        'Minimum Qualification',
-                                                    text: 'Select'),
-                                                const Divider(
-                                                  thickness: 0.3,
-                                                  height: 25,
-                                                ),
-                                                textwidget(
-                                                    name: 'Specialization',
-                                                    text: 'Enter'),
                                                 Expanded(child: Container()),
                                                 mybuttons(
                                                     action: () {
@@ -634,17 +655,24 @@ class JobformView extends GetView<CreatenewjobController> {
                                               ],
                                             ),
                                           ),
-                                        )
-                                      : controller.index.value == 2
-                                          ? Column(
-                                              children: [
-                                                Container(
-                                                    width: Get.width,
-                                                    color: AppColors.whiteColor,
-                                                    child: Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .all(10.0),
+                                        ),
+                                      )
+                                    : controller.index.value == 2
+                                        ? Expanded(
+                                            child: Container(
+                                              width: Get.width,
+                                              color: AppColors.whiteColor,
+                                              padding: const EdgeInsets.only(
+                                                  left: 10.0,
+                                                  right: 10.0,
+                                                  top: 10.0),
+                                              child: Column(
+                                                children: [
+                                                  Expanded(
+                                                    child: Container(
+                                                        width: Get.width,
+                                                        color: AppColors
+                                                            .whiteColor,
                                                         child: Column(
                                                           crossAxisAlignment:
                                                               CrossAxisAlignment
@@ -737,14 +765,13 @@ class JobformView extends GetView<CreatenewjobController> {
                                                             ),
                                                             _listskillWidget(),
                                                           ],
-                                                        ))),
-                                                Container(
-                                                    width: Get.width,
-                                                    color: AppColors.whiteColor,
-                                                    child: Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .all(10.0),
+                                                        )),
+                                                  ),
+                                                  Expanded(
+                                                    child: Container(
+                                                        width: Get.width,
+                                                        color: AppColors
+                                                            .whiteColor,
                                                         child: Column(
                                                           crossAxisAlignment:
                                                               CrossAxisAlignment
@@ -826,95 +853,117 @@ class JobformView extends GetView<CreatenewjobController> {
                                                                 ),
                                                               ],
                                                             ),
+                                                            // Expanded(
+                                                            //     child:
+                                                            //         Container()),
+
                                                             // _listskillWidget()
                                                           ],
-                                                        ))),
-                                                SizedBox(
-                                                    height: Get.height * 0.35,
-                                                    child: Container(
+                                                        )),
+                                                  ),
+                                                  Expanded(child: Container()),
+                                                  mybuttons(
+                                                      action: () {
+                                                        controller.index.value =
+                                                            3;
+                                                        print('object');
+                                                      },
+                                                      name: 'Next',
                                                       color:
-                                                          AppColors.whiteColor,
-                                                    )),
-                                                Padding(
-                                                    padding: EdgeInsets.all(10),
-                                                    child: mybuttons(
-                                                        action: () {
-                                                          controller
-                                                              .index.value = 3;
-                                                          print('object');
-                                                        },
-                                                        name: 'Next',
-                                                        color: AppColors
-                                                            .orangecolor,
-                                                        height: 40.0))
-                                              ],
-                                            )
-                                          : Column(
+                                                          AppColors.orangecolor,
+                                                      height: 40.0)
+                                                ],
+                                              ),
+                                            ),
+                                          )
+                                        : Expanded(
+                                            child: Column(
                                               children: [
-                                                jobDetails(),
-                                                heightSpace10,
-                                                jobDescription(),
-                                                heightSpace10,
-                                                jobprofessional(controller),
-                                                heightSpace10,
-                                                jobsoftprofessional(controller),
-                                                heightSpace10,
-                                                jobprofile(
-                                                    padding: EdgeInsets.only(
-                                                        top: 10.0)),
-                                                heightSpace10,
-                                                Container(
-                                                  height: 222,
-                                                  width: Get.width,
-                                                  color: AppColors.whiteColor,
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsets.all(
-                                                            10.0),
+                                                Expanded(
+                                                  child: SingleChildScrollView(
                                                     child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
                                                       children: [
-                                                        Text(
-                                                          'Similar Profiles',
-                                                          style: BaseStyles
-                                                              .blackMedium14,
-                                                        ),
+                                                        jobDetails(),
                                                         heightSpace10,
-                                                        Align(
-                                                          child:
-                                                              CircularPercentIndicator(
-                                                            radius: 55.0,
-                                                            lineWidth: 5.0,
-                                                            percent: 0.5,
-                                                            center: Column(
+                                                        jobDescription(),
+                                                        heightSpace10,
+                                                        jobprofessional(
+                                                            controller),
+                                                        heightSpace10,
+                                                        jobsoftprofessional(
+                                                            controller),
+                                                        heightSpace10,
+                                                        jobprofile(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    top: 10.0)),
+                                                        heightSpace10,
+                                                        Container(
+                                                          height: 215,
+                                                          width: Get.width,
+                                                          color: AppColors
+                                                              .whiteColor,
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    left: 10.0,
+                                                                    right: 10.0,
+                                                                    top: 10.0),
+                                                            child: Column(
                                                               crossAxisAlignment:
                                                                   CrossAxisAlignment
-                                                                      .center,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .center,
+                                                                      .start,
                                                               children: [
                                                                 Text(
-                                                                  "245",
+                                                                  'Similar Profiles',
                                                                   style: BaseStyles
-                                                                      .blackMedium24,
+                                                                      .blackMedium14,
                                                                 ),
-                                                                Text(
-                                                                  "Applicants found",
-                                                                  style: BaseStyles
-                                                                      .grey3Normal12,
+                                                                heightSpace10,
+                                                                Align(
+                                                                  child:
+                                                                      CircularPercentIndicator(
+                                                                    radius:
+                                                                        55.0,
+                                                                    lineWidth:
+                                                                        5.0,
+                                                                    percent:
+                                                                        0.5,
+                                                                    center:
+                                                                        Column(
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .center,
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment
+                                                                              .center,
+                                                                      children: [
+                                                                        Text(
+                                                                          "245",
+                                                                          style:
+                                                                              BaseStyles.blackMedium24,
+                                                                        ),
+                                                                        Text(
+                                                                          "Applicants found",
+                                                                          style:
+                                                                              BaseStyles.grey3Normal12,
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                    progressColor:
+                                                                        AppColors
+                                                                            .primaryColor,
+                                                                  ),
                                                                 ),
+                                                                heightSpace20,
                                                               ],
                                                             ),
-                                                            progressColor:
-                                                                AppColors
-                                                                    .primaryColor,
                                                           ),
                                                         ),
-                                                        heightSpace20,
                                                         mybuttons(
+                                                            width: Get.width *
+                                                                0.95,
                                                             action: () {
                                                               Get.to(
                                                                   JobpostView());
@@ -928,9 +977,9 @@ class JobformView extends GetView<CreatenewjobController> {
                                                   ),
                                                 ),
                                               ],
-                                            )
-                            ],
-                          ),
+                                            ),
+                                          )
+                          ],
                         ),
                       ),
                     ],
@@ -996,7 +1045,7 @@ class JobformView extends GetView<CreatenewjobController> {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Get.to(SelectclientView());
+                          // Get.to(SelectclientView());
                         },
                         child: Image.asset(
                           MyImages.edit,

@@ -1,6 +1,6 @@
+import 'package:Talbotiq/app/widgets/search.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:talbotiq/app/widgets/search.dart';
 
 import '../constants/values.dart';
 

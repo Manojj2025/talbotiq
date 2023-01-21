@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:talbotiq/app/modules/auth_screens/controllers/resetpassword_controller.dart';
-import 'package:talbotiq/app/modules/auth_screens/views/otp_view.dart';
-import 'package:talbotiq/app/modules/auth_screens/views/successfully_view.dart';
+import 'package:Talbotiq/app/modules/auth_screens/controllers/resetpassword_controller.dart';
+import 'package:Talbotiq/app/modules/auth_screens/views/otp_view.dart';
+import 'package:Talbotiq/app/modules/auth_screens/views/successfully_view.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/buttons.dart';

@@ -26,7 +26,7 @@ Future<void> main() async {
         builder: (context, screenUtil) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            title: "Talbotiq",
+            title: "Talboiq",
             initialRoute: AppPages.INITIAL,
             builder: (context, child) {
               return MediaQuery(

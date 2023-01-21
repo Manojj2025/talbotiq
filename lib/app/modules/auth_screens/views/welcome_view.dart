@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:talbotiq/app/modules/auth_screens/controllers/welcome_controller.dart';
+import 'package:Talbotiq/app/modules/auth_screens/controllers/welcome_controller.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/buttons.dart';
@@ -56,15 +56,15 @@ class WelcomeView extends GetView<WelcomeController> {
                 pageModel(
                     body:
                         'Automate your talent intelligence with a holistic & seamless solution',
-                    title: 'Welcome to Talbotiq',
+                    title: 'Welcome to Talboiq',
                     image: MyImages.intro),
                 pageModel(
                     body:
                         'Automate your talent intelligence with a holistic & seamless solution',
-                    title: 'Welcome to Talbotiq',
+                    title: 'Welcome to Talboiq',
                     image: MyImages.intro),
                 pageModel(
-                    title: 'Welcome to Talbotiq',
+                    title: 'Welcome to Talboiq',
                     body:
                         'Automate your talent intelligence with a holistic & seamless solution',
                     image: MyImages.intro),

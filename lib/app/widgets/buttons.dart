@@ -9,6 +9,7 @@ mybuttons(
     color,
     gradient,
     namecolor,
+    border,
     style,
     height,
     width,
@@ -22,7 +23,7 @@ mybuttons(
       width: width ?? Get.width,
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        gradient: gradient ?? null,
+        border: border,
         color: color ?? AppColors.primaryColor,
         borderRadius: BorderRadius.circular(radius ?? 4.0),
       ),

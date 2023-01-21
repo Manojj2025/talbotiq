@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:talbotiq/app/modules/jobs_screens/controllers/selectclient_controller.dart';
+import 'package:Talbotiq/app/modules/jobs_screens/controllers/selectclient_controller.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';

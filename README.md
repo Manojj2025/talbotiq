@@ -1,4 +1,4 @@
-# talbotiq
+# Talbotiq
 
 A new Flutter project.
 

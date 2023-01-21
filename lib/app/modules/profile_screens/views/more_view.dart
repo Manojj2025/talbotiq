@@ -41,7 +41,7 @@ class MoreView extends GetView<MoreController> {
                             ),
                             heightSpace3,
                             Text(
-                              'janki@talbotiq.com',
+                              'janki@Talbotiq.com',
                               style: BaseStyles.grey2Medium14,
                             )
                           ],

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.frantic.talbotiq.talbotiq">
+    package="com.frantic.Talbotiq.Talbotiq">
    <application
-        android:label="talbotiq"
+        android:label="Talboiq"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

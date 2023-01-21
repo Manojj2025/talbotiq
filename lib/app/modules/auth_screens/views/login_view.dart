@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
-import 'package:talbotiq/app/constants/strings.dart';
-import 'package:talbotiq/app/modules/auth_screens/views/resetpassword_view.dart';
-import 'package:talbotiq/app/modules/jobs_screens/views/bottombar_view.dart';
-import 'package:talbotiq/app/widgets/decoration.dart';
-import 'package:talbotiq/app/widgets/textfiled.dart';
+import 'package:Talbotiq/app/constants/strings.dart';
+import 'package:Talbotiq/app/modules/auth_screens/views/resetpassword_view.dart';
+import 'package:Talbotiq/app/modules/jobs_screens/views/bottombar_view.dart';
+import 'package:Talbotiq/app/widgets/decoration.dart';
+import 'package:Talbotiq/app/widgets/textfiled.dart';
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
 import '../../../widgets/buttons.dart';
