@@ -1,6 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../views/jobdetail_view.dart';
+import '../views/totalapplication.dart';
 
 class JobdetailController extends GetxController {
   //TODO: Implement JobdetailController
@@ -25,16 +28,33 @@ class JobdetailController extends GetxController {
     {"img": "assets/image/rej.png", "title": "Rejected (2)"},
   ].obs;
   final List<ChartData> chartData = [
-    ChartData('USA', 10, '70%'),
-    ChartData('China', 11, '60%'),
-    ChartData('Russia', 9, '52%'),
-    ChartData('Germany', 10, '40%'),
-    ChartData('Russia', 9, '52%'),
-    ChartData('Germany', 10, '40%')
+    ChartData('1 - 2 year', 10, '70%', Color(0xff3269E5)),
+    ChartData('2 - 3 year', 11, '60%', Color(0xff34C7C7)),
+    ChartData('3 - 4 year', 9, '52%', Color(0xffE7B22B)),
+    ChartData('4 - 5 year', 10, '40%', Color(0xff824DCB)),
+    ChartData('5 - 7 year', 9, '52%', Color(0xffDB3A57)),
+    ChartData('7 + year', 10, '40%', Color(0xffA1CE40))
+  ];
+  final List<ChartData> chartData2 = [
+    ChartData('Below budget', 10, '70%', Color(0xffE7B22B)),
+    ChartData('As per budget', 11, '60%', Color(0xffDB4846)),
+    ChartData('Above budget', 9, '52%', Color(0xffA1CE40)),
+  ];
+  late TooltipBehavior tooltip;
+  final touchedIndex = 0.obs;
+  final changegraph = 0.obs;
+  final List<BarData> barData = [
+    BarData(1, 40),
+    BarData(2, 20),
+    BarData(3, 30),
+    BarData(4, 40),
+    BarData(5, 30),
+    BarData(6, 20),
   ];
   @override
   void onInit() {
     super.onInit();
+    tooltip = TooltipBehavior(enable: true);
   }
 
   @override

@@ -63,6 +63,7 @@ class HomeName {
   static const createinterview = 'Create Interview';
   static const createcandidate = 'Create Candidate';
   static const createclient = 'Create Client';
+  static const client = 'Client';
 }
 
 class JobsName {
@@ -75,6 +76,7 @@ class JobsName {
   static const addprofessional = 'Add Professional Skills';
   static const sortby = 'Sort By';
   static const jobPosted = 'Job Posted';
+  static const totalapplication = 'Total Applications';
   static const jobdetail = 'Job Details';
   static const jobDescription = 'Job Description';
 

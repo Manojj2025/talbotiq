@@ -1,3 +1,4 @@
+import 'package:Talbotiq/app/modules/jobs_screens/views/totalapplication.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -274,6 +275,9 @@ class JobdetailView extends GetView<JobdetailController> {
                 ),
                 heightSpace20,
                 mybuttons(
+                    action: () {
+                      Get.to(TotalapplicationView());
+                    },
                     border:
                         Border.all(color: AppColors.greyprimarycolor.shade300),
                     name: 'View acquisition',
@@ -284,48 +288,150 @@ class JobdetailView extends GetView<JobdetailController> {
           ),
         ),
         heightSpace10,
-        Container(
-            width: Get.width,
-            color: AppColors.whiteColor,
-            child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Icons.keyboard_arrow_left,
-                        color: AppColors.greycolor,
-                      ),
-                      Text(
-                        'Candidate by Experience',
-                        style: BaseStyles.blackMedium14,
-                      ),
-                      Icon(
-                        Icons.keyboard_arrow_right,
-                        color: AppColors.greycolor,
-                      )
-                    ],
-                  ),
-                  Divider(
-                    thickness: 0.5,
-                  ),
-                  Container(
-                      child: SfCircularChart(series: <CircularSeries>[
-                    PieSeries<ChartData, String>(
-                        dataSource: controller.chartData,
-                        xValueMapper: (ChartData data, _) => data.x,
-                        yValueMapper: (ChartData data, _) => data.y,
-                        groupMode: CircularChartGroupMode.point,
-                        explode: true,
-                        startAngle: 0,
+        Obx(
+          () => Container(
+              width: Get.width,
+              color: AppColors.whiteColor,
+              child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            if (controller.changegraph.value == 1)
+                              controller.changegraph.value = 0;
+                          },
+                          child: Icon(
+                            Icons.keyboard_arrow_left,
+                            color: AppColors.greycolor,
+                          ),
+                        ),
+                        Text(
+                          controller.changegraph.value == 0
+                              ? 'Candidate by Experience'
+                              : 'Candidate by Budget',
+                          style: BaseStyles.blackMedium14,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            if (controller.changegraph.value == 0)
+                              controller.changegraph.value = 1;
+                          },
+                          child: Icon(
+                            Icons.keyboard_arrow_right,
+                            color: AppColors.greycolor,
+                          ),
+                        )
+                      ],
+                    ),
+                    Divider(
+                      thickness: 0.5,
+                    ),
+                    controller.changegraph.value == 0
+                        ? Column(
+                            children: [
+                              Container(
+                                  child: SfCircularChart(
+                                      tooltipBehavior: controller.tooltip,
+                                      series: <CircularSeries>[
+                                    PieSeries<ChartData, String>(
+                                        enableTooltip: true,
+                                        // strokeColor: Colors.red,
+                                        dataSource: controller.chartData,
+                                        pointColorMapper: (ChartData data, _) =>
+                                            data.color,
+                                        xValueMapper: (ChartData data, _) =>
+                                            data.x,
+                                        yValueMapper: (ChartData data, _) =>
+                                            data.y,
+                                        groupMode: CircularChartGroupMode.point,
+                                        explode: true,
+                                        startAngle: 0,
+                                        name: 'manoj',
 
-                        // All the segments will be exploded
-                        explodeAll: true,
-                        // Radius for each segment from data source
-                        pointRadiusMapper: (ChartData data, _) => data.size)
-                  ]))
-                ])))
+                                        // All the segments will be exploded
+                                        explodeAll: true,
+                                        // Radius for each segment from data source
+                                        pointRadiusMapper:
+                                            (ChartData data, _) => data.size)
+                                  ])),
+                              GridView.builder(
+                                  shrinkWrap: true,
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 3,
+                                          crossAxisSpacing: 4.0,
+                                          childAspectRatio: 3 / 1,
+                                          mainAxisSpacing: 4.0),
+                                  itemCount: controller.chartData.length,
+                                  itemBuilder: (BuildContext ctx, index) {
+                                    return Indicator(
+                                      color: controller.chartData[index].color,
+                                      text: controller.chartData[index].x,
+                                      isSquare: false,
+                                      // size: controller.touchedIndex.value == 0 ? 18 : 16,
+                                      textColor:
+                                          controller.touchedIndex.value == 0
+                                              ? Colors.black
+                                              : Colors.grey,
+                                    );
+                                  }),
+                            ],
+                          )
+                        : Column(
+                            children: [
+                              Container(
+                                  child: SfCircularChart(
+                                      tooltipBehavior: controller.tooltip,
+                                      series: <CircularSeries>[
+                                    PieSeries<ChartData, String>(
+                                        enableTooltip: true,
+                                        // strokeColor: Colors.red,
+                                        dataSource: controller.chartData2,
+                                        pointColorMapper: (ChartData data, _) =>
+                                            data.color,
+                                        xValueMapper: (ChartData data, _) =>
+                                            data.x,
+                                        yValueMapper: (ChartData data, _) =>
+                                            data.y,
+                                        groupMode: CircularChartGroupMode.point,
+                                        explode: true,
+                                        startAngle: 0,
+                                        // name: 'manoj',
+
+                                        // All the segments will be exploded
+                                        explodeAll: true,
+                                        // Radius for each segment from data source
+                                        pointRadiusMapper:
+                                            (ChartData data, _) => data.size)
+                                  ])),
+                              GridView.builder(
+                                  shrinkWrap: true,
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 2,
+                                          crossAxisSpacing: 4.0,
+                                          childAspectRatio: 5 / 1,
+                                          mainAxisSpacing: 4.0),
+                                  itemCount: controller.chartData2.length,
+                                  itemBuilder: (BuildContext ctx, index) {
+                                    return Indicator(
+                                      color: controller.chartData2[index].color,
+                                      text: controller.chartData2[index].x,
+                                      isSquare: false,
+                                      // size: controller.touchedIndex.value == 0 ? 18 : 16,
+                                      textColor:
+                                          controller.touchedIndex.value == 0
+                                              ? Colors.black
+                                              : Colors.grey,
+                                    );
+                                  }),
+                            ],
+                          )
+                  ]))),
+        )
       ],
     );
   }
@@ -1113,16 +1219,61 @@ class JobdetailView extends GetView<JobdetailController> {
   }
 }
 
-class _ChartData {
-  _ChartData(this.x, this.y);
+// Indicator
+class Indicator extends StatelessWidget {
+  final Color color;
+  final Color textColor;
+  final String text;
+  final bool isSquare;
+  final double size;
 
-  final String x;
-  final double y;
+  const Indicator({
+    Key? key,
+    required this.color,
+    this.textColor = Colors.white,
+    required this.text,
+    required this.isSquare,
+    this.size = 12,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Container(
+          width: size,
+          height: size,
+          decoration: BoxDecoration(
+            shape: isSquare ? BoxShape.rectangle : BoxShape.circle,
+            color: color,
+          ),
+        ),
+        widthSpace10,
+        Text(text, style: BaseStyles.grey1Medium14)
+      ],
+    );
+  }
 }
 
+// class _ChartData {
+//   _ChartData(this.x, this.y);
+
+//   final String x;
+//   final double y;
+// }
+
 class ChartData {
-  ChartData(this.x, this.y, this.size);
+  ChartData(
+    this.x,
+    this.y,
+    this.size,
+    this.color,
+  );
   final String x;
   final double y;
+  final Color color;
+
   final String size;
 }

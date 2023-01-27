@@ -59,6 +59,11 @@ class BaseStyles {
     fontWeight: FontWeight.w400,
     fontSize: 12.sp,
   );
+  static final lightblacklarge12 = GoogleFonts.roboto(
+    color: const Color(0xff4F4F4F),
+    fontWeight: FontWeight.w500,
+    fontSize: 12.sp,
+  );
   static final grey2Medium12 = GoogleFonts.roboto(
     color: AppColors.greycolor2,
     fontWeight: FontWeight.w500,

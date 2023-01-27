@@ -354,3 +354,64 @@ skillswidget(context, controller) {
         );
       });
 }
+
+jobedit({context, controller, listname, icon}) {
+  return showModalBottomSheet(
+      isDismissible: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(25.0),
+        ),
+      ),
+      builder: (context) {
+        return FractionallySizedBox(
+          heightFactor: 0.4,
+          child: Container(
+            // height: 300,
+            decoration: MyDecoration.radiusonlydecoration(),
+            child: Column(
+              children: [
+                heightSpace20,
+                Container(
+                  height: 4,
+                  width: 160,
+                  decoration: MyDecoration.simpledecoration(
+                      color: AppColors.greyprimarycolor),
+                ),
+                // heightSpace20,
+                // Text(
+                //   JobsName.sortby,
+                //   style: BaseStyles.blackMedium16,
+                // ),
+                heightSpace10,
+                Expanded(
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: listname.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ListTile(
+                            horizontalTitleGap: 2.0,
+                            dense: true,
+                            contentPadding: const EdgeInsets.only(left: 15),
+                            title: Text(
+                              listname[index]['name'].toString(),
+                              style: BaseStyles.blacNormal14,
+                            ),
+                            leading: Icon(
+                              icon[index]['icon'],
+                              size: 16,
+                              color: AppColors.lightblackColor,
+                            ));
+                      }),
+                ),
+                heightSpace10
+              ],
+            ),
+          ),
+        );
+      });
+}

@@ -213,12 +213,22 @@ class JobsView extends GetView<JobsController> {
                                 ),
                               ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Icon(
-                                Icons.more_vert_outlined,
-                                size: 18,
-                                color: AppColors.greyprimarycolor,
+                            GestureDetector(
+                              onTap: () {
+                                jobedit(
+                                  context: context,
+                                  controller: controller,
+                                  listname: controller.editlist,
+                                  icon: controller.editlist,
+                                );
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.more_vert_outlined,
+                                  size: 18,
+                                  color: AppColors.greyprimarycolor,
+                                ),
                               ),
                             )
                           ],

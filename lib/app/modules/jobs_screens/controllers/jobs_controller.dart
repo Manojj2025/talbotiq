@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class JobsController extends GetxController {
@@ -22,6 +23,14 @@ class JobsController extends GetxController {
     "Created Date",
     "Location",
     "Company",
+  ].obs;
+  final editlist = [
+    {"icon": Icons.remove_red_eye_outlined, "name": "View job"},
+    {"icon": Icons.person_outline, "name": "Invite Candidates"},
+    {"icon": Icons.share, "name": "Share externally"},
+    {"icon": Icons.edit, "name": "Edit"},
+    {"icon": Icons.add_box_outlined, "name": "Duplicate"},
+    {"icon": Icons.delete, "name": "Delete"},
   ].obs;
   @override
   void onInit() {

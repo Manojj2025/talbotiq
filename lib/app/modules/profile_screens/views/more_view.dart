@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
+import '../../clients_screens/views/client_view.dart';
 import '../controllers/more_controller.dart';
 
 class MoreView extends GetView<MoreController> {
@@ -65,22 +66,33 @@ class MoreView extends GetView<MoreController> {
                         padding: const EdgeInsets.all(10.0),
                         child: Column(
                           children: [
-                            Row(
-                              children: [
-                                Image.asset(
-                                  controller.profillist[index]['image']
-                                      .toString(),
-                                  height: 22,
-                                  width: 22,
-                                ),
-                                widthSpace10,
-                                widthSpace5,
-                                Text(
-                                  controller.profillist[index]['name']
-                                      .toString(),
-                                  style: BaseStyles.blacNormal16,
-                                )
-                              ],
+                            GestureDetector(
+                              onTap: () {
+                                switch (index) {
+                                  case 2:
+                                    Get.to(ClientView());
+
+                                    break;
+                                  default:
+                                }
+                              },
+                              child: Row(
+                                children: [
+                                  Image.asset(
+                                    controller.profillist[index]['image']
+                                        .toString(),
+                                    height: 22,
+                                    width: 22,
+                                  ),
+                                  widthSpace10,
+                                  widthSpace5,
+                                  Text(
+                                    controller.profillist[index]['name']
+                                        .toString(),
+                                    style: BaseStyles.blacNormal16,
+                                  )
+                                ],
+                              ),
                             ),
                             heightSpace10,
                             Divider(
