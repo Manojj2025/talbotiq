@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ClientsdetailController extends GetxController {
+class LeaddetailController extends GetxController {
   //TODO: Implement JobdetailController
 
   final clientslist = [
     {"name": "Overview", "value": ""},
-    {"name": "Jobs", "value": "1"},
-    {"name": "Notes", "value": ""},
-    {"name": "Settings", "value": "2"},
+    {"name": "Activities", "value": "1"},
+    {"name": "Attachments", "value": ""},
+    {"name": "Notes", "value": "2"},
   ].obs;
+  final activity = ['Open', 'closed'];
   final joblist2 = ["Photoshop", "Ptototype", "Figma", "UX/UI", "Adobe"].obs;
   final selectname = 'Overview'.obs;
   final jobselectname2 = 'Photoshop'.obs;

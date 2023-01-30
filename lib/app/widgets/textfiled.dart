@@ -171,14 +171,23 @@ alltextfiled({text, controller, show, icon}) {
 }
 
 textwidget(
-    {name, text, minline, readonly, onTap, maxline, controller, onchange}) {
+    {name,
+    text,
+    minline,
+    readonly,
+    onTap,
+    maxline,
+    controller,
+    onchange,
+    showtext}) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
-        name,
-        style: BaseStyles.grey1Medium14,
-      ),
+      showtext ??
+          Text(
+            name,
+            style: BaseStyles.grey1Medium14,
+          ),
       heightSpace5,
       textfiled(
         onchange: onchange,

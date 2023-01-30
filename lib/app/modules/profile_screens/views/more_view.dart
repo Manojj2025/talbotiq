@@ -1,3 +1,4 @@
+import 'package:Talbotiq/app/modules/lead_screens/views/lead_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -71,6 +72,10 @@ class MoreView extends GetView<MoreController> {
                                 switch (index) {
                                   case 2:
                                     Get.to(ClientView());
+
+                                    break;
+                                  case 1:
+                                    Get.to(LeadView());
 
                                     break;
                                   default:

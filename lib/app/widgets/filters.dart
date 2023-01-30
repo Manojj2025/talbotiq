@@ -415,3 +415,69 @@ jobedit({context, controller, listname, icon}) {
         );
       });
 }
+
+status({context, controller, title, list, button, size}) {
+  return showModalBottomSheet(
+      isDismissible: true,
+      backgroundColor: Colors.transparent,
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(25.0),
+        ),
+      ),
+      builder: (context) {
+        return FractionallySizedBox(
+          heightFactor: size ?? 0.25,
+          child: Container(
+            // height: 300,
+            decoration: MyDecoration.radiusonlydecoration(),
+            child: Column(
+              children: [
+                heightSpace20,
+                Container(
+                  height: 4,
+                  width: 160,
+                  decoration: MyDecoration.simpledecoration(
+                      color: AppColors.greyprimarycolor),
+                ),
+                heightSpace20,
+                Text(
+                  title,
+                  style: BaseStyles.blackMedium16,
+                ),
+                heightSpace10,
+                Expanded(
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: list.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ListTile(
+                          horizontalTitleGap: 2.0,
+                          dense: true,
+                          contentPadding: const EdgeInsets.only(left: 5),
+                          title: Text(
+                            list[index].toString(),
+                            style: BaseStyles.blacNormal14,
+                          ),
+                          leading: Radio(
+                            activeColor: AppColors.primaryColor,
+                            visualDensity: const VisualDensity(
+                                horizontal: -0.4, vertical: -0.4),
+                            value: true,
+                            groupValue: false,
+                            onChanged: (value) {},
+                          ),
+                        );
+                      }),
+                ),
+                heightSpace10,
+                button ?? Container()
+              ],
+            ),
+          ),
+        );
+      });
+}

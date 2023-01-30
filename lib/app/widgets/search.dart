@@ -5,12 +5,21 @@ import '../constants/values.dart';
 import 'decoration.dart';
 
 mysearch(
-    {width, height, verticaltext, title, action, controller, readonly, goto}) {
+    {width,
+    height,
+    verticaltext,
+    title,
+    action,
+    controller,
+    readonly,
+    goto,
+    decoration}) {
   return Container(
     width: width ?? Get.width * 0.70,
     // color: Colors.grey,
     height: height ?? 36,
-    decoration: decorationbox2(color: AppColors.whiteColor, radius: 5.0),
+    decoration:
+        decoration ?? decorationbox2(color: AppColors.whiteColor, radius: 5.0),
     child: TextField(
       controller: controller,
       onChanged: action,

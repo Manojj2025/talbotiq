@@ -43,6 +43,7 @@ class MyImages {
 class HomeName {
   static const resetpass = 'Reset Password';
 
+  static const leaddetail = 'Lead Details';
   static const enterdigit = 'Enter 4 Digit OTP';
   static const verify = 'Verify';
   static const gotoHome = 'Go to Home';
@@ -64,20 +65,24 @@ class HomeName {
   static const createcandidate = 'Create Candidate';
   static const createclient = 'Create Client';
   static const client = 'Client';
+  static const lead = 'Leads';
 }
 
 class JobsName {
   static const filters = 'Filters';
   static const jobdescription = 'Description';
   static const newjob = 'Create New Job';
+  static const addrecruiter = 'Add Recruiter';
   static const selectclient = 'Select Client';
   static const jobtitle = 'Job Title';
 
   static const addprofessional = 'Add Professional Skills';
   static const sortby = 'Sort By';
+  static const clientadded = 'Client Added';
   static const jobPosted = 'Job Posted';
   static const totalapplication = 'Total Applications';
   static const jobdetail = 'Job Details';
+  static const newtask = 'Create New Task';
   static const jobDescription = 'Job Description';
 
   static const professionalSkills = 'Professional Skills';
