@@ -610,6 +610,7 @@ class JobformView extends GetView<CreatenewjobController> {
                                                   child: Column(
                                                     children: [
                                                       textwidget(
+                                                          height: 150.0,
                                                           controller: controller
                                                               .descriptionstext,
                                                           readonly: true,

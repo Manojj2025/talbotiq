@@ -8,16 +8,16 @@ import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
 import '../../../widgets/buttons.dart';
 import '../../../widgets/jobdetailwidget.dart';
-import '../controllers/clientDetail_controller.dart';
+import '../controllers/leaddetail_controller.dart';
 
-class ClientAddedView extends GetView<ClientsdetailController> {
-  const ClientAddedView({Key? key}) : super(key: key);
+class LeadAddedView extends GetView<LeaddetailController> {
+  const LeadAddedView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: myappbar2(
           show: false,
-          title: JobsName.clientadded,
+          title: HomeName.leadadded,
           widget: GestureDetector(
             onTap: () {
               Get.back();
@@ -62,7 +62,7 @@ class ClientAddedView extends GetView<ClientsdetailController> {
                     ),
                     heightSpace30,
                     Text(
-                      'Client Added Successfully!',
+                      'Lead Added Successfully!',
                       style: BaseStyles.blackMedium24,
                     ),
                     heightSpace10,
@@ -88,7 +88,7 @@ class ClientAddedView extends GetView<ClientsdetailController> {
                 child: Column(
                   children: [
                     Text(
-                      'If you entered wrong information, don’t panic. We’ve made it easy for you to update the Client detail.',
+                      'If you entered wrong information, don’t panic. We’ve made it easy for you to update the Lead detail.',
                       style: BaseStyles.blackMedium14,
                     ),
                     heightSpace20,
@@ -97,7 +97,7 @@ class ClientAddedView extends GetView<ClientsdetailController> {
                         icon: Icons.check,
                         width: Get.width * 0.80,
                         iconcolor: AppColors.primaryColor,
-                        title: 'Check on the status of the client',
+                        title: 'Check on the status of the Lead',
                         title2: ''),
                     heightSpace10,
                     jobdetails(
@@ -105,7 +105,7 @@ class ClientAddedView extends GetView<ClientsdetailController> {
                         icon: Icons.calendar_month,
                         width: Get.width * 0.80,
                         iconcolor: AppColors.primaryColor,
-                        title: 'Edit the informations of client',
+                        title: 'Edit the informations of Lead',
                         title2: ''),
                     // heightSpace10,
                     // jobdetails(
@@ -121,21 +121,21 @@ class ClientAddedView extends GetView<ClientsdetailController> {
                         icon: Icons.block_outlined,
                         width: Get.width * 0.80,
                         iconcolor: AppColors.primaryColor,
-                        title: 'Block/delete the client',
+                        title: 'Block/delete the Lead',
                         title2: ''),
                     heightSpace20,
                     mybuttons(
                         action: () {
                           Get.offAll(BottombarView());
                         },
-                        name: 'View Client',
+                        name: 'View Lead',
                         color: AppColors.orangecolor,
                         height: 40.0),
                     mybuttons(
                         style: BaseStyles.orangeMedium16,
                         border: Border.all(color: AppColors.orangecolor),
                         action: () {
-                          Get.to(ClientAddedView());
+                          // Get.to(LeadAddedView());
                           // controller
                           //     .index
                           //     .value = ;

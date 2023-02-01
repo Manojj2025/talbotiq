@@ -23,6 +23,7 @@ textfiled(
       radius: 4.0,
     ),
     width: width,
+    height: height ?? 40.0,
     // margin: const EdgeInsets.only(left: 5, right: 5),
 
     child: TextField(
@@ -175,6 +176,7 @@ textwidget(
     text,
     minline,
     readonly,
+    height,
     onTap,
     maxline,
     controller,
@@ -196,7 +198,7 @@ textwidget(
         ontap: onTap,
         readonly: readonly ?? false,
         text: text,
-        height: 40.0,
+        height: height ?? 40.0,
         minline: minline,
       )
     ],

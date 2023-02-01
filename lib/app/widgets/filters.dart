@@ -355,7 +355,7 @@ skillswidget(context, controller) {
       });
 }
 
-jobedit({context, controller, listname, icon}) {
+jobedit({context, controller, listname, icon, routename, int i = 2}) {
   return showModalBottomSheet(
       isDismissible: true,
       backgroundColor: Colors.transparent,
@@ -393,19 +393,32 @@ jobedit({context, controller, listname, icon}) {
                       physics: const NeverScrollableScrollPhysics(),
                       itemCount: listname.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return ListTile(
-                            horizontalTitleGap: 2.0,
-                            dense: true,
-                            contentPadding: const EdgeInsets.only(left: 15),
-                            title: Text(
-                              listname[index]['name'].toString(),
-                              style: BaseStyles.blacNormal14,
-                            ),
-                            leading: Icon(
-                              icon[index]['icon'],
-                              size: 16,
-                              color: AppColors.lightblackColor,
-                            ));
+                        // int i = index;
+                        return GestureDetector(
+                          onTap: () {
+                            if (routename == null) return;
+                            switch (index) {
+                              case 2:
+                                Get.back();
+                                Get.to(routename);
+                                break;
+                              default:
+                            }
+                          },
+                          child: ListTile(
+                              horizontalTitleGap: 2.0,
+                              dense: true,
+                              contentPadding: const EdgeInsets.only(left: 15),
+                              title: Text(
+                                listname[index]['name'].toString(),
+                                style: BaseStyles.blacNormal14,
+                              ),
+                              leading: Icon(
+                                icon[index]['icon'],
+                                size: 16,
+                                color: AppColors.lightblackColor,
+                              )),
+                        );
                       }),
                 ),
                 heightSpace10

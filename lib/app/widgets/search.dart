@@ -40,7 +40,7 @@ mysearch(
         ),
         floatingLabelBehavior: FloatingLabelBehavior.auto,
         contentPadding:
-            EdgeInsets.symmetric(horizontal: 0, vertical: verticaltext ?? 1),
+            EdgeInsets.symmetric(horizontal: 0, vertical: verticaltext ?? 3),
         hintText: title ?? 'Search',
         hintStyle: BaseStyles.greyMedium14,
         border: InputBorder.none,

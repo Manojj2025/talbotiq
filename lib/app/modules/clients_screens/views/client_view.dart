@@ -6,6 +6,7 @@ import 'package:Talbotiq/app/widgets/decoration.dart';
 import '../../../constants/values.dart';
 import '../../../widgets/filters.dart';
 import '../controllers/client_controller.dart';
+import 'addnewclient_view.dart';
 import 'clientDetail_view.dart';
 import 'clientNewtask_view.dart';
 
@@ -36,7 +37,7 @@ class ClientView extends GetView<ClientController> {
                     // widthSpace5,
                     GestureDetector(
                       onTap: () {
-                        Get.to(ClientNewTaskView());
+                        Get.to(AddNewClientView());
                       },
                       child: Row(
                         children: [
@@ -314,7 +315,7 @@ class ClientView extends GetView<ClientController> {
                                             : Icons.bookmark_border_rounded,
                                         size: 16,
                                         color: controller.save[index] == true
-                                            ? AppColors.orangecolor
+                                            ? AppColors.yellowcolor
                                             : AppColors.greyprimarycolor,
                                       ),
                                     ),
@@ -322,6 +323,10 @@ class ClientView extends GetView<ClientController> {
                                     GestureDetector(
                                       onTap: () {
                                         jobedit(
+                                          routename: ClientNewTaskView(),
+                                          // ontap: Get.to(ClientNewTaskView()),
+                                          // // Get.back();
+
                                           context: context,
                                           controller: controller,
                                           listname: controller.editlist,

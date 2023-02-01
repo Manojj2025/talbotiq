@@ -1,3 +1,4 @@
+import 'package:Talbotiq/app/modules/Oppurtunity_screen/controllers/oppurtunity_controller.dart';
 import 'package:Talbotiq/app/modules/lead_screens/controllers/lead_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -6,22 +7,20 @@ import 'package:Talbotiq/app/widgets/decoration.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/filters.dart';
-import '../../clients_screens/views/clientNewtask_view.dart';
-import 'addnewlead.dart';
-import 'leadNewtask_view.dart';
-import 'leaddetail_view.dart';
+import 'oppurtunityNewtask_view.dart';
+import 'oppurtunitydetail_view.dart';
 
-class LeadView extends GetView<LeadController> {
-  const LeadView({Key? key}) : super(key: key);
+class OppurtunityView extends GetView<OppurtunityController> {
+  const OppurtunityView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => LeadController());
+    Get.lazyPut(() => OppurtunityController());
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
             leadingWidth: 30,
             title: Text(
-              HomeName.lead,
+              HomeName.oppurtunity,
               style: BaseStyles.whiteMedium16,
             ),
             actions: [
@@ -38,21 +37,23 @@ class LeadView extends GetView<LeadController> {
                     // widthSpace5,
                     GestureDetector(
                       onTap: () {
-                        Get.to(AddNewLeadView());
+                        Get.to(OppurtunityNewTaskView());
                       },
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.add,
-                            color: AppColors.whiteColor,
-                            size: 18,
-                          ),
-                          widthSpace5,
-                          Text(
-                            'New',
-                            style: BaseStyles.whitebold14,
-                          )
-                        ],
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.add,
+                              color: AppColors.whiteColor,
+                              size: 18,
+                            ),
+                            widthSpace5,
+                            Text(
+                              'New',
+                              style: BaseStyles.whitebold14,
+                            )
+                          ],
+                        ),
                       ),
                     )
                   ],
@@ -207,7 +208,7 @@ class LeadView extends GetView<LeadController> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.to(const LeaddetailView());
+                    Get.to(const OppurtunitydetailView());
                   },
                   child: Container(
                     padding: EdgeInsets.all(8.0),
@@ -227,7 +228,7 @@ class LeadView extends GetView<LeadController> {
                                   child: CircleAvatar(
                                     backgroundColor: Color(0xffECF7F3),
                                     child: Image.asset(
-                                      'assets/image/2.png',
+                                      'assets/image/4.png',
                                       height: 20,
                                       width: 20,
                                       color: AppColors.primaryColor,
@@ -320,7 +321,7 @@ class LeadView extends GetView<LeadController> {
                                     GestureDetector(
                                       onTap: () {
                                         jobedit(
-                                          routename: LeadNewTaskView(),
+                                          // routename: LeadNewTaskView(),
                                           context: context,
                                           controller: controller,
                                           listname: controller.editlist,
@@ -347,13 +348,13 @@ class LeadView extends GetView<LeadController> {
                             Row(
                               children: [
                                 Icon(
-                                  Icons.business,
-                                  color: AppColors.greyprimarycolor,
+                                  Icons.location_on_outlined,
                                   size: 16,
+                                  color: AppColors.greyprimarycolor,
                                 ),
                                 widthSpace3,
                                 Text(
-                                  'Oodles Technologies',
+                                  'Gurugram',
                                   style: BaseStyles.lightblackMedium12,
                                 )
                               ],
@@ -362,13 +363,13 @@ class LeadView extends GetView<LeadController> {
                             Row(
                               children: [
                                 Icon(
-                                  Icons.location_on_outlined,
+                                  Icons.phone,
                                   size: 16,
                                   color: AppColors.greyprimarycolor,
                                 ),
                                 widthSpace3,
                                 Text(
-                                  'Gurugram',
+                                  '+91 9939938938',
                                   style: BaseStyles.lightblackMedium12,
                                 )
                               ],
@@ -386,7 +387,7 @@ class LeadView extends GetView<LeadController> {
                             Row(
                               children: [
                                 Image.asset(
-                                  'assets/image/2.png',
+                                  'assets/image/4.png',
                                   height: 16,
                                   width: 16,
                                   color: AppColors.greycolor3,
@@ -397,30 +398,26 @@ class LeadView extends GetView<LeadController> {
                                   style: BaseStyles.lightblacklarge12,
                                 ),
                                 Text(
-                                  'Cold call',
+                                  ' Public Relations',
                                   style: BaseStyles.lightblackMedium12,
                                 ),
                               ],
                             ),
                             GestureDetector(
-                              onTap: () {
-                                status(
-                                    context: context,
-                                    title: 'Update Status',
-                                    controller: controller,
-                                    list: controller.sortlist);
-                              },
+                              onTap: () {},
                               child: Row(
                                 children: [
-                                  Text(
-                                    'Contacted',
-                                    style: BaseStyles.lightblackMedium12,
+                                  Image.asset(
+                                    'assets/image/q.png',
+                                    height: 15,
+                                    width: 15,
+                                    color: AppColors.primaryColor,
                                   ),
                                   widthSpace5,
-                                  Icon(
-                                    Icons.arrow_drop_down,
-                                    color: AppColors.greyprimarycolor,
-                                  )
+                                  Text(
+                                    'Qualified',
+                                    style: BaseStyles.lightblackMedium12,
+                                  ),
                                 ],
                               ),
                             )

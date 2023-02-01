@@ -284,6 +284,7 @@ class AddNewClientView extends GetView<ClientNewTaskController> {
                                                   height: 25,
                                                 ),
                                                 textwidget(
+                                                    height: 150.0,
                                                     controller: controller
                                                         .descriptionstext,
                                                     readonly: true,
@@ -554,25 +555,34 @@ class AddNewClientView extends GetView<ClientNewTaskController> {
                                                                         )
                                                                       ],
                                                                     ),
-                                                                    Row(
-                                                                      children: [
-                                                                        Icon(
-                                                                          Icons
-                                                                              .add,
-                                                                          color:
-                                                                              AppColors.orangecolor,
-                                                                          size:
-                                                                              16,
-                                                                        ),
-                                                                        // widthSpace20,
-                                                                        widthSpace3,
-                                                                        Text(
-                                                                          'Add',
-                                                                          style:
-                                                                              BaseStyles.orangeMedium14,
-                                                                        ),
-                                                                        widthSpace10,
-                                                                      ],
+                                                                    GestureDetector(
+                                                                      onTap:
+                                                                          () {
+                                                                        print(
+                                                                            'kk');
+                                                                        Get.to(
+                                                                            AddrecruiterView());
+                                                                      },
+                                                                      child:
+                                                                          Row(
+                                                                        children: [
+                                                                          Icon(
+                                                                            Icons.add,
+                                                                            color:
+                                                                                AppColors.orangecolor,
+                                                                            size:
+                                                                                16,
+                                                                          ),
+                                                                          // widthSpace20,
+                                                                          widthSpace3,
+                                                                          Text(
+                                                                            'Add',
+                                                                            style:
+                                                                                BaseStyles.orangeMedium14,
+                                                                          ),
+                                                                          widthSpace10,
+                                                                        ],
+                                                                      ),
                                                                     ),
                                                                     // widthSpace10
                                                                   ],

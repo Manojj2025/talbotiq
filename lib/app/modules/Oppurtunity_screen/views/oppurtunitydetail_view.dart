@@ -14,16 +14,16 @@ import '../../../widgets/appbar.dart';
 import '../../../widgets/jobdetailwidget.dart';
 import '../../../widgets/search.dart';
 import '../../../widgets/textfiled.dart';
-import '../controllers/leaddetail_controller.dart';
+import '../controllers/oppurtunitydetail_controller.dart';
 
-class LeaddetailView extends GetView<LeaddetailController> {
-  const LeaddetailView({Key? key}) : super(key: key);
+class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
+  const OppurtunitydetailView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => LeaddetailController());
+    Get.lazyPut(() => OppurtunitydetailController());
     return Scaffold(
-      appBar:
-          myappbar2(title: HomeName.leaddetail, show: true, show2: Container()),
+      appBar: myappbar2(
+          title: HomeName.opportunityDetails, show: true, show2: Container()),
       body: Obx(
         () => ListView(
           children: [
@@ -49,7 +49,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                               child: CircleAvatar(
                                 backgroundColor: Color(0xffECF7F3),
                                 child: Image.asset(
-                                  'assets/image/2.png',
+                                  'assets/image/4.png',
                                   height: 20,
                                   width: 20,
                                   color: AppColors.primaryColor,
@@ -96,21 +96,6 @@ class LeaddetailView extends GetView<LeaddetailController> {
                         Row(
                           children: [
                             Icon(
-                              Icons.business,
-                              color: AppColors.greyprimarycolor,
-                              size: 16,
-                            ),
-                            widthSpace3,
-                            Text(
-                              'Oodles Technologies',
-                              style: BaseStyles.lightblackMedium12,
-                            )
-                          ],
-                        ),
-                        widthSpace20,
-                        Row(
-                          children: [
-                            Icon(
                               Icons.location_on_outlined,
                               size: 16,
                               color: AppColors.greyprimarycolor,
@@ -122,65 +107,80 @@ class LeaddetailView extends GetView<LeaddetailController> {
                             )
                           ],
                         ),
-                      ],
-                    ),
-                    heightSpace5,
-                    Divider(
-                      thickness: 0.5,
-                    ),
-                    // heightSpace10,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                        widthSpace20,
                         Row(
                           children: [
-                            Image.asset(
-                              'assets/image/2.png',
-                              height: 16,
-                              width: 16,
-                              color: AppColors.greycolor3,
+                            Icon(
+                              Icons.phone,
+                              size: 16,
+                              color: AppColors.greyprimarycolor,
                             ),
                             widthSpace3,
                             Text(
-                              'Source:',
-                              style: BaseStyles.lightblacklarge12,
-                            ),
-                            Text(
-                              'Cold call',
+                              '+91 9939938938',
                               style: BaseStyles.lightblackMedium12,
-                            ),
+                            )
                           ],
                         ),
-                        GestureDetector(
-                          onTap: () {
-                            // status(
-                            //     context: context,
-                            //     title: 'Update Status',
-                            //     controller: controller,
-                            //     list: controller.sortlist);
-                          },
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.person_rounded,
-                                size: 16,
-                                color: AppColors.orangecolor,
-                              ),
-                              widthSpace5,
-                              Text(
-                                'Contacted',
-                                style: BaseStyles.lightblackMedium12,
-                              ),
-                              widthSpace5,
-                              Icon(
-                                Icons.arrow_drop_down,
-                                color: AppColors.greyprimarycolor,
-                              )
-                            ],
-                          ),
-                        )
                       ],
-                    )
+                    ),
+                    heightSpace5,
+                    // Divider(
+                    //   thickness: 0.5,
+                    // ),
+                    // heightSpace10,
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     Row(
+                    //       children: [
+                    //         Image.asset(
+                    //           'assets/image/2.png',
+                    //           height: 16,
+                    //           width: 16,
+                    //           color: AppColors.greycolor3,
+                    //         ),
+                    //         widthSpace3,
+                    //         Text(
+                    //           'Source:',
+                    //           style: BaseStyles.lightblacklarge12,
+                    //         ),
+                    //         Text(
+                    //           'Cold call',
+                    //           style: BaseStyles.lightblackMedium12,
+                    //         ),
+                    //       ],
+                    //     ),
+                    //     GestureDetector(
+                    //       onTap: () {
+                    //         // status(
+                    //         //     context: context,
+                    //         //     title: 'Update Status',
+                    //         //     controller: controller,
+                    //         //     list: controller.sortlist);
+                    //       },
+                    //       child: Row(
+                    //         children: [
+                    //           Icon(
+                    //             Icons.person_rounded,
+                    //             size: 16,
+                    //             color: AppColors.orangecolor,
+                    //           ),
+                    //           widthSpace5,
+                    //           Text(
+                    //             'Contacted',
+                    //             style: BaseStyles.lightblackMedium12,
+                    //           ),
+                    //           widthSpace5,
+                    //           Icon(
+                    //             Icons.arrow_drop_down,
+                    //             color: AppColors.greyprimarycolor,
+                    //           )
+                    //         ],
+                    //       ),
+                    //     )
+                    //   ],
+                    // )
                   ],
                 ),
               ),
@@ -188,518 +188,20 @@ class LeaddetailView extends GetView<LeaddetailController> {
             heightSpace10,
             _item(),
             heightSpace10,
-            controller.selectname.value == 'Overview'
+            controller.selectname.value == 'Opportunity Details'
                 ? Column(
                     children: [
                       Overview(),
                       heightSpace10,
-                      leadbutton(context),
+                      leadDetails(),
                       heightSpace10,
-                      leadDetails()
+                      Details(),
                     ],
                   )
-                : controller.selectname.value == 'Activities'
-                    ? Activities(context)
-                    : controller.selectname.value == 'Notes'
-                        ? notes()
-                        : attachments(context)
+                : Container()
           ],
         ),
       ),
-    );
-  }
-
-  Widget settings() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          // margin: const EdgeInsets.only(top: 10),
-          width: Get.width,
-          color: AppColors.whiteColor,
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                // heightSpace10,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Recruiters',
-                          style: BaseStyles.blackMedium14,
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.add,
-                          color: AppColors.orangecolor,
-                          size: 16,
-                        ),
-                        // widthSpace20,
-                        widthSpace3,
-                        Text(
-                          'Add',
-                          style: BaseStyles.orangeMedium14,
-                        ),
-                        widthSpace10,
-                      ],
-                    ),
-                    // widthSpace10
-                  ],
-                ),
-                heightSpace10,
-                Divider(
-                  thickness: 0.5,
-                ),
-
-                Container(
-                  padding: EdgeInsets.all(8.0),
-                  color: AppColors.whiteColor,
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            // crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CircleAvatar(
-                                // backgroundColor: AppColors.primaryColor,
-                                radius: 20,
-                                child: Image.asset('assets/image/bajaj.png'),
-                              ),
-                              widthSpace10,
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'James',
-                                    style: BaseStyles.blackMedium16,
-                                  ),
-                                  widthSpace5,
-                                  heightSpace5,
-                                  Text(
-                                    'James@gmail.com',
-                                    style: BaseStyles.lightblackMedium12,
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              GestureDetector(
-                                onTap: () {},
-                                child: Icon(
-                                  Icons.more_vert,
-                                  size: 20,
-                                  color: AppColors.greyprimarycolor,
-                                ),
-                              ),
-                              widthSpace10,
-                              GestureDetector(
-                                onTap: () {},
-                                child: Icon(
-                                  Icons.bookmark,
-                                  size: 20,
-                                  color: AppColors.yellowcolor,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      heightSpace10,
-                      heightSpace5,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.call,
-                                color: AppColors.greyprimarycolor,
-                                size: 18,
-                              ),
-                              widthSpace3,
-                              Text(
-                                '9999999999',
-                                style: BaseStyles.lightblackMedium12,
-                              )
-                            ],
-                          ),
-                          widthSpace10,
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.person_outline_sharp,
-                                size: 18,
-                                color: AppColors.greyprimarycolor,
-                              ),
-                              widthSpace3,
-                              Text(
-                                'Reporting to:',
-                                style: BaseStyles.grey2Medium12,
-                              ),
-                              Text(
-                                'Ranjeet Kumar',
-                                style: BaseStyles.grey3Normal12,
-                              ),
-                            ],
-                          ),
-                          widthSpace10,
-                        ],
-                      ),
-                      // heightSpace5,
-                      // Divider(
-                      //   thickness: 0.5,
-                      // ),
-                      // heightSpace10,
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        heightSpace10,
-        Container(
-          // margin: const EdgeInsets.only(top: 10),
-          width: Get.width,
-          color: AppColors.whiteColor,
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                // heightSpace10,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Account Manager',
-                          style: BaseStyles.blackMedium14,
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.change_circle_outlined,
-                          color: AppColors.orangecolor,
-                          size: 16,
-                        ),
-                        widthSpace3,
-                        // widthSpace20,
-                        Text(
-                          'Change',
-                          style: BaseStyles.orangeMedium14,
-                        ),
-                        widthSpace10,
-                      ],
-                    ),
-                    // widthSpace10
-                  ],
-                ),
-                heightSpace10,
-                Divider(
-                  thickness: 0.5,
-                ),
-
-                Container(
-                  padding: EdgeInsets.all(8.0),
-                  color: AppColors.whiteColor,
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            // crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CircleAvatar(
-                                // backgroundColor: AppColors.primaryColor,
-                                radius: 20,
-                                child: Image.asset('assets/image/bajaj.png'),
-                              ),
-                              widthSpace10,
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'James',
-                                    style: BaseStyles.blackMedium16,
-                                  ),
-                                  widthSpace5,
-                                  heightSpace5,
-                                  Text(
-                                    'James@gmail.com',
-                                    style: BaseStyles.lightblackMedium12,
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              GestureDetector(
-                                onTap: () {},
-                                child: Icon(
-                                  Icons.more_vert,
-                                  size: 20,
-                                  color: AppColors.greyprimarycolor,
-                                ),
-                              ),
-                              // widthSpace10,
-                              // GestureDetector(
-                              //   onTap: () {},
-                              //   child: Icon(
-                              //     Icons.bookmark,
-                              //     size: 20,
-                              //     color: AppColors.orangecolor,
-                              //   ),
-                              // ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        heightSpace10,
-        Container(
-          // margin: const EdgeInsets.only(top: 10),
-          width: Get.width,
-          color: AppColors.whiteColor,
-          child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                // heightSpace10,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Text(
-                          'Contract Details',
-                          style: BaseStyles.blackMedium14,
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.add,
-                          color: AppColors.orangecolor,
-                          size: 16,
-                        ),
-                        widthSpace3,
-                        // widthSpace20,
-                        Text(
-                          'Add',
-                          style: BaseStyles.orangeMedium14,
-                        ),
-                        widthSpace10,
-                      ],
-                    ),
-                    // widthSpace10
-                  ],
-                ),
-                heightSpace10,
-                Divider(
-                  thickness: 0.5,
-                ),
-
-                Container(
-                  padding: EdgeInsets.all(8.0),
-                  color: AppColors.whiteColor,
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            // crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CircleAvatar(
-                                // backgroundColor: AppColors.primaryColor,
-                                radius: 20,
-                                child: Image.asset('assets/image/bajaj.png'),
-                              ),
-                              widthSpace10,
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'James',
-                                    style: BaseStyles.blackMedium16,
-                                  ),
-                                  widthSpace5,
-                                  heightSpace5,
-                                  Text(
-                                    'James@gmail.com',
-                                    style: BaseStyles.lightblackMedium12,
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                          Row(
-                            children: [
-                              GestureDetector(
-                                onTap: () {},
-                                child: Icon(
-                                  Icons.more_vert,
-                                  size: 20,
-                                  color: AppColors.greyprimarycolor,
-                                ),
-                              ),
-                              // widthSpace10,
-                              // GestureDetector(
-                              //   onTap: () {},
-                              //   child: Icon(
-                              //     Icons.bookmark,
-                              //     size: 20,
-                              //     color: AppColors.orangecolor,
-                              //   ),
-                              // ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      heightSpace10,
-                      Image.asset('assets/image/Frame.png'),
-                      Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  'Client Details',
-                                  style: BaseStyles.blackMedium14,
-                                ),
-                                GestureDetector(
-                                    onTap: () {},
-                                    child: Image.asset(
-                                      MyImages.edit,
-                                      height: 16,
-                                      width: 16,
-                                    )),
-                              ],
-                            ),
-                          ),
-                          Divider(
-                            thickness: 0.5,
-                          ),
-                          heightSpace5,
-                          Row(
-                            children: [
-                              widthSpace10,
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Contract ID',
-                                      style: BaseStyles.lightblackMedium12,
-                                    ),
-                                    heightSpace5,
-                                    Text(
-                                      'TAL4223',
-                                      style: BaseStyles.blacNormal14,
-                                    )
-                                  ],
-                                ),
-                              ),
-                              // widthSpace20,
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Contract Name',
-                                      style: BaseStyles.lightblackMedium12,
-                                    ),
-                                    heightSpace5,
-                                    Text(
-                                      'Tech Mahindra',
-                                      style: BaseStyles.blacNormal14,
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                          heightSpace20,
-                          Row(
-                            // mainAxisAlignment: MainAxisAlignment.s,
-                            children: [
-                              widthSpace10,
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Duration',
-                                      style: BaseStyles.lightblackMedium12,
-                                    ),
-                                    heightSpace5,
-                                    SizedBox(
-                                      width: Get.width * 0.25,
-                                      child: Text(
-                                        '22 March 22-22 March 2023',
-                                        style: BaseStyles.blacNormal14,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              // widthSpace50,
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Contract Type',
-                                      style: BaseStyles.lightblackMedium12,
-                                    ),
-                                    heightSpace5,
-                                    Text(
-                                      'Percentage',
-                                      style: BaseStyles.blacNormal14,
-                                    )
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-                          heightSpace20,
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 
@@ -1400,6 +902,52 @@ class LeaddetailView extends GetView<LeaddetailController> {
         });
   }
 
+//////  details////////////////////////////////
+  Widget Details() {
+    return Container(
+        // height: 50,
+        width: Get.width,
+        color: AppColors.whiteColor,
+        margin: EdgeInsets.zero,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Details',
+                      style: BaseStyles.blackMedium14,
+                    ),
+                    GestureDetector(
+                        onTap: () {},
+                        child: Image.asset(
+                          MyImages.edit,
+                          height: 16,
+                          width: 16,
+                        )),
+                  ],
+                ),
+              ),
+              Divider(
+                thickness: 0.5,
+              ),
+              heightSpace5,
+              heightSpace5,
+              Text(
+                'Having experience of more than 5 years in UI development for Web Application and Mobile applciations.',
+                style: BaseStyles.blacNormal14,
+              ),
+              heightSpace50,
+            ],
+          ),
+        ));
+  }
+
 ////// job details////////////////////////////////
   Widget leadDetails({title, title2}) {
     return Container(
@@ -1444,7 +992,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Lead Title',
+                          'Opportunity Title',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
@@ -1461,12 +1009,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Lead Owner',
+                          'Division',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'Raman Arora',
+                          'North',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1484,12 +1032,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Name',
+                          'Stage Probability (%)',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'Raman',
+                          '50',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1501,12 +1049,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Email',
+                          'Opportunity Owner',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'Raman@gmail.com',
+                          'Raghav',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1524,12 +1072,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Phone',
+                          'Expected Order Amount',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          '+91 9999999999',
+                          'MYR 500,000.00',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1541,12 +1089,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Company',
+                          'Probability (%)',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'Oodles Technoloies',
+                          '80',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1564,12 +1112,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Website',
+                          'Account Name',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'No Info',
+                          'XYZ Pvt Ltd',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1581,12 +1129,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Lead Source',
+                          'Exchange Rate',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'Advertisment',
+                          'NaN',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1604,12 +1152,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Lead Status',
+                          'Opportunity Status',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'Contacted',
+                          'Won',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1621,12 +1169,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Industry',
+                          'Opportunity Type',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'No Info',
+                          'Existing Business',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1644,12 +1192,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Company Size',
+                          'Closing Date',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'No Info',
+                          'Jan. 31, 2023',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1661,12 +1209,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Street',
+                          'Expected Revenue',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'No Info',
+                          'MYR 50,000.00',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1684,12 +1232,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'City',
+                          'Opportunity Source',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'No Info',
+                          'Public Relations',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1701,12 +1249,12 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'State',
+                          'Opportunity Stages',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'No Info',
+                          'Sales Order',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
@@ -1724,34 +1272,18 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Zip Code',
+                          'Contact Name',
                           style: BaseStyles.lightblackMedium12,
                         ),
                         heightSpace5,
                         Text(
-                          'No Info',
+                          'XYZ ABC',
                           style: BaseStyles.blacNormal14,
                         )
                       ],
                     ),
                   ),
                   // widthSpace50,
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Country',
-                          style: BaseStyles.lightblackMedium12,
-                        ),
-                        heightSpace5,
-                        Text(
-                          'No Info',
-                          style: BaseStyles.blacNormal14,
-                        )
-                      ],
-                    ),
-                  )
                 ],
               ),
               heightSpace10,

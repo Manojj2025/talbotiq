@@ -41,8 +41,10 @@ class MyImages {
 }
 
 class HomeName {
+  static const OppurtunityAdded = 'Oppurtunity Added';
   static const resetpass = 'Reset Password';
 
+  static const candidates = 'Candidates';
   static const leaddetail = 'Lead Details';
   static const enterdigit = 'Enter 4 Digit OTP';
   static const verify = 'Verify';
@@ -64,8 +66,16 @@ class HomeName {
   static const createinterview = 'Create Interview';
   static const createcandidate = 'Create Candidate';
   static const createclient = 'Create Client';
+
+  static const addnewopp = 'Add New Oppurtunity';
+  static const clientdetail = 'Client Deatils';
   static const client = 'Client';
+  static const leadadded = 'Lead Added';
   static const lead = 'Leads';
+
+  static const opportunityDetails = 'Opportunity Details';
+  static const candidateDetail = 'Candidate Detail';
+  static const oppurtunity = 'Oppurtunity';
 }
 
 class JobsName {

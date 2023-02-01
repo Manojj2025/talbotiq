@@ -8,6 +8,7 @@ class AppColors {
   static const activecolor = Color(0XFF02E140);
   static const secondarydarkColor = Color(0xffF2994A);
 
+  static const yellowcolor = Color(0xffFFD84D);
   static const orangecolor = Color(0xffF2994A);
   static const primaryColor2 = Color(0XFF55C79E);
   static const whiteColor = Colors.white;

@@ -12,6 +12,7 @@ import '../../../widgets/buttons.dart';
 import '../../../widgets/decoration.dart';
 import '../../../widgets/jobdetailwidget.dart';
 import '../controllers/clientDetail_controller.dart';
+import 'addrecruiter_view.dart';
 
 class ClientsdetailView extends GetView<ClientsdetailController> {
   const ClientsdetailView({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
     Get.lazyPut(() => ClientsdetailController());
     return Scaffold(
         appBar: myappbar2(
-            title: JobsName.jobdetail, show: true, show2: Container()),
+            title: HomeName.clientdetail, show: true, show2: Container()),
         body: Obx(
           () => ListView(
             children: [
@@ -132,7 +133,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                                   child: Icon(
                                     Icons.bookmark,
                                     size: 20,
-                                    color: AppColors.orangecolor,
+                                    color: AppColors.yellowcolor,
                                   ),
                                 ),
                               ],
@@ -238,21 +239,29 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                         )
                       ],
                     ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.add,
-                          color: AppColors.orangecolor,
-                          size: 16,
+                    GestureDetector(
+                      onTap: () {
+                        // print('kk');
+                        // Get.to(AddrecruiterView());
+                      },
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.add,
+                              color: AppColors.orangecolor,
+                              size: 16,
+                            ),
+                            // widthSpace20,
+                            widthSpace3,
+                            Text(
+                              'Add',
+                              style: BaseStyles.orangeMedium14,
+                            ),
+                            widthSpace10,
+                          ],
                         ),
-                        // widthSpace20,
-                        widthSpace3,
-                        Text(
-                          'Add',
-                          style: BaseStyles.orangeMedium14,
-                        ),
-                        widthSpace10,
-                      ],
+                      ),
                     ),
                     // widthSpace10
                   ],
@@ -313,7 +322,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                                 child: Icon(
                                   Icons.bookmark,
                                   size: 20,
-                                  color: AppColors.orangecolor,
+                                  color: AppColors.yellowcolor,
                                 ),
                               ),
                             ],

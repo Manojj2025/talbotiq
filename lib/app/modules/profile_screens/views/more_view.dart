@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
+import '../../Candidates_screens/views/candidates_view.dart';
+import '../../Oppurtunity_screen/views/oppurtunity_view.dart';
 import '../../clients_screens/views/client_view.dart';
 import '../controllers/more_controller.dart';
 
@@ -74,8 +76,16 @@ class MoreView extends GetView<MoreController> {
                                     Get.to(ClientView());
 
                                     break;
-                                  case 1:
-                                    Get.to(LeadView());
+                                  case 0:
+                                    Get.to(CandidatesView());
+
+                                    break;
+                                  // case 1:
+                                  //   Get.to(LeadView());
+
+                                  //   break;
+                                  case 3:
+                                    Get.to(OppurtunityView());
 
                                     break;
                                   default:
