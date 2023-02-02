@@ -7,7 +7,8 @@ import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
 import '../../../widgets/buttons.dart';
 import '../../../widgets/filters.dart';
-import '../controllers/candidatesView_controller.dart';
+import '../controllers/candidates_controller.dart';
+import 'candidateNewtask_view.dart';
 import 'candidatesdetail_view.dart';
 
 class CandidatesView extends GetView<CandidatesController> {
@@ -37,21 +38,23 @@ class CandidatesView extends GetView<CandidatesController> {
                     // widthSpace5,
                     GestureDetector(
                       onTap: () {
-                        // Get.to(AddNewLeadView());
+                        Get.to(CandidateNewTaskView());
                       },
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.add,
-                            color: AppColors.whiteColor,
-                            size: 18,
-                          ),
-                          widthSpace5,
-                          Text(
-                            'New',
-                            style: BaseStyles.whitebold14,
-                          )
-                        ],
+                      child: Container(
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.add,
+                              color: AppColors.whiteColor,
+                              size: 18,
+                            ),
+                            widthSpace5,
+                            Text(
+                              'New',
+                              style: BaseStyles.whitebold14,
+                            )
+                          ],
+                        ),
                       ),
                     )
                   ],

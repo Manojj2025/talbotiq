@@ -6,6 +6,7 @@ class BottombarName {
 }
 
 class MyImages {
+  static const job2 = 'assets/image/job2.png';
   static const client = 'assets/image/client.png';
   static const interview = 'assets/image/interview.png';
   static const job = 'assets/image/job.png';
@@ -86,6 +87,7 @@ class JobsName {
   static const selectclient = 'Select Client';
   static const jobtitle = 'Job Title';
 
+  static const AssignJob = 'Assign Job';
   static const addprofessional = 'Add Professional Skills';
   static const sortby = 'Sort By';
   static const clientadded = 'Client Added';

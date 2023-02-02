@@ -312,7 +312,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(0.0),
                 color: AppColors.whiteColor,
                 child: Column(
                   children: [

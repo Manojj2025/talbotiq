@@ -10,6 +10,7 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:readmore/readmore.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:timeline_tile/timeline_tile.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
@@ -18,6 +19,7 @@ import '../../../widgets/rating.dart';
 import '../../../widgets/search.dart';
 import '../../../widgets/textfiled.dart';
 import '../controllers/candidatesdetail_controller.dart';
+import 'assignjob_view.dart';
 
 class CandidatesdetailView extends GetView<CandidatesdetailController> {
   const CandidatesdetailView({Key? key}) : super(key: key);
@@ -101,7 +103,9 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                               child: Row(
                                 children: [
                                   GestureDetector(
-                                      onTap: () {},
+                                      onTap: () {
+                                        Get.to(AssignJobView());
+                                      },
                                       child: Image.asset(
                                         MyImages.edit,
                                         height: 15,
@@ -374,13 +378,373 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                               _Feeback2Widget(),
                             ],
                           )
-                        : Container()
+                        : controller.selectname.value == 'Jobs'
+                            ? _job()
+                            : controller.selectname.value == 'Notes'
+                                ? notes()
+                                : activities()
           ],
         ),
       ),
     );
   }
 
+//////////////////////////ACTIVITES///////////////////////////////////
+  Widget activities() {
+    return Container(
+      // margin: const EdgeInsets.only(top: 10),
+      width: Get.width,
+      color: AppColors.whiteColor,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            // heightSpace10,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Activities',
+                      style: BaseStyles.blackMedium14,
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    Text(
+                      'All',
+                      style: BaseStyles.grey3Normal12,
+                    ),
+                    widthSpace3,
+                    // widthSpace20,
+                    Icon(
+                      Icons.arrow_drop_down,
+                      color: AppColors.greyprimarycolor,
+                      size: 18,
+                    ),
+                    widthSpace10,
+                  ],
+                ),
+                // widthSpace10
+              ],
+            ),
+            Divider(
+              thickness: 0.5,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: List.generate(
+                  controller.list2.length,
+                  (index) => SizedBox(
+                        width: Get.width * 0.90,
+                        height: 80,
+                        child: TimelineTile(
+                          startChild: Padding(
+                            padding: const EdgeInsets.only(top: 5.0, right: 5),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text(
+                                  '3:00 PM',
+                                  style: BaseStyles.blacNormal12,
+                                ),
+                                Text(
+                                  '21st Feb, 2020',
+                                  style: BaseStyles.grey2normal12,
+                                ),
+                              ],
+                            ),
+                          ),
+                          alignment: TimelineAlign.manual,
+                          lineXY: 0.24,
+
+                          beforeLineStyle: const LineStyle(
+                              thickness: 2, color: AppColors.primaryColor),
+                          afterLineStyle: const LineStyle(
+                              thickness: 2, color: AppColors.primaryColor),
+                          indicatorStyle: IndicatorStyle(
+                              indicatorXY: 0.1,
+                              drawGap: false,
+                              width: 8,
+                              color: AppColors.primaryColor),
+                          // lineXY: 1,
+                          endChild: Padding(
+                            padding: const EdgeInsets.only(left: 10.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                CircleAvatar(
+                                  backgroundColor: controller.list2color[index],
+                                  radius: 13,
+                                  child: Icon(
+                                    controller.list2icon[index],
+                                    size: 15,
+                                    color: AppColors.whiteColor,
+                                  ),
+                                ),
+                                widthSpace5,
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        controller.list2[index]['text']
+                                            .toString(),
+                                        style: BaseStyles.blackMedium14,
+                                      ),
+                                      heightSpace3,
+                                      Text(
+                                        controller.list2[index]['t2']
+                                            .toString(),
+                                        style: BaseStyles.grey2normal12,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          isFirst: controller.list2[index]['first'] == true
+                              ? true
+                              : false,
+                          // isLast: true,
+                          isLast: controller.list2[index]['last'] == true
+                              ? true
+                              : false,
+                        ),
+                      )),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+//////////////////////////notes///////////////////////////////////
+  Widget notes() {
+    return Container(
+      // margin: const EdgeInsets.only(top: 10),
+      width: Get.width,
+      color: AppColors.whiteColor,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            // heightSpace10,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Notes',
+                      style: BaseStyles.blackMedium14,
+                    )
+                  ],
+                ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.add,
+                      color: AppColors.orangecolor,
+                      size: 16,
+                    ),
+                    widthSpace3,
+                    // widthSpace20,
+                    Text(
+                      'Add',
+                      style: BaseStyles.orangeMedium14,
+                    ),
+                    widthSpace10,
+                  ],
+                ),
+                // widthSpace10
+              ],
+            ),
+            Divider(
+              thickness: 0.5,
+            ),
+            _listnotesWidget()
+          ],
+        ),
+      ),
+    );
+  }
+
+  //////////////////// job list widget ui////////////////////////////////
+  _listnotesWidget() {
+    return ListView.builder(
+        shrinkWrap: true,
+        itemCount: 2,
+        itemBuilder: (BuildContext context, int index) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: EdgeInsets.all(0.0),
+                color: AppColors.whiteColor,
+                child: Column(
+                  children: [
+                    Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              'Having experience of more than 5 years in UI development for Web Application and Mobile applciations.',
+                              style: BaseStyles.blacNormal14,
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Icon(
+                              Icons.more_vert_outlined,
+                              size: 18,
+                              color: AppColors.greyprimarycolor,
+                            ),
+                          )
+                        ]),
+                    heightSpace10,
+                    heightSpace5,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.calendar_today_outlined,
+                              size: 16,
+                              color: AppColors.greyprimarycolor,
+                            ),
+                            widthSpace3,
+                            Text(
+                              '21 Aug 2022',
+                              style: BaseStyles.lightblackMedium12,
+                            )
+                          ],
+                        ),
+                        widthSpace10,
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.person_outline,
+                              color: AppColors.greyprimarycolor,
+                              size: 18,
+                            ),
+                            widthSpace3,
+                            Text(
+                              'By Recruiter',
+                              style: BaseStyles.lightblackMedium12,
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    heightSpace5,
+                    Divider(
+                      thickness: 0.5,
+                    ),
+                    // heightSpace10,
+                  ],
+                ),
+              ),
+              // heightSpace10
+            ],
+          );
+        });
+  }
+
+////////////////////jobs//////////////////////////////////////
+  _job() {
+    return Container(
+      color: AppColors.whiteColor,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Jobs (2)',
+                      style: BaseStyles.blackMedium14,
+                    )
+                  ],
+                ),
+                GestureDetector(
+                  onTap: () {
+                    // print('kk');
+                    // Get.to(AddrecruiterView());
+                  },
+                  child: Container(
+                      child: Icon(
+                    Icons.search,
+                    color: AppColors.greyprimarycolor,
+                    size: 18,
+                  )),
+                ),
+                // widthSpace10
+              ],
+            ),
+            heightSpace10,
+            Divider(
+              thickness: 0.5,
+            ),
+            // heightSpace10,f
+            ListView.builder(
+                shrinkWrap: true,
+                itemCount: 2,
+                itemBuilder: (BuildContext context, int index) {
+                  return Column(
+                    children: [
+                      ListTile(
+                        horizontalTitleGap: 2.0,
+                        dense: true,
+                        contentPadding: EdgeInsets.zero,
+                        title: Text(
+                          'UI/UX Designer',
+                          style: BaseStyles.blacNormal14,
+                        ),
+                        subtitle: Text(
+                          'Tech Mahindra, 1st Sep 22',
+                          style: BaseStyles.grey2Medium12,
+                        ),
+                        leading: CircleAvatar(
+                          // backgroundColor: AppColors.primaryColor,
+                          radius: 16,
+                          child: Image.asset('assets/image/bajaj.png'),
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 30,
+                        width: Get.width * 0.90,
+                        decoration: decorationbox2(
+                            radius: 5.0,
+                            color: AppColors.primaryColor.withOpacity(0.2)),
+                        child: Text(
+                          'Pending',
+                          style: BaseStyles.greennormal14,
+                        ),
+                      ),
+                      Divider(
+                        thickness: 0.5,
+                      ),
+                    ],
+                  );
+                }),
+          ],
+        ),
+      ),
+    );
+  }
 ////////////////Feedback details////////////////////////////////
 
   _Feeback2Widget() {

@@ -26,6 +26,58 @@ class CandidatesdetailController extends GetxController {
     {"img": "assets/image/rej.png", "title": "Rejected (2)"},
   ].obs;
   final agree = false.obs;
+  final list2icon = [
+    Icons.handshake,
+    Icons.close,
+    Icons.email,
+    Icons.message,
+  ];
+  final list2color = [
+    Colors.blue,
+    Colors.red,
+    Colors.grey.shade400,
+    Colors.grey.shade400,
+  ];
+  final list2 = [
+    {
+      "text": 'Changed state to Hired',
+      "t2": 'Oodles Technologies',
+      'first': true,
+      'last': false,
+      'color': Colors.blue,
+      'icon': Icons.handshake
+    },
+    {
+      "text": 'Changed state to Rejected',
+      "t2": 'Oodles Technologies',
+      'first': false,
+      'last': false,
+      'color': Colors.red,
+      'icon': Icons.close,
+    },
+    {
+      "text": 'Sent an email',
+      "t2": 'Oodles Technologies',
+      'first': false,
+      'last': false,
+      'color': Colors.grey.shade400,
+      'icon': Icons.email,
+    },
+    {
+      "text": 'You : Are you joining for th...',
+      "t2": 'Oodles Technologies',
+      'first': false,
+      'last': false,
+      'color': Colors.grey.shade400,
+      'icon': Icons.message
+    },
+  ];
+  final PageController pageController = PageController(
+    initialPage: 0,
+  );
+  final show2 = false.obs;
+  final index = 0.obs;
+  TextEditingController descriptionstext = TextEditingController();
   @override
   void onInit() {
     super.onInit();

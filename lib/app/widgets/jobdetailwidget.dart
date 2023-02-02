@@ -627,7 +627,7 @@ Column textwidget2({name, text, width, icon, onTap}) {
               padding: const EdgeInsets.only(left: 15.0),
               child: Text(
                 text,
-                style: BaseStyles.grey1Medium14,
+                style: BaseStyles.grey3Normal16,
               ),
             ),
             Padding(
@@ -643,4 +643,38 @@ Column textwidget2({name, text, width, icon, onTap}) {
       ),
     )
   ]);
+}
+
+/////selectedwidget/////////
+selected({text, width, icon, onTap}) {
+  return Container(
+    decoration: decorationbox3(
+      border: Border.all(color: AppColors.greyprimarycolor.shade100),
+      color: AppColors.greyprimarycolor.shade100,
+      radius: 4.0,
+    ),
+    width: width ?? Get.width,
+    // margin: const EdgeInsets.only(left: 5, right: 5),
+    height: 40,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 15.0),
+          child: Text(
+            text,
+            style: BaseStyles.grey3Normal16,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Icon(
+            icon ?? Icons.keyboard_arrow_down_sharp,
+            color: AppColors.greyprimarycolor,
+            size: 20,
+          ),
+        )
+      ],
+    ),
+  );
 }

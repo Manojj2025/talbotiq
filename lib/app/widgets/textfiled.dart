@@ -45,7 +45,7 @@ textfiled(
                 color: AppColors.greyprimarycolor,
               )
             : const SizedBox(),
-        hintStyle: BaseStyles.grey3Normal14,
+        hintStyle: BaseStyles.grey3Normal16,
         isDense: true,
         contentPadding: const EdgeInsets.all(15.0),
         hintText: text,
