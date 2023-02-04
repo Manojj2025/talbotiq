@@ -4,6 +4,9 @@ import 'package:get/get.dart';
 class CandidatesdetailController extends GetxController {
   //TODO: Implement JobdetailController
 
+  TextEditingController searchtxt = TextEditingController();
+
+  TextEditingController psearchtxt = TextEditingController();
   final clientslist = [
     {"name": "Overview", "value": ""},
     {"name": "Candidate Details", "value": "1"},

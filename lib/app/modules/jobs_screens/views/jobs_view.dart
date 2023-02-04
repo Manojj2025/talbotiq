@@ -14,84 +14,82 @@ class JobsView extends GetView<JobsController> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => JobsController());
-    return SafeArea(
-      child: Scaffold(
-          appBar: myappbar(),
-          body: Column(
-            children: [
-              //// filters and soryby widget ui//////
-              Card(
-                elevation: 0,
-                color: AppColors.whiteColor,
-                margin: EdgeInsets.zero,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          filter(context, controller);
-                        },
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              MyImages.filter,
-                              height: 20,
-                              width: 20,
+    return Scaffold(
+        appBar: myappbar(),
+        body: Column(
+          children: [
+            //// filters and soryby widget ui//////
+            Card(
+              elevation: 0,
+              color: AppColors.whiteColor,
+              margin: EdgeInsets.zero,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        filter(context, controller);
+                      },
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            MyImages.filter,
+                            height: 20,
+                            width: 20,
+                          ),
+                          widthSpace10,
+                          Text(
+                            JobsName.filters,
+                            style: BaseStyles.lightblackMedium14,
+                          ),
+                          widthSpace5,
+                          CircleAvatar(
+                            radius: 10,
+                            backgroundColor: AppColors.primaryColor,
+                            child: Text(
+                              '2',
+                              style: BaseStyles.whitesmall10,
                             ),
-                            widthSpace10,
-                            Text(
-                              JobsName.filters,
-                              style: BaseStyles.lightblackMedium14,
-                            ),
-                            widthSpace5,
-                            CircleAvatar(
-                              radius: 10,
-                              backgroundColor: AppColors.primaryColor,
-                              child: Text(
-                                '2',
-                                style: BaseStyles.whitesmall10,
-                              ),
-                            )
-                          ],
-                        ),
+                          )
+                        ],
                       ),
-                      Container(
-                        height: 40,
-                        width: 1,
-                        color: AppColors.greyprimarycolor,
+                    ),
+                    Container(
+                      height: 40,
+                      width: 1,
+                      color: AppColors.greyprimarycolor,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        sortby(context, controller);
+                      },
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            MyImages.sort,
+                            height: 20,
+                            width: 20,
+                          ),
+                          widthSpace10,
+                          Text(
+                            JobsName.sortby,
+                            style: BaseStyles.lightblackMedium14,
+                          ),
+                        ],
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          sortby(context, controller);
-                        },
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              MyImages.sort,
-                              height: 20,
-                              width: 20,
-                            ),
-                            widthSpace10,
-                            Text(
-                              JobsName.sortby,
-                              style: BaseStyles.lightblackMedium14,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                    )
+                  ],
                 ),
               ),
-              //////////////////// job name list widget ui////////////////////////////////
-              heightSpace10,
-              _jobname(), heightSpace10,
-              _listWidget()
-            ],
-          )),
-    );
+            ),
+            //////////////////// job name list widget ui////////////////////////////////
+            heightSpace10,
+            _jobname(), heightSpace10,
+            _listWidget()
+          ],
+        ));
   }
 
   //////////////////// job name list widget ui////////////////////////////////

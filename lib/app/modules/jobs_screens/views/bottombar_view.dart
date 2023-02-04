@@ -42,7 +42,8 @@ class BottombarView extends GetView<BottombarController> {
                           height: 300,
                           color: Colors.transparent,
                           child: Container(
-                            decoration: MyDecoration.radiusonlydecoration(),
+                            decoration: MyDecoration.radiusonlydecoration(
+                                tlradius: 25.0, trradius: 25.0),
                             margin: const EdgeInsets.only(bottom: 50),
                             child: Column(
                               children: [

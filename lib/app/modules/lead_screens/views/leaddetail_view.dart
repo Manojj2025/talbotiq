@@ -80,7 +80,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                             children: [
                               GestureDetector(
                                 onTap: () {},
-                                child: Icon(Icons.bookmark_border_rounded,
+                                child: Icon(Icons.bookmark,
                                     size: 16, color: AppColors.yellowcolor),
                               ),
                             ],
@@ -88,7 +88,11 @@ class LeaddetailView extends GetView<LeaddetailController> {
                         ),
                       ],
                     ),
-                    heightSpace10,
+                    // heightSpace10,
+                    heightSpace5,
+                    Divider(
+                      thickness: 0.5,
+                    ),
                     // heightSpace5,
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -161,10 +165,10 @@ class LeaddetailView extends GetView<LeaddetailController> {
                           },
                           child: Row(
                             children: [
-                              Icon(
-                                Icons.person_rounded,
-                                size: 16,
-                                color: AppColors.orangecolor,
+                              Image.asset(
+                                'assets/image/person.png',
+                                height: 15,
+                                width: 15,
                               ),
                               widthSpace5,
                               Text(
@@ -195,7 +199,9 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       heightSpace10,
                       leadbutton(context),
                       heightSpace10,
-                      leadDetails()
+                      leadDetails(),
+                      heightSpace10,
+                      Details()
                     ],
                   )
                 : controller.selectname.value == 'Activities'
@@ -721,20 +727,114 @@ class LeaddetailView extends GetView<LeaddetailController> {
                   'Attachments',
                   style: BaseStyles.blackMedium14,
                 ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.add,
-                      color: AppColors.orangecolor,
-                      size: 16,
+                GestureDetector(
+                  onTap: () {
+                    showModalBottomSheet(
+                        isDismissible: true,
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        isScrollControlled: true,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(25.0),
+                          ),
+                        ),
+                        builder: (context) {
+                          return FractionallySizedBox(
+                            heightFactor: 0.8,
+                            child: Container(
+                              decoration: MyDecoration.radiusonlydecoration(
+                                  tlradius: 25.0, trradius: 25.0),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    heightSpace20,
+                                    Align(
+                                      child: Container(
+                                        height: 4,
+                                        width: 160,
+                                        decoration:
+                                            MyDecoration.simpledecoration(
+                                                color:
+                                                    AppColors.greyprimarycolor),
+                                      ),
+                                    ),
+                                    heightSpace20,
+                                    Text(
+                                      'Attachment',
+                                      style: BaseStyles.blackMedium16,
+                                    ),
+                                    // heightSpace10,
+                                    // const Divider(
+                                    //   thickness: 0.3,
+                                    //   height: 25,
+                                    // ),
+                                    Image.asset(
+                                      'assets/image/i2.png',
+                                      width: Get.width,
+                                      height: 100,
+                                    ),
+                                    Text(
+                                      'Resume.pdf',
+                                      style: BaseStyles.grey1normal12,
+                                    ),
+                                    const Divider(
+                                      thickness: 0.3,
+                                      height: 25,
+                                    ),
+                                    textwidget(
+                                        name: 'Title* * ', text: 'Enter'),
+                                    const Divider(
+                                      thickness: 0.3,
+                                      height: 25,
+                                    ),
+                                    textwidget(
+                                        height: 150.0,
+                                        readonly: false,
+                                        onTap: () {},
+                                        minline: 5,
+                                        maxline: 5,
+                                        name: 'Summary * ',
+                                        text: 'Write'),
+                                    const Divider(
+                                      thickness: 0.3,
+                                      height: 25,
+                                    ),
+                                    heightSpace30,
+                                    mybuttons(
+                                        action: () {
+                                          Get.back();
+                                        },
+                                        name: 'Upload',
+                                        radius: 5.0,
+                                        color: AppColors.orangecolor,
+                                        height: 45.0)
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        });
+                  },
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.add,
+                          color: AppColors.orangecolor,
+                          size: 16,
+                        ),
+                        widthSpace5,
+                        Text(
+                          'Add',
+                          style: BaseStyles.orangeMedium14,
+                        ),
+                        widthSpace10,
+                      ],
                     ),
-                    widthSpace5,
-                    Text(
-                      'Add',
-                      style: BaseStyles.orangeMedium14,
-                    ),
-                    widthSpace10,
-                  ],
+                  ),
                 ),
                 // widthSpace10
               ],
@@ -996,103 +1096,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                               ),
                             ),
                             GestureDetector(
-                                onTap: () {
-                                  showModalBottomSheet(
-                                      isDismissible: true,
-                                      backgroundColor: Colors.transparent,
-                                      context: context,
-                                      isScrollControlled: true,
-                                      shape: const RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.vertical(
-                                          top: Radius.circular(25.0),
-                                        ),
-                                      ),
-                                      builder: (context) {
-                                        return FractionallySizedBox(
-                                          heightFactor: 0.8,
-                                          child: Container(
-                                            // height: 300,
-                                            decoration: MyDecoration
-                                                .radiusonlydecoration(),
-                                            child: Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  heightSpace20,
-                                                  Align(
-                                                    child: Container(
-                                                      height: 4,
-                                                      width: 160,
-                                                      decoration: MyDecoration
-                                                          .simpledecoration(
-                                                              color: AppColors
-                                                                  .greyprimarycolor),
-                                                    ),
-                                                  ),
-                                                  heightSpace20,
-                                                  Text(
-                                                    'Attachment',
-                                                    style: BaseStyles
-                                                        .blackMedium16,
-                                                  ),
-                                                  // heightSpace10,
-                                                  // const Divider(
-                                                  //   thickness: 0.3,
-                                                  //   height: 25,
-                                                  // ),
-                                                  Image.asset(
-                                                    'assets/image/i2.png',
-                                                    width: Get.width,
-                                                    height: 100,
-                                                  ),
-                                                  Text(
-                                                    'Resume.pdf',
-                                                    style: BaseStyles
-                                                        .grey1normal12,
-                                                  ),
-                                                  const Divider(
-                                                    thickness: 0.3,
-                                                    height: 25,
-                                                  ),
-                                                  textwidget(
-                                                      name: 'Title* * ',
-                                                      text: 'Enter'),
-                                                  const Divider(
-                                                    thickness: 0.3,
-                                                    height: 25,
-                                                  ),
-                                                  textwidget(
-                                                      height: 150.0,
-                                                      readonly: false,
-                                                      onTap: () {},
-                                                      minline: 5,
-                                                      maxline: 5,
-                                                      name: 'Summary * ',
-                                                      text: 'Write'),
-                                                  const Divider(
-                                                    thickness: 0.3,
-                                                    height: 25,
-                                                  ),
-                                                  heightSpace30,
-                                                  mybuttons(
-                                                      action: () {
-                                                        Get.back();
-                                                      },
-                                                      name: 'Upload',
-                                                      radius: 5.0,
-                                                      color:
-                                                          AppColors.orangecolor,
-                                                      height: 45.0)
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                        );
-                                      });
-                                },
+                                onTap: () {},
                                 child: Image.asset(
                                   MyImages.edit,
                                   height: 15,
@@ -1141,7 +1145,8 @@ class LeaddetailView extends GetView<LeaddetailController> {
                           heightFactor: 0.51,
                           child: Container(
                             // height: 300,
-                            decoration: MyDecoration.radiusonlydecoration(),
+                            decoration: MyDecoration.radiusonlydecoration(
+                                tlradius: 25.0, trradius: 25.0),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
@@ -1398,6 +1403,54 @@ class LeaddetailView extends GetView<LeaddetailController> {
             ],
           );
         });
+  }
+
+//////  details////////////////////////////////
+  Widget Details() {
+    return Container(
+        // height: 50,
+        width: Get.width,
+        color: AppColors.whiteColor,
+        margin: EdgeInsets.zero,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Details',
+                      style: BaseStyles.blackMedium14,
+                    ),
+                    // GestureDetector(
+                    //     onTap: () {},
+                    //     child: Image.asset(
+                    //       MyImages.edit,
+                    //       height: 16,
+                    //       width: 16,
+                    //     )),
+                  ],
+                ),
+              ),
+              Divider(
+                thickness: 0.5,
+                height: 4,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(6.0),
+                child: Text(
+                  'Having experience of more than 5 years in UI development for Web Application and Mobile applciations.',
+                  style: BaseStyles.blacNormal14,
+                ),
+              ),
+              heightSpace10,
+            ],
+          ),
+        ));
   }
 
 ////// job details////////////////////////////////
@@ -1902,11 +1955,11 @@ class LeaddetailView extends GetView<LeaddetailController> {
                             ),
                             builder: (context) {
                               return FractionallySizedBox(
-                                heightFactor: 0.85,
+                                heightFactor: 0.8,
                                 child: Container(
                                   // height: 300,
-                                  decoration:
-                                      MyDecoration.radiusonlydecoration(),
+                                  decoration: MyDecoration.radiusonlydecoration(
+                                      tlradius: 25.0, trradius: 25.0),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
@@ -1922,92 +1975,94 @@ class LeaddetailView extends GetView<LeaddetailController> {
                                         ),
                                         heightSpace20,
                                         Text(
-                                          'Convert Lead',
+                                          'Assign to',
                                           style: BaseStyles.blackMedium16,
                                         ),
                                         heightSpace10,
-                                        const Divider(
-                                          thickness: 0.3,
-                                          height: 25,
-                                        ),
-                                        textwidget(
-                                            name: 'Lead Name * ',
-                                            text: 'Select'),
-                                        const Divider(
-                                          thickness: 0.3,
-                                          height: 25,
-                                        ),
-                                        textwidget(
-                                            name: 'Account * ', text: 'Select'),
-                                        const Divider(
-                                          thickness: 0.3,
-                                          height: 25,
-                                        ),
-                                        textwidget2(
-                                            name: 'Contact * ', text: 'Select'),
-                                        const Divider(
-                                          thickness: 0.3,
-                                          height: 25,
-                                        ),
-                                        textwidget(
-                                            name: 'Assign To * ',
-                                            text: 'Select'),
-                                        const Divider(
-                                          thickness: 0.3,
-                                          height: 25,
-                                        ),
-                                        textwidget(
-                                            name: 'Opportunity Name * ',
-                                            text: 'Select'),
-                                        const Divider(
-                                          thickness: 0.3,
-                                          height: 25,
-                                        ),
-                                        Container(
-                                          // color: AppColors.blackcolor,
-                                          child: Row(
-                                            children: [
-                                              Theme(
-                                                  data: Theme.of(context)
-                                                      .copyWith(
+                                        ////
+                                        mysearch(
+                                            width: Get.width * 0.95,
+                                            readonly: false,
+                                            decoration: decorationbox2(
+                                                radius: 5.0,
+                                                color: AppColors
+                                                    .greyprimarycolor
+                                                    .shade200)),
+                                        heightSpace10,
+                                        Expanded(
+                                          child: ListView.builder(
+                                              shrinkWrap: true,
+                                              itemCount: 3,
+                                              itemBuilder:
+                                                  (BuildContext context,
+                                                      int index) {
+                                                return ListTile(
+                                                  horizontalTitleGap: 2.0,
+                                                  dense: true,
+                                                  contentPadding:
+                                                      const EdgeInsets.only(
+                                                          left: 15),
+                                                  title: Text(
+                                                    'Nikita Sharma',
+                                                    style:
+                                                        BaseStyles.blacNormal14,
+                                                  ),
+                                                  subtitle: Text(
+                                                    'nikita@gmail.com',
+                                                    style: BaseStyles
+                                                        .grey2Medium12,
+                                                  ),
+                                                  trailing: Theme(
+                                                      data: Theme.of(context).copyWith(
                                                           unselectedWidgetColor:
                                                               AppColors
-                                                                  .greycolor2),
-                                                  child: SizedBox(
-                                                      height: 20.0,
-                                                      width: 20.0,
-                                                      child: Checkbox(
-                                                        materialTapTargetSize:
-                                                            MaterialTapTargetSize
-                                                                .shrinkWrap,
-                                                        activeColor: AppColors
-                                                            .primaryColor,
-                                                        // checkColor: AppColors.secondary2Color,
-                                                        value: controller
-                                                            .agree.value,
-                                                        onChanged: (value) {
-                                                          controller
-                                                                  .agree.value =
-                                                              value ?? false;
-                                                        },
-                                                      ))),
-                                              widthSpace10,
-                                              Expanded(
-                                                child: Text(
-                                                  'Do not create a new Opportunity name upon conversion',
-                                                  style:
-                                                      BaseStyles.blacNormal14,
-                                                ),
-                                              )
-                                            ],
-                                          ),
+                                                                  .greyprimarycolor
+                                                                  .shade400),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(8.0),
+                                                        child: SizedBox(
+                                                            height: 20.0,
+                                                            width: 20.0,
+                                                            child: Checkbox(
+                                                              shape: RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              5.0)),
+                                                              materialTapTargetSize:
+                                                                  MaterialTapTargetSize
+                                                                      .shrinkWrap,
+                                                              activeColor: AppColors
+                                                                  .primaryColor,
+                                                              // checkColor: AppColors.secondary2Color,
+                                                              value: controller
+                                                                  .agree.value,
+                                                              onChanged:
+                                                                  (value) {
+                                                                controller.agree
+                                                                        .value =
+                                                                    value ??
+                                                                        false;
+                                                              },
+                                                            )),
+                                                      )),
+                                                  leading: CircleAvatar(
+                                                    // backgroundColor: AppColors.primaryColor,
+                                                    radius: 16,
+                                                    child: Image.asset(
+                                                        'assets/image/bajaj.png'),
+                                                  ),
+                                                );
+                                              }),
                                         ),
                                         heightSpace30,
                                         mybuttons(
                                             action: () {
                                               Get.back();
                                             },
-                                            name: 'Submit',
+                                            name: 'Assign',
                                             radius: 5.0,
                                             color: AppColors.orangecolor,
                                             height: 45.0),
@@ -2060,107 +2115,120 @@ class LeaddetailView extends GetView<LeaddetailController> {
                             ),
                             builder: (context) {
                               return FractionallySizedBox(
-                                heightFactor: 0.8,
+                                heightFactor: 0.85,
                                 child: Container(
                                   // height: 300,
-                                  decoration:
-                                      MyDecoration.radiusonlydecoration(),
+                                  decoration: MyDecoration.radiusonlydecoration(
+                                      tlradius: 25.0, trradius: 25.0),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      children: [
-                                        heightSpace20,
-                                        Container(
-                                          height: 4,
-                                          width: 160,
-                                          decoration:
-                                              MyDecoration.simpledecoration(
-                                                  color: AppColors
-                                                      .greyprimarycolor),
-                                        ),
-                                        heightSpace20,
-                                        Text(
-                                          'Assign to',
-                                          style: BaseStyles.blackMedium16,
-                                        ),
-                                        heightSpace10,
-                                        ////
-                                        mysearch(
-                                            width: Get.width,
-                                            readonly: false,
-                                            decoration: decorationbox2(
-                                                radius: 5.0,
-                                                color: AppColors
-                                                    .greyprimarycolor
-                                                    .shade200)),
-                                        heightSpace10,
-                                        Expanded(
-                                          child: ListView.builder(
-                                              shrinkWrap: true,
-                                              itemCount: 3,
-                                              itemBuilder:
-                                                  (BuildContext context,
-                                                      int index) {
-                                                return ListTile(
-                                                  horizontalTitleGap: 2.0,
-                                                  dense: true,
-                                                  contentPadding:
-                                                      const EdgeInsets.only(
-                                                          left: 15),
-                                                  title: Text(
-                                                    'Nikita Sharma',
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: SingleChildScrollView(
+                                      child: Column(
+                                        children: [
+                                          heightSpace20,
+                                          Container(
+                                            height: 4,
+                                            width: 160,
+                                            decoration:
+                                                MyDecoration.simpledecoration(
+                                                    color: AppColors
+                                                        .greyprimarycolor),
+                                          ),
+                                          heightSpace20,
+                                          Text(
+                                            'Convert Lead',
+                                            style: BaseStyles.blackMedium16,
+                                          ),
+                                          heightSpace10,
+                                          const Divider(
+                                            thickness: 0.3,
+                                            height: 25,
+                                          ),
+                                          textwidget(
+                                              name: 'Lead Name * ',
+                                              text: 'Select'),
+                                          const Divider(
+                                            thickness: 0.3,
+                                            height: 25,
+                                          ),
+                                          textwidget(
+                                              name: 'Account * ',
+                                              text: 'Select'),
+                                          const Divider(
+                                            thickness: 0.3,
+                                            height: 25,
+                                          ),
+                                          textwidget2(
+                                              name: 'Contact * ',
+                                              text: 'Select'),
+                                          const Divider(
+                                            thickness: 0.3,
+                                            height: 25,
+                                          ),
+                                          textwidget(
+                                              name: 'Assign To * ',
+                                              text: 'Select'),
+                                          const Divider(
+                                            thickness: 0.3,
+                                            height: 25,
+                                          ),
+                                          textwidget(
+                                              name: 'Opportunity Name * ',
+                                              text: 'Select'),
+                                          const Divider(
+                                            thickness: 0.3,
+                                            height: 25,
+                                          ),
+                                          Container(
+                                            // color: AppColors.blackcolor,
+                                            child: Row(
+                                              children: [
+                                                Theme(
+                                                    data: Theme.of(context)
+                                                        .copyWith(
+                                                            unselectedWidgetColor:
+                                                                AppColors
+                                                                    .greycolor2),
+                                                    child: SizedBox(
+                                                        height: 20.0,
+                                                        width: 20.0,
+                                                        child: Checkbox(
+                                                          materialTapTargetSize:
+                                                              MaterialTapTargetSize
+                                                                  .shrinkWrap,
+                                                          activeColor: AppColors
+                                                              .primaryColor,
+                                                          // checkColor: AppColors.secondary2Color,
+                                                          value: controller
+                                                              .agree.value,
+                                                          onChanged: (value) {
+                                                            controller.agree
+                                                                    .value =
+                                                                value ?? false;
+                                                          },
+                                                        ))),
+                                                widthSpace10,
+                                                Expanded(
+                                                  child: Text(
+                                                    'Do not create a new Opportunity name upon conversion',
                                                     style:
                                                         BaseStyles.blacNormal14,
                                                   ),
-                                                  subtitle: Text(
-                                                    'nikita@gmail.com',
-                                                    style: BaseStyles
-                                                        .grey2Medium12,
-                                                  ),
-                                                  trailing: Theme(
-                                                      data: Theme.of(context).copyWith(
-                                                          unselectedWidgetColor:
-                                                              AppColors
-                                                                  .greyprimarycolor
-                                                                  .shade400),
-                                                      child: SizedBox(
-                                                          height: 20.0,
-                                                          width: 20.0,
-                                                          child: Checkbox(
-                                                            materialTapTargetSize:
-                                                                MaterialTapTargetSize
-                                                                    .shrinkWrap,
-                                                            activeColor: AppColors
-                                                                .primaryColor,
-                                                            // checkColor: AppColors.secondary2Color,
-                                                            value: controller
-                                                                .agree.value,
-                                                            onChanged: (value) {
-                                                              controller.agree
-                                                                      .value =
-                                                                  value ??
-                                                                      false;
-                                                            },
-                                                          ))),
-                                                  leading: CircleAvatar(
-                                                    // backgroundColor: AppColors.primaryColor,
-                                                    radius: 16,
-                                                    child: Image.asset(
-                                                        'assets/image/bajaj.png'),
-                                                  ),
-                                                );
-                                              }),
-                                        ),
-                                        heightSpace30,
-                                        mybuttons(
-                                            action: () {
-                                              Get.back();
-                                            },
-                                            name: 'Assign',
-                                            radius: 5.0,
-                                            color: AppColors.orangecolor,
-                                            height: 45.0),
-                                      ],
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                          heightSpace30,
+                                          mybuttons(
+                                              action: () {
+                                                Get.back();
+                                              },
+                                              name: 'Submit',
+                                              radius: 5.0,
+                                              color: AppColors.orangecolor,
+                                              height: 45.0),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -2178,8 +2246,8 @@ class LeaddetailView extends GetView<LeaddetailController> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Icon(
-                              Icons.refresh,
+                            ImageIcon(
+                              AssetImage("assets/image/convert.png"),
                               color: AppColors.primaryColor,
                               size: 16,
                             ),

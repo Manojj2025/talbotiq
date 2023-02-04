@@ -15,127 +15,125 @@ class OppurtunityView extends GetView<OppurtunityController> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => OppurtunityController());
-    return SafeArea(
-      child: Scaffold(
-          appBar: AppBar(
-            leadingWidth: 30,
-            title: Text(
-              HomeName.oppurtunity,
-              style: BaseStyles.whiteMedium16,
-            ),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 15.0),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.search,
-                      color: AppColors.whiteColor,
-                      size: 18,
+    return Scaffold(
+        appBar: AppBar(
+          leadingWidth: 30,
+          title: Text(
+            HomeName.oppurtunity,
+            style: BaseStyles.whiteMedium16,
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.search,
+                    color: AppColors.whiteColor,
+                    size: 18,
+                  ),
+                  widthSpace10,
+                  // widthSpace5,
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(OppurtunityNewTaskView());
+                    },
+                    child: Container(
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.add,
+                            color: AppColors.whiteColor,
+                            size: 18,
+                          ),
+                          widthSpace5,
+                          Text(
+                            'New',
+                            style: BaseStyles.whitebold14,
+                          )
+                        ],
+                      ),
                     ),
-                    widthSpace10,
-                    // widthSpace5,
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+        body: Column(
+          children: [
+            //// filters and soryby widget ui//////
+            Card(
+              elevation: 0,
+              color: AppColors.whiteColor,
+              margin: EdgeInsets.zero,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
                     GestureDetector(
                       onTap: () {
-                        Get.to(OppurtunityNewTaskView());
+                        filter(context, controller);
                       },
-                      child: Container(
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.add,
-                              color: AppColors.whiteColor,
-                              size: 18,
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            MyImages.filter,
+                            height: 20,
+                            width: 20,
+                          ),
+                          widthSpace10,
+                          Text(
+                            JobsName.filters,
+                            style: BaseStyles.lightblackMedium14,
+                          ),
+                          widthSpace5,
+                          CircleAvatar(
+                            radius: 10,
+                            backgroundColor: AppColors.primaryColor,
+                            child: Text(
+                              '2',
+                              style: BaseStyles.whitesmall10,
                             ),
-                            widthSpace5,
-                            Text(
-                              'New',
-                              style: BaseStyles.whitebold14,
-                            )
-                          ],
-                        ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 40,
+                      width: 1,
+                      color: AppColors.greyprimarycolor,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        sortby(context, controller);
+                      },
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            MyImages.sort,
+                            height: 20,
+                            width: 20,
+                          ),
+                          widthSpace10,
+                          Text(
+                            JobsName.sortby,
+                            style: BaseStyles.lightblackMedium14,
+                          ),
+                        ],
                       ),
                     )
                   ],
                 ),
-              )
-            ],
-          ),
-          body: Column(
-            children: [
-              //// filters and soryby widget ui//////
-              Card(
-                elevation: 0,
-                color: AppColors.whiteColor,
-                margin: EdgeInsets.zero,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          filter(context, controller);
-                        },
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              MyImages.filter,
-                              height: 20,
-                              width: 20,
-                            ),
-                            widthSpace10,
-                            Text(
-                              JobsName.filters,
-                              style: BaseStyles.lightblackMedium14,
-                            ),
-                            widthSpace5,
-                            CircleAvatar(
-                              radius: 10,
-                              backgroundColor: AppColors.primaryColor,
-                              child: Text(
-                                '2',
-                                style: BaseStyles.whitesmall10,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 40,
-                        width: 1,
-                        color: AppColors.greyprimarycolor,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          sortby(context, controller);
-                        },
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              MyImages.sort,
-                              height: 20,
-                              width: 20,
-                            ),
-                            widthSpace10,
-                            Text(
-                              JobsName.sortby,
-                              style: BaseStyles.lightblackMedium14,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
               ),
-              //////////////////// job name list widget ui////////////////////////////////
-              heightSpace10,
-              _jobname(), heightSpace10,
-              _listWidget()
-            ],
-          )),
-    );
+            ),
+            //////////////////// job name list widget ui////////////////////////////////
+            heightSpace10,
+            _jobname(), heightSpace10,
+            _listWidget()
+          ],
+        ));
   }
 
   //////////////////// job name list widget ui////////////////////////////////

@@ -74,6 +74,7 @@ class HomeName {
   static const leadadded = 'Lead Added';
   static const lead = 'Leads';
 
+  static const CandidateAdded = 'Candidate Added';
   static const opportunityDetails = 'Opportunity Details';
   static const candidateDetail = 'Candidate Detail';
   static const oppurtunity = 'Oppurtunity';

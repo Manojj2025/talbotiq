@@ -7,6 +7,11 @@ import 'decoration.dart';
 textfiled(
     {text,
     height,
+    prifixshow,
+    prifixcolor,
+    prifixtext,
+    prifixiconshow,
+    prefixicon,
     width,
     controller,
     ontap,
@@ -14,43 +19,81 @@ textfiled(
     eyeshow,
     readonly,
     minline,
+    horizontalpadd,
     maxline,
     style}) {
-  return Container(
-    decoration: decorationbox3(
-      border: Border.all(color: AppColors.greyprimarycolor.shade100),
-      color: AppColors.greyprimarycolor.shade100,
-      radius: 4.0,
-    ),
-    width: width,
-    height: height ?? 40.0,
-    // margin: const EdgeInsets.only(left: 5, right: 5),
+  return TextFormField(
+    // cursorHeight: ,
+    focusNode: FocusNode(),
+    onChanged: onchange,
+    onTap: ontap,
+    readOnly: readonly,
+    minLines: minline ?? 1,
+    maxLines: maxline ?? 1,
+    controller: controller,
+    // inputFormatters: [LengthLimitingTextInputFormatter(10)],
+    keyboardType: TextInputType.text,
+    style: style ?? BaseStyles.blacNormal14,
 
-    child: TextField(
-      focusNode: FocusNode(),
-      onChanged: onchange,
-      onTap: ontap,
-      readOnly: readonly,
-      minLines: minline ?? 1,
-      maxLines: maxline ?? 1,
-      controller: controller,
-      // inputFormatters: [LengthLimitingTextInputFormatter(10)],
-      keyboardType: TextInputType.text,
-      style: style ?? BaseStyles.blacNormal14,
-
-      decoration: InputDecoration(
-        suffixIcon: eyeshow == true
-            ? const Icon(
-                Icons.remove_red_eye_outlined,
-                color: AppColors.greyprimarycolor,
-              )
-            : const SizedBox(),
-        hintStyle: BaseStyles.grey3Normal16,
-        isDense: true,
-        contentPadding: const EdgeInsets.all(15.0),
-        hintText: text,
-        border: InputBorder.none,
+    decoration: InputDecoration(
+      filled: true,
+      fillColor: AppColors.greyprimarycolor.shade100,
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(4.0),
+        borderSide: BorderSide(
+          color: AppColors.greyprimarycolor.shade100,
+        ),
       ),
+      enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(4.0),
+          borderSide: BorderSide(
+            color: AppColors.greyprimarycolor.shade100,
+          )),
+      prefixStyle: BaseStyles.grey1Medium14,
+      prefixIcon: prifixshow == true
+          ? Container(
+              width: 50,
+              margin: EdgeInsets.only(right: 10),
+              decoration: MyDecoration.radiusonlydecoration(
+                  color: prifixcolor ?? AppColors.greyprimarycolor.shade300,
+                  tlradius: 4.0,
+                  blradius: 4.0),
+              alignment: Alignment.center,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(
+                        left: prifixiconshow != true ? 0.0 : 8.0),
+                    child: Text(
+                      prifixtext ?? '+91',
+                      style: BaseStyles.grey1Medium14,
+                    ),
+                  ),
+                  prifixiconshow == true
+                      ? Icon(
+                          prefixicon ?? Icons.keyboard_arrow_down_sharp,
+                          color: AppColors.greyprimarycolor,
+                          size: 20,
+                        )
+                      : Container()
+                ],
+              ),
+            )
+          : null,
+      suffixIcon: eyeshow == true
+          ? const Icon(
+              Icons.remove_red_eye_outlined,
+              color: AppColors.greyprimarycolor,
+            )
+          : const SizedBox(),
+      hintStyle: BaseStyles.grey3Normal16,
+      isDense: true,
+      contentPadding:
+          EdgeInsets.symmetric(horizontal: horizontalpadd ?? 15, vertical: 5),
+      hintText: text,
+      border: InputBorder.none,
     ),
   );
 }
@@ -94,82 +137,82 @@ textfiled5({text, height, width, controller, ontap, onclear, suffixIcon}) {
   );
 }
 
-textfiled2({text, title, show, controller, labeltxt}) {
-  return TextField(
-    // autofocus: true,
-    controller: controller,
+// textfiled2({text, title, show, controller, labeltxt}) {
+//   return TextField(
+//     // autofocus: true,
+//     controller: controller,
 
-    keyboardType: show == true ? TextInputType.number : TextInputType.text,
-    // cursorColor: Theme.of(context).primaryColor,
-    style: BaseStyles.purpleMedium16,
-    decoration: InputDecoration(
-      filled: true, fillColor: Colors.white,
-      disabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(color: AppColors.greycolor, width: 0.2)),
-      enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(color: AppColors.greycolor, width: 0.2)),
-      focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(
-            color: AppColors.greycolor,
-          )),
-      // hintStyle: BaseStyles.grey18,
-      isDense: true,
-      labelStyle: BaseStyles.greyMedium15,
-      labelText: labeltxt ?? "",
-      contentPadding: const EdgeInsets.all(15),
+//     keyboardType: show == true ? TextInputType.number : TextInputType.text,
+//     // cursorColor: Theme.of(context).primaryColor,
+//     style: BaseStyles.purpleMedium16,
+//     decoration: InputDecoration(
+//       filled: true, fillColor: Colors.white,
+//       disabledBorder: OutlineInputBorder(
+//           borderRadius: BorderRadius.circular(10.0),
+//           borderSide: BorderSide(color: AppColors.greycolor, width: 0.2)),
+//       enabledBorder: OutlineInputBorder(
+//           borderRadius: BorderRadius.circular(10.0),
+//           borderSide: BorderSide(color: AppColors.greycolor, width: 0.2)),
+//       focusedBorder: OutlineInputBorder(
+//           borderRadius: BorderRadius.circular(10.0),
+//           borderSide: BorderSide(
+//             color: AppColors.greycolor,
+//           )),
+//       // hintStyle: BaseStyles.grey18,
+//       isDense: true,
+//       labelStyle: BaseStyles.greyMedium15,
+//       labelText: labeltxt ?? "",
+//       contentPadding: const EdgeInsets.all(15),
 
-      // suffixIcon: Padding(
-      //     padding: const EdgeInsets.only(right: 8),
-      //     child: show == 'true' ? Icon(Icons.add_link) : Container()),
+//       // suffixIcon: Padding(
+//       //     padding: const EdgeInsets.only(right: 8),
+//       //     child: show == 'true' ? Icon(Icons.add_link) : Container()),
 
-      // prefixStyle: BaseStyles.blacklight15,
-      // hintText: text,
-      // border: InputBorder.none,
-    ),
-  );
-}
+//       // prefixStyle: BaseStyles.blacklight15,
+//       // hintText: text,
+//       // border: InputBorder.none,
+//     ),
+//   );
+// }
 
-alltextfiled({text, controller, show, icon}) {
-  return Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: TextField(
-      controller: controller,
-      inputFormatters: [
-        show == true
-            ? LengthLimitingTextInputFormatter(10)
-            : LengthLimitingTextInputFormatter(50)
-      ],
-      keyboardType: show == true ? TextInputType.number : TextInputType.text,
-      // keyboardType: TextInputType.text,
-      // cursorColor: Theme.of(context).primaryColor,
-      style: BaseStyles.whiteMedium16,
-      decoration: InputDecoration(
-        enabledBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(color: AppColors.whiteColor)),
-        focusedBorder: const UnderlineInputBorder(
-            borderSide: BorderSide(
-          color: AppColors.whiteColor,
-        )),
-        hintStyle: BaseStyles.whiteMedium16,
-        isDense: true,
-        contentPadding: const EdgeInsets.all(15),
-        prefixIcon: Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: Icon(
-              icon,
-              color: AppColors.whiteColor,
-              size: 25,
-            )),
-        prefixStyle: BaseStyles.blacNormal14,
-        hintText: text,
-        border: InputBorder.none,
-      ),
-    ),
-  );
-}
+// alltextfiled({text, controller, show, icon}) {
+//   return Padding(
+//     padding: const EdgeInsets.all(8.0),
+//     child: TextField(
+//       controller: controller,
+//       inputFormatters: [
+//         show == true
+//             ? LengthLimitingTextInputFormatter(10)
+//             : LengthLimitingTextInputFormatter(50)
+//       ],
+//       keyboardType: show == true ? TextInputType.number : TextInputType.text,
+//       // keyboardType: TextInputType.text,
+//       // cursorColor: Theme.of(context).primaryColor,
+//       style: BaseStyles.whiteMedium16,
+//       decoration: InputDecoration(
+//         enabledBorder: const UnderlineInputBorder(
+//             borderSide: BorderSide(color: AppColors.whiteColor)),
+//         focusedBorder: const UnderlineInputBorder(
+//             borderSide: BorderSide(
+//           color: AppColors.whiteColor,
+//         )),
+//         hintStyle: BaseStyles.whiteMedium16,
+//         isDense: true,
+//         contentPadding: const EdgeInsets.all(15),
+//         prefixIcon: Padding(
+//             padding: const EdgeInsets.only(right: 8),
+//             child: Icon(
+//               icon,
+//               color: AppColors.whiteColor,
+//               size: 25,
+//             )),
+//         prefixStyle: BaseStyles.blacNormal14,
+//         hintText: text,
+//         border: InputBorder.none,
+//       ),
+//     ),
+//   );
+// }
 
 textwidget(
     {name,

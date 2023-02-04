@@ -15,70 +15,69 @@ class ResetpasswordView extends GetView<ResetpasswordController> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => ResetpasswordController());
-    return SafeArea(
-      child: Scaffold(
-          backgroundColor: AppColors.whiteColor,
-          resizeToAvoidBottomInset: false,
-          body: Center(
-            child: Container(
-              height: Get.height,
-              width: Get.width,
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Column(
-                      children: [
-                        // Container(
-                        //   decoration:
-                        //       MyDecoration.simple2decoration(radius: 15.0),
-                        //   child: Image.asset(
-                        //     MyImages.logo,
-                        //     fit: BoxFit.cover,
-                        //     height: 100,
-                        //   ),
-                        // ),
-                        heightSpace50,
-                        Text(
-                          HomeName.resetpass,
-                          style: BaseStyles.blackMedium24,
-                        ),
-                        heightSpace10,
-                        Text(
-                          HomeName.emailstart,
-                          style: BaseStyles.grey3Normal16,
-                        ),
-                        heightSpace20,
-                        textfiled(
-                          style: BaseStyles.grey3Normal16,
-                          controller: controller.emailtxt,
-                          readonly: false,
-                          text: 'Email',
-                        ),
-                      ],
-                    ),
-                    heightSpace30,
-                    mybuttons(
-                      action: () {
-                        Get.to(OtpView());
-                      },
-                      // height: 45.0,
-                      color: AppColors.orangecolor,
-                      radius: 8.0,
-                      name: HomeName.otp,
-                    ),
-                    heightSpace20,
-                    Text(
-                      HomeName.backtoLogin,
-                      style: BaseStyles.blueMediuml16,
-                    ),
-                  ],
-                ),
+    return Scaffold(
+        backgroundColor: AppColors.whiteColor,
+        resizeToAvoidBottomInset: false,
+        body: Center(
+          child: Container(
+            height: Get.height,
+            width: Get.width,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  heightSpace30,
+                  Column(
+                    children: [
+                      // Container(
+                      //   decoration:
+                      //       MyDecoration.simple2decoration(radius: 15.0),
+                      //   child: Image.asset(
+                      //     MyImages.logo,
+                      //     fit: BoxFit.cover,
+                      //     height: 100,
+                      //   ),
+                      // ),
+                      heightSpace50,
+                      Text(
+                        HomeName.resetpass,
+                        style: BaseStyles.blackMedium24,
+                      ),
+                      heightSpace10,
+                      Text(
+                        HomeName.emailstart,
+                        style: BaseStyles.grey3Normal16,
+                      ),
+                      heightSpace20,
+                      textfiled(
+                        style: BaseStyles.grey3Normal16,
+                        controller: controller.emailtxt,
+                        readonly: false,
+                        text: 'Email',
+                      ),
+                    ],
+                  ),
+                  heightSpace30,
+                  mybuttons(
+                    action: () {
+                      Get.to(OtpView());
+                    },
+                    // height: 45.0,
+                    color: AppColors.orangecolor,
+                    radius: 8.0,
+                    name: HomeName.otp,
+                  ),
+                  heightSpace20,
+                  Text(
+                    HomeName.backtoLogin,
+                    style: BaseStyles.blueMediuml16,
+                  ),
+                ],
               ),
             ),
-          )),
-    );
+          ),
+        ));
   }
 }

@@ -515,7 +515,9 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                                           child: Container(
                                             // height: 300,
                                             decoration: MyDecoration
-                                                .radiusonlydecoration(),
+                                                .radiusonlydecoration(
+                                                    tlradius: 25.0,
+                                                    trradius: 25.0),
                                             child: Padding(
                                               padding:
                                                   const EdgeInsets.all(8.0),
@@ -643,7 +645,8 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                           heightFactor: 0.51,
                           child: Container(
                             // height: 300,
-                            decoration: MyDecoration.radiusonlydecoration(),
+                            decoration: MyDecoration.radiusonlydecoration(
+                                tlradius: 25.0, trradius: 25.0),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
@@ -1437,8 +1440,8 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                                 heightFactor: 0.85,
                                 child: Container(
                                   // height: 300,
-                                  decoration:
-                                      MyDecoration.radiusonlydecoration(),
+                                  decoration: MyDecoration.radiusonlydecoration(
+                                      tlradius: 25.0, trradius: 25.0),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(
@@ -1595,8 +1598,8 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                                 heightFactor: 0.8,
                                 child: Container(
                                   // height: 300,
-                                  decoration:
-                                      MyDecoration.radiusonlydecoration(),
+                                  decoration: MyDecoration.radiusonlydecoration(
+                                      tlradius: 25.0, trradius: 25.0),
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Column(

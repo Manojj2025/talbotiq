@@ -131,19 +131,19 @@ class LeadAddedView extends GetView<LeaddetailController> {
                         name: 'View Lead',
                         color: AppColors.orangecolor,
                         height: 40.0),
-                    mybuttons(
-                        style: BaseStyles.orangeMedium16,
-                        border: Border.all(color: AppColors.orangecolor),
-                        action: () {
-                          // Get.to(LeadAddedView());
-                          // controller
-                          //     .index
-                          //     .value = ;
-                          print('object');
-                        },
-                        name: 'Post Job',
-                        color: AppColors.whiteColor,
-                        height: 40.0)
+                    // mybuttons(
+                    //     style: BaseStyles.orangeMedium16,
+                    //     border: Border.all(color: AppColors.orangecolor),
+                    //     action: () {
+                    //       // Get.to(LeadAddedView());
+                    //       // controller
+                    //       //     .index
+                    //       //     .value = ;
+                    //       print('object');
+                    //     },
+                    //     name: 'Post Job',
+                    //     color: AppColors.whiteColor,
+                    //     height: 40.0)
                   ],
                 ),
               ),

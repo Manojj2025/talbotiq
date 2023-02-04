@@ -24,7 +24,8 @@ filter(context, controller) {
           heightFactor: 0.8,
           child: Container(
             // height: 300,
-            decoration: MyDecoration.radiusonlydecoration(),
+            decoration: MyDecoration.radiusonlydecoration(
+                tlradius: 25.0, trradius: 25.0),
             child: Column(
               children: [
                 heightSpace20,
@@ -158,7 +159,8 @@ sortby(context, controller) {
           heightFactor: 0.4,
           child: Container(
             // height: 300,
-            decoration: MyDecoration.radiusonlydecoration(),
+            decoration: MyDecoration.radiusonlydecoration(
+                tlradius: 25.0, trradius: 25.0),
             child: Column(
               children: [
                 heightSpace20,
@@ -258,7 +260,8 @@ skillswidget(context, controller) {
           heightFactor: 0.6,
           child: Container(
             // height: 300,
-            decoration: MyDecoration.radiusonlydecoration(),
+            decoration: MyDecoration.radiusonlydecoration(
+                tlradius: 25.0, trradius: 25.0),
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
@@ -371,7 +374,8 @@ jobedit({context, controller, listname, icon, routename, int i = 2}) {
           heightFactor: 0.4,
           child: Container(
             // height: 300,
-            decoration: MyDecoration.radiusonlydecoration(),
+            decoration: MyDecoration.radiusonlydecoration(
+                tlradius: 25.0, trradius: 25.0),
             child: Column(
               children: [
                 heightSpace20,
@@ -442,10 +446,11 @@ status({context, controller, title, list, button, size}) {
       ),
       builder: (context) {
         return FractionallySizedBox(
-          heightFactor: size ?? 0.25,
+          heightFactor: size ?? 0.30,
           child: Container(
             // height: 300,
-            decoration: MyDecoration.radiusonlydecoration(),
+            decoration: MyDecoration.radiusonlydecoration(
+                tlradius: 25.0, trradius: 25.0),
             child: Column(
               children: [
                 heightSpace20,

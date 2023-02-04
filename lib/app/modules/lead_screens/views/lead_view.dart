@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:Talbotiq/app/widgets/decoration.dart';
 
 import '../../../constants/values.dart';
+import '../../../widgets/buttons.dart';
 import '../../../widgets/filters.dart';
 import '../../clients_screens/views/clientNewtask_view.dart';
 import 'addnewlead.dart';
@@ -16,125 +17,123 @@ class LeadView extends GetView<LeadController> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => LeadController());
-    return SafeArea(
-      child: Scaffold(
-          appBar: AppBar(
-            leadingWidth: 30,
-            title: Text(
-              HomeName.lead,
-              style: BaseStyles.whiteMedium16,
-            ),
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(right: 15.0),
-                child: Row(
-                  children: [
-                    Icon(
-                      Icons.search,
-                      color: AppColors.whiteColor,
-                      size: 18,
+    return Scaffold(
+        appBar: AppBar(
+          leadingWidth: 30,
+          title: Text(
+            HomeName.lead,
+            style: BaseStyles.whiteMedium16,
+          ),
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: 15.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.search,
+                    color: AppColors.whiteColor,
+                    size: 18,
+                  ),
+                  widthSpace10,
+                  // widthSpace5,
+                  GestureDetector(
+                    onTap: () {
+                      Get.to(AddNewLeadView());
+                    },
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.add,
+                          color: AppColors.whiteColor,
+                          size: 18,
+                        ),
+                        widthSpace5,
+                        Text(
+                          'New',
+                          style: BaseStyles.whitebold14,
+                        )
+                      ],
                     ),
-                    widthSpace10,
-                    // widthSpace5,
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+        body: Column(
+          children: [
+            //// filters and soryby widget ui//////
+            Card(
+              elevation: 0,
+              color: AppColors.whiteColor,
+              margin: EdgeInsets.zero,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
                     GestureDetector(
                       onTap: () {
-                        Get.to(AddNewLeadView());
+                        filter(context, controller);
                       },
                       child: Row(
                         children: [
-                          Icon(
-                            Icons.add,
-                            color: AppColors.whiteColor,
-                            size: 18,
+                          Image.asset(
+                            MyImages.filter,
+                            height: 20,
+                            width: 20,
+                          ),
+                          widthSpace10,
+                          Text(
+                            JobsName.filters,
+                            style: BaseStyles.lightblackMedium14,
                           ),
                           widthSpace5,
-                          Text(
-                            'New',
-                            style: BaseStyles.whitebold14,
+                          CircleAvatar(
+                            radius: 10,
+                            backgroundColor: AppColors.primaryColor,
+                            child: Text(
+                              '2',
+                              style: BaseStyles.whitesmall10,
+                            ),
                           )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 40,
+                      width: 1,
+                      color: AppColors.greyprimarycolor,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        sortby(context, controller);
+                      },
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            MyImages.sort,
+                            height: 20,
+                            width: 20,
+                          ),
+                          widthSpace10,
+                          Text(
+                            JobsName.sortby,
+                            style: BaseStyles.lightblackMedium14,
+                          ),
                         ],
                       ),
                     )
                   ],
                 ),
-              )
-            ],
-          ),
-          body: Column(
-            children: [
-              //// filters and soryby widget ui//////
-              Card(
-                elevation: 0,
-                color: AppColors.whiteColor,
-                margin: EdgeInsets.zero,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          filter(context, controller);
-                        },
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              MyImages.filter,
-                              height: 20,
-                              width: 20,
-                            ),
-                            widthSpace10,
-                            Text(
-                              JobsName.filters,
-                              style: BaseStyles.lightblackMedium14,
-                            ),
-                            widthSpace5,
-                            CircleAvatar(
-                              radius: 10,
-                              backgroundColor: AppColors.primaryColor,
-                              child: Text(
-                                '2',
-                                style: BaseStyles.whitesmall10,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        height: 40,
-                        width: 1,
-                        color: AppColors.greyprimarycolor,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          sortby(context, controller);
-                        },
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              MyImages.sort,
-                              height: 20,
-                              width: 20,
-                            ),
-                            widthSpace10,
-                            Text(
-                              JobsName.sortby,
-                              style: BaseStyles.lightblackMedium14,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
               ),
-              //////////////////// job name list widget ui////////////////////////////////
-              heightSpace10,
-              _jobname(), heightSpace10,
-              _listWidget()
-            ],
-          )),
-    );
+            ),
+            //////////////////// job name list widget ui////////////////////////////////
+            heightSpace10,
+            _jobname(), heightSpace10,
+            _listWidget()
+          ],
+        ));
   }
 
   //////////////////// job name list widget ui////////////////////////////////
@@ -405,23 +404,40 @@ class LeadView extends GetView<LeadController> {
                             GestureDetector(
                               onTap: () {
                                 status(
+                                    button: mybuttons(
+                                        width: Get.width * 0.95,
+                                        action: () {
+                                          Get.back();
+                                        },
+                                        name: 'Submit',
+                                        radius: 5.0,
+                                        color: AppColors.orangecolor,
+                                        height: 45.0),
                                     context: context,
                                     title: 'Update Status',
                                     controller: controller,
                                     list: controller.sortlist);
                               },
-                              child: Row(
-                                children: [
-                                  Text(
-                                    'Contacted',
-                                    style: BaseStyles.lightblackMedium12,
-                                  ),
-                                  widthSpace5,
-                                  Icon(
-                                    Icons.arrow_drop_down,
-                                    color: AppColors.greyprimarycolor,
-                                  )
-                                ],
+                              child: Container(
+                                child: Row(
+                                  children: [
+                                    Image.asset(
+                                      'assets/image/person.png',
+                                      height: 15,
+                                      width: 15,
+                                    ),
+                                    widthSpace5,
+                                    Text(
+                                      'Contacted',
+                                      style: BaseStyles.lightblackMedium12,
+                                    ),
+                                    widthSpace5,
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      color: AppColors.greyprimarycolor,
+                                    )
+                                  ],
+                                ),
                               ),
                             )
                           ],

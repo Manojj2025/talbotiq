@@ -24,10 +24,10 @@ class LeadController extends GetxController {
   ].obs;
   final editlist = [
     {"icon": Icons.remove_red_eye_outlined, "name": "View Lead"},
-    {"icon": Icons.person_add, "name": "Assign"},
+    {"icon": Icons.person_add_alt_sharp, "name": "Assign"},
     {"icon": Icons.task_alt_outlined, "name": "New Task"},
-    {"icon": Icons.calendar_view_day, "name": "Log Activity"},
-    {"icon": Icons.add_box_outlined, "name": "Edit"},
+    {"icon": Icons.edit_calendar_rounded, "name": "Log Activity"},
+    {"icon": Icons.edit_note_sharp, "name": "Edit"},
     {"icon": Icons.delete, "name": "Delete"},
   ].obs;
   @override

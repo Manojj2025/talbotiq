@@ -10,12 +10,14 @@ class MyDecoration {
     );
   }
 
-  static radiusonlydecoration({tlradius, trradius, color}) {
+  static radiusonlydecoration({tlradius, trradius, blradius, brradius, color}) {
     return BoxDecoration(
       color: color ?? Colors.white,
       borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(tlradius ?? 25),
-        topRight: Radius.circular(trradius ?? 25),
+        topLeft: Radius.circular(tlradius ?? 0),
+        topRight: Radius.circular(trradius ?? 0),
+        bottomLeft: Radius.circular(blradius ?? 0),
+        bottomRight: Radius.circular(brradius ?? 0),
       ),
     );
   }

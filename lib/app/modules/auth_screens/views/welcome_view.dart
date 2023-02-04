@@ -16,94 +16,92 @@ class WelcomeView extends GetView<WelcomeController> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => WelcomeController());
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        backgroundColor: AppColors.whiteColor,
-        body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: IntroductionScreen(
-              globalBackgroundColor: Colors.white,
-              key: introKey,
-              dotsFlex: 2,
-              globalFooter: Column(
-                children: [
-                  mybuttons(
-                      action: () {
-                        Get.to(LoginView());
-                      },
-                      name: 'Get Started',
-                      radius: 8.0,
-                      color: AppColors.orangecolor,
-                      height: 45.0),
-                  heightSpace50,
-                  heightSpace20,
-                  heightSpace50,
-                  // heightSpace50,
-                  Text(
-                    'Apple uses the information we gather to troubleshoot and support your device and give the best support possible.',
-                    style: BaseStyles.grey3Normal12,
-                    textAlign: TextAlign.center,
-                  ),
-                  heightSpace10,
-                  Text(
-                    'See our Privacy Policy',
-                    style: BaseStyles.blueNormal12,
-                  )
-                ],
-              ),
-              pages: [
-                pageModel(
-                    body:
-                        'Automate your talent intelligence with a holistic & seamless solution',
-                    title: 'Welcome to Talboiq',
-                    image: MyImages.intro),
-                pageModel(
-                    body:
-                        'Automate your talent intelligence with a holistic & seamless solution',
-                    title: 'Welcome to Talboiq',
-                    image: MyImages.intro),
-                pageModel(
-                    title: 'Welcome to Talboiq',
-                    body:
-                        'Automate your talent intelligence with a holistic & seamless solution',
-                    image: MyImages.intro),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: AppColors.whiteColor,
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: IntroductionScreen(
+            globalBackgroundColor: Colors.white,
+            key: introKey,
+            dotsFlex: 2,
+            globalFooter: Column(
+              children: [
+                mybuttons(
+                    action: () {
+                      Get.to(LoginView());
+                    },
+                    name: 'Get Started',
+                    radius: 8.0,
+                    color: AppColors.orangecolor,
+                    height: 45.0),
+                heightSpace50,
+                heightSpace20,
+                heightSpace50,
+                // heightSpace50,
+                Text(
+                  'Apple uses the information we gather to troubleshoot and support your device and give the best support possible.',
+                  style: BaseStyles.grey3Normal12,
+                  textAlign: TextAlign.center,
+                ),
+                heightSpace10,
+                Text(
+                  'See our Privacy Policy',
+                  style: BaseStyles.blueNormal12,
+                )
               ],
-              //  [
+            ),
+            pages: [
+              pageModel(
+                  body:
+                      'Automate your talent intelligence with a holistic & seamless solution',
+                  title: 'Welcome to Talboiq',
+                  image: MyImages.intro),
+              pageModel(
+                  body:
+                      'Automate your talent intelligence with a holistic & seamless solution',
+                  title: 'Welcome to Talboiq',
+                  image: MyImages.intro),
+              pageModel(
+                  title: 'Welcome to Talboiq',
+                  body:
+                      'Automate your talent intelligence with a holistic & seamless solution',
+                  image: MyImages.intro),
+            ],
+            //  [
 
-              onDone: () => _onIntroEnd(context),
-              onSkip: () =>
-                  _onIntroEnd(context), // You can override onSkip callback
-              showSkipButton: false,
-              nextFlex: 0,
-              //rtl: true, // Display as right-to-left
-              skip: const Text(''),
-              next: const Text(''),
-              done: const Text(
-                '',
+            onDone: () => _onIntroEnd(context),
+            onSkip: () =>
+                _onIntroEnd(context), // You can override onSkip callback
+            showSkipButton: false,
+            nextFlex: 0,
+            //rtl: true, // Display as right-to-left
+            skip: const Text(''),
+            next: const Text(''),
+            done: const Text(
+              '',
+            ),
+            curve: Curves.fastLinearToSlowEaseIn,
+            controlsMargin: const EdgeInsets.all(16),
+            controlsPadding: kIsWeb
+                ? const EdgeInsets.all(12.0)
+                : const EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),
+            dotsDecorator: DotsDecorator(
+              spacing: const EdgeInsets.symmetric(horizontal: 3),
+              size: const Size(10.0, 10.0),
+              color: AppColors.greyprimarycolor.shade200,
+              activeColor: AppColors.primaryColor,
+              activeSize: const Size(10.0, 10.0),
+              activeShape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(25.0)),
               ),
-              curve: Curves.fastLinearToSlowEaseIn,
-              controlsMargin: const EdgeInsets.all(16),
-              controlsPadding: kIsWeb
-                  ? const EdgeInsets.all(12.0)
-                  : const EdgeInsets.fromLTRB(0.0, 0.0, 16.0, 0.0),
-              dotsDecorator: DotsDecorator(
-                spacing: const EdgeInsets.symmetric(horizontal: 3),
-                size: const Size(10.0, 10.0),
-                color: AppColors.greyprimarycolor.shade200,
-                activeColor: AppColors.primaryColor,
-                activeSize: const Size(10.0, 10.0),
-                activeShape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(25.0)),
-                ),
+            ),
+            dotsContainerDecorator: const ShapeDecoration(
+              color: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(8.0)),
               ),
-              dotsContainerDecorator: const ShapeDecoration(
-                color: Colors.transparent,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                ),
-              )),
-        ),
+            )),
       ),
     );
   }
@@ -124,6 +122,7 @@ class WelcomeView extends GetView<WelcomeController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    heightSpace30,
                     Image.asset(
                       image,
                       height: 150,

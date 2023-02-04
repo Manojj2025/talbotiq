@@ -619,12 +619,12 @@ Column textwidget2({name, text, width, icon, onTap}) {
         ),
         width: width ?? Get.width,
         // margin: const EdgeInsets.only(left: 5, right: 5),
-        height: 40,
+        height: 50,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 15.0),
+              padding: const EdgeInsets.only(left: 10.0),
               child: Text(
                 text,
                 style: BaseStyles.grey3Normal16,
