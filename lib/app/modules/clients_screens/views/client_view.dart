@@ -318,25 +318,24 @@ class ClientView extends GetView<ClientController> {
                                       ),
                                     ),
                                     widthSpace10,
-                                    GestureDetector(
-                                      onTap: () {
-                                        jobedit(
-                                          routename: ClientNewTaskView(),
-                                          // ontap: Get.to(ClientNewTaskView()),
-                                          // // Get.back();
+                                    IconButton(
+                                        onPressed: () {
+                                          jobedit(
+                                            routename: ClientNewTaskView(),
+                                            // ontap: Get.to(ClientNewTaskView()),
+                                            // // Get.back();
 
-                                          context: context,
-                                          controller: controller,
-                                          listname: controller.editlist,
-                                          icon: controller.editlist,
-                                        );
-                                      },
-                                      child: Icon(
-                                        Icons.more_vert_outlined,
-                                        size: 16,
-                                        color: AppColors.greyprimarycolor,
-                                      ),
-                                    ),
+                                            context: context,
+                                            controller: controller,
+                                            listname: controller.editlist,
+                                            icon: controller.editlist,
+                                          );
+                                        },
+                                        icon: Icon(
+                                          Icons.more_vert_outlined,
+                                          size: 16,
+                                          color: AppColors.greyprimarycolor,
+                                        )),
                                   ],
                                 ),
                               ),

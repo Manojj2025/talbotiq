@@ -358,7 +358,7 @@ skillswidget(context, controller) {
       });
 }
 
-jobedit({context, controller, listname, icon, routename, int i = 2}) {
+jobedit({context, controller, listname, icon, routename, int i = 2, height}) {
   return showModalBottomSheet(
       isDismissible: true,
       backgroundColor: Colors.transparent,
@@ -371,7 +371,7 @@ jobedit({context, controller, listname, icon, routename, int i = 2}) {
       ),
       builder: (context) {
         return FractionallySizedBox(
-          heightFactor: 0.4,
+          heightFactor: height ?? 0.4,
           child: Container(
             // height: 300,
             decoration: MyDecoration.radiusonlydecoration(

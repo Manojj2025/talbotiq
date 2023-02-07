@@ -211,24 +211,20 @@ class JobsView extends GetView<JobsController> {
                                 ),
                               ],
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                jobedit(
-                                  context: context,
-                                  controller: controller,
-                                  listname: controller.editlist,
-                                  icon: controller.editlist,
-                                );
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Icon(
+                            IconButton(
+                                onPressed: () {
+                                  jobedit(
+                                    context: context,
+                                    controller: controller,
+                                    listname: controller.editlist,
+                                    icon: controller.editlist,
+                                  );
+                                },
+                                icon: Icon(
                                   Icons.more_vert_outlined,
-                                  size: 18,
+                                  size: 16,
                                   color: AppColors.greyprimarycolor,
-                                ),
-                              ),
-                            )
+                                )),
                           ],
                         ),
                         heightSpace10,

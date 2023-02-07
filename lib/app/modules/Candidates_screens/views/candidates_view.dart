@@ -37,7 +37,7 @@ class CandidatesView extends GetView<CandidatesController> {
                   // widthSpace5,
                   GestureDetector(
                     onTap: () {
-                      Get.to(CandidateNewTaskView());
+                      // Get.to(CandidateNewTaskView());
                     },
                     child: Container(
                       child: Row(
@@ -253,22 +253,21 @@ class CandidatesView extends GetView<CandidatesController> {
                                         size: 16, color: AppColors.yellowcolor),
                                   ),
                                   widthSpace10,
-                                  GestureDetector(
-                                    onTap: () {
-                                      jobedit(
-                                        // routename: LeadNewTaskView(),
-                                        context: context,
-                                        controller: controller,
-                                        listname: controller.editlist,
-                                        icon: controller.editlist,
-                                      );
-                                    },
-                                    child: Icon(
-                                      Icons.more_vert_outlined,
-                                      size: 16,
-                                      color: AppColors.greyprimarycolor,
-                                    ),
-                                  ),
+                                  IconButton(
+                                      onPressed: () {
+                                        jobedit(
+                                          // routename: LeadNewTaskView(),
+                                          context: context,
+                                          controller: controller,
+                                          listname: controller.editlist,
+                                          icon: controller.editlist,
+                                        );
+                                      },
+                                      icon: Icon(
+                                        Icons.more_vert_outlined,
+                                        size: 16,
+                                        color: AppColors.greyprimarycolor,
+                                      )),
                                 ],
                               ),
                             )

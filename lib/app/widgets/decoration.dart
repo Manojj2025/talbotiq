@@ -75,11 +75,11 @@ BoxDecoration decorationbox2({color, radius, opacity}) {
   );
 }
 
-BoxDecoration decorationbox({color, border}) {
+BoxDecoration decorationbox({color, border, radius}) {
   return BoxDecoration(
     border: border,
     color: color == null ? Colors.white : color,
-    borderRadius: BorderRadius.circular(5),
+    borderRadius: BorderRadius.circular(radius ?? 5),
     // boxShadow: [
     //   BoxShadow(
     //     color: Colors.grey.shade100,

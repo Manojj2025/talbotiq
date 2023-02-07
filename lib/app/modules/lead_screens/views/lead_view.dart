@@ -316,22 +316,21 @@ class LeadView extends GetView<LeadController> {
                                       ),
                                     ),
                                     widthSpace10,
-                                    GestureDetector(
-                                      onTap: () {
-                                        jobedit(
-                                          routename: LeadNewTaskView(),
-                                          context: context,
-                                          controller: controller,
-                                          listname: controller.editlist,
-                                          icon: controller.editlist,
-                                        );
-                                      },
-                                      child: Icon(
-                                        Icons.more_vert_outlined,
-                                        size: 16,
-                                        color: AppColors.greyprimarycolor,
-                                      ),
-                                    ),
+                                    IconButton(
+                                        onPressed: () {
+                                          jobedit(
+                                            routename: LeadNewTaskView(),
+                                            context: context,
+                                            controller: controller,
+                                            listname: controller.editlist,
+                                            icon: controller.editlist,
+                                          );
+                                        },
+                                        icon: Icon(
+                                          Icons.more_vert_outlined,
+                                          size: 16,
+                                          color: AppColors.greyprimarycolor,
+                                        )),
                                   ],
                                 ),
                               ),

@@ -924,14 +924,13 @@ class LeaddetailView extends GetView<LeaddetailController> {
                               style: BaseStyles.blacNormal14,
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Icon(
-                              Icons.more_vert_outlined,
-                              size: 18,
-                              color: AppColors.greyprimarycolor,
-                            ),
-                          )
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.more_vert_outlined,
+                                size: 16,
+                                color: AppColors.greyprimarycolor,
+                              )),
                         ]),
                     heightSpace10,
                     heightSpace5,

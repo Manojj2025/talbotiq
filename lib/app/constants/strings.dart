@@ -45,6 +45,8 @@ class HomeName {
   static const OppurtunityAdded = 'Oppurtunity Added';
   static const resetpass = 'Reset Password';
 
+  static const createNewProject = 'Create New Project';
+  static const project = 'Projects';
   static const candidates = 'Candidates';
   static const leaddetail = 'Lead Details';
   static const enterdigit = 'Enter 4 Digit OTP';
@@ -74,6 +76,7 @@ class HomeName {
   static const leadadded = 'Lead Added';
   static const lead = 'Leads';
 
+  static const ProjectDetails = 'Project Details';
   static const CandidateAdded = 'Candidate Added';
   static const opportunityDetails = 'Opportunity Details';
   static const candidateDetail = 'Candidate Detail';

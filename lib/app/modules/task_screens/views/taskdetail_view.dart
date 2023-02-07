@@ -3,6 +3,7 @@ import 'package:Talbotiq/app/widgets/buttons.dart';
 import 'package:Talbotiq/app/widgets/decoration.dart';
 import 'package:Talbotiq/app/widgets/filters.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -14,175 +15,161 @@ import '../../../widgets/appbar.dart';
 import '../../../widgets/jobdetailwidget.dart';
 import '../../../widgets/search.dart';
 import '../../../widgets/textfiled.dart';
-import '../controllers/oppurtunitydetail_controller.dart';
+import '../controllers/taskdetail_controller.dart';
 
-class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
-  const OppurtunitydetailView({Key? key}) : super(key: key);
+class TaskdetailView extends GetView<TaskdetailController> {
+  const TaskdetailView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => OppurtunitydetailController());
+    Get.lazyPut(() => TaskdetailController());
     return Scaffold(
       appBar: myappbar2(
-          title: HomeName.opportunityDetails, show: true, show2: Container()),
+        title: HomeName.ProjectDetails,
+        show: true,
+      ),
       body: Obx(
         () => ListView(
           children: [
-            GestureDetector(
-              onTap: () {
-                // Get.to(const ClientsdetailView());
-              },
-              child: Container(
-                padding: EdgeInsets.all(8.0),
-                color: AppColors.whiteColor,
-                child: Column(
-                  children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          // crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CircleAvatar(
-                              radius: 18,
-                              backgroundColor: AppColors.primaryColor,
-                              child: CircleAvatar(
-                                backgroundColor: Color(0xffECF7F3),
-                                child: Image.asset(
-                                  'assets/image/4.png',
-                                  height: 20,
-                                  width: 20,
-                                  color: AppColors.primaryColor,
-                                ),
-                                radius: 17,
-                              ),
-                            ),
-                            widthSpace10,
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Raman Arora',
-                                  style: BaseStyles.blackMedium16,
-                                ),
-                                Text(
-                                  'raman@gmail.com',
-                                  style: BaseStyles.grey2normal12,
-                                ),
-                                heightSpace5,
-                              ],
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              GestureDetector(
-                                onTap: () {},
-                                child: Icon(Icons.bookmark_border_rounded,
-                                    size: 16, color: AppColors.yellowcolor),
-                              ),
-                            ],
+            Container(
+              padding: EdgeInsets.all(8.0),
+              color: AppColors.whiteColor,
+              child: Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          Image.asset(
+                            'assets/image/lock.png',
+                            height: 14,
+                            width: 14,
+                            color: AppColors.greyprimarycolor,
                           ),
-                        ),
-                      ],
-                    ),
-                    heightSpace10,
-                    // heightSpace5,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Row(
+                          widthSpace10,
+                          Text(
+                            'Project Name',
+                            style: BaseStyles.blackMedium16,
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(0.0),
+                        child: Row(
                           children: [
-                            Icon(
-                              Icons.location_on_outlined,
-                              size: 16,
-                              color: AppColors.greyprimarycolor,
+                            GestureDetector(
+                              onTap: () {},
+                              child: Icon(Icons.bookmark,
+                                  size: 16, color: AppColors.yellowcolor),
                             ),
-                            widthSpace3,
-                            Text(
-                              'Gurugram',
-                              style: BaseStyles.lightblackMedium12,
-                            )
                           ],
                         ),
-                        widthSpace20,
-                        Row(
+                      )
+                    ],
+                  ),
+                  heightSpace10,
+                  Divider(
+                    thickness: 0.5,
+                  ),
+                  heightSpace5,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        height: 30,
+                        width: 130,
+                        child: Stack(
+                          alignment: Alignment.center,
                           children: [
-                            Icon(
-                              Icons.phone,
-                              size: 16,
-                              color: AppColors.greyprimarycolor,
-                            ),
-                            widthSpace3,
-                            Text(
-                              '+91 9939938938',
-                              style: BaseStyles.lightblackMedium12,
-                            )
+                            Positioned(
+                                left: 0,
+                                child: CircleAvatar(
+                                  radius: 15,
+                                  backgroundColor: Color(0xffE9E9E9),
+                                  child: Text(
+                                    'A',
+                                    style: TextStyle(
+                                        color: Color(0xff828282),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12.sp),
+                                  ),
+                                )),
+                            Positioned(
+                                left: 20,
+                                child: CircleAvatar(
+                                  radius: 15,
+                                  backgroundColor: Color(0xffE1F8FF),
+                                  child: Text(
+                                    'R',
+                                    style: TextStyle(
+                                        color: Color(0xff56CCF2),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12.sp),
+                                  ),
+                                )),
+                            Positioned(
+                                left: 40,
+                                child: CircleAvatar(
+                                  radius: 15,
+                                  backgroundColor: Color(0xffF8E5FF),
+                                  child: Text(
+                                    'K',
+                                    style: TextStyle(
+                                        color: Color(0xffBB6BD9),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12.sp),
+                                  ),
+                                )),
+                            Positioned(
+                                left: 60,
+                                child: CircleAvatar(
+                                  radius: 15,
+                                  backgroundColor: Color(0xffFFEDDD),
+                                  child: Text(
+                                    'S',
+                                    style: TextStyle(
+                                        color: Color(0xffF2994A),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12.sp),
+                                  ),
+                                )),
+                            Positioned(
+                                left: 95,
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.add,
+                                      color: AppColors.greycolor2,
+                                      size: 10,
+                                    ),
+                                    Text(
+                                      '10',
+                                      style: BaseStyles.blacNormal12,
+                                    )
+                                  ],
+                                )),
                           ],
                         ),
-                      ],
-                    ),
-                    heightSpace5,
-                    // Divider(
-                    //   thickness: 0.5,
-                    // ),
-                    // heightSpace10,
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //   children: [
-                    //     Row(
-                    //       children: [
-                    //         Image.asset(
-                    //           'assets/image/2.png',
-                    //           height: 16,
-                    //           width: 16,
-                    //           color: AppColors.greycolor3,
-                    //         ),
-                    //         widthSpace3,
-                    //         Text(
-                    //           'Source:',
-                    //           style: BaseStyles.lightblacklarge12,
-                    //         ),
-                    //         Text(
-                    //           'Cold call',
-                    //           style: BaseStyles.lightblackMedium12,
-                    //         ),
-                    //       ],
-                    //     ),
-                    //     GestureDetector(
-                    //       onTap: () {
-                    //         // status(
-                    //         //     context: context,
-                    //         //     title: 'Update Status',
-                    //         //     controller: controller,
-                    //         //     list: controller.sortlist);
-                    //       },
-                    //       child: Row(
-                    //         children: [
-                    //           Icon(
-                    //             Icons.person_rounded,
-                    //             size: 16,
-                    //             color: AppColors.orangecolor,
-                    //           ),
-                    //           widthSpace5,
-                    //           Text(
-                    //             'Contacted',
-                    //             style: BaseStyles.lightblackMedium12,
-                    //           ),
-                    //           widthSpace5,
-                    //           Icon(
-                    //             Icons.arrow_drop_down,
-                    //             color: AppColors.greyprimarycolor,
-                    //           )
-                    //         ],
-                    //       ),
-                    //     )
-                    //   ],
-                    // )
-                  ],
-                ),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'No Status',
+                            style: BaseStyles.lightblackMedium12,
+                          ),
+                          widthSpace5,
+                          Icon(
+                            Icons.arrow_drop_down,
+                            color: AppColors.greyprimarycolor,
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+
+                  // heightSpace10,
+                ],
               ),
             ),
             heightSpace10,
@@ -1744,7 +1731,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
       child: ListView.builder(
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
-          itemCount: controller.clientslist.length,
+          itemCount: controller.list.length,
           itemBuilder: (BuildContext context, int index) {
             return Obx(
               (() => Row(
@@ -1753,7 +1740,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                       GestureDetector(
                         onTap: () {
                           controller.selectname.value =
-                              controller.clientslist[index]['name'].toString();
+                              controller.list[index]['name'].toString();
                         },
                         child: Container(
                           height: 30,
@@ -1761,7 +1748,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                           alignment: Alignment.center,
                           decoration: BoxDecoration(
                               color: controller.selectname.value ==
-                                      controller.clientslist[index]['name']
+                                      controller.list[index]['name']
                                   ? AppColors.primaryColor
                                   : AppColors.whiteColor,
                               border: Border.all(
@@ -1770,16 +1757,30 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                               borderRadius: BorderRadius.circular(30)),
                           child: Padding(
                             padding:
-                                const EdgeInsets.only(left: 10.0, right: 10.0),
-                            child: Text(
-                              controller.clientslist[index]['value'] == ""
-                                  ? controller.clientslist[index]['name']
-                                      .toString()
-                                  : "${controller.clientslist[index]['name'].toString()}",
-                              style: controller.selectname.value ==
-                                      controller.clientslist[index]['name']
-                                  ? BaseStyles.whitemedium14
-                                  : BaseStyles.greyMedium14,
+                                const EdgeInsets.only(left: 20.0, right: 20.0),
+                            child: Row(
+                              children: [
+                                ImageIcon(
+                                  AssetImage(
+                                      controller.list[index]['img'].toString()),
+                                  size: 15,
+                                  color: controller.selectname.value ==
+                                          controller.list[index]['name']
+                                      ? AppColors.whiteColor
+                                      : AppColors.greycolor3,
+                                ),
+                                widthSpace5,
+                                Text(
+                                  controller.list[index]['value'] == ""
+                                      ? controller.list[index]['name']
+                                          .toString()
+                                      : "${controller.list[index]['name'].toString()}",
+                                  style: controller.selectname.value ==
+                                          controller.list[index]['name']
+                                      ? BaseStyles.whitemedium14
+                                      : BaseStyles.greyMedium14,
+                                ),
+                              ],
                             ),
                           ),
                         ),

@@ -104,7 +104,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                                 children: [
                                   GestureDetector(
                                       onTap: () {
-                                        Get.to(AssignJobView());
+                                        // Get.to(AssignJobView());
                                       },
                                       child: Image.asset(
                                         MyImages.edit,
@@ -368,21 +368,22 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                           _DocumentsWidget()
                         ],
                       )
-                    : controller.selectname.value == 'Feedback'
-                        ? Column(
-                            children: [
-                              _FeebackWidget(context),
-                              heightSpace10,
-                              _Feeback2Widget(),
-                              heightSpace10,
-                              _Feeback2Widget(),
-                            ],
-                          )
-                        : controller.selectname.value == 'Jobs'
-                            ? _job()
-                            : controller.selectname.value == 'Notes'
-                                ? notes()
-                                : activities()
+                    : Container()
+            // controller.selectname.value == 'Feedback'
+            //     ? Column(
+            //         children: [
+            //           _FeebackWidget(context),
+            //           heightSpace10,
+            //           _Feeback2Widget(),
+            //           heightSpace10,
+            //           _Feeback2Widget(),
+            //         ],
+            //       )
+            //     : controller.selectname.value == 'Jobs'
+            //         ? _job()
+            //         : controller.selectname.value == 'Notes'
+            //             ? notes()
+            //             : activities()
           ],
         ),
       ),
@@ -600,14 +601,13 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                               style: BaseStyles.blacNormal14,
                             ),
                           ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Icon(
-                              Icons.more_vert_outlined,
-                              size: 18,
-                              color: AppColors.greyprimarycolor,
-                            ),
-                          )
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.more_vert_outlined,
+                                size: 16,
+                                color: AppColors.greyprimarycolor,
+                              )),
                         ]),
                     heightSpace10,
                     heightSpace5,

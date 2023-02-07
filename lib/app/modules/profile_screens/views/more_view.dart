@@ -1,4 +1,5 @@
 import 'package:Talbotiq/app/modules/lead_screens/views/lead_view.dart';
+import 'package:Talbotiq/app/modules/task_screens/views/task_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -59,61 +60,58 @@ class MoreView extends GetView<MoreController> {
                 ],
               ),
               heightSpace20,
-              ListView.builder(
+              ListView.separated(
+                  separatorBuilder: ((context, index) => Divider(
+                        thickness: 0.5,
+                        height: 4.8,
+                      )),
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: controller.profillist.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Padding(
                       padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              switch (index) {
-                                case 2:
-                                  Get.to(ClientView());
+                      child: ListTile(
+                        onTap: () {
+                          switch (index) {
+                            case 2:
+                              Get.to(ClientView());
 
-                                  break;
-                                case 0:
-                                  Get.to(CandidatesView());
+                              break;
+                            case 0:
+                              Get.to(CandidatesView());
 
-                                  break;
-                                case 1:
-                                  Get.to(LeadView());
+                              break;
+                            case 1:
+                              Get.to(LeadView());
 
-                                  break;
-                                case 3:
-                                  Get.to(OppurtunityView());
+                              break;
+                            case 3:
+                              Get.to(OppurtunityView());
 
-                                  break;
-                                default:
-                              }
-                            },
-                            child: Row(
-                              children: [
-                                Image.asset(
-                                  controller.profillist[index]['image']
-                                      .toString(),
-                                  height: 22,
-                                  width: 22,
-                                ),
-                                widthSpace10,
-                                widthSpace5,
-                                Text(
-                                  controller.profillist[index]['name']
-                                      .toString(),
-                                  style: BaseStyles.blacNormal16,
-                                )
-                              ],
-                            ),
-                          ),
-                          heightSpace10,
-                          Divider(
-                            thickness: 0.5,
-                            height: 4.8,
-                          )
-                        ],
+                              break;
+                            case 4:
+                              Get.to(TaskView());
+
+                              break;
+                            default:
+                          }
+                        },
+                        horizontalTitleGap: 0.0,
+                        visualDensity:
+                            VisualDensity(horizontal: -0.4, vertical: -0.4),
+                        contentPadding: EdgeInsets.zero,
+                        // minVerticalPadding: 0.0,
+                        dense: true,
+                        leading: Image.asset(
+                          controller.profillist[index]['image'].toString(),
+                          height: 22,
+                          width: 22,
+                        ),
+                        title: Text(
+                          controller.profillist[index]['name'].toString(),
+                          style: BaseStyles.blacNormal16,
+                        ),
                       ),
                     );
                   }),

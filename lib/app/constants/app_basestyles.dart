@@ -119,6 +119,11 @@ class BaseStyles {
     fontWeight: FontWeight.w600,
     fontSize: 16.sp,
   );
+  static final grey3Normal10 = GoogleFonts.roboto(
+    color: AppColors.greycolor3,
+    fontWeight: FontWeight.w400,
+    fontSize: 10.sp,
+  );
   static final grey3Normal12 = GoogleFonts.roboto(
     color: AppColors.greycolor3,
     fontWeight: FontWeight.w400,
@@ -313,6 +318,11 @@ class BaseStyles {
     color: AppColors.primaryColor,
     fontWeight: FontWeight.w400,
     fontSize: 14.sp,
+  );
+  static final greennormal10 = GoogleFonts.roboto(
+    color: AppColors.primaryColor,
+    fontWeight: FontWeight.w400,
+    fontSize: 10.sp,
   );
   static final greenMedium14 = GoogleFonts.roboto(
     color: AppColors.primaryColor,
