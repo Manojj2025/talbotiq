@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:readmore/readmore.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
@@ -93,11 +94,63 @@ class TaskdetailView extends GetView<TaskdetailController> {
                 ]),
               )),
           heightSpace10,
-          _name()
+          _name(),
+          heightSpace10,
+          jobDescription(),
+          heightSpace10,
         ],
       ),
     );
   }
+
+/////////job description////////////////////////////////////////////////////////////////
+
+  Widget jobDescription() {
+    return Container(
+        // height: 50,
+        width: Get.width,
+        color: AppColors.whiteColor,
+        margin: EdgeInsets.zero,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Description',
+                    style: BaseStyles.blackMedium14,
+                  ),
+                  GestureDetector(
+                      onTap: () {},
+                      child: Image.asset(
+                        MyImages.edit,
+                        height: 16,
+                        width: 16,
+                      )),
+                ],
+              ),
+              heightSpace10,
+              Divider(
+                thickness: 0.5,
+              ),
+              heightSpace5,
+              ReadMoreText(
+                "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual...",
+                trimLines: 2,
+                style: BaseStyles.blacNormal14,
+                colorClickableText: AppColors.primaryColor,
+                trimMode: TrimMode.Line,
+                trimCollapsedText: '...Show more',
+                trimExpandedText: ' show less',
+              ),
+            ],
+          ),
+        ));
+  }
+///////// professional skills////////////////////////////////
 
   //////////////////// job name list widget ui////////////////////////////////
   _name() {
