@@ -32,6 +32,7 @@ mysearch(
       decoration: InputDecoration(
         prefixIcon: IconButton(
           padding: EdgeInsets.zero,
+          constraints: BoxConstraints(minWidth: 0, minHeight: 0),
           onPressed: () {},
           icon: const Icon(
             Icons.search,

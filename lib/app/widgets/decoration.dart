@@ -10,8 +10,10 @@ class MyDecoration {
     );
   }
 
-  static radiusonlydecoration({tlradius, trradius, blradius, brradius, color}) {
+  static radiusonlydecoration(
+      {tlradius, trradius, blradius, brradius, color, boxShadow}) {
     return BoxDecoration(
+      boxShadow: boxShadow,
       color: color ?? Colors.white,
       borderRadius: BorderRadius.only(
         topLeft: Radius.circular(tlradius ?? 0),
@@ -53,18 +55,11 @@ class MyDecoration {
     );
   }
 
-  static simple2decoration({color, radius}) {
+  static simple2decoration({color, radius, boxshadow}) {
     return BoxDecoration(
         color: color == null ? AppColors.whiteColor : AppColors.whiteColor,
         borderRadius: BorderRadius.circular(radius ?? 10),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.greyprimarycolor.withOpacity(0.2),
-            spreadRadius: 1.0,
-            blurRadius: 10,
-            offset: const Offset(0, 1), // changes position of shadow
-          )
-        ]);
+        boxShadow: boxshadow);
   }
 }
 

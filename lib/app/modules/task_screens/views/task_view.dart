@@ -1,4 +1,4 @@
-import 'package:Talbotiq/app/modules/task_screens/views/taskdetail_view.dart';
+import 'package:Talbotiq/app/modules/task_screens/views/projectdetail_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -203,7 +203,7 @@ class TaskView extends GetView<TaskController> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.to(const TaskdetailView());
+                    Get.to(const ProjectdetailView());
                   },
                   child: Container(
                     padding: EdgeInsets.all(8.0),
@@ -231,33 +231,33 @@ class TaskView extends GetView<TaskController> {
                                 ),
                               ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(0.0),
-                              child: Row(
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {},
-                                    child: Icon(Icons.bookmark,
-                                        size: 16, color: AppColors.yellowcolor),
-                                  ),
-                                  widthSpace10,
-                                  IconButton(
-                                      onPressed: () {
-                                        jobedit(
-                                          height: 0.22,
-                                          context: context,
-                                          controller: controller,
-                                          listname: controller.editlist,
-                                          icon: controller.editlist,
-                                        );
-                                      },
-                                      icon: Icon(
-                                        Icons.more_vert_outlined,
-                                        size: 16,
-                                        color: AppColors.greyprimarycolor,
-                                      )),
-                                ],
-                              ),
+                            Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Icon(Icons.bookmark,
+                                      size: 16, color: AppColors.yellowcolor),
+                                ),
+                                widthSpace10,
+                                IconButton(
+                                    padding: EdgeInsets.zero,
+                                    constraints: BoxConstraints(
+                                        minWidth: 0, minHeight: 0),
+                                    onPressed: () {
+                                      jobedit(
+                                        height: 0.25,
+                                        context: context,
+                                        controller: controller,
+                                        listname: controller.editlist,
+                                        icon: controller.editlist,
+                                      );
+                                    },
+                                    icon: Icon(
+                                      Icons.more_vert_outlined,
+                                      size: 16,
+                                      color: AppColors.greyprimarycolor,
+                                    )),
+                              ],
                             )
                           ],
                         ),

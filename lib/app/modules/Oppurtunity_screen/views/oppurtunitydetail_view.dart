@@ -327,6 +327,9 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                             ),
                           ),
                           IconButton(
+                              padding: EdgeInsets.zero,
+                              constraints:
+                                  BoxConstraints(minWidth: 0, minHeight: 0),
                               onPressed: () {},
                               icon: Icon(
                                 Icons.more_vert_outlined,

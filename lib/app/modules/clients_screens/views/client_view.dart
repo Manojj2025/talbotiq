@@ -319,6 +319,9 @@ class ClientView extends GetView<ClientController> {
                                     ),
                                     widthSpace10,
                                     IconButton(
+                                        padding: EdgeInsets.zero,
+                                        constraints: BoxConstraints(
+                                            minWidth: 0, minHeight: 0),
                                         onPressed: () {
                                           jobedit(
                                             routename: ClientNewTaskView(),

@@ -212,6 +212,9 @@ class JobsView extends GetView<JobsController> {
                               ],
                             ),
                             IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints:
+                                    BoxConstraints(minWidth: 0, minHeight: 0),
                                 onPressed: () {
                                   jobedit(
                                     context: context,

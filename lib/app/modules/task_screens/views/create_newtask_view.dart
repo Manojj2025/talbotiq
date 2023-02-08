@@ -25,6 +25,7 @@ class CreateNewView extends GetView<TaskController> {
   Widget build(BuildContext context) {
     Get.lazyPut(() => TaskController());
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: myappbar2(
             title: HomeName.createNewProject, show: false, show2: Container()),
         body: Container(

@@ -317,6 +317,9 @@ class LeadView extends GetView<LeadController> {
                                     ),
                                     widthSpace10,
                                     IconButton(
+                                        padding: EdgeInsets.zero,
+                                        constraints: BoxConstraints(
+                                            minWidth: 0, minHeight: 0),
                                         onPressed: () {
                                           jobedit(
                                             routename: LeadNewTaskView(),

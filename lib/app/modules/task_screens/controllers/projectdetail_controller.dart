@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class TaskdetailController extends GetxController {
+class ProjectdetailController extends GetxController {
   //TODO: Implement JobdetailController
 
   final list = [
-    {"name": "Details", "img": "assets/image/board.png"},
-    {"name": "Comments (0)", "img": "assets/image/tree.png"},
-    {"name": "Activities (0)", "img": "assets/image/statusboard.png"},
+    {"name": "Board", "img": "assets/image/board.png"},
+    {"name": "Tree View", "img": "assets/image/tree.png"},
+    {"name": "Status Board", "img": "assets/image/statusboard.png"},
   ].obs;
-  final selectname = 'Details'.obs;
+  final activity = ['Open', 'closed'];
+  final joblist2 = ["Photoshop", "Ptototype", "Figma", "UX/UI", "Adobe"].obs;
+  final selectname = 'Board'.obs;
+  final jobselectname2 = 'Photoshop'.obs;
+  final jobselectname3 = 'Photoshop'.obs;
   final selected = 0.obs;
   final joboardlist = [
     {"img": "assets/image/note.png", "title": "Job Applied (2)"},
