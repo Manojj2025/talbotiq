@@ -45,7 +45,15 @@ class HomeName {
   static const OppurtunityAdded = 'Oppurtunity Added';
   static const resetpass = 'Reset Password';
 
+  static const RecentChats = 'Recent Chats';
+  static const Members = 'Members';
+
+  static const ScheduleMeeting = 'Schedule Meeting';
+  static const createNewGroup = 'Create New Group';
+  static const GroupDetails = 'Group Details';
   static const createNewProject = 'Create New Project';
+  static const Settings = 'Settings';
+  static const Groups = 'Groups';
   static const project = 'Projects';
   static const candidates = 'Candidates';
   static const leaddetail = 'Lead Details';

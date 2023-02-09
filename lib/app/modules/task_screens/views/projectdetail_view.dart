@@ -1,4 +1,5 @@
 import 'package:Talbotiq/app/modules/jobs_screens/views/totalapplication.dart';
+import 'package:Talbotiq/app/modules/task_screens/views/group_view.dart';
 import 'package:Talbotiq/app/modules/task_screens/views/todotask.dart';
 import 'package:Talbotiq/app/widgets/buttons.dart';
 import 'package:Talbotiq/app/widgets/decoration.dart';
@@ -25,6 +26,7 @@ class ProjectdetailView extends GetView<ProjectdetailController> {
     Get.lazyPut(() => ProjectdetailController());
     return Scaffold(
       appBar: myappbar2(
+        ontab1: () => Get.to(GroupView()),
         title: HomeName.ProjectDetails,
         show: true,
       ),
@@ -86,7 +88,7 @@ class ProjectdetailView extends GetView<ProjectdetailController> {
                             Positioned(
                                 left: 0,
                                 child: CircleAvatar(
-                                  radius: 15,
+                                  radius: 10,
                                   backgroundColor: Color(0xffE9E9E9),
                                   child: Text(
                                     'A',
@@ -97,9 +99,9 @@ class ProjectdetailView extends GetView<ProjectdetailController> {
                                   ),
                                 )),
                             Positioned(
-                                left: 20,
+                                left: 15,
                                 child: CircleAvatar(
-                                  radius: 15,
+                                  radius: 10,
                                   backgroundColor: Color(0xffE1F8FF),
                                   child: Text(
                                     'R',
@@ -110,9 +112,9 @@ class ProjectdetailView extends GetView<ProjectdetailController> {
                                   ),
                                 )),
                             Positioned(
-                                left: 40,
+                                left: 30,
                                 child: CircleAvatar(
-                                  radius: 15,
+                                  radius: 10,
                                   backgroundColor: Color(0xffF8E5FF),
                                   child: Text(
                                     'K',
@@ -123,9 +125,9 @@ class ProjectdetailView extends GetView<ProjectdetailController> {
                                   ),
                                 )),
                             Positioned(
-                                left: 60,
+                                left: 45,
                                 child: CircleAvatar(
-                                  radius: 15,
+                                  radius: 10,
                                   backgroundColor: Color(0xffFFEDDD),
                                   child: Text(
                                     'S',
@@ -136,7 +138,7 @@ class ProjectdetailView extends GetView<ProjectdetailController> {
                                   ),
                                 )),
                             Positioned(
-                                left: 95,
+                                left: 70,
                                 child: Row(
                                   children: [
                                     Icon(

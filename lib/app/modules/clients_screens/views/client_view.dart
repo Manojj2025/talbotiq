@@ -324,10 +324,16 @@ class ClientView extends GetView<ClientController> {
                                             minWidth: 0, minHeight: 0),
                                         onPressed: () {
                                           jobedit(
-                                            routename: ClientNewTaskView(),
-                                            // ontap: Get.to(ClientNewTaskView()),
-                                            // // Get.back();
+                                            ontab: (value) {
+                                              switch (value) {
+                                                case 0:
+                                                  Get.back();
+                                                  Get.to(ClientNewTaskView());
 
+                                                  break;
+                                                default:
+                                              }
+                                            },
                                             context: context,
                                             controller: controller,
                                             listname: controller.editlist,

@@ -259,7 +259,15 @@ class CandidatesView extends GetView<CandidatesController> {
                                           minWidth: 0, minHeight: 0),
                                       onPressed: () {
                                         jobedit(
-                                          // routename: LeadNewTaskView(),
+                                          ontab: (value) {
+                                            switch (value) {
+                                              case 0:
+                                                // Get.to(ClientNewTaskView());
+
+                                                break;
+                                              default:
+                                            }
+                                          },
                                           context: context,
                                           controller: controller,
                                           listname: controller.editlist,

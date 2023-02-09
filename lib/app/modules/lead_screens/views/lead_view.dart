@@ -322,7 +322,16 @@ class LeadView extends GetView<LeadController> {
                                             minWidth: 0, minHeight: 0),
                                         onPressed: () {
                                           jobedit(
-                                            routename: LeadNewTaskView(),
+                                            ontab: (value) {
+                                              switch (value) {
+                                                case 0:
+                                                  Get.back();
+                                                  Get.to(LeadNewTaskView());
+
+                                                  break;
+                                                default:
+                                              }
+                                            },
                                             context: context,
                                             controller: controller,
                                             listname: controller.editlist,

@@ -52,7 +52,7 @@ myappbar() {
       );
 }
 
-myappbar2({title, show, show2, widget}) {
+myappbar2({title, show, show2, widget, ontab1, icon1}) {
   return AppBar(
     leadingWidth: 30,
     title: Text(
@@ -67,26 +67,29 @@ myappbar2({title, show, show2, widget}) {
               child: Row(
                 children: [
                   show2 ??
-                      Container(
-                        decoration: BoxDecoration(
-                          color: AppColors.primaryColor2,
-                          borderRadius: BorderRadius.circular(3),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              spreadRadius: 1.0,
-                              blurRadius: 2,
-                              offset:
-                                  Offset(0, 2), // changes position of shadow
-                            ),
-                          ],
-                        ),
-                        height: 30,
-                        width: 30,
-                        child: Icon(
-                          Icons.person_add_alt_rounded,
-                          color: AppColors.whiteColor,
-                          size: 18,
+                      GestureDetector(
+                        onTap: ontab1,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: AppColors.primaryColor2,
+                            borderRadius: BorderRadius.circular(3),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black12,
+                                spreadRadius: 1.0,
+                                blurRadius: 2,
+                                offset:
+                                    Offset(0, 2), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          height: 30,
+                          width: 30,
+                          child: Icon(
+                            icon1 ?? Icons.person_add_alt_rounded,
+                            color: AppColors.whiteColor,
+                            size: 18,
+                          ),
                         ),
                       ),
                   widthSpace10,

@@ -8,6 +8,7 @@ import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
 import '../../Candidates_screens/views/candidates_view.dart';
 import '../../Oppurtunity_screen/views/oppurtunity_view.dart';
+import '../../chat_screens/views/chat_view.dart';
 import '../../clients_screens/views/client_view.dart';
 import '../controllers/more_controller.dart';
 
@@ -92,6 +93,10 @@ class MoreView extends GetView<MoreController> {
                               break;
                             case 4:
                               Get.to(TaskView());
+
+                              break;
+                            case 6:
+                              Get.to(ChatView());
 
                               break;
                             default:

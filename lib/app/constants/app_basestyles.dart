@@ -334,6 +334,11 @@ class BaseStyles {
     fontWeight: FontWeight.w400,
     fontSize: 10.sp,
   );
+  static final greenNormal14 = GoogleFonts.roboto(
+    color: AppColors.primaryColor,
+    fontWeight: FontWeight.w400,
+    fontSize: 14.sp,
+  );
   static final greenMedium14 = GoogleFonts.roboto(
     color: AppColors.primaryColor,
     fontWeight: FontWeight.w500,

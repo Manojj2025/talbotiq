@@ -11,12 +11,9 @@ class TaskdetailController extends GetxController {
   ].obs;
   final selectname = 'Details'.obs;
   final selected = 0.obs;
-  final joboardlist = [
-    {"img": "assets/image/note.png", "title": "Job Applied (2)"},
-    {"img": "assets/image/phone.png", "title": "Interview (2)"},
-    {"img": "assets/image/hold.png", "title": "On Hold (2)"},
-    {"img": "assets/image/call.png", "title": "Contacted (2)"},
-    {"img": "assets/image/rej.png", "title": "Rejected (2)"},
+  final editlist = [
+    {"icon": Icons.settings, "name": "Settings"},
+    {"icon": Icons.delete_outline, "name": "Delete"},
   ].obs;
   final agree = false.obs;
   @override

@@ -358,7 +358,14 @@ skillswidget(context, controller) {
       });
 }
 
-jobedit({context, controller, listname, icon, routename, int i = 2, height}) {
+jobedit({
+  context,
+  controller,
+  listname,
+  icon,
+  required Function(int value) ontab,
+  height,
+}) {
   return showModalBottomSheet(
       isDismissible: true,
       backgroundColor: Colors.transparent,
@@ -399,16 +406,20 @@ jobedit({context, controller, listname, icon, routename, int i = 2, height}) {
                       itemBuilder: (BuildContext context, int index) {
                         // int i = index;
                         return GestureDetector(
+                          //  () {
+                          //   if (routename == null) return;
+                          //   switch (index) {
+                          //     case 2:
+                          //       Get.back();
+                          //       Get.to(routename);
+                          //       break;
+                          //     default:
+                          //   }
+                          // },
                           onTap: () {
-                            if (routename == null) return;
-                            switch (index) {
-                              case 2:
-                                Get.back();
-                                Get.to(routename);
-                                break;
-                              default:
-                            }
+                            ontab(index);
                           },
+
                           child: ListTile(
                               horizontalTitleGap: 2.0,
                               dense: true,

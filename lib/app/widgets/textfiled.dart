@@ -10,14 +10,19 @@ textfiled(
     prifixshow,
     prifixcolor,
     prifixtext,
+    borderSidecolor,
     prifixiconshow,
     prefixicon,
+    suffixIconcolor,
+    suffixicon,
+    fillColor,
     width,
     controller,
     ontap,
     onchange,
     eyeshow,
     readonly,
+    radius,
     minline,
     horizontalpadd,
     maxline,
@@ -37,17 +42,17 @@ textfiled(
 
     decoration: InputDecoration(
       filled: true,
-      fillColor: AppColors.greyprimarycolor.shade100,
+      fillColor: fillColor ?? AppColors.greyprimarycolor.shade100,
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(4.0),
+        borderRadius: BorderRadius.circular(radius ?? 4.0),
         borderSide: BorderSide(
-          color: AppColors.greyprimarycolor.shade100,
+          color: borderSidecolor ?? AppColors.greyprimarycolor.shade100,
         ),
       ),
       enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(4.0),
+          borderRadius: BorderRadius.circular(radius ?? 4.0),
           borderSide: BorderSide(
-            color: AppColors.greyprimarycolor.shade100,
+            color: borderSidecolor ?? AppColors.greyprimarycolor.shade100,
           )),
       prefixStyle: BaseStyles.grey1Medium14,
       prefixIcon: prifixshow == true
@@ -83,15 +88,15 @@ textfiled(
             )
           : null,
       suffixIcon: eyeshow == true
-          ? const Icon(
-              Icons.remove_red_eye_outlined,
-              color: AppColors.greyprimarycolor,
+          ? Icon(
+              suffixicon ?? Icons.remove_red_eye_outlined,
+              color: suffixIconcolor ?? AppColors.greyprimarycolor,
             )
           : const SizedBox(),
       hintStyle: BaseStyles.grey3Normal16,
       isDense: true,
       contentPadding:
-          EdgeInsets.symmetric(horizontal: horizontalpadd ?? 15, vertical: 5),
+          EdgeInsets.symmetric(horizontal: horizontalpadd ?? 15, vertical: 10),
       hintText: text,
       border: InputBorder.none,
     ),
@@ -221,6 +226,8 @@ textwidget(
     readonly,
     height,
     onTap,
+    borderSidecolor,
+    fillColor,
     maxline,
     controller,
     onchange,
@@ -235,6 +242,8 @@ textwidget(
           ),
       heightSpace5,
       textfiled(
+        borderSidecolor: borderSidecolor,
+        fillColor: fillColor,
         onchange: onchange,
         controller: controller,
         maxline: maxline,

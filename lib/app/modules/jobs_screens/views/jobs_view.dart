@@ -217,6 +217,15 @@ class JobsView extends GetView<JobsController> {
                                     BoxConstraints(minWidth: 0, minHeight: 0),
                                 onPressed: () {
                                   jobedit(
+                                    ontab: (value) {
+                                      switch (value) {
+                                        case 0:
+                                          // Get.to(LeadNewTaskView());
+
+                                          break;
+                                        default:
+                                      }
+                                    },
                                     context: context,
                                     controller: controller,
                                     listname: controller.editlist,

@@ -1,4 +1,5 @@
 import 'package:Talbotiq/app/modules/task_screens/views/projectdetail_view.dart';
+import 'package:Talbotiq/app/widgets/decoration.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,19 +8,21 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/filters.dart';
+import '../controllers/group_controller.dart';
 import '../controllers/task_controller.dart';
 import 'create_newtask_view.dart';
+import 'groupdetail_view.dart';
 
-class TaskView extends GetView<TaskController> {
-  const TaskView({Key? key}) : super(key: key);
+class GroupView extends GetView<GroupController> {
+  const GroupView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => TaskController());
+    Get.lazyPut(() => GroupController());
     return Scaffold(
         appBar: AppBar(
           leadingWidth: 30,
           title: Text(
-            HomeName.project,
+            HomeName.Groups,
             style: BaseStyles.whiteMedium16,
           ),
           actions: [
@@ -129,69 +132,14 @@ class TaskView extends GetView<TaskController> {
                 ),
               ),
             ),
-            //////////////////// job name list widget ui////////////////////////////////
+
             heightSpace10,
-            _name(), heightSpace10,
             _listWidget()
           ],
         ));
   }
 
-  //////////////////// job name list widget ui////////////////////////////////
-  _name() {
-    return Container(
-      height: 50,
-      width: Get.width,
-      color: AppColors.whiteColor,
-      margin: EdgeInsets.zero,
-      child: ListView.builder(
-          shrinkWrap: true,
-          scrollDirection: Axis.horizontal,
-          itemCount: controller.list.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Obx(
-              (() => Row(
-                    children: [
-                      widthSpace10,
-                      GestureDetector(
-                        onTap: () {
-                          controller.jobselectname.value =
-                              controller.list[index]['name'].toString();
-                        },
-                        child: Container(
-                          height: 30,
-                          // width: 100,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                              color: controller.jobselectname.value ==
-                                      controller.list[index]['name']
-                                  ? AppColors.primaryColor
-                                  : AppColors.whiteColor,
-                              border: Border.all(
-                                  color: AppColors.greyprimarycolor,
-                                  width: 0.2),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(left: 10.0, right: 10.0),
-                            child: Text(
-                              "${controller.list[index]['name'].toString()} (${controller.list[index]['value'].toString()})",
-                              style: controller.jobselectname.value ==
-                                      controller.list[index]['name']
-                                  ? BaseStyles.whitemedium14
-                                  : BaseStyles.greyMedium14,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )),
-            );
-          }),
-    );
-  }
-
-  ////////////////////  application list widget ui////////////////////////////////
+  //////////////////// job application list widget ui////////////////////////////////
   _listWidget() {
     return Expanded(
       child: ListView.builder(
@@ -203,7 +151,7 @@ class TaskView extends GetView<TaskController> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Get.to(const ProjectdetailView());
+                    Get.to(const GroupdetailView());
                   },
                   child: Container(
                     padding: EdgeInsets.all(8.0),
@@ -216,62 +164,49 @@ class TaskView extends GetView<TaskController> {
                           children: [
                             Row(
                               children: [
-                                Image.asset(
-                                  index == 2
-                                      ? 'assets/image/unlock.png'
-                                      : 'assets/image/lock.png',
-                                  height: 14,
-                                  width: 14,
-                                  color: AppColors.greyprimarycolor,
+                                Icon(
+                                  Icons.folder_outlined,
+                                  size: 20,
+                                  color: AppColors.primaryColor,
                                 ),
                                 widthSpace10,
                                 Text(
-                                  'Project Name',
+                                  'Group Name Here',
                                   style: BaseStyles.blackMedium16,
                                 ),
                               ],
                             ),
-                            Row(
-                              children: [
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Icon(Icons.bookmark,
-                                      size: 16, color: AppColors.yellowcolor),
-                                ),
-                                widthSpace10,
-                                IconButton(
-                                    padding: EdgeInsets.zero,
-                                    constraints: BoxConstraints(
-                                        minWidth: 0, minHeight: 0),
-                                    onPressed: () {
-                                      jobedit(
-                                        ontab: (value) {
-                                          switch (value) {
-                                            case 0:
-                                              // Get.to(SettingView());
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints:
+                                    BoxConstraints(minWidth: 0, minHeight: 0),
+                                onPressed: () {
+                                  // jobedit(
+                                  //   ontab: (value) {
+                                  //     switch (value) {
+                                  //       case 0:
+                                  //         // Get.to(SettingView());
 
-                                              break;
-                                            default:
-                                          }
-                                        },
-                                        height: 0.25,
-                                        context: context,
-                                        controller: controller,
-                                        listname: controller.editlist,
-                                        icon: controller.editlist,
-                                      );
-                                    },
-                                    icon: Icon(
-                                      Icons.more_vert_outlined,
-                                      size: 16,
-                                      color: AppColors.greyprimarycolor,
-                                    )),
-                              ],
-                            )
+                                  //         break;
+                                  //       default:
+                                  //     }
+                                  //   },
+                                  //   height: 0.25,
+                                  //   context: context,
+                                  //   controller: controller,
+                                  //   listname: controller.editlist,
+                                  //   icon: controller.editlist,
+                                  // );
+                                },
+                                icon: Icon(
+                                  Icons.more_vert_outlined,
+                                  size: 16,
+                                  color: AppColors.greyprimarycolor,
+                                ))
                           ],
                         ),
-                        heightSpace10,
-                        heightSpace5,
+                        // heightSpace10,
+                        // heightSpace5,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -351,19 +286,6 @@ class TaskView extends GetView<TaskController> {
                                 ],
                               ),
                             ),
-                            Row(
-                              children: [
-                                Text(
-                                  'No Status',
-                                  style: BaseStyles.lightblackMedium12,
-                                ),
-                                widthSpace5,
-                                Icon(
-                                  Icons.arrow_drop_down,
-                                  color: AppColors.greyprimarycolor,
-                                )
-                              ],
-                            )
                           ],
                         ),
                         Divider(
@@ -371,38 +293,53 @@ class TaskView extends GetView<TaskController> {
                         ),
 
                         // heightSpace10,
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          // crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  '70% Completed',
-                                  style: BaseStyles.lightblackMedium14,
+                                Icon(
+                                  Icons.calendar_today_rounded,
+                                  color: AppColors.greyprimarycolor,
+                                  size: 12,
                                 ),
+                                widthSpace5,
                                 Text(
-                                  '7/10 Task',
-                                  style: BaseStyles.lightblackMedium14,
+                                  'Oct 10, 2022',
+                                  style: BaseStyles.grey3medium12,
                                 ),
                               ],
                             ),
-                            heightSpace10,
-                            LinearPercentIndicator(
-                                padding: EdgeInsets.zero,
-                                alignment: MainAxisAlignment.start,
-                                // width: Get.width * 0.95,
-                                lineHeight: 6.0,
-                                percent: 0.5,
-                                animation: true,
-                                barRadius: const Radius.circular(20),
-                                // center:
-                                //     Text("50.0%", style: BaseStyles.whitebold14),
-                                // trailing: Icon(Icons.mood),
-
-                                backgroundColor:
-                                    AppColors.greyprimarycolor.shade200,
-                                progressColor: AppColors.primaryColor),
+                            Row(
+                              children: [
+                                Container(
+                                  decoration: decorationbox(
+                                      radius: 30.0, color: Color(0xffF2F2F2)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 5),
+                                    child: Text(
+                                      '1 Projects',
+                                      style: BaseStyles.grey2normal12,
+                                    ),
+                                  ),
+                                ),
+                                widthSpace10,
+                                Container(
+                                  decoration: decorationbox(
+                                      radius: 30.0, color: Color(0xffF2F2F2)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10, vertical: 5),
+                                    child: Text(
+                                      '0 Subgroups',
+                                      style: BaseStyles.grey2normal12,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )
                           ],
                         ),
                         heightSpace10

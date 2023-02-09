@@ -7,6 +7,7 @@ import 'package:Talbotiq/app/widgets/decoration.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/filters.dart';
+import '../../lead_screens/views/leadNewtask_view.dart';
 import 'oppurtunityNewtask_view.dart';
 import 'oppurtunitydetail_view.dart';
 
@@ -322,7 +323,17 @@ class OppurtunityView extends GetView<OppurtunityController> {
                                             minWidth: 0, minHeight: 0),
                                         onPressed: () {
                                           jobedit(
-                                            // routename: LeadNewTaskView(),
+                                            ontab: (value) {
+                                              switch (value) {
+                                                case 0:
+                                                  Get.back();
+                                                  Get.to(
+                                                      OppurtunityNewTaskView());
+
+                                                  break;
+                                                default:
+                                              }
+                                            },
                                             context: context,
                                             controller: controller,
                                             listname: controller.editlist,
