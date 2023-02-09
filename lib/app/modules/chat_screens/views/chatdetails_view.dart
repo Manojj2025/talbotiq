@@ -67,7 +67,7 @@ class ChatdetailView extends GetView<ChatdetailController> {
         child: textfiled(
             radius: 30.0,
             eyeshow: true,
-            suffixIconcolor: AppColors.yellowcolor,
+            suffixIconcolor: AppColors.orangecolor,
             suffixicon: Icons.send,
             prifixshow: false,
             maxline: 1,
@@ -94,25 +94,45 @@ class ChatdetailView extends GetView<ChatdetailController> {
                 alignment: (controller.messages[index].messageType == "receiver"
                     ? Alignment.topLeft
                     : Alignment.topRight),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: (controller.messages[index].messageType == "receiver"
-                        ? Color(0xffF7F7F7)
-                        : Color(0xffECF7F3)),
-                  ),
-                  padding: EdgeInsets.all(16),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      CircleAvatar(
-                        radius: 12,
-                        backgroundColor: AppColors.yellowcolor,
-                      ),
-                      Text(controller.messages[index].messageContent,
-                          style: BaseStyles.blacNormal16),
-                    ],
-                  ),
+                child: Column(
+                  crossAxisAlignment:
+                      controller.messages[index].messageType == "receiver"
+                          ? CrossAxisAlignment.start
+                          : CrossAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        (controller.messages[index].messageType == "receiver")
+                            ? CircleAvatar(
+                                radius: 15,
+                                backgroundColor: AppColors.yellowcolor,
+                              )
+                            : Container(),
+                        widthSpace10,
+                        Container(
+                          decoration: MyDecoration.radiusonlydecoration(
+                            blradius: 10.0,
+                            tlradius: 10.0,
+                            trradius: 10.0,
+                            color: (controller.messages[index].messageType ==
+                                    "receiver"
+                                ? Color(0xffF7F7F7)
+                                : Color(0xffECF7F3)),
+                          ),
+                          padding: EdgeInsets.all(16),
+                          child: Text(controller.messages[index].messageContent,
+                              style: BaseStyles.blacNormal16),
+                        ),
+                      ],
+                    ),
+                    heightSpace10,
+                    Text(
+                      '2:00 PM',
+                      style: BaseStyles.grey3Normal12,
+                    )
+                  ],
                 ),
               ),
             );

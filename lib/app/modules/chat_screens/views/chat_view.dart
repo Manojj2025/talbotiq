@@ -507,14 +507,17 @@ class ChatView extends GetView<ChatController> {
                                       ),
                                     ],
                                   ),
-                                  CircleAvatar(
-                                    radius: 8,
-                                    backgroundColor: AppColors.primaryColor,
-                                    child: Text(
-                                      '1',
-                                      style: BaseStyles.whitenormal12,
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 8.0),
+                                    child: CircleAvatar(
+                                      radius: 8,
+                                      backgroundColor: AppColors.primaryColor,
+                                      child: Text(
+                                        '1',
+                                        style: BaseStyles.whitenormal12,
+                                      ),
                                     ),
-                                  )
+                                  ),
                                 ],
                               ),
                               Positioned(
