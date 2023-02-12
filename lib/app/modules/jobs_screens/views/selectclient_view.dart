@@ -25,7 +25,7 @@ class SelectclientView extends GetView<SelectclientController> {
               itemBuilder: (BuildContext context, int index) {
                 return Column(
                   children: [
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         controller.selected.value = index;
                       },

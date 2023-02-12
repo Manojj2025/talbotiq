@@ -4,8 +4,10 @@ import 'package:get/get.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
+import '../../../widgets/buttons.dart';
 import '../../../widgets/decoration.dart';
 import '../../../widgets/filters.dart';
+import '../../../widgets/jobdetailwidget.dart';
 import '../controllers/interviews_controller.dart';
 
 class InterviewsView extends GetView<InterviewsController> {
@@ -27,7 +29,7 @@ class InterviewsView extends GetView<InterviewsController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         filter(context, controller);
                       },
@@ -60,7 +62,7 @@ class InterviewsView extends GetView<InterviewsController> {
                       width: 1,
                       color: AppColors.greyprimarycolor,
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         sortby(context, controller);
                       },
@@ -107,7 +109,7 @@ class InterviewsView extends GetView<InterviewsController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selectname.value =
                               controller.list[index]['name'].toString();
@@ -155,7 +157,7 @@ class InterviewsView extends GetView<InterviewsController> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     // Get.to(const JobdetailView());
                   },
@@ -210,14 +212,239 @@ class InterviewsView extends GetView<InterviewsController> {
                                 ),
                               ],
                             ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Icon(
-                                Icons.more_vert_outlined,
-                                color: AppColors.greyprimarycolor,
-                                size: 18,
-                              ),
-                            )
+                            IconButton(
+                                padding: EdgeInsets.zero,
+                                constraints:
+                                    BoxConstraints(minWidth: 0, minHeight: 0),
+                                onPressed: () {
+                                  jobedit(
+                                    ontab: (value) {
+                                      switch (value) {
+                                        case 3:
+                                          Get.back();
+                                          showModalBottomSheet(
+                                              isDismissible: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              context: context,
+                                              isScrollControlled: true,
+                                              shape:
+                                                  const RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.vertical(
+                                                  top: Radius.circular(25.0),
+                                                ),
+                                              ),
+                                              builder: (context) {
+                                                return FractionallySizedBox(
+                                                  heightFactor: 0.50,
+                                                  child: Container(
+                                                    // height: 300,
+                                                    decoration: MyDecoration
+                                                        .radiusonlydecoration(
+                                                            tlradius: 25.0,
+                                                            trradius: 25.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              10.0),
+                                                      child: Column(
+                                                        children: [
+                                                          heightSpace20,
+                                                          Container(
+                                                            height: 4,
+                                                            width: 160,
+                                                            decoration: MyDecoration
+                                                                .simpledecoration(
+                                                                    color: AppColors
+                                                                        .greyprimarycolor),
+                                                          ),
+                                                          heightSpace20,
+                                                          Column(
+                                                            children: [
+                                                              Text(
+                                                                'Extend Interview',
+                                                                style: BaseStyles
+                                                                    .blackMedium14,
+                                                              ),
+                                                              heightSpace3,
+                                                              Text(
+                                                                'Select a new date and time for the interview',
+                                                                style: BaseStyles
+                                                                    .grey2normal12,
+                                                              )
+                                                            ],
+                                                          ),
+                                                          heightSpace5,
+                                                          Divider(
+                                                            thickness: 0.5,
+                                                          ),
+                                                          Row(
+                                                            crossAxisAlignment:
+                                                                CrossAxisAlignment
+                                                                    .start,
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                // crossAxisAlignment: CrossAxisAlignment.start,
+                                                                children: [
+                                                                  CircleAvatar(
+                                                                    // backgroundColor: AppColors.primaryColor,
+                                                                    radius: 20,
+                                                                    child: Image
+                                                                        .asset(
+                                                                            'assets/image/bajaj.png'),
+                                                                  ),
+                                                                  widthSpace10,
+                                                                  Column(
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .start,
+                                                                    children: [
+                                                                      Row(
+                                                                        children: [
+                                                                          Text(
+                                                                            'Nikita Sharma',
+                                                                            style:
+                                                                                BaseStyles.blackMedium16,
+                                                                          ),
+                                                                          // widthSpace5,
+                                                                          // Container(
+                                                                          //   padding: EdgeInsets.symmetric(
+                                                                          //       horizontal: 8, vertical: 3),
+                                                                          //   decoration: decorationbox2(
+                                                                          //       color: AppColors.primaryColor2
+                                                                          //           .withOpacity(0.2),
+                                                                          //       radius: 30.0),
+                                                                          //   child: Text(
+                                                                          //     '6 new',
+                                                                          //     style: BaseStyles.greenMedium11,
+                                                                          //   ),
+                                                                          // )
+                                                                        ],
+                                                                      ),
+                                                                      heightSpace5,
+                                                                      Text(
+                                                                        'Tech Mahindra',
+                                                                        style: BaseStyles
+                                                                            .grey2Medium12,
+                                                                      )
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          heightSpace10,
+                                                          heightSpace5,
+                                                          Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Row(
+                                                                children: [
+                                                                  Image.asset(
+                                                                    MyImages
+                                                                        .bag,
+                                                                    color: AppColors
+                                                                        .greycolor2,
+                                                                    height: 16,
+                                                                    width: 16,
+                                                                  ),
+                                                                  widthSpace5,
+                                                                  Text(
+                                                                    'Accountant',
+                                                                    style: BaseStyles
+                                                                        .lightblackMedium12,
+                                                                  )
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                children: [
+                                                                  Image.asset(
+                                                                    MyImages
+                                                                        .build,
+                                                                    color: AppColors
+                                                                        .greycolor2,
+                                                                    height: 16,
+                                                                    width: 16,
+                                                                  ),
+                                                                  widthSpace5,
+                                                                  Text(
+                                                                    'Oodles Technologies',
+                                                                    style: BaseStyles
+                                                                        .lightblackMedium12,
+                                                                  )
+                                                                ],
+                                                              ),
+                                                              Row(
+                                                                children: [
+                                                                  Image.asset(
+                                                                    MyImages
+                                                                        .cal,
+                                                                    color: AppColors
+                                                                        .greycolor2,
+                                                                    height: 16,
+                                                                    width: 16,
+                                                                  ),
+                                                                  widthSpace5,
+                                                                  Text(
+                                                                    '2 Days ago',
+                                                                    style: BaseStyles
+                                                                        .lightblackMedium12,
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          heightSpace5,
+                                                          Divider(
+                                                            thickness: 0.5,
+                                                          ),
+                                                          heightSpace10,
+                                                          textwidget2(
+                                                              icon: Icons
+                                                                  .calendar_today,
+                                                              width: Get.width,
+                                                              name:
+                                                                  'Start Date & Time',
+                                                              text: 'Select'),
+                                                          Expanded(
+                                                              child:
+                                                                  Container()),
+                                                          mybuttons(
+                                                              color: AppColors
+                                                                  .orangecolor,
+                                                              name:
+                                                                  'Extend Due Date',
+                                                              height: 45.0)
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              });
+                                          // Get.to(SettingView());
+
+                                          break;
+                                        default:
+                                      }
+                                    },
+                                    height: 0.45,
+                                    context: context,
+                                    controller: controller,
+                                    listname: controller.editlist,
+                                    icon: controller.editlist,
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.more_vert_outlined,
+                                  size: 16,
+                                  color: AppColors.greyprimarycolor,
+                                )),
                           ],
                         ),
                         heightSpace10,

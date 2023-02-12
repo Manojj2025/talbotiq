@@ -17,7 +17,7 @@ class AddemploymentView extends GetView<CandidatesdetailController> {
         appBar: myappbar2(
             show: false,
             title: 'Add Employment',
-            widget: GestureDetector(
+            widget: InkWell(
               onTap: () {
                 Get.back();
               },

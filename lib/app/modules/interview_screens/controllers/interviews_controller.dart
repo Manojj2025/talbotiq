@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class InterviewsController extends GetxController {
@@ -17,12 +18,17 @@ class InterviewsController extends GetxController {
     "CTC",
     "Experience"
   ].obs;
-  final sortlist = [
-    "Job",
-    "Created Date",
-    "Location",
-    "Company",
+  final editlist = [
+    {"icon": Icons.remove_red_eye_outlined, "name": "View Interview"},
+    {"icon": Icons.personal_injury_outlined, "name": "Evaluate"},
+    {"icon": Icons.group_add_outlined, "name": "Invite Interviewers"},
+    {"icon": Icons.calendar_today_outlined, "name": "Extend Interview"},
+    {"icon": Icons.mode_edit_outlined, "name": "Modify"},
+    {"icon": Icons.pause_sharp, "name": "On Hold"},
+    {"icon": Icons.cancel_outlined, "name": "Cancel"},
   ].obs;
+  final sortlist =
+      ["Name", "Created Date", "Location", "Experience", "CTC"].obs;
   @override
   void onInit() {
     super.onInit();

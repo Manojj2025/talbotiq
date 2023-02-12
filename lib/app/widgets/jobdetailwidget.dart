@@ -144,7 +144,7 @@ Widget jobprofessional(controller) {
                   (() => Row(
                         children: [
                           widthSpace10,
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               controller.jobselectname2.value =
                                   controller.joblist2[index].toString();
@@ -214,7 +214,7 @@ Widget jobsoftprofessional(controller) {
                   (() => Row(
                         children: [
                           widthSpace10,
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               controller.jobselectname3.value =
                                   controller.joblist2[index].toString();
@@ -424,7 +424,7 @@ _listrecomWidget() {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             heightSpace10,
-            GestureDetector(
+            InkWell(
               onTap: () {
                 Get.to(const JobdetailView());
               },
@@ -609,7 +609,7 @@ Column textwidget2({name, text, width, icon, onTap}) {
       style: BaseStyles.grey1Medium14,
     ),
     heightSpace5,
-    GestureDetector(
+    InkWell(
       onTap: onTap,
       child: Container(
         decoration: decorationbox3(

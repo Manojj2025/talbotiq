@@ -34,7 +34,7 @@ class ClientView extends GetView<ClientController> {
                   ),
                   widthSpace10,
                   // widthSpace5,
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Get.to(AddNewClientView());
                     },
@@ -70,7 +70,7 @@ class ClientView extends GetView<ClientController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         filter(context, controller);
                       },
@@ -103,7 +103,7 @@ class ClientView extends GetView<ClientController> {
                       width: 1,
                       color: AppColors.greyprimarycolor,
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         sortby(context, controller);
                       },
@@ -150,7 +150,7 @@ class ClientView extends GetView<ClientController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selectname.value =
                               controller.clientlist[index]['name'].toString();
@@ -202,7 +202,7 @@ class ClientView extends GetView<ClientController> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     Get.to(const ClientsdetailView());
                   },
@@ -299,7 +299,7 @@ class ClientView extends GetView<ClientController> {
                               child: Obx(
                                 () => Row(
                                   children: [
-                                    GestureDetector(
+                                    InkWell(
                                       onTap: () {
                                         if (controller.save[index] == true) {
                                           controller.save[index] = false;

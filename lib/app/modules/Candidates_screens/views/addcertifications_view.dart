@@ -17,7 +17,7 @@ class AddCertificationsView extends GetView<CandidatesdetailController> {
         appBar: myappbar2(
             show: false,
             title: 'Add Certifications',
-            widget: GestureDetector(
+            widget: InkWell(
               onTap: () {
                 Get.back();
               },

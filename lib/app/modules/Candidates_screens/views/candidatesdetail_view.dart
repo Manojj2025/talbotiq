@@ -32,10 +32,8 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
       body: Obx(
         () => ListView(
           children: [
-            GestureDetector(
-              onTap: () {
-                // Get.to(const ClientsdetailView());
-              },
+            InkWell(
+              onTap: () {},
               child: Container(
                 padding: EdgeInsets.all(8.0),
                 color: AppColors.whiteColor,
@@ -102,9 +100,9 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                               padding: const EdgeInsets.all(8.0),
                               child: Row(
                                 children: [
-                                  GestureDetector(
+                                  InkWell(
                                       onTap: () {
-                                        // Get.to(AssignJobView());
+                                        Get.to(AssignJobView());
                                       },
                                       child: Image.asset(
                                         MyImages.edit,
@@ -113,7 +111,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                                         width: 15,
                                       )),
                                   widthSpace10,
-                                  GestureDetector(
+                                  InkWell(
                                     onTap: () {},
                                     child: Icon(Icons.bookmark,
                                         size: 18, color: AppColors.yellowcolor),
@@ -262,7 +260,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                         //         ),
                         //       ],
                         //     ),
-                        //     GestureDetector(
+                        //     InkWell(
                         //       onTap: () {
                         //         // status(
                         //         //     context: context,
@@ -368,22 +366,23 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                           _DocumentsWidget()
                         ],
                       )
-                    : Container()
-            // controller.selectname.value == 'Feedback'
-            //     ? Column(
-            //         children: [
-            //           _FeebackWidget(context),
-            //           heightSpace10,
-            //           _Feeback2Widget(),
-            //           heightSpace10,
-            //           _Feeback2Widget(),
-            //         ],
-            //       )
-            //     : controller.selectname.value == 'Jobs'
-            //         ? _job()
-            //         : controller.selectname.value == 'Notes'
-            //             ? notes()
-            //             : activities()
+                    :
+                    // : Container()
+                    controller.selectname.value == 'Feedback'
+                        ? Column(
+                            children: [
+                              _FeebackWidget(context),
+                              heightSpace10,
+                              _Feeback2Widget(),
+                              heightSpace10,
+                              _Feeback2Widget(),
+                            ],
+                          )
+                        : controller.selectname.value == 'Jobs'
+                            ? _job()
+                            : controller.selectname.value == 'Notes'
+                                ? notes()
+                                : activities()
           ],
         ),
       ),
@@ -681,7 +680,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                     )
                   ],
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     // print('kk');
                     // Get.to(AddrecruiterView());
@@ -804,7 +803,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                     ),
                   ],
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: () {},
                   child: Row(
                     children: [
@@ -1010,7 +1009,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                     )
                   ],
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     // print('kk');
                     // Get.to(AddrecruiterView());
@@ -1080,7 +1079,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                     )
                   ],
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     // print('kk');
                     // Get.to(AddrecruiterView());
@@ -1158,7 +1157,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                                     ),
                                   ],
                                 ),
-                                GestureDetector(
+                                InkWell(
                                     onTap: () {},
                                     child: Image.asset(
                                       MyImages.edit,
@@ -1208,7 +1207,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                         )
                       ],
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         // print('kk');
                         // Get.to(AddrecruiterView());
@@ -1248,7 +1247,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          GestureDetector(
+                          InkWell(
                             onTap: () {},
                             child: Container(
                               padding: EdgeInsets.all(8.0),
@@ -1323,7 +1322,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                     )
                   ],
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     // print('kk');
                     // Get.to(AddrecruiterView());
@@ -1406,7 +1405,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                                     ),
                                   ],
                                 ),
-                                GestureDetector(
+                                InkWell(
                                     onTap: () {},
                                     child: Image.asset(
                                       MyImages.edit,
@@ -1456,7 +1455,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                     )
                   ],
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     // print('kk');
                     // Get.to(AddrecruiterView());
@@ -1543,7 +1542,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: GestureDetector(
+                                  child: InkWell(
                                       onTap: () {},
                                       child: Image.asset(
                                         MyImages.edit,
@@ -1625,7 +1624,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                     (() => Row(
                           children: [
                             widthSpace10,
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                                 controller.jobselectname2.value =
                                     controller.joblist2[index].toString();
@@ -1715,7 +1714,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                     (() => Row(
                           children: [
                             widthSpace10,
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                                 controller.jobselectname3.value =
                                     controller.joblist2[index].toString();
@@ -1798,7 +1797,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                       'Details',
                       style: BaseStyles.blackMedium14,
                     ),
-                    // GestureDetector(
+                    // InkWell(
                     //     onTap: () {},
                     //     child: Image.asset(
                     //       MyImages.edit,
@@ -1872,7 +1871,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {},
                         child: Icon(Icons.copy,
                             size: 16, color: AppColors.greyprimarycolor),
@@ -1924,7 +1923,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {},
                         child: Icon(Icons.copy,
                             size: 16, color: AppColors.greyprimarycolor),
@@ -1956,7 +1955,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selectname.value =
                               controller.clientslist[index]['name'].toString();

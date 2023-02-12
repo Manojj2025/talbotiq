@@ -35,9 +35,9 @@ class CandidatesView extends GetView<CandidatesController> {
                   ),
                   widthSpace10,
                   // widthSpace5,
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
-                      // Get.to(CandidateNewTaskView());
+                      Get.to(CandidateNewTaskView());
                     },
                     child: Container(
                       child: Row(
@@ -73,7 +73,7 @@ class CandidatesView extends GetView<CandidatesController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         filter(context, controller);
                       },
@@ -106,7 +106,7 @@ class CandidatesView extends GetView<CandidatesController> {
                       width: 1,
                       color: AppColors.greyprimarycolor,
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         sortby(context, controller);
                       },
@@ -153,7 +153,7 @@ class CandidatesView extends GetView<CandidatesController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.jobselectname.value =
                               controller.joblist[index]['name'].toString();
@@ -201,7 +201,7 @@ class CandidatesView extends GetView<CandidatesController> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     Get.to(const CandidatesdetailView());
                   },
@@ -247,7 +247,7 @@ class CandidatesView extends GetView<CandidatesController> {
                               padding: const EdgeInsets.all(0.0),
                               child: Row(
                                 children: [
-                                  GestureDetector(
+                                  InkWell(
                                     onTap: () {},
                                     child: Icon(Icons.bookmark,
                                         size: 16, color: AppColors.yellowcolor),
@@ -359,7 +359,7 @@ class CandidatesView extends GetView<CandidatesController> {
                                   ),
                                 ],
                               ),
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {
                                   showModalBottomSheet(
                                       isDismissible: true,

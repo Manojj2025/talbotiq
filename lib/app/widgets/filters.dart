@@ -93,7 +93,7 @@ filter(context, controller) {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         Get.back();
                       },
@@ -113,7 +113,7 @@ filter(context, controller) {
                         ),
                       ),
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         Get.back();
                       },
@@ -405,7 +405,7 @@ jobedit({
                       itemCount: listname.length,
                       itemBuilder: (BuildContext context, int index) {
                         // int i = index;
-                        return GestureDetector(
+                        return InkWell(
                           //  () {
                           //   if (routename == null) return;
                           //   switch (index) {

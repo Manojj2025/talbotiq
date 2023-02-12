@@ -181,7 +181,7 @@ class AssignJobView extends GetView<CandidatesdetailController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               heightSpace10,
-              GestureDetector(
+              InkWell(
                 onTap: () {},
                 child: Container(
                   padding: EdgeInsets.all(3.0),

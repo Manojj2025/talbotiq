@@ -37,7 +37,7 @@ class GroupView extends GetView<GroupController> {
                   ),
                   widthSpace10,
                   // widthSpace5,
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Get.to(const CreateNewView());
                       // Get.to(CandidateNewTaskView());
@@ -76,7 +76,7 @@ class GroupView extends GetView<GroupController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         filter(context, controller);
                       },
@@ -109,7 +109,7 @@ class GroupView extends GetView<GroupController> {
                       width: 1,
                       color: AppColors.greyprimarycolor,
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         sortby(context, controller);
                       },
@@ -149,7 +149,7 @@ class GroupView extends GetView<GroupController> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     Get.to(const GroupdetailView());
                   },

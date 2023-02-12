@@ -27,7 +27,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
       body: Obx(
         () => ListView(
           children: [
-            GestureDetector(
+            InkWell(
               onTap: () {
                 // Get.to(const ClientsdetailView());
               },
@@ -78,7 +78,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {},
                                 child: Icon(Icons.bookmark,
                                     size: 16, color: AppColors.yellowcolor),
@@ -155,7 +155,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                             ),
                           ],
                         ),
-                        GestureDetector(
+                        InkWell(
                           onTap: () {
                             // status(
                             //     context: context,
@@ -300,7 +300,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                           ),
                           Row(
                             children: [
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {},
                                 child: Icon(
                                   Icons.more_vert,
@@ -309,7 +309,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                                 ),
                               ),
                               widthSpace10,
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {},
                                 child: Icon(
                                   Icons.bookmark,
@@ -456,7 +456,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                           ),
                           Row(
                             children: [
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {},
                                 child: Icon(
                                   Icons.more_vert,
@@ -465,7 +465,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                                 ),
                               ),
                               // widthSpace10,
-                              // GestureDetector(
+                              // InkWell(
                               //   onTap: () {},
                               //   child: Icon(
                               //     Icons.bookmark,
@@ -566,7 +566,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                           ),
                           Row(
                             children: [
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {},
                                 child: Icon(
                                   Icons.more_vert,
@@ -575,7 +575,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                                 ),
                               ),
                               // widthSpace10,
-                              // GestureDetector(
+                              // InkWell(
                               //   onTap: () {},
                               //   child: Icon(
                               //     Icons.bookmark,
@@ -600,7 +600,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                                   'Client Details',
                                   style: BaseStyles.blackMedium14,
                                 ),
-                                GestureDetector(
+                                InkWell(
                                     onTap: () {},
                                     child: Image.asset(
                                       MyImages.edit,
@@ -727,7 +727,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                   'Attachments',
                   style: BaseStyles.blackMedium14,
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     showModalBottomSheet(
                         isDismissible: true,
@@ -999,7 +999,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     status(
                         size: 0.3,
@@ -1068,7 +1068,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
+              InkWell(
                 onTap: () {},
                 child: Container(
                   padding: EdgeInsets.all(8.0),
@@ -1097,7 +1097,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                                 ],
                               ),
                             ),
-                            GestureDetector(
+                            InkWell(
                                 onTap: () {},
                                 child: Image.asset(
                                   MyImages.edit,
@@ -1130,7 +1130,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   showModalBottomSheet(
                       isDismissible: true,
@@ -1428,7 +1428,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       'Details',
                       style: BaseStyles.blackMedium14,
                     ),
-                    // GestureDetector(
+                    // InkWell(
                     //     onTap: () {},
                     //     child: Image.asset(
                     //       MyImages.edit,
@@ -1476,7 +1476,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                       'Client Details',
                       style: BaseStyles.blackMedium14,
                     ),
-                    GestureDetector(
+                    InkWell(
                         onTap: () {},
                         child: Image.asset(
                           MyImages.edit,
@@ -1861,7 +1861,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {},
                         child: Icon(Icons.copy,
                             size: 16, color: AppColors.greyprimarycolor),
@@ -1913,7 +1913,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {},
                         child: Icon(Icons.copy,
                             size: 16, color: AppColors.greyprimarycolor),
@@ -1943,7 +1943,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
               Row(
                 children: [
                   Expanded(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         showModalBottomSheet(
                             isDismissible: true,
@@ -2103,7 +2103,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
                   ),
                   widthSpace20,
                   Expanded(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         showModalBottomSheet(
                             isDismissible: true,
@@ -2286,7 +2286,7 @@ class LeaddetailView extends GetView<LeaddetailController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selectname.value =
                               controller.clientslist[index]['name'].toString();

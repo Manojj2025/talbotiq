@@ -27,7 +27,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
       body: Obx(
         () => ListView(
           children: [
-            GestureDetector(
+            InkWell(
               onTap: () {
                 // Get.to(const ClientsdetailView());
               },
@@ -78,7 +78,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {},
                                 child: Icon(Icons.bookmark_border_rounded,
                                     size: 16, color: AppColors.yellowcolor),
@@ -151,7 +151,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                     //         ),
                     //       ],
                     //     ),
-                    //     GestureDetector(
+                    //     InkWell(
                     //       onTap: () {
                     //         // status(
                     //         //     context: context,
@@ -401,7 +401,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     status(
                         size: 0.3,
@@ -470,7 +470,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
+              InkWell(
                 onTap: () {},
                 child: Container(
                   padding: EdgeInsets.all(8.0),
@@ -499,7 +499,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                                 ],
                               ),
                             ),
-                            GestureDetector(
+                            InkWell(
                                 onTap: () {
                                   showModalBottomSheet(
                                       isDismissible: true,
@@ -630,7 +630,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   showModalBottomSheet(
                       isDismissible: true,
@@ -928,7 +928,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                       'Details',
                       style: BaseStyles.blackMedium14,
                     ),
-                    GestureDetector(
+                    InkWell(
                         onTap: () {},
                         child: Image.asset(
                           MyImages.edit,
@@ -974,7 +974,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                       'Client Details',
                       style: BaseStyles.blackMedium14,
                     ),
-                    GestureDetector(
+                    InkWell(
                         onTap: () {},
                         child: Image.asset(
                           MyImages.edit,
@@ -1343,7 +1343,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {},
                         child: Icon(Icons.copy,
                             size: 16, color: AppColors.greyprimarycolor),
@@ -1395,7 +1395,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                   padding: const EdgeInsets.all(8.0),
                   child: Row(
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {},
                         child: Icon(Icons.copy,
                             size: 16, color: AppColors.greyprimarycolor),
@@ -1425,7 +1425,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
               Row(
                 children: [
                   Expanded(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         showModalBottomSheet(
                             isDismissible: true,
@@ -1583,7 +1583,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
                   ),
                   widthSpace20,
                   Expanded(
-                    child: GestureDetector(
+                    child: InkWell(
                       onTap: () {
                         showModalBottomSheet(
                             isDismissible: true,
@@ -1753,7 +1753,7 @@ class OppurtunitydetailView extends GetView<OppurtunitydetailController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selectname.value =
                               controller.clientslist[index]['name'].toString();

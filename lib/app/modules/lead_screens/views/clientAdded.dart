@@ -18,7 +18,7 @@ class LeadAddedView extends GetView<LeaddetailController> {
       appBar: myappbar2(
           show: false,
           title: HomeName.leadadded,
-          widget: GestureDetector(
+          widget: InkWell(
             onTap: () {
               Get.back();
             },

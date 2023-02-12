@@ -28,7 +28,7 @@ class JobsView extends GetView<JobsController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         filter(context, controller);
                       },
@@ -61,7 +61,7 @@ class JobsView extends GetView<JobsController> {
                       width: 1,
                       color: AppColors.greyprimarycolor,
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         sortby(context, controller);
                       },
@@ -108,7 +108,7 @@ class JobsView extends GetView<JobsController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.jobselectname.value =
                               controller.joblist[index]['name'].toString();
@@ -156,7 +156,7 @@ class JobsView extends GetView<JobsController> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     Get.to(const JobdetailView());
                   },

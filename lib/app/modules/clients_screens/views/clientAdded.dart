@@ -18,7 +18,7 @@ class ClientAddedView extends GetView<ClientsdetailController> {
       appBar: myappbar2(
           show: false,
           title: JobsName.clientadded,
-          widget: GestureDetector(
+          widget: InkWell(
             onTap: () {
               Get.back();
             },

@@ -339,7 +339,7 @@ class TaskdetailView extends GetView<TaskdetailController> {
             widget ?? Container(),
             widthSpace10,
             show ??
-                GestureDetector(
+                InkWell(
                   onTap: ontab ??
                       () {
                         jobedit(
@@ -729,7 +729,7 @@ class TaskdetailView extends GetView<TaskdetailController> {
                                           )
                                         ],
                                       ),
-                                      GestureDetector(
+                                      InkWell(
                                         onTap: () {},
                                         child: Icon(
                                           Icons.keyboard_arrow_down_rounded,
@@ -822,7 +822,7 @@ class TaskdetailView extends GetView<TaskdetailController> {
                                 )
                               ],
                             ),
-                            GestureDetector(
+                            InkWell(
                               onTap: () {},
                               child: Icon(
                                 Icons.keyboard_arrow_down_rounded,
@@ -876,7 +876,7 @@ class TaskdetailView extends GetView<TaskdetailController> {
                     'Description',
                     style: BaseStyles.blackMedium14,
                   ),
-                  GestureDetector(
+                  InkWell(
                       onTap: () {},
                       child: Image.asset(
                         MyImages.edit,
@@ -921,7 +921,7 @@ class TaskdetailView extends GetView<TaskdetailController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selectname.value =
                               controller.list[index]['name'].toString();

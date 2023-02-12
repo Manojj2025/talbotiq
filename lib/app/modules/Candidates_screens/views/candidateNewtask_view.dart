@@ -60,7 +60,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
             //     padding: const EdgeInsets.all(8.0),
             //     child: Row(
             //       children: [
-            //         GestureDetector(
+            //         InkWell(
             //           onTap: () => Get.back(),
             //           child: Icon(
             //             Icons.arrow_back,
@@ -108,7 +108,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(0,
                                     duration: const Duration(milliseconds: 500),
@@ -135,7 +135,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(0,
                                     duration: const Duration(milliseconds: 500),
@@ -165,7 +165,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(0,
                                     duration: const Duration(milliseconds: 500),
@@ -195,7 +195,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(0,
                                     duration: const Duration(milliseconds: 500),
@@ -225,7 +225,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(0,
                                     duration: const Duration(milliseconds: 500),
@@ -255,7 +255,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(2,
                                     duration: const Duration(milliseconds: 500),
@@ -585,7 +585,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                               )
                             ],
                           ),
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               // print('kk');
                               Get.to(AddemploymentView());
@@ -678,7 +678,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                                           ),
                                           Padding(
                                             padding: const EdgeInsets.all(8.0),
-                                            child: GestureDetector(
+                                            child: InkWell(
                                                 onTap: () {},
                                                 child: Image.asset(
                                                   MyImages.edit,
@@ -753,7 +753,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                               )
                             ],
                           ),
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               // print('kk');
                               Get.to(AddEducationView());
@@ -837,7 +837,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                                               ),
                                             ],
                                           ),
-                                          GestureDetector(
+                                          InkWell(
                                               onTap: () {},
                                               child: Image.asset(
                                                 MyImages.edit,
@@ -906,7 +906,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                               )
                             ],
                           ),
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               // print('kk');
                               Get.to(AddCertificationsView());
@@ -996,7 +996,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                                               ),
                                             ],
                                           ),
-                                          GestureDetector(
+                                          InkWell(
                                               onTap: () {},
                                               child: Image.asset(
                                                 MyImages.edit,
@@ -1064,7 +1064,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                             )
                           ],
                         ),
-                        GestureDetector(
+                        InkWell(
                           onTap: () {
                             showModalBottomSheet(
                                 isDismissible: true,
@@ -1229,7 +1229,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                                             ),
                                           ],
                                         ),
-                                        GestureDetector(
+                                        InkWell(
                                             onTap: () {},
                                             child: Image.asset(
                                               MyImages.edit,
@@ -1271,7 +1271,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                               )
                             ],
                           ),
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               showModalBottomSheet(
                                   isDismissible: true,
@@ -1437,7 +1437,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                                               ),
                                             ],
                                           ),
-                                          GestureDetector(
+                                          InkWell(
                                               onTap: () {
                                                 // skillswidget(
                                                 //     context, controller);
@@ -1499,7 +1499,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                             )
                           ],
                         ),
-                        GestureDetector(
+                        InkWell(
                           onTap: () {
                             showModalBottomSheet(
                                 isDismissible: true,
@@ -1631,7 +1631,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {},
                                 child: Container(
                                   // padding: EdgeInsets.all(8.0),
@@ -1665,7 +1665,7 @@ class CandidateNewTaskView extends GetView<CandidatesdetailController> {
                                                 ],
                                               ),
                                             ),
-                                            GestureDetector(
+                                            InkWell(
                                                 onTap: () {},
                                                 child: Image.asset(
                                                   MyImages.edit,

@@ -18,7 +18,7 @@ class CandidateAddedView extends GetView<CandidatesdetailController> {
       appBar: myappbar2(
           show: false,
           title: HomeName.CandidateAdded,
-          widget: GestureDetector(
+          widget: InkWell(
             onTap: () {
               Get.back();
             },
@@ -231,7 +231,7 @@ class CandidateAddedView extends GetView<CandidatesdetailController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               heightSpace10,
-              GestureDetector(
+              InkWell(
                 onTap: () {},
                 child: Container(
                   padding: EdgeInsets.all(3.0),

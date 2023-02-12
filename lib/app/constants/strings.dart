@@ -84,6 +84,9 @@ class HomeName {
   static const leadadded = 'Lead Added';
   static const lead = 'Leads';
 
+  static const MyNotes = 'My Notes';
+  static const EmailConfiguration = 'Email Configuration';
+  static const UsersRoles = 'Users & Roles';
   static const TaskDetails = 'Task Details';
   static const ProjectDetails = 'Project Details';
   static const CandidateAdded = 'Candidate Added';
@@ -112,5 +115,7 @@ class JobsName {
 
   static const professionalSkills = 'Professional Skills';
 
+  static const Billing = 'Billing';
+  static const CompanyDetails = 'Company Details';
   static const softSkills = 'Soft Skills';
 }

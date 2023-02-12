@@ -122,7 +122,7 @@ class CreateNewGroupView extends GetView {
                             ),
                           ),
                           widthSpace10,
-                          GestureDetector(
+                          InkWell(
                             onTap: () {},
                             child: CircleAvatar(
                               radius: 16,

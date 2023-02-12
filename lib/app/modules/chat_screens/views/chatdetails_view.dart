@@ -48,7 +48,7 @@ class ChatdetailView extends GetView<ChatdetailController> {
                 ),
                 widthSpace10,
                 // widthSpace5,
-                GestureDetector(
+                InkWell(
                   onTap: () {},
                   child: Icon(
                     Icons.video_call,

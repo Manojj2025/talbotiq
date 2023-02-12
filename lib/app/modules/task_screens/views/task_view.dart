@@ -34,7 +34,7 @@ class TaskView extends GetView<TaskController> {
                   ),
                   widthSpace10,
                   // widthSpace5,
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Get.to(const CreateNewView());
                       // Get.to(CandidateNewTaskView());
@@ -73,7 +73,7 @@ class TaskView extends GetView<TaskController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         filter(context, controller);
                       },
@@ -106,7 +106,7 @@ class TaskView extends GetView<TaskController> {
                       width: 1,
                       color: AppColors.greyprimarycolor,
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         sortby(context, controller);
                       },
@@ -153,7 +153,7 @@ class TaskView extends GetView<TaskController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.jobselectname.value =
                               controller.list[index]['name'].toString();
@@ -201,7 +201,7 @@ class TaskView extends GetView<TaskController> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     Get.to(const ProjectdetailView());
                   },
@@ -233,7 +233,7 @@ class TaskView extends GetView<TaskController> {
                             ),
                             Row(
                               children: [
-                                GestureDetector(
+                                InkWell(
                                   onTap: () {},
                                   child: Icon(Icons.bookmark,
                                       size: 16, color: AppColors.yellowcolor),

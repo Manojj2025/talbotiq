@@ -56,7 +56,7 @@ class GroupdetailView extends GetView<GroupdetailController> {
                               itemCount: controller.project.length,
                               itemBuilder: (BuildContext context, int index) {
                                 // int i = index;
-                                return GestureDetector(
+                                return InkWell(
                                   onTap: () {
                                     switch (index) {
                                       case 1:
@@ -265,7 +265,7 @@ class GroupdetailView extends GetView<GroupdetailController> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     Get.to(const GroupdetailView());
                   },
@@ -468,7 +468,7 @@ class GroupdetailView extends GetView<GroupdetailController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selectname.value =
                               controller.list[index]['name'].toString();
@@ -518,7 +518,7 @@ class GroupdetailView extends GetView<GroupdetailController> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {},
                   child: Container(
                     padding: EdgeInsets.all(8.0),
@@ -548,7 +548,7 @@ class GroupdetailView extends GetView<GroupdetailController> {
                             ),
                             Row(
                               children: [
-                                GestureDetector(
+                                InkWell(
                                   onTap: () {},
                                   child: Icon(Icons.bookmark,
                                       size: 18, color: AppColors.yellowcolor),

@@ -15,7 +15,7 @@ mybuttons(
     width,
     fontSize,
     radius}) {
-  return GestureDetector(
+  return InkWell(
     onTap: action,
     child: Container(
       margin: const EdgeInsets.only(bottom: 10),

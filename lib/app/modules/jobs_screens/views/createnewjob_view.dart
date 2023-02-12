@@ -67,7 +67,7 @@ class CreatenewjobView extends GetView<CreatenewjobController> {
                               ),
                             ],
                           ),
-                          GestureDetector(
+                          InkWell(
                             onTap: () {
                               Get.to(SelectclientView());
                             },
@@ -158,7 +158,7 @@ class CreatenewjobView extends GetView<CreatenewjobController> {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
+              InkWell(
                 onTap: () {},
                 child: Container(
                   // padding: EdgeInsets.all(8.0),

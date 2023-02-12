@@ -298,7 +298,7 @@ class JobdetailView extends GetView<JobdetailController> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        GestureDetector(
+                        InkWell(
                           onTap: () {
                             if (controller.changegraph.value == 1)
                               controller.changegraph.value = 0;
@@ -314,7 +314,7 @@ class JobdetailView extends GetView<JobdetailController> {
                               : 'Candidate by Budget',
                           style: BaseStyles.blackMedium14,
                         ),
-                        GestureDetector(
+                        InkWell(
                           onTap: () {
                             if (controller.changegraph.value == 0)
                               controller.changegraph.value = 1;
@@ -469,7 +469,7 @@ class JobdetailView extends GetView<JobdetailController> {
                 Obx(
                   () => Row(
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selected.value = 0;
                         },
@@ -483,7 +483,7 @@ class JobdetailView extends GetView<JobdetailController> {
                         ),
                       ),
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selected.value = 1;
                         },
@@ -528,7 +528,7 @@ class JobdetailView extends GetView<JobdetailController> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     Get.to(const JobdetailView());
                   },
@@ -781,7 +781,7 @@ class JobdetailView extends GetView<JobdetailController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               heightSpace10,
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   Get.to(const JobdetailView());
                 },
@@ -987,7 +987,7 @@ class JobdetailView extends GetView<JobdetailController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               heightSpace10,
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   Get.to(const JobdetailView());
                 },
@@ -1178,7 +1178,7 @@ class JobdetailView extends GetView<JobdetailController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.jobselectname.value =
                               controller.joblist[index]['name'].toString();

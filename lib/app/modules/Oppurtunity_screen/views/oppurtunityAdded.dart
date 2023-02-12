@@ -18,7 +18,7 @@ class OppurtunityAddedView extends GetView<OppurtunitydetailController> {
       appBar: myappbar2(
           show: false,
           title: HomeName.OppurtunityAdded,
-          widget: GestureDetector(
+          widget: InkWell(
             onTap: () {
               Get.back();
             },

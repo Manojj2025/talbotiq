@@ -16,7 +16,7 @@ class JobdescriptionView extends GetView<CreatenewjobController> {
         appBar: myappbar2(
             show: false,
             title: JobsName.jobdescription,
-            widget: GestureDetector(
+            widget: InkWell(
               onTap: () {
                 Get.back();
               },

@@ -8,6 +8,7 @@ myappbar() {
   return PreferredSize(
       preferredSize: Size(Get.width, 55.0),
       child: AppBar(
+        centerTitle: false,
         leadingWidth: 52,
         leading: Padding(
           padding: const EdgeInsets.only(left: 15.0),
@@ -55,6 +56,7 @@ myappbar() {
 myappbar2({title, show, show2, widget, ontab1, icon1}) {
   return AppBar(
     leadingWidth: 30,
+    centerTitle: false,
     title: Text(
       title ?? "",
       style: BaseStyles.whiteMedium16,
@@ -67,7 +69,7 @@ myappbar2({title, show, show2, widget, ontab1, icon1}) {
               child: Row(
                 children: [
                   show2 ??
-                      GestureDetector(
+                      InkWell(
                         onTap: ontab1,
                         child: Container(
                           decoration: BoxDecoration(

@@ -17,7 +17,7 @@ class AddrecruiterView extends GetView<ClientNewTaskController> {
         appBar: myappbar2(
             show: false,
             title: JobsName.addrecruiter,
-            widget: GestureDetector(
+            widget: InkWell(
               onTap: () {
                 Get.back();
               },

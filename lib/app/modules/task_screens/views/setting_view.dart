@@ -83,7 +83,7 @@ class SettingView extends GetView<TaskController> {
                       () => Row(
                         children: [
                           Expanded(
-                            child: GestureDetector(
+                            child: InkWell(
                               onTap: () {
                                 controller.select.value = 'Private';
                               },
@@ -142,7 +142,7 @@ class SettingView extends GetView<TaskController> {
                           ),
                           widthSpace10,
                           Expanded(
-                            child: GestureDetector(
+                            child: InkWell(
                               onTap: () {
                                 controller.select.value = 'Public';
                               },
@@ -259,7 +259,7 @@ class SettingView extends GetView<TaskController> {
                           ),
                         ),
                         widthSpace10,
-                        GestureDetector(
+                        InkWell(
                           onTap: () {
                             showModalBottomSheet(
                                 isDismissible: true,

@@ -38,7 +38,7 @@ class ChatView extends GetView<ChatController> {
                   ),
                   widthSpace10,
                   // widthSpace5,
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       jobedit(
                         ontab: (value) {
@@ -164,7 +164,7 @@ class ChatView extends GetView<ChatController> {
                                                       MainAxisAlignment
                                                           .spaceBetween,
                                                   children: [
-                                                    GestureDetector(
+                                                    InkWell(
                                                       onTap: () {
                                                         controller.selectname
                                                             .value = 'Email';
@@ -232,7 +232,7 @@ class ChatView extends GetView<ChatController> {
                                                         ),
                                                       ),
                                                     ),
-                                                    GestureDetector(
+                                                    InkWell(
                                                       onTap: () {
                                                         controller.selectname
                                                             .value = 'WhatsApp';
@@ -563,7 +563,7 @@ class ChatView extends GetView<ChatController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.jobselectname.value =
                               controller.list[index]['name'].toString();

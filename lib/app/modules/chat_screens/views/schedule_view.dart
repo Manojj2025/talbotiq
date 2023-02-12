@@ -104,7 +104,7 @@ class ScheduleView extends GetView<ScheduleController> {
                                   style: BaseStyles.grey3medium14,
                                 ),
                                 widthSpace5,
-                                GestureDetector(
+                                InkWell(
                                     onTap: () {},
                                     child: Image.asset(
                                       MyImages.edit,

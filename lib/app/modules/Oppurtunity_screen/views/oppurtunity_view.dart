@@ -35,7 +35,7 @@ class OppurtunityView extends GetView<OppurtunityController> {
                   ),
                   widthSpace10,
                   // widthSpace5,
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Get.to(OppurtunityNewTaskView());
                     },
@@ -73,7 +73,7 @@ class OppurtunityView extends GetView<OppurtunityController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         filter(context, controller);
                       },
@@ -106,7 +106,7 @@ class OppurtunityView extends GetView<OppurtunityController> {
                       width: 1,
                       color: AppColors.greyprimarycolor,
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         sortby(context, controller);
                       },
@@ -153,7 +153,7 @@ class OppurtunityView extends GetView<OppurtunityController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selectname.value =
                               controller.clientlist[index]['name'].toString();
@@ -205,7 +205,7 @@ class OppurtunityView extends GetView<OppurtunityController> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     Get.to(const OppurtunitydetailView());
                   },
@@ -298,7 +298,7 @@ class OppurtunityView extends GetView<OppurtunityController> {
                               child: Obx(
                                 () => Row(
                                   children: [
-                                    GestureDetector(
+                                    InkWell(
                                       onTap: () {
                                         if (controller.save[index] == true) {
                                           controller.save[index] = false;
@@ -414,7 +414,7 @@ class OppurtunityView extends GetView<OppurtunityController> {
                                 ),
                               ],
                             ),
-                            GestureDetector(
+                            InkWell(
                               onTap: () {},
                               child: Row(
                                 children: [

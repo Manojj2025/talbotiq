@@ -108,7 +108,7 @@ class _TodoTaskState extends State<TodoTask> {
                           children: [
                             Column(
                               children: [
-                                GestureDetector(
+                                InkWell(
                                   onTap: () {
                                     Get.to(TaskdetailView());
                                   },
@@ -312,7 +312,7 @@ class _TodoTaskState extends State<TodoTask> {
                                                       )
                                                     ],
                                                   ),
-                                                  GestureDetector(
+                                                  InkWell(
                                                     onTap: () {
                                                       setState(() {
                                                         show[index] =
@@ -380,7 +380,7 @@ class _TodoTaskState extends State<TodoTask> {
                                 heightSpace10,
                               ],
                             ),
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                                 showModalBottomSheet(
                                     isDismissible: true,
@@ -575,7 +575,7 @@ class _TodoTaskState extends State<TodoTask> {
                                     10,
                                     (i) => Column(
                                           children: [
-                                            GestureDetector(
+                                            InkWell(
                                               onTap: () {
                                                 Get.to(TaskdetailView());
                                               },
@@ -816,7 +816,7 @@ class _TodoTaskState extends State<TodoTask> {
                                                                         )
                                                                       ],
                                                                     ),
-                                                                    GestureDetector(
+                                                                    InkWell(
                                                                       onTap:
                                                                           () {
                                                                         setState(
@@ -852,7 +852,7 @@ class _TodoTaskState extends State<TodoTask> {
                                         )),
                               ),
                               // heightSpace10,
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {
                                   showModalBottomSheet(
                                       isDismissible: true,

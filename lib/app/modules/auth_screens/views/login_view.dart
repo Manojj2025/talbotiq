@@ -83,7 +83,7 @@ class LoginView extends GetView<LoginController> {
                     name: HomeName.login,
                   ),
                   heightSpace20,
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Get.to(ResetpasswordView());
                     },

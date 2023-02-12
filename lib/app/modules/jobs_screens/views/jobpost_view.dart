@@ -18,7 +18,7 @@ class JobpostView extends GetView<CreatenewjobController> {
       appBar: myappbar2(
           show: false,
           title: JobsName.jobPosted,
-          widget: GestureDetector(
+          widget: InkWell(
             onTap: () {
               Get.back();
             },

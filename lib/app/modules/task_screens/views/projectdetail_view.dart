@@ -61,7 +61,7 @@ class ProjectdetailView extends GetView<ProjectdetailController> {
                         padding: const EdgeInsets.all(0.0),
                         child: Row(
                           children: [
-                            GestureDetector(
+                            InkWell(
                               onTap: () {},
                               child: Icon(Icons.bookmark,
                                   size: 16, color: AppColors.yellowcolor),
@@ -296,7 +296,7 @@ class ProjectdetailView extends GetView<ProjectdetailController> {
                                                 )
                                               ],
                                             ),
-                                            GestureDetector(
+                                            InkWell(
                                               onTap: () {},
                                               child: Icon(
                                                 Icons
@@ -373,7 +373,7 @@ class ProjectdetailView extends GetView<ProjectdetailController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selectname.value =
                               controller.list[index]['name'].toString();

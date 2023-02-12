@@ -1,4 +1,6 @@
 import 'package:Talbotiq/app/modules/lead_screens/views/lead_view.dart';
+import 'package:Talbotiq/app/modules/notes_screens/views/notes_view.dart';
+import 'package:Talbotiq/app/modules/profile_screens/views/settings_view.dart';
 import 'package:Talbotiq/app/modules/task_screens/views/task_view.dart';
 import 'package:flutter/material.dart';
 
@@ -24,41 +26,46 @@ class MoreView extends GetView<MoreController> {
           padding: const EdgeInsets.all(15.0),
           child: ListView(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      CircleAvatar(
-                        backgroundColor: AppColors.primaryColor,
-                        radius: 25,
-                        child: Image.asset(
-                          'assets/image/profile.png',
-                        ),
-                      ),
-                      widthSpace10,
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Janki Bisht',
-                            style: BaseStyles.blackmedium18,
+              InkWell(
+                onTap: () {
+                  Get.to(SettingsView());
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundColor: AppColors.primaryColor,
+                          radius: 25,
+                          child: Image.asset(
+                            'assets/image/profile.png',
                           ),
-                          heightSpace3,
-                          Text(
-                            'janki@Talbotiq.com',
-                            style: BaseStyles.grey2Medium14,
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                  const Icon(
-                    Icons.keyboard_arrow_right_sharp,
-                    color: AppColors.greyprimarycolor,
-                    size: 30,
-                  )
-                ],
+                        ),
+                        widthSpace10,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Janki Bisht',
+                              style: BaseStyles.blackmedium18,
+                            ),
+                            heightSpace3,
+                            Text(
+                              'janki@Talbotiq.com',
+                              style: BaseStyles.grey2Medium14,
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    const Icon(
+                      Icons.keyboard_arrow_right_sharp,
+                      color: AppColors.greyprimarycolor,
+                      size: 30,
+                    )
+                  ],
+                ),
               ),
               heightSpace20,
               ListView.separated(
@@ -91,14 +98,18 @@ class MoreView extends GetView<MoreController> {
                               Get.to(OppurtunityView());
 
                               break;
-                            case 4:
-                              Get.to(TaskView());
+                            // case 4:
+                            //   Get.to(TaskView());
 
-                              break;
-                            case 6:
-                              Get.to(ChatView());
+                            //   break;
+                            // case 5:
+                            //   Get.to(NotesView());
 
-                              break;
+                            //   break;
+                            // case 6:
+                            //   Get.to(ChatView());
+
+                            // break;
                             default:
                           }
                         },

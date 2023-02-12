@@ -64,7 +64,7 @@ class JobformView extends GetView<CreatenewjobController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(0,
                                     duration: const Duration(milliseconds: 500),
@@ -93,7 +93,7 @@ class JobformView extends GetView<CreatenewjobController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(0,
                                     duration: const Duration(milliseconds: 500),
@@ -125,7 +125,7 @@ class JobformView extends GetView<CreatenewjobController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(1,
                                     duration: const Duration(milliseconds: 500),
@@ -157,7 +157,7 @@ class JobformView extends GetView<CreatenewjobController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(2,
                                     duration: const Duration(milliseconds: 500),
@@ -259,7 +259,7 @@ class JobformView extends GetView<CreatenewjobController> {
                                           ),
                                         ],
                                       ),
-                                      GestureDetector(
+                                      InkWell(
                                         onTap: () {
                                           Get.to(SelectclientView());
                                         },
@@ -718,7 +718,7 @@ class JobformView extends GetView<CreatenewjobController> {
                                                                 style: BaseStyles
                                                                     .blackMedium14,
                                                               ),
-                                                              GestureDetector(
+                                                              InkWell(
                                                                 onTap: () {
                                                                   skillswidget(
                                                                       context,
@@ -1019,7 +1019,7 @@ class JobformView extends GetView<CreatenewjobController> {
                   ),
                   Row(
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           // Get.to(SelectclientView());
                         },
@@ -1082,7 +1082,7 @@ class JobformView extends GetView<CreatenewjobController> {
                       itemBuilder: (BuildContext context, int index) {
                         return Column(
                           children: [
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                                 controller.selected.value = index;
                               },

@@ -25,7 +25,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
         body: Obx(
           () => ListView(
             children: [
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   Get.to(const ClientsdetailView());
                 },
@@ -120,7 +120,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               children: [
-                                GestureDetector(
+                                InkWell(
                                     onTap: () {},
                                     child: Image.asset(
                                       MyImages.edit,
@@ -128,7 +128,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                                       width: 16,
                                     )),
                                 widthSpace10,
-                                GestureDetector(
+                                InkWell(
                                   onTap: () {},
                                   child: Icon(
                                     Icons.bookmark,
@@ -239,7 +239,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                         )
                       ],
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         // print('kk');
                         // Get.to(AddrecruiterView());
@@ -308,7 +308,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                           ),
                           Row(
                             children: [
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {},
                                 child: Icon(
                                   Icons.more_vert,
@@ -317,7 +317,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                                 ),
                               ),
                               widthSpace10,
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {},
                                 child: Icon(
                                   Icons.bookmark,
@@ -464,7 +464,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                           ),
                           Row(
                             children: [
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {},
                                 child: Icon(
                                   Icons.more_vert,
@@ -473,7 +473,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                                 ),
                               ),
                               // widthSpace10,
-                              // GestureDetector(
+                              // InkWell(
                               //   onTap: () {},
                               //   child: Icon(
                               //     Icons.bookmark,
@@ -574,7 +574,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                           ),
                           Row(
                             children: [
-                              GestureDetector(
+                              InkWell(
                                 onTap: () {},
                                 child: Icon(
                                   Icons.more_vert,
@@ -583,7 +583,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                                 ),
                               ),
                               // widthSpace10,
-                              // GestureDetector(
+                              // InkWell(
                               //   onTap: () {},
                               //   child: Icon(
                               //     Icons.bookmark,
@@ -608,7 +608,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                                   'Client Details',
                                   style: BaseStyles.blackMedium14,
                                 ),
-                                GestureDetector(
+                                InkWell(
                                     onTap: () {},
                                     child: Image.asset(
                                       MyImages.edit,
@@ -1038,7 +1038,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                       'Contact Information',
                       style: BaseStyles.blackMedium14,
                     ),
-                    GestureDetector(
+                    InkWell(
                         onTap: () {},
                         child: Image.asset(
                           MyImages.edit,
@@ -1124,7 +1124,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                     'Client Details',
                     style: BaseStyles.blackMedium14,
                   ),
-                  GestureDetector(
+                  InkWell(
                       onTap: () {},
                       child: Image.asset(
                         MyImages.edit,
@@ -1282,7 +1282,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
                       'About',
                       style: BaseStyles.blackMedium14,
                     ),
-                    GestureDetector(
+                    InkWell(
                         onTap: () {},
                         child: Image.asset(
                           MyImages.edit,
@@ -1326,7 +1326,7 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selectname.value =
                               controller.clientslist[index]['name'].toString();

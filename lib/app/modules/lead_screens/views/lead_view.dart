@@ -36,7 +36,7 @@ class LeadView extends GetView<LeadController> {
                   ),
                   widthSpace10,
                   // widthSpace5,
-                  GestureDetector(
+                  InkWell(
                     onTap: () {
                       Get.to(AddNewLeadView());
                     },
@@ -72,7 +72,7 @@ class LeadView extends GetView<LeadController> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         filter(context, controller);
                       },
@@ -105,7 +105,7 @@ class LeadView extends GetView<LeadController> {
                       width: 1,
                       color: AppColors.greyprimarycolor,
                     ),
-                    GestureDetector(
+                    InkWell(
                       onTap: () {
                         sortby(context, controller);
                       },
@@ -152,7 +152,7 @@ class LeadView extends GetView<LeadController> {
               (() => Row(
                     children: [
                       widthSpace10,
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           controller.selectname.value =
                               controller.clientlist[index]['name'].toString();
@@ -204,7 +204,7 @@ class LeadView extends GetView<LeadController> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () {
                     Get.to(const LeaddetailView());
                   },
@@ -297,7 +297,7 @@ class LeadView extends GetView<LeadController> {
                               child: Obx(
                                 () => Row(
                                   children: [
-                                    GestureDetector(
+                                    InkWell(
                                       onTap: () {
                                         if (controller.save[index] == true) {
                                           controller.save[index] = false;
@@ -412,7 +412,7 @@ class LeadView extends GetView<LeadController> {
                                 ),
                               ],
                             ),
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                                 status(
                                     button: mybuttons(

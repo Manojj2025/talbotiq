@@ -19,7 +19,7 @@ class BottomNavItem extends StatelessWidget {
   Widget build(BuildContext context) {
     print(isSelected);
     return Expanded(
-      child: GestureDetector(
+      child: InkWell(
         onTap: onTap,
         child: SizedBox(
           // width: Get.width,

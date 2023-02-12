@@ -26,7 +26,7 @@ class ClientNewTaskView extends GetView<ClientsdetailController> {
         body: Obx(
           () => ListView(
             children: [
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   // Get.to(const ClientsdetailView());
                 },

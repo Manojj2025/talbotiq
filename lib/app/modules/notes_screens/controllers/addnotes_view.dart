@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class InterController extends GetxController {
+class AddnotesController extends GetxController {
   //TODO: Implement InterController
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -18,6 +18,4 @@ class InterController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

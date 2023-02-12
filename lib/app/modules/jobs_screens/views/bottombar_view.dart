@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -32,7 +34,8 @@ class BottombarView extends GetView<BottombarController> {
                   ),
                 ),
                 builder: (context) {
-                  return SizedBox(
+                  return Container(
+                    margin: EdgeInsets.only(bottom: Platform.isIOS ? 30 : 0),
                     height: 300,
                     child: Stack(
                       alignment: Alignment.center,
@@ -59,7 +62,7 @@ class BottombarView extends GetView<BottombarController> {
                                   HomeName.create,
                                   style: BaseStyles.blackMedium16,
                                 ),
-                                GestureDetector(
+                                InkWell(
                                   onTap: () {
                                     Get.back();
                                     Get.to(CreatenewjobView());
@@ -138,7 +141,7 @@ class BottombarView extends GetView<BottombarController> {
                         ),
                         Positioned(
                           bottom: 20,
-                          child: GestureDetector(
+                          child: InkWell(
                             onTap: () {
                               Get.back();
                             },

@@ -63,7 +63,7 @@ class AddNewClientView extends GetView<ClientNewTaskController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(0,
                                     duration: const Duration(milliseconds: 500),
@@ -92,7 +92,7 @@ class AddNewClientView extends GetView<ClientNewTaskController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(0,
                                     duration: const Duration(milliseconds: 500),
@@ -124,7 +124,7 @@ class AddNewClientView extends GetView<ClientNewTaskController> {
                         // Expanded(
                         //   child: TimelineNode(
                         //     direction: Axis.horizontal,
-                        //     indicator: GestureDetector(
+                        //     indicator: InkWell(
                         //       onTap: () {
                         //         controller.pageController.animateToPage(1,
                         //             duration:
@@ -157,7 +157,7 @@ class AddNewClientView extends GetView<ClientNewTaskController> {
                         Expanded(
                           child: TimelineNode(
                             direction: Axis.horizontal,
-                            indicator: GestureDetector(
+                            indicator: InkWell(
                               onTap: () {
                                 controller.pageController.animateToPage(2,
                                     duration: const Duration(milliseconds: 500),
@@ -513,7 +513,7 @@ class AddNewClientView extends GetView<ClientNewTaskController> {
                                                                     )
                                                                   ],
                                                                 ),
-                                                                GestureDetector(
+                                                                InkWell(
                                                                   onTap: () {
                                                                     print('kk');
                                                                     Get.to(
@@ -592,7 +592,7 @@ class AddNewClientView extends GetView<ClientNewTaskController> {
                                                                     ),
                                                                   ],
                                                                 ),
-                                                                GestureDetector(
+                                                                InkWell(
                                                                     onTap:
                                                                         () {},
                                                                     child: Image
@@ -731,7 +731,7 @@ class AddNewClientView extends GetView<ClientNewTaskController> {
                       itemBuilder: (BuildContext context, int index) {
                         return Column(
                           children: [
-                            GestureDetector(
+                            InkWell(
                               onTap: () {
                                 controller.selected.value = index;
                               },

@@ -44,7 +44,7 @@ class SuccessfullyView extends GetView {
                 ),
               ),
               heightSpace30,
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   Get.to(BottombarView());
                 },

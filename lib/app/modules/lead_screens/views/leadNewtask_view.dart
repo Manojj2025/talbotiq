@@ -25,7 +25,7 @@ class LeadNewTaskView extends GetView<LeaddetailController> {
         body: Obx(
           () => ListView(
             children: [
-              GestureDetector(
+              InkWell(
                 onTap: () {
                   // Get.to(const ClientsdetailView());
                 },
