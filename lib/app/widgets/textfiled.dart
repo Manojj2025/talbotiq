@@ -14,12 +14,14 @@ textfiled(
     prifixiconshow,
     prefixicon,
     suffixIconcolor,
+    onFieldSubmitted,
     suffixicon,
     fillColor,
     width,
     controller,
     ontap,
     onchange,
+    focusNode,
     eyeshow,
     readonly,
     radius,
@@ -28,8 +30,10 @@ textfiled(
     maxline,
     style}) {
   return TextFormField(
+    autofocus: true,
+
     // cursorHeight: ,
-    focusNode: FocusNode(),
+    focusNode: focusNode,
     onChanged: onchange,
     onTap: ontap,
     readOnly: readonly,
@@ -39,7 +43,7 @@ textfiled(
     // inputFormatters: [LengthLimitingTextInputFormatter(10)],
     keyboardType: TextInputType.text,
     style: style ?? BaseStyles.blacNormal14,
-
+    onFieldSubmitted: onFieldSubmitted,
     decoration: InputDecoration(
       filled: true,
       fillColor: fillColor ?? AppColors.greyprimarycolor.shade100,

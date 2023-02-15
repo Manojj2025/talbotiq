@@ -98,18 +98,18 @@ class MoreView extends GetView<MoreController> {
                               Get.to(OppurtunityView());
 
                               break;
-                            // case 4:
-                            //   Get.to(TaskView());
+                            case 4:
+                              Get.to(TaskView());
 
-                            //   break;
-                            // case 5:
-                            //   Get.to(NotesView());
+                              break;
+                            case 5:
+                              Get.to(NotesView());
 
-                            //   break;
-                            // case 6:
-                            //   Get.to(ChatView());
+                              break;
+                            case 6:
+                              Get.to(ChatView());
 
-                            // break;
+                              break;
                             default:
                           }
                         },

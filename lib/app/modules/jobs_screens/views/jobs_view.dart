@@ -306,23 +306,127 @@ class JobsView extends GetView<JobsController> {
                                 'MS Office,MIS,Tally,Exce...',
                                 style: BaseStyles.lightblackMedium12,
                               ),
-                              Row(
-                                children: [
-                                  CircleAvatar(
-                                    radius: 5,
-                                    backgroundColor: AppColors.activecolor,
-                                  ),
-                                  widthSpace5,
-                                  Text(
-                                    'Active',
-                                    style: BaseStyles.greyNormal12,
-                                  ),
-                                  widthSpace5,
-                                  Icon(
-                                    Icons.arrow_drop_down,
-                                    color: AppColors.greyprimarycolor,
-                                  )
-                                ],
+                              InkWell(
+                                onTap: () {
+                                  showModalBottomSheet(
+                                      isDismissible: true,
+                                      backgroundColor: Colors.transparent,
+                                      context: context,
+                                      isScrollControlled: true,
+                                      shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.vertical(
+                                          top: Radius.circular(25.0),
+                                        ),
+                                      ),
+                                      builder: (context) {
+                                        return FractionallySizedBox(
+                                          heightFactor: 0.3,
+                                          child: Container(
+                                            // height: 300,
+                                            decoration: MyDecoration
+                                                .radiusonlydecoration(
+                                                    tlradius: 25.0,
+                                                    trradius: 25.0),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(5.0),
+                                              child: Column(
+                                                children: [
+                                                  heightSpace20,
+                                                  Container(
+                                                    height: 4,
+                                                    width: 160,
+                                                    decoration: MyDecoration
+                                                        .simpledecoration(
+                                                            color: AppColors
+                                                                .greyprimarycolor),
+                                                  ),
+                                                  heightSpace20,
+                                                  Text(
+                                                    'Job Status',
+                                                    style: BaseStyles
+                                                        .blackMedium16,
+                                                  ),
+                                                  // heightSpace10,
+                                                  ////
+
+                                                  heightSpace10,
+                                                  Expanded(
+                                                    child: ListView.builder(
+                                                        shrinkWrap: true,
+                                                        itemCount: 3,
+                                                        itemBuilder:
+                                                            (BuildContext
+                                                                    context,
+                                                                int index) {
+                                                          return ListTile(
+                                                            minVerticalPadding:
+                                                                0.0,
+                                                            minLeadingWidth:
+                                                                30.0,
+                                                            horizontalTitleGap:
+                                                                0.0,
+                                                            visualDensity:
+                                                                VisualDensity(
+                                                                    horizontal:
+                                                                        -0.4,
+                                                                    vertical:
+                                                                        -0.4),
+                                                            dense: true,
+                                                            contentPadding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    left: 15),
+                                                            title: Text(
+                                                              index == 0
+                                                                  ? 'Active'
+                                                                  : index == 1
+                                                                      ? 'Inactive'
+                                                                      : 'Close',
+                                                              style: BaseStyles
+                                                                  .grey1Medium14,
+                                                            ),
+                                                            leading:
+                                                                CircleAvatar(
+                                                              radius: 5,
+                                                              backgroundColor: index ==
+                                                                      0
+                                                                  ? AppColors
+                                                                      .activecolor
+                                                                  : index == 1
+                                                                      ? AppColors
+                                                                          .orangecolor
+                                                                      : AppColors
+                                                                          .blackColor,
+                                                            ),
+                                                          );
+                                                        }),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      });
+                                },
+                                child: Row(
+                                  children: [
+                                    CircleAvatar(
+                                      radius: 5,
+                                      backgroundColor: AppColors.activecolor,
+                                    ),
+                                    widthSpace5,
+                                    Text(
+                                      'Active',
+                                      style: BaseStyles.greyNormal12,
+                                    ),
+                                    widthSpace5,
+                                    Icon(
+                                      Icons.arrow_drop_down,
+                                      color: AppColors.greyprimarycolor,
+                                    )
+                                  ],
+                                ),
                               )
                             ],
                           ),

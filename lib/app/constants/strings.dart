@@ -84,6 +84,7 @@ class HomeName {
   static const leadadded = 'Lead Added';
   static const lead = 'Leads';
 
+  static const AddNewNote = 'Add New Note';
   static const MyNotes = 'My Notes';
   static const EmailConfiguration = 'Email Configuration';
   static const UsersRoles = 'Users & Roles';

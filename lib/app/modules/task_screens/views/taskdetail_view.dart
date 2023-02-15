@@ -235,7 +235,7 @@ class TaskdetailView extends GetView<TaskdetailController> {
                 SizedBox(
                   width: Get.width * 0.50,
                   child: addsettings(
-                    ontab: () => Get.to(MemberView()),
+                    // ontab: () => Get.to(MemberView()),
                     context: context,
                     icon: Icons.group_outlined,
                     title: 'Assign Members',
@@ -342,23 +342,6 @@ class TaskdetailView extends GetView<TaskdetailController> {
                 InkWell(
                   onTap: ontab ??
                       () {
-                        jobedit(
-                          ontab: (value) {
-                            switch (value) {
-                              case 0:
-                                Get.back();
-                                Get.to(SettingView());
-
-                                break;
-                              default:
-                            }
-                          },
-                          height: 0.20,
-                          context: context,
-                          controller: controller,
-                          listname: controller.editlist,
-                          icon: controller.editlist,
-                        );
                         // Get.to(SettingView());
                       },
                   child: CircleAvatar(

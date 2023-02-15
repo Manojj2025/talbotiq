@@ -11,10 +11,7 @@ class TaskdetailController extends GetxController {
   ].obs;
   final selectname = 'Details'.obs;
   final selected = 0.obs;
-  final editlist = [
-    {"icon": Icons.settings, "name": "Settings"},
-    {"icon": Icons.delete_outline, "name": "Delete"},
-  ].obs;
+
   final agree = false.obs;
   @override
   void onInit() {

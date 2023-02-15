@@ -4,12 +4,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:Talbotiq/app/widgets/decoration.dart';
+import 'package:html_editor_enhanced/html_editor.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/buttons.dart';
 import '../../../widgets/filters.dart';
 import '../../clients_screens/views/clientNewtask_view.dart';
-import '../controllers/addnotes_view.dart';
+import '../controllers/addnotes_controller.dart';
 import '../controllers/notes_controller.dart';
 
 class AddnotesView extends GetView<AddnotesController> {
@@ -18,10 +19,11 @@ class AddnotesView extends GetView<AddnotesController> {
   Widget build(BuildContext context) {
     Get.lazyPut(() => AddnotesController());
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           leadingWidth: 30,
           title: Text(
-            HomeName.MyNotes,
+            HomeName.AddNewNote,
             style: BaseStyles.whiteMedium16,
           ),
           actions: [
@@ -30,29 +32,25 @@ class AddnotesView extends GetView<AddnotesController> {
               child: Row(
                 children: [
                   Icon(
-                    Icons.search,
+                    Icons.more,
                     color: AppColors.whiteColor,
                     size: 18,
                   ),
                   widthSpace10,
+                  widthSpace5,
+                  Icon(
+                    Icons.more_vert_rounded,
+                    color: AppColors.whiteColor,
+                    size: 18,
+                  ),
+                  widthSpace5,
+                  widthSpace10,
+                  Icon(
+                    Icons.check_circle,
+                    color: AppColors.whiteColor,
+                    size: 18,
+                  ),
                   // widthSpace5,
-                  InkWell(
-                    onTap: () {},
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.add,
-                          color: AppColors.whiteColor,
-                          size: 18,
-                        ),
-                        widthSpace5,
-                        Text(
-                          'New',
-                          style: BaseStyles.whitebold14,
-                        )
-                      ],
-                    ),
-                  )
                 ],
               ),
             )
@@ -60,18 +58,54 @@ class AddnotesView extends GetView<AddnotesController> {
         ),
         body: Column(
           children: [
-            //// filters and soryby widget ui//////
-            Card(
-              elevation: 0,
+            Container(
               color: AppColors.whiteColor,
-              margin: EdgeInsets.zero,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [],
+              child: HtmlEditor(
+                controller: controller.htmlcontroller, //required
+                htmlEditorOptions: HtmlEditorOptions(
+                  hint: "Type you Text here",
+                ),
+                htmlToolbarOptions: HtmlToolbarOptions(
+                  defaultToolbarButtons: [
+                    ParagraphButtons(
+                      alignCenter: true,
+                      increaseIndent: false,
+                      decreaseIndent: false,
+                      caseConverter: false,
+                      alignRight: true,
+                      alignLeft: true,
+                      alignJustify: true,
+                      textDirection: false,
+                      lineHeight: false,
+                    ),
+                    FontButtons(
+                      clearAll: false, strikethrough: false, subscript: false,
+                      superscript: false,
+                      underline: true, bold: true,
+                      italic: true,
+                      //you can do more with
+                      //bold, clearAll, strikethrough,
+                      //subscript, supscript
+                    ),
+                    // StyleButtons(),
+                    ColorButtons(foregroundColor: true, highlightColor: true),
+                  ],
+                  // toolbarPosition: ToolbarPosition
+                  //     .custom, //required to place toolbar anywhere!
+
+                  toolbarType: ToolbarType.nativeGrid,
+                ),
+                otherOptions: OtherOptions(
+                  height: 500,
                 ),
               ),
+            ),
+
+            ElevatedButton(
+              onPressed: () async {
+                // String data = await controller.getText();
+              },
+              child: Text("Get HTML Text"),
             ),
             //////////////////// job name list widget ui////////////////////////////////
             heightSpace10,

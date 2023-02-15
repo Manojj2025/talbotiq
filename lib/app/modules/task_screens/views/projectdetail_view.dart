@@ -1,5 +1,7 @@
 import 'package:Talbotiq/app/modules/jobs_screens/views/totalapplication.dart';
 import 'package:Talbotiq/app/modules/task_screens/views/group_view.dart';
+import 'package:Talbotiq/app/modules/task_screens/views/member_view.dart';
+import 'package:Talbotiq/app/modules/task_screens/views/setting_view.dart';
 import 'package:Talbotiq/app/modules/task_screens/views/todotask.dart';
 import 'package:Talbotiq/app/widgets/buttons.dart';
 import 'package:Talbotiq/app/widgets/decoration.dart';
@@ -26,7 +28,26 @@ class ProjectdetailView extends GetView<ProjectdetailController> {
     Get.lazyPut(() => ProjectdetailController());
     return Scaffold(
       appBar: myappbar2(
-        ontab1: () => Get.to(GroupView()),
+        ontab2: () {
+          jobedit(
+            ontab: (value) {
+              switch (value) {
+                case 0:
+                  Get.back();
+                  Get.to(SettingView());
+
+                  break;
+                default:
+              }
+            },
+            height: 0.20,
+            context: context,
+            controller: controller,
+            listname: controller.editlist,
+            icon: controller.editlist,
+          );
+        },
+        ontab1: () => Get.to(MemberView()),
         title: HomeName.ProjectDetails,
         show: true,
       ),

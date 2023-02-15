@@ -14,7 +14,8 @@ class ChatdetailController extends GetxController {
     ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
     ChatMessage(
         messageContent: "Is there any thing wrong?", messageType: "sender"),
-  ];
+  ].obs;
+  TextEditingController msgtext = TextEditingController();
   @override
   void onInit() {
     super.onInit();

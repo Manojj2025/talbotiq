@@ -53,7 +53,7 @@ myappbar() {
       );
 }
 
-myappbar2({title, show, show2, widget, ontab1, icon1}) {
+myappbar2({title, show, show2, widget, ontab1, icon1, ontab2}) {
   return AppBar(
     leadingWidth: 30,
     centerTitle: false,
@@ -96,25 +96,28 @@ myappbar2({title, show, show2, widget, ontab1, icon1}) {
                       ),
                   widthSpace10,
                   widthSpace5,
-                  Container(
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryColor2,
-                      borderRadius: BorderRadius.circular(3),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          spreadRadius: 1.0,
-                          blurRadius: 2,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    height: 30,
-                    width: 30,
-                    child: Icon(
-                      Icons.more_vert_sharp,
-                      color: AppColors.whiteColor,
-                      size: 18,
+                  InkWell(
+                    onTap: ontab2,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryColor2,
+                        borderRadius: BorderRadius.circular(3),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            spreadRadius: 1.0,
+                            blurRadius: 2,
+                            offset: Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      height: 30,
+                      width: 30,
+                      child: Icon(
+                        Icons.more_vert_sharp,
+                        color: AppColors.whiteColor,
+                        size: 18,
+                      ),
                     ),
                   )
                 ],

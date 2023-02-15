@@ -65,78 +65,95 @@ class ChatdetailView extends GetView<ChatdetailController> {
       floatingActionButton: Padding(
         padding: EdgeInsets.only(left: 10, right: 10),
         child: textfiled(
+            controller: controller.msgtext,
             radius: 30.0,
+            focusNode: FocusNode(),
+// ,
             eyeshow: true,
             suffixIconcolor: AppColors.orangecolor,
             suffixicon: Icons.send,
             prifixshow: false,
             maxline: 1,
-            // ontap: () {},
+            ontap: () {
+              if (controller.msgtext.text.isEmpty) {
+              } else {
+                FocusManager.instance.primaryFocus?.unfocus();
+                controller.messages.add(ChatMessage(
+                    messageContent: controller.msgtext.text.toString(),
+                    messageType: "sender"));
+                // controller.messages.clear();
+                controller.msgtext.clear();
+              }
+            },
             readonly: false,
             text: 'Type your message...'
             // height: 40.0,
             // minline: 1,
             ),
       ),
-      body: Container(
-        color: AppColors.whiteColor,
-        height: Get.height,
-        child: ListView.builder(
-          itemCount: controller.messages.length,
-          shrinkWrap: true,
-          padding: EdgeInsets.only(top: 10, bottom: 10),
-          physics: NeverScrollableScrollPhysics(),
-          itemBuilder: (context, index) {
-            return Container(
-              padding:
-                  EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
-              child: Align(
-                alignment: (controller.messages[index].messageType == "receiver"
-                    ? Alignment.topLeft
-                    : Alignment.topRight),
-                child: Column(
-                  crossAxisAlignment:
-                      controller.messages[index].messageType == "receiver"
-                          ? CrossAxisAlignment.start
-                          : CrossAxisAlignment.end,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        (controller.messages[index].messageType == "receiver")
-                            ? CircleAvatar(
-                                radius: 15,
-                                backgroundColor: AppColors.yellowcolor,
-                              )
-                            : Container(),
-                        widthSpace10,
-                        Container(
-                          decoration: MyDecoration.radiusonlydecoration(
-                            blradius: 10.0,
-                            tlradius: 10.0,
-                            trradius: 10.0,
-                            color: (controller.messages[index].messageType ==
-                                    "receiver"
-                                ? Color(0xffF7F7F7)
-                                : Color(0xffECF7F3)),
+      body: Obx(
+        () => Container(
+          color: AppColors.whiteColor,
+          height: Get.height,
+          child: ListView.builder(
+            itemCount: controller.messages.length,
+            shrinkWrap: true,
+            padding: EdgeInsets.only(top: 10, bottom: 20),
+            physics: BouncingScrollPhysics(),
+            itemBuilder: (context, index) {
+              return Container(
+                padding:
+                    EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
+                child: Align(
+                  alignment:
+                      (controller.messages[index].messageType == "receiver"
+                          ? Alignment.topLeft
+                          : Alignment.topRight),
+                  child: Column(
+                    crossAxisAlignment:
+                        controller.messages[index].messageType == "receiver"
+                            ? CrossAxisAlignment.start
+                            : CrossAxisAlignment.end,
+                    children: [
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          (controller.messages[index].messageType == "receiver")
+                              ? CircleAvatar(
+                                  radius: 15,
+                                  backgroundColor: AppColors.yellowcolor,
+                                )
+                              : Container(),
+                          widthSpace10,
+                          Container(
+                            decoration: MyDecoration.radiusonlydecoration(
+                              blradius: 10.0,
+                              tlradius: 10.0,
+                              trradius: 10.0,
+                              color: (controller.messages[index].messageType ==
+                                      "receiver"
+                                  ? Color(0xffF7F7F7)
+                                  : Color(0xffECF7F3)),
+                            ),
+                            padding: EdgeInsets.all(16),
+                            child: Text(
+                                controller.messages[index].messageContent,
+                                style: BaseStyles.blacNormal16),
                           ),
-                          padding: EdgeInsets.all(16),
-                          child: Text(controller.messages[index].messageContent,
-                              style: BaseStyles.blacNormal16),
-                        ),
-                      ],
-                    ),
-                    heightSpace10,
-                    Text(
-                      '2:00 PM',
-                      style: BaseStyles.grey3Normal12,
-                    )
-                  ],
+                        ],
+                      ),
+                      heightSpace10,
+                      Text(
+                        '2:00 PM',
+                        style: BaseStyles.grey3Normal12,
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ),
     );

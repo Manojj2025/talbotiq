@@ -23,6 +23,10 @@ class ProjectdetailController extends GetxController {
     {"img": "assets/image/rej.png", "title": "Rejected (2)"},
   ].obs;
   final agree = false.obs;
+  final editlist = [
+    {"icon": Icons.settings, "name": "Settings"},
+    {"icon": Icons.delete_outline, "name": "Delete"},
+  ].obs;
   @override
   void onInit() {
     super.onInit();
