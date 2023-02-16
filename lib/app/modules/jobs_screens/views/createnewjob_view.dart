@@ -17,135 +17,210 @@ class CreatenewjobView extends GetView<CreatenewjobController> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => CreatenewjobController());
-    return Scaffold(
-        appBar: myappbar2(show: false, title: JobsName.newjob),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                color: AppColors.whiteColor,
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Select Client',
-                        style: BaseStyles.grey2Medium12,
-                      ),
-                      heightSpace5,
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CircleAvatar(
-                                // backgroundColor: AppColors.primaryColor,
-                                radius: 16,
-                                child: Image.asset('assets/image/bajaj.png'),
-                              ),
-                              widthSpace5,
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(
-                                        'Bajaj Ltd.',
-                                        style: BaseStyles.blacNormal14,
-                                      ),
-                                    ],
-                                  ),
-                                  heightSpace3,
-                                  Text(
-                                    'Noida',
-                                    style: BaseStyles.grey2Medium12,
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                          InkWell(
-                            onTap: () {
-                              Get.to(SelectclientView());
-                            },
-                            child: Image.asset(
-                              MyImages.edit,
-                              height: 20,
-                              width: 20,
+
+    return WillPopScope(
+      onWillPop: () => _onWillPop(context),
+      child: Scaffold(
+          appBar: myappbar2(show: false, title: JobsName.newjob),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                Container(
+                  color: AppColors.whiteColor,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Select Client',
+                          style: BaseStyles.grey2Medium12,
+                        ),
+                        heightSpace5,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                CircleAvatar(
+                                  // backgroundColor: AppColors.primaryColor,
+                                  radius: 16,
+                                  child: Image.asset('assets/image/bajaj.png'),
+                                ),
+                                widthSpace5,
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Bajaj Ltd.',
+                                          style: BaseStyles.blacNormal14,
+                                        ),
+                                      ],
+                                    ),
+                                    heightSpace3,
+                                    Text(
+                                      'Noida',
+                                      style: BaseStyles.grey2Medium12,
+                                    )
+                                  ],
+                                ),
+                              ],
                             ),
-                          )
-                        ],
-                      ),
-                    ],
+                            InkWell(
+                              onTap: () {
+                                Get.to(SelectclientView());
+                              },
+                              child: Image.asset(
+                                MyImages.edit,
+                                height: 20,
+                                width: 20,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              heightSpace10,
-              Container(
-                width: Get.width,
-                color: AppColors.whiteColor,
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                heightSpace10,
+                Container(
+                  width: Get.width,
+                  color: AppColors.whiteColor,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Enter Job Title',
+                          style: BaseStyles.blackMedium16,
+                        ),
+                        heightSpace3,
+                        Text(
+                          'Find a great hire, fast',
+                          style: BaseStyles.grey2Medium14,
+                        ),
+                        heightSpace10,
+                        textfiled(
+                            controller: controller.searchtxt,
+                            readonly: true,
+                            text: 'Enter Job',
+                            ontap: () {
+                              Get.to(EnterjobView());
+                            }),
+                        heightSpace10,
+                        mybuttons(
+                            action: () {
+                              Get.to(JobformView());
+                            },
+                            color: AppColors.orangecolor,
+                            name: 'Post Job'),
+                        heightSpace10
+                      ],
+                    ),
+                  ),
+                ),
+                heightSpace10,
+                Container(
+                  color: AppColors.whiteColor,
+                  width: Get.width,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Start from where you left',
+                          style: BaseStyles.blackMedium14,
+                        ),
+                        heightSpace10,
+                        Divider(
+                          thickness: 0.5,
+                        ),
+                        _listWidget()
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          )),
+    );
+  }
+
+  Future<bool> _onWillPop(context) async {
+    return (await showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  titlePadding: EdgeInsets.only(left: 15, right: 15),
+                  contentPadding: EdgeInsets.only(left: 15, right: 15),
+                  // <-- SEE HERE
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Enter Job Title',
+                        'Save as draft',
                         style: BaseStyles.blackMedium16,
                       ),
-                      heightSpace3,
-                      Text(
-                        'Find a great hire, fast',
-                        style: BaseStyles.grey2Medium14,
-                      ),
-                      heightSpace10,
-                      textfiled(
-                          controller: controller.searchtxt,
-                          readonly: true,
-                          text: 'Enter Job',
-                          ontap: () {
-                            Get.to(EnterjobView());
-                          }),
-                      heightSpace10,
-                      mybuttons(
-                          action: () {
-                            Get.to(JobformView());
+                      IconButton(
+                          onPressed: () {
+                            Get.back();
                           },
-                          color: AppColors.orangecolor,
-                          name: 'Post Job'),
-                      heightSpace10
+                          icon: Icon(
+                            Icons.close,
+                            color: AppColors.greyprimarycolor,
+                          ))
                     ],
                   ),
-                ),
-              ),
-              heightSpace10,
-              Container(
-                color: AppColors.whiteColor,
-                width: Get.width,
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Start from where you left',
-                        style: BaseStyles.blackMedium14,
-                      ),
-                      heightSpace10,
-                      Divider(
-                        thickness: 0.5,
-                      ),
-                      _listWidget()
-                    ],
+                  content: SingleChildScrollView(
+                    child: ListBody(
+                      children: <Widget>[
+                        Text(
+                          'Save as draft to return to this job later. If you choose to not save as draft, your job will be discarded',
+                          style: BaseStyles.grey2normal14,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              )
-            ],
-          ),
-        ));
+                  actions: <Widget>[
+                    TextButton(
+                      child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                          decoration: decorationbox(
+                              border: Border.all(
+                                  color: AppColors.greyprimarycolor.shade200),
+                              radius: 5.0),
+                          child: Text(
+                            'Discard',
+                            style: BaseStyles.blacNormal14,
+                          )),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    TextButton(
+                      child: Container(
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+                          decoration: decorationbox(
+                              color: AppColors.secondarydarkColor, radius: 5.0),
+                          child: Text(
+                            'Save',
+                            style: BaseStyles.whitenormal14,
+                          )),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                ))) ??
+        false;
   }
 
   //////////////////// job list widget ui////////////////////////////////

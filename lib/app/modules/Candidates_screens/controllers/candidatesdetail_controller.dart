@@ -5,7 +5,16 @@ class CandidatesdetailController extends GetxController {
   //TODO: Implement JobdetailController
 
   TextEditingController searchtxt = TextEditingController();
-
+  final showseach = false.obs;
+  final editlist = [
+    {"icon": Icons.remove_red_eye_outlined, "name": "View job"},
+    {"icon": Icons.person_outline, "name": "Assign Job"},
+    {"icon": Icons.share, "name": "Share externally"},
+    {"icon": Icons.edit, "name": "Edit"},
+    {"icon": Icons.add_box_outlined, "name": "Duplicate"},
+    {"icon": Icons.delete, "name": "Delete"},
+    {"icon": Icons.logout, "name": "Deactivate"},
+  ].obs;
   TextEditingController psearchtxt = TextEditingController();
   final clientslist = [
     {"name": "Overview", "value": ""},

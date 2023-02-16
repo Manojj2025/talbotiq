@@ -20,10 +20,12 @@ textfiled(
     width,
     controller,
     ontap,
+    suffixsize,
     onchange,
     focusNode,
     eyeshow,
     readonly,
+    suffixontab,
     radius,
     minline,
     horizontalpadd,
@@ -35,6 +37,7 @@ textfiled(
     // cursorHeight: ,
     focusNode: focusNode,
     onChanged: onchange,
+
     onTap: ontap,
     readOnly: readonly,
     minLines: minline ?? 1,
@@ -92,10 +95,15 @@ textfiled(
             )
           : null,
       suffixIcon: eyeshow == true
-          ? Icon(
-              suffixicon ?? Icons.remove_red_eye_outlined,
-              color: suffixIconcolor ?? AppColors.greyprimarycolor,
-            )
+          ? IconButton(
+              padding: EdgeInsets.zero,
+              constraints: BoxConstraints(minWidth: 0, minHeight: 0),
+              onPressed: suffixontab,
+              icon: Icon(
+                suffixicon ?? Icons.remove_red_eye_outlined,
+                color: AppColors.greyprimarycolor,
+                size: suffixsize ?? 20.0,
+              ))
           : const SizedBox(),
       hintStyle: BaseStyles.grey3Normal16,
       isDense: true,

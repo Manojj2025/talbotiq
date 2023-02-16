@@ -130,7 +130,7 @@ class CandidateAddedView extends GetView<CandidatesdetailView> {
               mybuttons(
                   width: Get.width * 0.95,
                   action: () {
-                    Get.offAll(BottombarView());
+                    Get.offAll(CandidatesdetailView());
                   },
                   name: 'Go Back',
                   color: AppColors.orangecolor,

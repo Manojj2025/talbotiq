@@ -11,6 +11,7 @@ import '../../../widgets/appbar.dart';
 import '../../../widgets/buttons.dart';
 import '../../../widgets/decoration.dart';
 import '../../../widgets/jobdetailwidget.dart';
+import '../../../widgets/textfiled.dart';
 import '../controllers/clientDetail_controller.dart';
 import 'addrecruiter_view.dart';
 
@@ -861,37 +862,99 @@ class ClientsdetailView extends GetView<ClientsdetailController> {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            // heightSpace10,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      'Job',
-                      style: BaseStyles.blackMedium14,
-                    )
-                  ],
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.search,
-                      color: AppColors.greyprimarycolor,
-                    ),
-                    widthSpace20,
-                    Image.asset(
-                      MyImages.filter,
-                      height: 25,
-                      width: 25,
-                      color: AppColors.greyprimarycolor,
-                    ),
-                    widthSpace10,
-                  ],
-                ),
-                // widthSpace10
-              ],
+            Obx(
+              () => Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  controller.showseach.value == true
+                      ? Expanded(
+                          child: textfiled(
+                          suffixsize: 20.0,
+                          eyeshow: true,
+                          suffixontab: () {
+                            controller.showseach.value = false;
+                          },
+
+                          style: BaseStyles.grey3Normal16,
+                          // controller: controller.emailtxt,
+                          readonly: false,
+                          text: 'Search',
+                          suffixicon: Icons.close,
+                          suffixIconcolor: AppColors.greyprimarycolor,
+                        ))
+                      : Row(
+                          children: [
+                            Text(
+                              'Job',
+                              style: BaseStyles.blackMedium14,
+                            )
+                          ],
+                        ),
+                  Row(
+                    children: [
+                      controller.showseach.value != true
+                          ? IconButton(
+                              padding: EdgeInsets.zero,
+                              constraints:
+                                  BoxConstraints(minWidth: 0, minHeight: 0),
+                              onPressed: () {
+                                controller.showseach.value = true;
+                              },
+                              icon: Icon(
+                                Icons.search,
+                                size: 20,
+                                color: AppColors.greyprimarycolor,
+                              ))
+                          : Container(),
+                      widthSpace20,
+                      InkWell(
+                        onTap: () {},
+                        child: Image.asset(
+                          MyImages.filter,
+                          height: 20,
+                          width: 20,
+                          color: AppColors.greyprimarycolor,
+                        ),
+                      ),
+                      widthSpace10
+                    ],
+                  ),
+                  // widthSpace10
+                ],
+              ),
             ),
+            // heightSpace10,
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //   children: [
+            //     Row(
+            //       children: [
+            //         Text(
+            //           'Job',
+            //           style: BaseStyles.blackMedium14,
+            //         )
+            //       ],
+            //     ),
+            //     Row(
+            //       children: [
+            //         Icon(
+            //           Icons.search,
+            //           color: AppColors.greyprimarycolor,
+            //           size: 20.0,
+            //         ),
+            //         widthSpace20,
+            //         Image.asset(
+            //           MyImages.filter,
+            //           height: 20,
+            //           width: 20,
+            //           color: AppColors.greyprimarycolor,
+            //         ),
+            //         widthSpace10,
+            //       ],
+            //     ),
+            //     // widthSpace10
+            //   ],
+            // ),
             Divider(
               thickness: 0.5,
             ),

@@ -28,7 +28,26 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
     Get.lazyPut(() => CandidatesdetailController());
     return Scaffold(
       appBar: myappbar2(
-          title: HomeName.candidateDetail, show: true, show2: Container()),
+          title: HomeName.candidateDetail,
+          show: true,
+          show2: Container(),
+          ontab2: () {
+            jobedit(
+              ontab: (value) {
+                switch (value) {
+                  case 0:
+                    // Get.to(ClientNewTaskView());
+
+                    break;
+                  default:
+                }
+              },
+              context: context,
+              controller: controller,
+              listname: controller.editlist,
+              icon: controller.editlist,
+            );
+          }),
       body: Obx(
         () => ListView(
           children: [
@@ -665,36 +684,50 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
   _job() {
     return Container(
       color: AppColors.whiteColor,
+      width: Get.width,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      'Jobs (2)',
-                      style: BaseStyles.blackMedium14,
-                    )
-                  ],
-                ),
-                InkWell(
-                  onTap: () {
-                    // print('kk');
-                    // Get.to(AddrecruiterView());
-                  },
-                  child: Container(
-                      child: Icon(
-                    Icons.search,
-                    color: AppColors.greyprimarycolor,
-                    size: 18,
-                  )),
-                ),
-                // widthSpace10
-              ],
-            ),
+            controller.showseach.value == true
+                ? textfiled(
+                    suffixsize: 20.0,
+                    eyeshow: true,
+                    suffixontab: () {
+                      controller.showseach.value = false;
+                    },
+
+                    style: BaseStyles.grey3Normal16,
+                    // controller: controller.emailtxt,
+                    readonly: false,
+                    text: 'Search',
+                    suffixicon: Icons.close,
+                    suffixIconcolor: AppColors.greyprimarycolor,
+                  )
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Jobs (2)',
+                        style: BaseStyles.blackMedium14,
+                      ),
+                      controller.showseach.value != true
+                          ? IconButton(
+                              padding: EdgeInsets.zero,
+                              constraints:
+                                  BoxConstraints(minWidth: 0, minHeight: 0),
+                              onPressed: () {
+                                controller.showseach.value = true;
+                              },
+                              icon: Icon(
+                                Icons.search,
+                                color: AppColors.greyprimarycolor,
+                              ))
+                          : Container(),
+
+                      // widthSpace10
+                    ],
+                  ),
             heightSpace10,
             Divider(
               thickness: 0.5,

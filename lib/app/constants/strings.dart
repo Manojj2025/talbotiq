@@ -1,3 +1,5 @@
+import 'package:Talbotiq/app/modules/jobs_screens/views/invitecandidate.dart';
+
 class BottombarName {
   static const home = 'Home';
   static const jobs = 'Jobs';
@@ -99,6 +101,8 @@ class HomeName {
 class JobsName {
   static const filters = 'Filters';
   static const jobdescription = 'Description';
+
+  static const InviteCandidate = 'Invite Candidate';
   static const newjob = 'Create New Job';
   static const addrecruiter = 'Add Recruiter';
   static const selectclient = 'Select Client';

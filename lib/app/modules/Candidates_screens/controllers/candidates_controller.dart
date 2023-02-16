@@ -23,15 +23,8 @@ class CandidatesController extends GetxController {
     "Location",
     "Company",
   ].obs;
-  final editlist = [
-    {"icon": Icons.remove_red_eye_outlined, "name": "View job"},
-    {"icon": Icons.person_outline, "name": "Assign Job"},
-    {"icon": Icons.share, "name": "Share externally"},
-    {"icon": Icons.edit, "name": "Edit"},
-    {"icon": Icons.add_box_outlined, "name": "Duplicate"},
-    {"icon": Icons.delete, "name": "Delete"},
-    {"icon": Icons.logout, "name": "Deactivate"},
-  ].obs;
+  final save = [].obs;
+
   @override
   void onInit() {
     super.onInit();

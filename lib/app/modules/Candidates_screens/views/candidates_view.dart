@@ -198,6 +198,10 @@ class CandidatesView extends GetView<CandidatesController> {
           shrinkWrap: true,
           itemCount: 6,
           itemBuilder: (BuildContext context, int index) {
+            controller.save.clear();
+            for (var i = 0; i < 10; i++) {
+              controller.save.add(false);
+            }
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -245,41 +249,40 @@ class CandidatesView extends GetView<CandidatesController> {
                             ),
                             Padding(
                               padding: const EdgeInsets.all(0.0),
-                              child: Row(
-                                children: [
-                                  InkWell(
-                                    onTap: () {},
-                                    child: Icon(Icons.bookmark,
-                                        size: 16, color: AppColors.yellowcolor),
-                                  ),
-                                  widthSpace10,
-                                  IconButton(
-                                      padding: EdgeInsets.zero,
-                                      constraints: BoxConstraints(
-                                          minWidth: 0, minHeight: 0),
-                                      onPressed: () {
-                                        jobedit(
-                                          ontab: (value) {
-                                            switch (value) {
-                                              case 0:
-                                                // Get.to(ClientNewTaskView());
-
-                                                break;
-                                              default:
-                                            }
-                                          },
-                                          context: context,
-                                          controller: controller,
-                                          listname: controller.editlist,
-                                          icon: controller.editlist,
-                                        );
+                              child: Obx(
+                                () => Row(
+                                  children: [
+                                    InkWell(
+                                      onTap: () {
+                                        if (controller.save[index] == true) {
+                                          controller.save[index] = false;
+                                        } else {
+                                          controller.save[index] = true;
+                                        }
                                       },
-                                      icon: Icon(
-                                        Icons.more_vert_outlined,
+                                      child: Icon(
+                                        controller.save[index] == true
+                                            ? Icons.bookmark
+                                            : Icons.bookmark_border_rounded,
                                         size: 16,
-                                        color: AppColors.greyprimarycolor,
-                                      )),
-                                ],
+                                        color: controller.save[index] == true
+                                            ? AppColors.yellowcolor
+                                            : AppColors.greyprimarycolor,
+                                      ),
+                                    ),
+                                    widthSpace10,
+                                    IconButton(
+                                        padding: EdgeInsets.zero,
+                                        constraints: BoxConstraints(
+                                            minWidth: 0, minHeight: 0),
+                                        onPressed: () {},
+                                        icon: Icon(
+                                          Icons.more_vert_outlined,
+                                          size: 16,
+                                          color: AppColors.greyprimarycolor,
+                                        )),
+                                  ],
+                                ),
                               ),
                             )
                           ],

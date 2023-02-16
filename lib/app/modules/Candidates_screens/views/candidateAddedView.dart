@@ -9,6 +9,7 @@ import '../../../widgets/appbar.dart';
 import '../../../widgets/buttons.dart';
 import '../../../widgets/jobdetailwidget.dart';
 import '../controllers/candidatesdetail_controller.dart';
+import 'candidatesdetail_view.dart';
 
 class CandidateAddedView extends GetView<CandidatesdetailController> {
   const CandidateAddedView({Key? key}) : super(key: key);
@@ -161,7 +162,7 @@ class CandidateAddedView extends GetView<CandidatesdetailController> {
                     heightSpace20,
                     mybuttons(
                         action: () {
-                          Get.offAll(BottombarView());
+                          Get.to(CandidatesdetailView());
                         },
                         name: 'View candidate',
                         color: AppColors.orangecolor,

@@ -416,20 +416,23 @@ class OppurtunityView extends GetView<OppurtunityController> {
                             ),
                             InkWell(
                               onTap: () {},
-                              child: Row(
-                                children: [
-                                  Image.asset(
-                                    'assets/image/q.png',
-                                    height: 15,
-                                    width: 15,
-                                    color: AppColors.primaryColor,
-                                  ),
-                                  widthSpace5,
-                                  Text(
-                                    'Qualified',
-                                    style: BaseStyles.lightblackMedium12,
-                                  ),
-                                ],
+                              child: Padding(
+                                padding: const EdgeInsets.only(right: 15.0),
+                                child: Row(
+                                  children: [
+                                    Image.asset(
+                                      'assets/image/q.png',
+                                      height: 15,
+                                      width: 15,
+                                      color: AppColors.primaryColor,
+                                    ),
+                                    widthSpace5,
+                                    Text(
+                                      'Qualified',
+                                      style: BaseStyles.lightblackMedium12,
+                                    ),
+                                  ],
+                                ),
                               ),
                             )
                           ],

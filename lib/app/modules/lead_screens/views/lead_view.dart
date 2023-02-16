@@ -322,6 +322,7 @@ class LeadView extends GetView<LeadController> {
                                             minWidth: 0, minHeight: 0),
                                         onPressed: () {
                                           jobedit(
+                                            height: 0.45,
                                             ontab: (value) {
                                               switch (value) {
                                                 case 0:

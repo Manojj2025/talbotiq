@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class ClientsdetailController extends GetxController {
   //TODO: Implement JobdetailController
-
+  final showseach = false.obs;
   final clientslist = [
     {"name": "Overview", "value": ""},
     {"name": "Jobs", "value": "1"},

@@ -1,3 +1,4 @@
+import 'package:Talbotiq/app/modules/jobs_screens/views/invitecandidate.dart';
 import 'package:Talbotiq/app/modules/jobs_screens/views/totalapplication.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,9 @@ import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
 import '../../../widgets/buttons.dart';
 import '../../../widgets/decoration.dart';
+import '../../../widgets/filters.dart';
 import '../../../widgets/jobdetailwidget.dart';
+import '../../../widgets/textfiled.dart';
 import '../controllers/jobdetail_controller.dart';
 
 class JobdetailView extends GetView<JobdetailController> {
@@ -18,7 +21,27 @@ class JobdetailView extends GetView<JobdetailController> {
   Widget build(BuildContext context) {
     Get.lazyPut(() => JobdetailController());
     return Scaffold(
-        appBar: myappbar2(title: JobsName.jobdetail, show: true),
+        appBar: myappbar2(
+            title: JobsName.jobdetail,
+            show: true,
+            ontab1: () => Get.to(InviteCandidateView()),
+            ontab2: () {
+              jobedit(
+                ontab: (value) {
+                  switch (value) {
+                    case 0:
+                      // Get.to(LeadNewTaskView());
+
+                      break;
+                    default:
+                  }
+                },
+                context: context,
+                controller: controller,
+                listname: controller.editlist,
+                icon: controller.editlist,
+              );
+            }),
         body: Obx(
           () => ListView(
             children: [
@@ -98,23 +121,117 @@ class JobdetailView extends GetView<JobdetailController> {
                               )
                             ],
                           ),
-                          Row(
-                            children: [
-                              CircleAvatar(
-                                radius: 5,
-                                backgroundColor: AppColors.activecolor,
-                              ),
-                              widthSpace5,
-                              Text(
-                                'Active',
-                                style: BaseStyles.greyMedium14,
-                              ),
-                              widthSpace5,
-                              Icon(
-                                Icons.arrow_drop_down,
-                                color: AppColors.greyprimarycolor,
-                              )
-                            ],
+                          InkWell(
+                            onTap: () {
+                              showModalBottomSheet(
+                                  isDismissible: true,
+                                  backgroundColor: Colors.transparent,
+                                  context: context,
+                                  isScrollControlled: true,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(25.0),
+                                    ),
+                                  ),
+                                  builder: (context) {
+                                    return FractionallySizedBox(
+                                      heightFactor: 0.3,
+                                      child: Container(
+                                        // height: 300,
+                                        decoration:
+                                            MyDecoration.radiusonlydecoration(
+                                                tlradius: 25.0, trradius: 25.0),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(5.0),
+                                          child: Column(
+                                            children: [
+                                              heightSpace20,
+                                              Container(
+                                                height: 4,
+                                                width: 160,
+                                                decoration: MyDecoration
+                                                    .simpledecoration(
+                                                        color: AppColors
+                                                            .greyprimarycolor),
+                                              ),
+                                              heightSpace20,
+                                              Text(
+                                                'Job Status',
+                                                style: BaseStyles.blackMedium16,
+                                              ),
+                                              // heightSpace10,
+                                              ////
+
+                                              heightSpace10,
+                                              Expanded(
+                                                child: ListView.builder(
+                                                    shrinkWrap: true,
+                                                    itemCount: 3,
+                                                    itemBuilder:
+                                                        (BuildContext context,
+                                                            int index) {
+                                                      return ListTile(
+                                                        minVerticalPadding: 0.0,
+                                                        minLeadingWidth: 30.0,
+                                                        horizontalTitleGap: 0.0,
+                                                        visualDensity:
+                                                            VisualDensity(
+                                                                horizontal:
+                                                                    -0.4,
+                                                                vertical: -0.4),
+                                                        dense: true,
+                                                        contentPadding:
+                                                            const EdgeInsets
+                                                                .only(left: 15),
+                                                        title: Text(
+                                                          index == 0
+                                                              ? 'Active'
+                                                              : index == 1
+                                                                  ? 'Inactive'
+                                                                  : 'Close',
+                                                          style: BaseStyles
+                                                              .grey1Medium14,
+                                                        ),
+                                                        leading: CircleAvatar(
+                                                          radius: 5,
+                                                          backgroundColor: index ==
+                                                                  0
+                                                              ? AppColors
+                                                                  .activecolor
+                                                              : index == 1
+                                                                  ? AppColors
+                                                                      .orangecolor
+                                                                  : AppColors
+                                                                      .blackColor,
+                                                        ),
+                                                      );
+                                                    }),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  });
+                            },
+                            child: Row(
+                              children: [
+                                CircleAvatar(
+                                  radius: 5,
+                                  backgroundColor: AppColors.activecolor,
+                                ),
+                                widthSpace5,
+                                Text(
+                                  'Active',
+                                  style: BaseStyles.greyMedium14,
+                                ),
+                                widthSpace5,
+                                Icon(
+                                  Icons.arrow_drop_down,
+                                  color: AppColors.greyprimarycolor,
+                                )
+                              ],
+                            ),
                           )
                         ],
                       ),
@@ -125,9 +242,9 @@ class JobdetailView extends GetView<JobdetailController> {
               heightSpace10,
               _jobitem(),
               controller.jobselectname.value == "Applications"
-                  ? _jobapplication()
+                  ? _jobapplication(context)
                   : controller.jobselectname.value == "Recommended Candidates"
-                      ? _jobrecommaneded()
+                      ? _jobrecommaneded(context)
                       : controller.jobselectname.value == "Description"
                           ? Column(
                               children: [
@@ -723,7 +840,7 @@ class JobdetailView extends GetView<JobdetailController> {
   }
   ////////jobrecomm////////////////////////////////
 
-  Widget _jobrecommaneded() {
+  Widget _jobrecommaneded(context) {
     return Container(
       margin: const EdgeInsets.only(top: 10),
       width: Get.width,
@@ -733,35 +850,67 @@ class JobdetailView extends GetView<JobdetailController> {
         child: Column(
           children: [
             heightSpace10,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      'Recommended(4)',
-                      style: BaseStyles.blackMedium14,
-                    )
-                  ],
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.search,
-                      color: AppColors.greyprimarycolor,
-                    ),
-                    widthSpace20,
-                    Image.asset(
-                      MyImages.filter,
-                      height: 25,
-                      width: 25,
-                      color: AppColors.greyprimarycolor,
-                    ),
-                    widthSpace10
-                  ],
-                ),
-                // widthSpace10
-              ],
+            Obx(
+              () => Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  controller.showseach.value == true
+                      ? Expanded(
+                          child: textfiled(
+                          suffixsize: 20.0,
+                          eyeshow: true,
+                          suffixontab: () {
+                            controller.showseach.value = false;
+                          },
+
+                          style: BaseStyles.grey3Normal16,
+                          // controller: controller.emailtxt,
+                          readonly: false,
+                          text: 'Search',
+                          suffixicon: Icons.close,
+                          suffixIconcolor: AppColors.greyprimarycolor,
+                        ))
+                      : Row(
+                          children: [
+                            Text(
+                              'Recommended(4)',
+                              style: BaseStyles.blackMedium14,
+                            )
+                          ],
+                        ),
+                  Row(
+                    children: [
+                      controller.showseach.value != true
+                          ? IconButton(
+                              padding: EdgeInsets.zero,
+                              constraints:
+                                  BoxConstraints(minWidth: 0, minHeight: 0),
+                              onPressed: () {
+                                controller.showseach.value = true;
+                              },
+                              icon: Icon(
+                                Icons.search,
+                                color: AppColors.greyprimarycolor,
+                              ))
+                          : Container(),
+                      widthSpace20,
+                      InkWell(
+                        onTap: () {
+                          filter(context, controller);
+                        },
+                        child: Image.asset(
+                          MyImages.filter,
+                          height: 20,
+                          width: 20,
+                          color: AppColors.greyprimarycolor,
+                        ),
+                      ),
+                      widthSpace10
+                    ],
+                  ),
+                  // widthSpace10
+                ],
+              ),
             ),
             _listrecomWidget()
           ],
@@ -929,7 +1078,7 @@ class JobdetailView extends GetView<JobdetailController> {
   }
   ///////////Application page////////////////////////////////////////////////////////
 
-  Widget _jobapplication() {
+  Widget _jobapplication(context) {
     return Container(
       margin: const EdgeInsets.only(top: 10),
       width: Get.width,
@@ -939,35 +1088,67 @@ class JobdetailView extends GetView<JobdetailController> {
         child: Column(
           children: [
             heightSpace10,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      'Applications(4)',
-                      style: BaseStyles.blackMedium14,
-                    )
-                  ],
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.search,
-                      color: AppColors.greyprimarycolor,
-                    ),
-                    widthSpace20,
-                    Image.asset(
-                      MyImages.filter,
-                      height: 25,
-                      width: 25,
-                      color: AppColors.greyprimarycolor,
-                    ),
-                    widthSpace10
-                  ],
-                ),
-                // widthSpace10
-              ],
+            Obx(
+              () => Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  controller.showseach.value == true
+                      ? Expanded(
+                          child: textfiled(
+                          suffixsize: 20.0,
+                          eyeshow: true,
+                          suffixontab: () {
+                            controller.showseach.value = false;
+                          },
+
+                          style: BaseStyles.grey3Normal16,
+                          // controller: controller.emailtxt,
+                          readonly: false,
+                          text: 'Search',
+                          suffixicon: Icons.close,
+                          suffixIconcolor: AppColors.greyprimarycolor,
+                        ))
+                      : Row(
+                          children: [
+                            Text(
+                              'Applications(4)',
+                              style: BaseStyles.blackMedium14,
+                            )
+                          ],
+                        ),
+                  Row(
+                    children: [
+                      controller.showseach.value != true
+                          ? IconButton(
+                              padding: EdgeInsets.zero,
+                              constraints:
+                                  BoxConstraints(minWidth: 0, minHeight: 0),
+                              onPressed: () {
+                                controller.showseach.value = true;
+                              },
+                              icon: Icon(
+                                Icons.search,
+                                color: AppColors.greyprimarycolor,
+                              ))
+                          : Container(),
+                      widthSpace20,
+                      InkWell(
+                        onTap: () {
+                          filter(context, controller);
+                        },
+                        child: Image.asset(
+                          MyImages.filter,
+                          height: 20,
+                          width: 20,
+                          color: AppColors.greyprimarycolor,
+                        ),
+                      ),
+                      widthSpace10
+                    ],
+                  ),
+                  // widthSpace10
+                ],
+              ),
             ),
             _listWidget()
           ],

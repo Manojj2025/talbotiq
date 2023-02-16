@@ -1,3 +1,4 @@
+import 'package:Talbotiq/app/modules/lead_screens/views/leaddetail_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -126,7 +127,7 @@ class LeadAddedView extends GetView<LeaddetailController> {
                     heightSpace20,
                     mybuttons(
                         action: () {
-                          Get.offAll(BottombarView());
+                          Get.to(LeaddetailView());
                         },
                         name: 'View Lead',
                         color: AppColors.orangecolor,

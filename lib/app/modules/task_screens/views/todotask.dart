@@ -101,7 +101,7 @@ class _TodoTaskState extends State<TodoTask> {
                       ),
                     ),
                   ),
-                  heightSpace10,
+                  heightSpace20,
                   show[index] == false
                       ? Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

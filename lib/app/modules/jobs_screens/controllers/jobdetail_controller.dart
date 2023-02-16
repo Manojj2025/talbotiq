@@ -7,7 +7,15 @@ import '../views/totalapplication.dart';
 
 class JobdetailController extends GetxController {
   //TODO: Implement JobdetailController
-
+  final showseach = false.obs;
+  final filterlist = [
+    "Select Organization",
+    "Select Job Type",
+    "Skills",
+    "Department",
+    "CTC",
+    "Experience"
+  ].obs;
   final joblist = [
     {"name": "Description", "value": ""},
     {"name": "Applications", "value": "1"},
@@ -51,6 +59,14 @@ class JobdetailController extends GetxController {
     BarData(5, 30),
     BarData(6, 20),
   ];
+  final editlist = [
+    {"icon": Icons.edit, "name": "Edit"},
+    {"icon": Icons.person_outline, "name": "Invite Candidates"},
+    {"icon": Icons.share, "name": "Share externally"},
+    {"icon": Icons.add_box_outlined, "name": "Duplicate"},
+    {"icon": Icons.delete, "name": "Delete"},
+  ].obs;
+  final agree = false.obs;
   @override
   void onInit() {
     super.onInit();

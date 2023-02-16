@@ -10,6 +10,10 @@ class LeaddetailController extends GetxController {
     {"name": "Attachments", "value": ""},
     {"name": "Notes", "value": "2"},
   ].obs;
+  final sortlist = [
+    "Contacted",
+    "Qualified",
+  ].obs;
   final activity = ['Open', 'closed'];
   final joblist2 = ["Photoshop", "Ptototype", "Figma", "UX/UI", "Adobe"].obs;
   final selectname = 'Overview'.obs;

@@ -15,6 +15,7 @@ import '../../../widgets/jobdetailwidget.dart';
 import '../../../widgets/search.dart';
 import '../../../widgets/textfiled.dart';
 import '../controllers/leaddetail_controller.dart';
+import 'leadNewtask_view.dart';
 
 class LeaddetailView extends GetView<LeaddetailController> {
   const LeaddetailView({Key? key}) : super(key: key);
@@ -157,11 +158,20 @@ class LeaddetailView extends GetView<LeaddetailController> {
                         ),
                         InkWell(
                           onTap: () {
-                            // status(
-                            //     context: context,
-                            //     title: 'Update Status',
-                            //     controller: controller,
-                            //     list: controller.sortlist);
+                            status(
+                                button: mybuttons(
+                                    width: Get.width * 0.95,
+                                    action: () {
+                                      Get.back();
+                                    },
+                                    name: 'Submit',
+                                    radius: 5.0,
+                                    color: AppColors.orangecolor,
+                                    height: 45.0),
+                                context: context,
+                                title: 'Update Status',
+                                controller: controller,
+                                list: controller.sortlist);
                           },
                           child: Row(
                             children: [
@@ -762,9 +772,11 @@ class LeaddetailView extends GetView<LeaddetailController> {
                                       ),
                                     ),
                                     heightSpace20,
-                                    Text(
-                                      'Attachment',
-                                      style: BaseStyles.blackMedium16,
+                                    Align(
+                                      child: Text(
+                                        'Attachment',
+                                        style: BaseStyles.blackMedium16,
+                                      ),
                                     ),
                                     // heightSpace10,
                                     // const Divider(
@@ -1030,20 +1042,25 @@ class LeaddetailView extends GetView<LeaddetailController> {
                     ],
                   ),
                 ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.add,
-                      color: AppColors.orangecolor,
-                      size: 16,
-                    ),
-                    widthSpace5,
-                    Text(
-                      'Add',
-                      style: BaseStyles.orangeMedium14,
-                    ),
-                    widthSpace10,
-                  ],
+                InkWell(
+                  onTap: () {
+                    Get.to(LeadNewTaskView());
+                  },
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.add,
+                        color: AppColors.orangecolor,
+                        size: 16,
+                      ),
+                      widthSpace5,
+                      Text(
+                        'Add',
+                        style: BaseStyles.orangeMedium14,
+                      ),
+                      widthSpace10,
+                    ],
+                  ),
                 ),
                 // widthSpace10
               ],
