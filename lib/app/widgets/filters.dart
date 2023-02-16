@@ -5,8 +5,10 @@ import 'package:Talbotiq/app/widgets/textfiled.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
 
 import 'decoration.dart';
+import 'jobdetailwidget.dart';
 
 filter(context, controller) {
   return showModalBottomSheet(
@@ -43,49 +45,213 @@ filter(context, controller) {
                 Expanded(
                   child: ListView.builder(
                       shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
+                      physics: const BouncingScrollPhysics(),
                       itemCount: controller.filterlist.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                        controller.selectfilter.value = '';
+                        return Obx(
+                          () => InkWell(
+                            onTap: () {
+                              if (controller.selectfilter.value !=
+                                  controller.filterlist[index]) {
+                                controller.selectfilter.value =
+                                    controller.filterlist[index];
+                              } else {
+                                controller.selectfilter.value = '';
+                              }
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
-                                        controller.filterlist[index].toString(),
-                                        style: BaseStyles.blacNormal14,
+                                      Row(
+                                        children: [
+                                          Text(
+                                            controller.filterlist[index]
+                                                .toString(),
+                                            style: BaseStyles.blacNormal14,
+                                          ),
+                                          widthSpace5,
+                                          index == 0
+                                              ? CircleAvatar(
+                                                  radius: 10,
+                                                  backgroundColor:
+                                                      AppColors.primaryColor,
+                                                  child: Text(
+                                                    '2',
+                                                    style:
+                                                        BaseStyles.whitesmall10,
+                                                  ),
+                                                )
+                                              : Container(),
+                                        ],
                                       ),
-                                      widthSpace5,
-                                      index == 0
-                                          ? CircleAvatar(
-                                              radius: 10,
-                                              backgroundColor:
-                                                  AppColors.primaryColor,
-                                              child: Text(
-                                                '2',
-                                                style: BaseStyles.whitesmall10,
-                                              ),
-                                            )
-                                          : Container(),
+                                      Icon(
+                                        controller.selectfilter.value !=
+                                                controller.filterlist[index]
+                                            ? Icons.arrow_drop_down
+                                            : Icons.arrow_drop_up,
+                                        color: AppColors.greyprimarycolor,
+                                      ),
                                     ],
                                   ),
-                                  Icon(
-                                    Icons.arrow_drop_down,
-                                    color: AppColors.greyprimarycolor,
-                                  )
+                                  heightSpace10,
+                                  Divider(
+                                    thickness: 0.5,
+                                    height: 4.8,
+                                  ),
+                                  controller.filterlist[index] ==
+                                              'Experience' &&
+                                          controller.selectfilter.value ==
+                                              'Experience'
+                                      ? Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            heightSpace10,
+                                            Text(
+                                              'Experience (In Years)*',
+                                              style: BaseStyles.blacNormal14,
+                                            ),
+                                            SfSlider(
+                                              labelPlacement:
+                                                  LabelPlacement.onTicks,
+                                              // stepDuration:
+                                              //     SliderStepDuration(years: 5),
+                                              // stepSize: 0.0,
+                                              showDividers: true,
+                                              activeColor:
+                                                  AppColors.primaryColor,
+                                              min: 0.0,
+                                              max: 10.0,
+                                              value: controller
+                                                  .experienceyear.value,
+                                              interval: 20,
+                                              showTicks: true,
+                                              showLabels: true,
+                                              enableTooltip: true,
+                                              dividerShape: SfDividerShape(),
+                                              minorTicksPerInterval: 5,
+                                              onChanged: (dynamic value) {
+                                                controller.experienceyear
+                                                    .value = value;
+                                              },
+                                            ),
+                                          ],
+                                        )
+                                      : Container(),
+                                  controller.filterlist[index] == 'CTC' &&
+                                          controller.selectfilter.value == 'CTC'
+                                      ? Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  "CTC per Annum *",
+                                                  style:
+                                                      BaseStyles.grey1Medium14,
+                                                ),
+                                                singlefiled(
+                                                    height: 25.0,
+                                                    name: 'Currency',
+                                                    color: AppColors
+                                                        .greyprimarycolor
+                                                        .shade300,
+                                                    style: BaseStyles
+                                                        .blacNormal14),
+                                              ],
+                                            ),
+                                            heightSpace5,
+                                            Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: singlefiled(
+                                                    name: 'From',
+                                                  ),
+                                                ),
+                                                widthSpace10,
+                                                Expanded(
+                                                  child:
+                                                      singlefiled(name: 'To'),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        )
+                                      : Container(),
+                                  controller.selectfilter.value ==
+                                              controller.filterlist[index] &&
+                                          controller.filterlist[index] !=
+                                              'CTC' &&
+                                          controller.filterlist[index] !=
+                                              'Experience'
+                                      ? Column(
+                                          children: List.generate(
+                                            controller.subfilterlist.length,
+                                            (i) => Column(
+                                              children: [
+                                                Row(
+                                                  children: [
+                                                    Theme(
+                                                        data: Theme.of(context)
+                                                            .copyWith(
+                                                                unselectedWidgetColor:
+                                                                    AppColors
+                                                                        .greyprimarycolor),
+                                                        child: SizedBox(
+                                                            height: 20.0,
+                                                            width: 20.0,
+                                                            child: Checkbox(
+                                                              shape: RoundedRectangleBorder(
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              5.0)),
+                                                              splashRadius: 5.0,
+                                                              materialTapTargetSize:
+                                                                  MaterialTapTargetSize
+                                                                      .shrinkWrap,
+                                                              activeColor: AppColors
+                                                                  .primaryColor,
+                                                              // checkColor: AppColors.secondary2Color,
+                                                              value: false,
+                                                              onChanged:
+                                                                  (value) {
+                                                                // controller.agree.value = value ?? false;
+                                                              },
+                                                            ))),
+                                                    widthSpace5,
+                                                    Expanded(
+                                                        child: Text(
+                                                      controller
+                                                          .subfilterlist[i]
+                                                          .toString(),
+                                                      style: BaseStyles
+                                                          .blacNormal14,
+                                                    ))
+                                                  ],
+                                                ),
+                                                heightSpace10,
+                                              ],
+                                            ),
+                                          ),
+                                        )
+                                      : Container()
                                 ],
                               ),
-                              heightSpace10,
-                              Divider(
-                                thickness: 0.5,
-                                height: 4.8,
-                              )
-                            ],
+                            ),
                           ),
                         );
                       }),

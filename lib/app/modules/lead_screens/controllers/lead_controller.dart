@@ -30,6 +30,15 @@ class LeadController extends GetxController {
     {"icon": Icons.edit_note_sharp, "name": "Edit"},
     {"icon": Icons.delete, "name": "Delete"},
   ].obs;
+  final experienceyear = 0.0.obs;
+  final selectfilter = ''.obs;
+  final subfilterlist = [
+    'Maybank',
+    'CIMB Bank',
+    'HCL Tech',
+    'Islamic Bank of Ihsan',
+    'Bank Ihsan'
+  ].obs;
   @override
   void onInit() {
     super.onInit();

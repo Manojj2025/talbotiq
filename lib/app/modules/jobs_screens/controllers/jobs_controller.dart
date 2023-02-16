@@ -18,6 +18,7 @@ class JobsController extends GetxController {
     "CTC",
     "Experience"
   ].obs;
+
   final sortlist = [
     "Job",
     "Created Date",
@@ -31,6 +32,15 @@ class JobsController extends GetxController {
     {"icon": Icons.edit, "name": "Edit"},
     {"icon": Icons.add_box_outlined, "name": "Duplicate"},
     {"icon": Icons.delete, "name": "Delete"},
+  ].obs;
+  final experienceyear = 0.0.obs;
+  final selectfilter = ''.obs;
+  final subfilterlist = [
+    'Maybank',
+    'CIMB Bank',
+    'HCL Tech',
+    'Islamic Bank of Ihsan',
+    'Bank Ihsan'
   ].obs;
   @override
   void onInit() {

@@ -67,6 +67,15 @@ class JobdetailController extends GetxController {
     {"icon": Icons.delete, "name": "Delete"},
   ].obs;
   final agree = false.obs;
+  final experienceyear = 0.0.obs;
+  final selectfilter = ''.obs;
+  final subfilterlist = [
+    'Maybank',
+    'CIMB Bank',
+    'HCL Tech',
+    'Islamic Bank of Ihsan',
+    'Bank Ihsan'
+  ].obs;
   @override
   void onInit() {
     super.onInit();

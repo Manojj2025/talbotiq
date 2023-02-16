@@ -8,6 +8,15 @@ class CandidatesController extends GetxController {
     {"name": "Marked", "value": "22"},
     {"name": "Drafts", "value": "22"},
   ].obs;
+  final experienceyear = 0.0.obs;
+  final selectfilter = ''.obs;
+  final subfilterlist = [
+    'Maybank',
+    'CIMB Bank',
+    'HCL Tech',
+    'Islamic Bank of Ihsan',
+    'Bank Ihsan'
+  ].obs;
   final jobselectname = 'All Candidates'.obs;
   final filterlist = [
     "Select Organization",

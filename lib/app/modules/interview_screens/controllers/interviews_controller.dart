@@ -18,6 +18,15 @@ class InterviewsController extends GetxController {
     "CTC",
     "Experience"
   ].obs;
+  final experienceyear = 0.0.obs;
+  final selectfilter = ''.obs;
+  final subfilterlist = [
+    'Maybank',
+    'CIMB Bank',
+    'HCL Tech',
+    'Islamic Bank of Ihsan',
+    'Bank Ihsan'
+  ].obs;
   final editlist = [
     {"icon": Icons.remove_red_eye_outlined, "name": "View Interview"},
     {"icon": Icons.personal_injury_outlined, "name": "Evaluate"},

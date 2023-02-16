@@ -18,6 +18,15 @@ class OppurtunityController extends GetxController {
     "CTC",
     "Experience"
   ].obs;
+  final experienceyear = 0.0.obs;
+  final selectfilter = ''.obs;
+  final subfilterlist = [
+    'Maybank',
+    'CIMB Bank',
+    'HCL Tech',
+    'Islamic Bank of Ihsan',
+    'Bank Ihsan'
+  ].obs;
   final sortlist = [
     "Contacted",
     "Qualified",

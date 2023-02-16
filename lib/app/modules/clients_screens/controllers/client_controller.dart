@@ -9,6 +9,15 @@ class ClientController extends GetxController {
     {"name": "Marked Recruiters", "value": "22"},
     {"name": "Draft", "value": "22"},
   ].obs;
+  final experienceyear = 0.0.obs;
+  final selectfilter = ''.obs;
+  final subfilterlist = [
+    'Maybank',
+    'CIMB Bank',
+    'HCL Tech',
+    'Islamic Bank of Ihsan',
+    'Bank Ihsan'
+  ].obs;
   final selectname = 'All Clients'.obs;
   final save = [].obs;
   final filterlist = [
