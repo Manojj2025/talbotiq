@@ -1,3 +1,5 @@
+import 'package:Talbotiq/app/modules/interview_screens/views/single_play_view.dart';
+import 'package:Talbotiq/app/modules/interview_screens/views/video_player_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -9,6 +11,7 @@ import '../../../widgets/decoration.dart';
 import '../../../widgets/filters.dart';
 import '../../../widgets/jobdetailwidget.dart';
 import '../controllers/interviews_controller.dart';
+import 'interviewdetail_view.dart';
 
 class InterviewsView extends GetView<InterviewsController> {
   const InterviewsView({Key? key}) : super(key: key);
@@ -159,7 +162,7 @@ class InterviewsView extends GetView<InterviewsController> {
               children: [
                 InkWell(
                   onTap: () {
-                    // Get.to(const JobdetailView());
+                    Get.to(InterviewDetailView());
                   },
                   child: Container(
                     padding: EdgeInsets.all(8.0),

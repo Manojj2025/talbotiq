@@ -47,6 +47,7 @@ class HomeName {
   static const OppurtunityAdded = 'Oppurtunity Added';
   static const resetpass = 'Reset Password';
 
+  static const InterviewDetail = 'Interview Detail';
   static const RecentChats = 'Recent Chats';
   static const Members = 'Members';
 

@@ -17,7 +17,10 @@ Future<void> main() async {
           Brightness.light // Only honored in Android M and above
       // statusBarBrightness: Brightness.light,      // Only honored in iOS
       ));
-
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(
     ScreenUtilInit(
         designSize: const Size(360, 690),
