@@ -32,7 +32,7 @@ textfiled(
     maxline,
     style}) {
   return TextFormField(
-    autofocus: true,
+    // autofocus: true,
 
     // cursorHeight: ,
     focusNode: focusNode,

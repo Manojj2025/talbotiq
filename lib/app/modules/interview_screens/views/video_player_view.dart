@@ -69,7 +69,7 @@ class VideoPlayerView extends GetView<VideoPlayerCustomController> {
         ),
         Container(
           width: Get.width,
-          height: Get.width * 0.5624,
+          height: isPortrait ? Get.width * 0.59 : Get.width * 0.47,
           child: Stack(
             children: [
               // !controller.t!.isActive
@@ -376,8 +376,8 @@ class VideoPlayerView extends GetView<VideoPlayerCustomController> {
                           child: Align(
                             alignment: Alignment.bottomCenter,
                             child: Container(
-                              color: AppColors.blackColor.withOpacity(0.2),
-                              height: 35,
+                              color: Color.fromRGBO(0, 0, 0, 0.4),
+                              height: 38,
                               padding: EdgeInsets.only(top: 5),
                               child: Padding(
                                 padding: isPortrait

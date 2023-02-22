@@ -20,6 +20,7 @@ class SinglePlayController extends GetxController
   // final box = GetStorage();
   // late Movie item;
   final showMore = false.obs;
+  final ratesubmit = false.obs;
   final hide = ''.obs;
   final trendings = [].obs;
   final items = [];

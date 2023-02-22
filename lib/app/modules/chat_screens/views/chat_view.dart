@@ -272,7 +272,7 @@ class ChatView extends GetView<ChatController> {
                                                             children: [
                                                               Icon(
                                                                 Icons
-                                                                    .whatsapp_outlined,
+                                                                    .wechat_sharp,
                                                                 size: 20,
                                                                 color: controller
                                                                             .selectname

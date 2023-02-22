@@ -9,6 +9,14 @@ class InterviewsController extends GetxController {
     {"name": "Live Interview", "value": "2"},
     {"name": "Open Links", "value": "3"},
   ].obs;
+  final list2 = [
+    {"name": "Watch Interview", "value": "22"},
+    {"name": "Feedback", "value": "22"},
+    {"name": "Behavioural Assesment", "value": "2"},
+    {"name": "Manage Interviewers", "value": "3"},
+    {"name": "Details", "value": "3"},
+  ].obs;
+  final selectname2 = 'Watch Interview'.obs;
   final selectname = 'All Interviews'.obs;
   final filterlist = [
     "Select Organization",
