@@ -721,6 +721,7 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
                               },
                               icon: Icon(
                                 Icons.search,
+                                size: 20,
                                 color: AppColors.greyprimarycolor,
                               ))
                           : Container(),

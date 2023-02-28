@@ -602,11 +602,17 @@ Container singlefiled({name, width, color, style, height}) {
   );
 }
 
-Column textwidget2({name, text, width, icon, onTap, textwidget}) {
+Column textwidget2({name, text, width, icon, onTap, textwidget, nameicon}) {
   return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-    Text(
-      name,
-      style: BaseStyles.grey1Medium14,
+    Row(
+      children: [
+        Text(
+          name,
+          style: BaseStyles.grey1Medium14,
+        ),
+        widthSpace5,
+        nameicon ?? Container()
+      ],
     ),
     heightSpace5,
     InkWell(

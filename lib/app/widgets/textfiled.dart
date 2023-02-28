@@ -240,6 +240,7 @@ textwidget(
     onTap,
     borderSidecolor,
     fillColor,
+    nameicon,
     maxline,
     controller,
     onchange,
@@ -248,9 +249,15 @@ textwidget(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       showtext ??
-          Text(
-            name,
-            style: BaseStyles.grey1Medium14,
+          Row(
+            children: [
+              Text(
+                name,
+                style: BaseStyles.grey1Medium14,
+              ),
+              widthSpace5,
+              nameicon ?? Container()
+            ],
           ),
       heightSpace5,
       textfiled(

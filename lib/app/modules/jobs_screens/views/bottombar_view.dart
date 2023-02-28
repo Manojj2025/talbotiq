@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:Talbotiq/app/widgets/decoration.dart';
 
 import '../../../constants/values.dart';
+import '../../interview_screens/views/createnewinterview.dart';
 import '../controllers/bottombar_controller.dart';
 import 'bottom_nav_item.dart';
 import 'createnewjob_view.dart';
@@ -85,20 +86,26 @@ class BottombarView extends GetView<BottombarController> {
                                   ),
                                 ),
                                 heightSpace20,
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15.0),
-                                  child: Row(
-                                    children: [
-                                      Image.asset(MyImages.interviews,
-                                          height: 20,
-                                          width: 20,
-                                          color: AppColors.greycolor2),
-                                      widthSpace8,
-                                      Text(
-                                        HomeName.createinterview,
-                                        style: BaseStyles.blacNormal14,
-                                      ),
-                                    ],
+                                InkWell(
+                                  onTap: () {
+                                    Get.back();
+                                    Get.to(CreatenewinterviewView());
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 15.0),
+                                    child: Row(
+                                      children: [
+                                        Image.asset(MyImages.interviews,
+                                            height: 20,
+                                            width: 20,
+                                            color: AppColors.greycolor2),
+                                        widthSpace8,
+                                        Text(
+                                          HomeName.createinterview,
+                                          style: BaseStyles.blacNormal14,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 heightSpace20,

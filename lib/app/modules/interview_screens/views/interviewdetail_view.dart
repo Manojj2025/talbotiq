@@ -33,6 +33,356 @@ class InterviewDetailView extends GetView<InterviewsController> {
             jobedit(
               ontab: (value) {
                 switch (value) {
+                  case 2:
+                    Get.back();
+                    showModalBottomSheet(
+                        isDismissible: true,
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        isScrollControlled: true,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(25.0),
+                          ),
+                        ),
+                        builder: (context) {
+                          return FractionallySizedBox(
+                            heightFactor: 0.55,
+                            child: Container(
+                              // height: 300,
+                              decoration: MyDecoration.radiusonlydecoration(
+                                  tlradius: 25.0, trradius: 25.0),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    heightSpace20,
+                                    Container(
+                                      height: 4,
+                                      width: 160,
+                                      decoration: MyDecoration.simpledecoration(
+                                          color: AppColors.greyprimarycolor),
+                                    ),
+                                    heightSpace20,
+                                    Text(
+                                      'Invite Interviewers',
+                                      style: BaseStyles.blackMedium16,
+                                    ),
+                                    heightSpace10,
+                                    ////
+                                    mysearch(
+                                        width: Get.width * 0.95,
+                                        readonly: false,
+                                        decoration: decorationbox2(
+                                            radius: 5.0,
+                                            color: AppColors
+                                                .greyprimarycolor.shade200)),
+                                    heightSpace10,
+                                    Expanded(
+                                      child: ListView.builder(
+                                          shrinkWrap: true,
+                                          itemCount: 3,
+                                          itemBuilder: (BuildContext context,
+                                              int index) {
+                                            return ListTile(
+                                              horizontalTitleGap: 2.0,
+                                              dense: true,
+                                              contentPadding:
+                                                  const EdgeInsets.only(
+                                                      left: 15),
+                                              title: Text(
+                                                'Nikita Sharma',
+                                                style: BaseStyles.blacNormal14,
+                                              ),
+                                              subtitle: Text(
+                                                'nikita@gmail.com',
+                                                style: BaseStyles.grey2Medium12,
+                                              ),
+                                              trailing: Theme(
+                                                  data: Theme.of(context).copyWith(
+                                                      unselectedWidgetColor:
+                                                          AppColors
+                                                              .greyprimarycolor
+                                                              .shade400),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: SizedBox(
+                                                        height: 20.0,
+                                                        width: 20.0,
+                                                        child: Checkbox(
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          5.0)),
+                                                          materialTapTargetSize:
+                                                              MaterialTapTargetSize
+                                                                  .shrinkWrap,
+                                                          activeColor: AppColors
+                                                              .primaryColor,
+                                                          // checkColor: AppColors.secondary2Color,
+                                                          value: controller
+                                                              .agree.value,
+                                                          onChanged: (value) {
+                                                            controller.agree
+                                                                    .value =
+                                                                value ?? false;
+                                                          },
+                                                        )),
+                                                  )),
+                                              leading: CircleAvatar(
+                                                // backgroundColor: AppColors.primaryColor,
+                                                radius: 16,
+                                                child: Image.asset(
+                                                    'assets/image/bajaj.png'),
+                                              ),
+                                            );
+                                          }),
+                                    ),
+                                    heightSpace30,
+                                    mybuttons(
+                                        action: () {
+                                          Get.back();
+                                          showModalBottomSheet(
+                                              isDismissible: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              context: context,
+                                              isScrollControlled: true,
+                                              shape:
+                                                  const RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.vertical(
+                                                  top: Radius.circular(25.0),
+                                                ),
+                                              ),
+                                              builder: (context) {
+                                                return FractionallySizedBox(
+                                                  heightFactor: 0.45,
+                                                  child: Container(
+                                                    // height: 300,
+                                                    decoration: MyDecoration
+                                                        .radiusonlydecoration(
+                                                            tlradius: 25.0,
+                                                            trradius: 25.0),
+                                                    child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              10.0),
+                                                      child: Column(
+                                                        // crossAxisAlignment: CrossAxisAlignment.start,
+                                                        children: [
+                                                          heightSpace20,
+                                                          Align(
+                                                            child: Container(
+                                                              height: 4,
+                                                              width: 160,
+                                                              decoration: MyDecoration
+                                                                  .simpledecoration(
+                                                                      color: AppColors
+                                                                          .greyprimarycolor),
+                                                            ),
+                                                          ),
+                                                          Image.asset(
+                                                            'assets/image/invite.png',
+                                                            height: 180,
+                                                            width: Get.width,
+                                                          ),
+                                                          heightSpace10,
+                                                          Text(
+                                                            'Invitation Sent Successfully!',
+                                                            style: BaseStyles
+                                                                .blackMedium16,
+                                                          ),
+                                                          heightSpace3,
+                                                          Text(
+                                                            'information on its origins, as well as a random Lipsum generator.',
+                                                            style: BaseStyles
+                                                                .grey2normal14,
+                                                            textAlign: TextAlign
+                                                                .center,
+                                                          ),
+                                                          heightSpace20,
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                );
+                                              });
+                                        },
+                                        name: 'Invite Interviewers',
+                                        radius: 5.0,
+                                        color: AppColors.orangecolor,
+                                        height: 45.0),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        });
+                    break;
+                  case 1:
+                    Get.back();
+                    showModalBottomSheet(
+                        isDismissible: true,
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        isScrollControlled: true,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(25.0),
+                          ),
+                        ),
+                        builder: (context) {
+                          return FractionallySizedBox(
+                            heightFactor: 0.85,
+                            child: Container(
+                              // height: 300,
+                              decoration: MyDecoration.radiusonlydecoration(
+                                  tlradius: 25.0, trradius: 25.0),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    heightSpace20,
+                                    Align(
+                                      child: Container(
+                                        height: 4,
+                                        width: 160,
+                                        decoration:
+                                            MyDecoration.simpledecoration(
+                                                color:
+                                                    AppColors.greyprimarycolor),
+                                      ),
+                                    ),
+                                    heightSpace20,
+                                    Align(
+                                      child: Text(
+                                        'Evaluate Candidate',
+                                        style: BaseStyles.blackMedium14,
+                                      ),
+                                    ),
+                                    heightSpace10,
+                                    Divider(
+                                      thickness: 0.5,
+                                    ),
+                                    heightSpace5,
+                                    textwidget2(
+                                        name: 'Add a title**', text: 'Enter'),
+                                    heightSpace5,
+                                    Divider(
+                                      thickness: 0.5,
+                                    ),
+                                    heightSpace10,
+                                    textwidget(
+                                        height: 150.0,
+                                        readonly: false,
+                                        onTap: () {},
+                                        minline: 8,
+                                        maxline: 8,
+                                        name: 'Feedback',
+                                        text: 'Write'),
+                                    heightSpace5,
+                                    Divider(
+                                      thickness: 0.5,
+                                    ),
+                                    heightSpace10,
+                                    Text(
+                                      "Communication",
+                                      style: BaseStyles.grey1Medium14,
+                                    ),
+                                    heightSpace5,
+                                    RatingBar.builder(
+                                      initialRating: 3,
+                                      minRating: 1,
+                                      direction: Axis.horizontal,
+                                      allowHalfRating: true,
+                                      unratedColor:
+                                          AppColors.greyprimarycolor.shade300,
+                                      itemSize: 30.0,
+                                      itemCount: 5,
+                                      itemPadding: const EdgeInsets.symmetric(
+                                          horizontal: 3.0),
+                                      itemBuilder: (context, _) => const Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                      ),
+                                      onRatingUpdate: (rating) {
+                                        print(rating);
+                                      },
+                                    ),
+                                    heightSpace10,
+                                    Text(
+                                      "Leadership",
+                                      style: BaseStyles.grey1Medium14,
+                                    ),
+                                    heightSpace5,
+                                    RatingBar.builder(
+                                      initialRating: 3,
+                                      minRating: 1,
+                                      direction: Axis.horizontal,
+                                      allowHalfRating: true,
+                                      unratedColor:
+                                          AppColors.greyprimarycolor.shade300,
+                                      itemSize: 30.0,
+                                      itemCount: 5,
+                                      itemPadding: const EdgeInsets.symmetric(
+                                          horizontal: 3.0),
+                                      itemBuilder: (context, _) => const Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                      ),
+                                      onRatingUpdate: (rating) {
+                                        print(rating);
+                                      },
+                                    ),
+                                    heightSpace10,
+                                    Text(
+                                      "Teamwork",
+                                      style: BaseStyles.grey1Medium14,
+                                    ),
+                                    heightSpace5,
+                                    RatingBar.builder(
+                                      initialRating: 3,
+                                      minRating: 1,
+                                      direction: Axis.horizontal,
+                                      allowHalfRating: true,
+                                      unratedColor:
+                                          AppColors.greyprimarycolor.shade300,
+                                      itemSize: 30.0,
+                                      itemCount: 5,
+                                      itemPadding: const EdgeInsets.symmetric(
+                                          horizontal: 3.0),
+                                      itemBuilder: (context, _) => const Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                      ),
+                                      onRatingUpdate: (rating) {
+                                        print(rating);
+                                      },
+                                    ),
+                                    heightSpace10,
+                                    Expanded(child: Container()),
+                                    mybuttons(
+                                        action: () {
+                                          Get.back();
+                                          controller.hair.value = true;
+                                        },
+                                        // style:
+                                        //     BaseStyles.grey2medium16,
+                                        name: 'Submit',
+                                        color: AppColors.orangecolor,
+                                        height: 45.0)
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        });
+                    break;
                   case 3:
                     Get.back();
                     showModalBottomSheet(
@@ -218,7 +568,7 @@ class InterviewDetailView extends GetView<InterviewsController> {
                   default:
                 }
               },
-              height: 0.45,
+              height: 0.50,
               context: context,
               controller: controller,
               listname: controller.editlist,

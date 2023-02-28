@@ -81,6 +81,7 @@ class HomeName {
   static const createcandidate = 'Create Candidate';
   static const createclient = 'Create Client';
 
+  static const AddQuestion = 'Add Question';
   static const addnewopp = 'Add New Oppurtunity';
   static const clientdetail = 'Client Deatils';
   static const client = 'Client';
