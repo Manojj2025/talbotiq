@@ -88,6 +88,7 @@ class SettingView extends GetView<TaskController> {
                                 controller.select.value = 'Private';
                               },
                               child: Container(
+                                height: 55,
                                 decoration: decorationbox(
                                   color: controller.select.value == 'Private'
                                       ? AppColors.primaryColor.withOpacity(0.1)
@@ -147,6 +148,7 @@ class SettingView extends GetView<TaskController> {
                                 controller.select.value = 'Public';
                               },
                               child: Container(
+                                height: 55,
                                 decoration: decorationbox(
                                   color: controller.select.value == 'Public'
                                       ? AppColors.primaryColor.withOpacity(0.1)

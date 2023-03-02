@@ -11,6 +11,7 @@ import '../../../widgets/decoration.dart';
 import '../../../widgets/filters.dart';
 import '../../../widgets/jobdetailwidget.dart';
 import '../controllers/interviews_controller.dart';
+import '../videocall_screens/views/videocall_view.dart';
 import 'interviewdetail_view.dart';
 
 class InterviewsView extends GetView<InterviewsController> {
@@ -544,42 +545,49 @@ class InterviewsView extends GetView<InterviewsController> {
                                     ],
                                   ),
                                   heightSpace10,
-                                  Container(
-                                    alignment: Alignment.center,
-                                    width: Get.width,
-                                    decoration: BoxDecoration(
-                                        color: AppColors.whiteColor,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.grey.withOpacity(0.2),
-                                            spreadRadius: 0.1,
-                                            blurRadius: 1,
-                                            offset: const Offset(0,
-                                                1), // changes position of shadow
+                                  InkWell(
+                                    onTap: () {
+                                      Get.to(VideoCallView());
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      width: Get.width,
+                                      decoration: BoxDecoration(
+                                          color: AppColors.whiteColor,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color:
+                                                  Colors.grey.withOpacity(0.2),
+                                              spreadRadius: 0.1,
+                                              blurRadius: 1,
+                                              offset: const Offset(0,
+                                                  1), // changes position of shadow
+                                            ),
+                                          ],
+                                          border: Border.all(
+                                              color: AppColors
+                                                  .greyprimarycolor.shade200),
+                                          borderRadius:
+                                              BorderRadius.circular(5)),
+                                      height: 34,
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(
+                                            Icons.play_circle_outline_sharp,
+                                            color: AppColors.orangecolor,
+                                            size: 20,
+                                          ),
+                                          widthSpace5,
+                                          Text(
+                                            'Start Interview',
+                                            style: BaseStyles.orangeMedium14,
                                           ),
                                         ],
-                                        border: Border.all(
-                                            color: AppColors
-                                                .greyprimarycolor.shade200),
-                                        borderRadius: BorderRadius.circular(5)),
-                                    height: 34,
-                                    child: Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Icon(
-                                          Icons.play_circle_outline_sharp,
-                                          color: AppColors.orangecolor,
-                                          size: 20,
-                                        ),
-                                        widthSpace5,
-                                        Text(
-                                          'Start Interview',
-                                          style: BaseStyles.orangeMedium14,
-                                        ),
-                                      ],
+                                      ),
                                     ),
                                   ),
                                   heightSpace10,

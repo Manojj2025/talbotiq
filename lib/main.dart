@@ -46,8 +46,8 @@ Future<void> main() async {
               primaryColor: AppColors.primaryColor,
               scaffoldBackgroundColor: AppColors.greyprimarycolor.shade100,
               textTheme: const TextTheme(
-                bodyText1: TextStyle(color: Colors.white),
-                bodyText2: TextStyle(color: Colors.white),
+                bodyLarge: TextStyle(color: Colors.white),
+                bodyMedium: TextStyle(color: Colors.white),
               ),
             ),
           );

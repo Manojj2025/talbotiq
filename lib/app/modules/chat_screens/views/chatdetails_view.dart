@@ -44,7 +44,7 @@ class ChatdetailView extends GetView<ChatdetailController> {
                 Icon(
                   Icons.call,
                   color: AppColors.whiteColor,
-                  size: 18,
+                  size: 20,
                 ),
                 widthSpace10,
                 // widthSpace5,
@@ -53,7 +53,7 @@ class ChatdetailView extends GetView<ChatdetailController> {
                   child: Icon(
                     Icons.video_call,
                     color: AppColors.whiteColor,
-                    size: 18,
+                    // size: 20,
                   ),
                 )
               ],

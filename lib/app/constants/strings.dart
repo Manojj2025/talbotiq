@@ -47,6 +47,7 @@ class HomeName {
   static const OppurtunityAdded = 'Oppurtunity Added';
   static const resetpass = 'Reset Password';
 
+  static const HelpDesk = 'Help Desk';
   static const InterviewDetail = 'Interview Detail';
   static const RecentChats = 'Recent Chats';
   static const Members = 'Members';
@@ -81,6 +82,7 @@ class HomeName {
   static const createcandidate = 'Create Candidate';
   static const createclient = 'Create Client';
 
+  static const AddNewTicket = 'Add New Ticket';
   static const AddQuestion = 'Add Question';
   static const addnewopp = 'Add New Oppurtunity';
   static const clientdetail = 'Client Deatils';

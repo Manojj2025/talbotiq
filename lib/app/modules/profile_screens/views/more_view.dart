@@ -12,6 +12,7 @@ import '../../Candidates_screens/views/candidates_view.dart';
 import '../../Oppurtunity_screen/views/oppurtunity_view.dart';
 import '../../chat_screens/views/chat_view.dart';
 import '../../clients_screens/views/client_view.dart';
+import '../../help_screens/views/help_view.dart';
 import '../controllers/more_controller.dart';
 
 class MoreView extends GetView<MoreController> {
@@ -108,6 +109,10 @@ class MoreView extends GetView<MoreController> {
                               break;
                             case 6:
                               Get.to(ChatView());
+
+                              break;
+                            case 7:
+                              Get.to(HelpView());
 
                               break;
                             default:
