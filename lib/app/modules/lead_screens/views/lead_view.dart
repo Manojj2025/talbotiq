@@ -7,6 +7,7 @@ import 'package:Talbotiq/app/widgets/decoration.dart';
 import '../../../constants/values.dart';
 import '../../../widgets/buttons.dart';
 import '../../../widgets/filters.dart';
+import '../../../widgets/search.dart';
 import '../../clients_screens/views/clientNewtask_view.dart';
 import 'addnewlead.dart';
 import 'leadNewtask_view.dart';
@@ -325,12 +326,161 @@ class LeadView extends GetView<LeadController> {
                                             minWidth: 0, minHeight: 0),
                                         onPressed: () {
                                           jobedit(
+                                            indexdivider: 3,
                                             height: 0.45,
                                             ontab: (value) {
                                               switch (value) {
                                                 case 0:
                                                   Get.back();
+                                                  Get.to(LeaddetailView());
+
+                                                  break;
+                                                case 3:
+                                                  Get.back();
                                                   Get.to(LeadNewTaskView());
+
+                                                  break;
+                                                case 4:
+                                                  Get.back();
+                                                  Get.to(LeadNewTaskView());
+
+                                                  break;
+                                                case 1:
+                                                  Get.back();
+                                                  showModalBottomSheet(
+                                                      isDismissible: true,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      context: context,
+                                                      isScrollControlled: true,
+                                                      shape:
+                                                          const RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .vertical(
+                                                          top: Radius.circular(
+                                                              25.0),
+                                                        ),
+                                                      ),
+                                                      builder: (context) {
+                                                        return FractionallySizedBox(
+                                                          heightFactor: 0.6,
+                                                          child: Container(
+                                                            // height: 300,
+                                                            decoration: MyDecoration
+                                                                .radiusonlydecoration(
+                                                                    tlradius:
+                                                                        25.0,
+                                                                    trradius:
+                                                                        25.0),
+                                                            child: Padding(
+                                                              padding:
+                                                                  const EdgeInsets
+                                                                      .all(8.0),
+                                                              child: Column(
+                                                                children: [
+                                                                  heightSpace20,
+                                                                  Container(
+                                                                    height: 4,
+                                                                    width: 160,
+                                                                    decoration:
+                                                                        MyDecoration.simpledecoration(
+                                                                            color:
+                                                                                AppColors.greyprimarycolor),
+                                                                  ),
+                                                                  heightSpace20,
+                                                                  Text(
+                                                                    'Assign to',
+                                                                    style: BaseStyles
+                                                                        .blackMedium16,
+                                                                  ),
+                                                                  heightSpace10,
+                                                                  ////
+                                                                  mysearch(
+                                                                      width: Get
+                                                                              .width *
+                                                                          0.95,
+                                                                      readonly:
+                                                                          false,
+                                                                      decoration: decorationbox2(
+                                                                          radius:
+                                                                              5.0,
+                                                                          color: AppColors
+                                                                              .greyprimarycolor
+                                                                              .shade200)),
+                                                                  heightSpace10,
+                                                                  Expanded(
+                                                                    child: ListView.builder(
+                                                                        shrinkWrap: true,
+                                                                        itemCount: 3,
+                                                                        itemBuilder: (BuildContext context, int index) {
+                                                                          return ListTile(
+                                                                            horizontalTitleGap:
+                                                                                2.0,
+                                                                            dense:
+                                                                                true,
+                                                                            contentPadding:
+                                                                                const EdgeInsets.only(left: 15),
+                                                                            title:
+                                                                                Text(
+                                                                              'Nikita Sharma',
+                                                                              style: BaseStyles.blacNormal14,
+                                                                            ),
+                                                                            subtitle:
+                                                                                Text(
+                                                                              'nikita@gmail.com',
+                                                                              style: BaseStyles.grey2Medium12,
+                                                                            ),
+                                                                            trailing: Theme(
+                                                                                data: Theme.of(context).copyWith(unselectedWidgetColor: AppColors.greyprimarycolor.shade400),
+                                                                                child: Padding(
+                                                                                  padding: const EdgeInsets.all(8.0),
+                                                                                  child: SizedBox(
+                                                                                      height: 20.0,
+                                                                                      width: 20.0,
+                                                                                      child: Checkbox(
+                                                                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+                                                                                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                                                                                        activeColor: AppColors.primaryColor,
+                                                                                        // checkColor: AppColors.secondary2Color,
+                                                                                        value: true,
+                                                                                        onChanged: (value) {
+                                                                                          // controller.agree
+                                                                                          //         .value =
+                                                                                          //     value ??
+                                                                                          //         false;
+                                                                                        },
+                                                                                      )),
+                                                                                )),
+                                                                            leading:
+                                                                                CircleAvatar(
+                                                                              // backgroundColor: AppColors.primaryColor,
+                                                                              radius: 16,
+                                                                              child: Image.asset('assets/image/bajaj.png'),
+                                                                            ),
+                                                                          );
+                                                                        }),
+                                                                  ),
+                                                                  heightSpace30,
+                                                                  mybuttons(
+                                                                      action:
+                                                                          () {
+                                                                        Get.back();
+                                                                      },
+                                                                      name:
+                                                                          'Assign',
+                                                                      radius:
+                                                                          5.0,
+                                                                      color: AppColors
+                                                                          .orangecolor,
+                                                                      height:
+                                                                          45.0),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
 
                                                   break;
                                                 default:

@@ -566,6 +566,7 @@ jobedit({
   context,
   controller,
   listname,
+  indexdivider,
   icon,
   required Function(int value) ontab,
   height,
@@ -640,7 +641,7 @@ jobedit({
                                     size: 16,
                                     color: AppColors.lightblackColor,
                                   )),
-                              index == 2
+                              index == (indexdivider == null ? 2 : indexdivider)
                                   ? Divider(
                                       thickness: 0.5,
                                       height: 0.5,

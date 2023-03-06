@@ -1,4 +1,5 @@
 import 'package:Talbotiq/app/modules/task_screens/views/projectdetail_view.dart';
+import 'package:Talbotiq/app/modules/task_screens/views/setting_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -248,7 +249,13 @@ class TaskView extends GetView<TaskController> {
                                         ontab: (value) {
                                           switch (value) {
                                             case 0:
-                                              // Get.to(SettingView());
+                                              Get.back();
+                                              Get.to(ProjectdetailView());
+
+                                              break;
+                                            case 1:
+                                              Get.back();
+                                              Get.to(SettingView());
 
                                               break;
                                             default:

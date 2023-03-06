@@ -34,7 +34,9 @@ class NotesView extends GetView<NotesController> {
                   widthSpace10,
                   // widthSpace5,
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(AddnotesView());
+                    },
                     child: Row(
                       children: [
                         Icon(
@@ -200,11 +202,12 @@ class NotesView extends GetView<NotesController> {
                                             minWidth: 0, minHeight: 0),
                                         onPressed: () {
                                           jobedit(
+                                            height: 0.45,
                                             ontab: (value) {
                                               switch (value) {
                                                 case 0:
                                                   Get.back();
-                                                  // Get.to(LeadNewTaskView());
+                                                  Get.to(AddnotesView());
 
                                                   break;
                                                 default:

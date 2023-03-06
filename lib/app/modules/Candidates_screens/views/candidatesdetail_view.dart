@@ -33,10 +33,17 @@ class CandidatesdetailView extends GetView<CandidatesdetailController> {
           show2: Container(),
           ontab2: () {
             jobedit(
+              height: 0.45,
               ontab: (value) {
                 switch (value) {
                   case 0:
+                    Get.back();
                     // Get.to(ClientNewTaskView());
+
+                    break;
+                  case 1:
+                    Get.back();
+                    Get.to(AssignJobView());
 
                     break;
                   default:

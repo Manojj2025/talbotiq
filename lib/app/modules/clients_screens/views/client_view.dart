@@ -5,6 +5,8 @@ import 'package:Talbotiq/app/widgets/decoration.dart';
 
 import '../../../constants/values.dart';
 import '../../../widgets/filters.dart';
+import '../../jobs_screens/views/createnewjob_view.dart';
+import '../../jobs_screens/views/jobform_view.dart';
 import '../controllers/client_controller.dart';
 import 'addnewclient_view.dart';
 import 'clientDetail_view.dart';
@@ -331,7 +333,17 @@ class ClientView extends GetView<ClientController> {
                                             height: 0.45,
                                             ontab: (value) {
                                               switch (value) {
+                                                case 1:
+                                                  Get.back();
+                                                  Get.to(JobformView());
+
+                                                  break;
                                                 case 0:
+                                                  Get.back();
+                                                  Get.to(ClientsdetailView());
+
+                                                  break;
+                                                case 2:
                                                   Get.back();
                                                   Get.to(ClientNewTaskView());
 

@@ -11,9 +11,9 @@ class CandidatesdetailController extends GetxController {
     {"icon": Icons.person_outline, "name": "Assign Job"},
     {"icon": Icons.share, "name": "Share externally"},
     {"icon": Icons.edit, "name": "Edit"},
-    {"icon": Icons.add_box_outlined, "name": "Duplicate"},
+    // {"icon": Icons.add_box_outlined, "name": "Duplicate"},
     {"icon": Icons.delete, "name": "Delete"},
-    {"icon": Icons.logout, "name": "Deactivate"},
+    {"icon": Icons.power_settings_new_outlined, "name": "Deactivate"},
   ].obs;
   TextEditingController psearchtxt = TextEditingController();
   final clientslist = [
