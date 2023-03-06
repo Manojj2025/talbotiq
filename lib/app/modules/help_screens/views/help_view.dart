@@ -11,6 +11,7 @@ import '../../../widgets/filters.dart';
 import '../../../widgets/textfiled.dart';
 import '../controllers/help_controller.dart';
 import 'addnewhelp.dart';
+import 'helpdetails_view.dart';
 
 class HelpView extends GetView<HelpController> {
   const HelpView({Key? key}) : super(key: key);
@@ -85,94 +86,99 @@ class HelpView extends GetView<HelpController> {
               shrinkWrap: true,
               itemCount: 2,
               itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Column(
-                    children: [
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          // widthSpace10,
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    '#808097977954333',
-                                    style: BaseStyles.blackMedium16,
-                                  ),
-                                  widthSpace5,
-                                  index == 1
-                                      ? Container()
-                                      : Container(
-                                          padding: EdgeInsets.symmetric(
-                                              horizontal: 8, vertical: 3),
-                                          decoration: decorationbox2(
-                                              color: AppColors.primaryColor2
-                                                  .withOpacity(0.2),
-                                              radius: 30.0),
-                                          child: Text(
-                                            'New',
-                                            style: BaseStyles.greennormal12,
-                                          ),
-                                        )
-                                ],
-                              ),
-                              heightSpace3,
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.alarm,
-                                    color: AppColors.greycolor3,
-                                    size: 15,
-                                  ),
-                                  widthSpace3,
-                                  Text(
-                                    '07/02/2023',
-                                    style: BaseStyles.grey2normal12,
-                                  ),
-                                  widthSpace5,
-                                  Icon(
-                                    Icons.flag_outlined,
-                                    color: AppColors.redcolor,
-                                    size: 15,
-                                  ),
-                                  widthSpace3,
-                                  Text(
-                                    'Urgent',
-                                    style: BaseStyles.grey2normal12,
-                                  ),
-                                ],
-                              ),
-                              heightSpace5,
-                            ],
-                          ),
-
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 5),
-                            decoration: decorationbox2(
-                                color: index == 1
-                                    ? AppColors.greyprimarycolor.shade200
-                                    : AppColors.primaryColor2,
-                                radius: 30.0),
-                            child: Text(
-                              index == 1 ? 'Close' : 'Open',
-                              style: index == 1
-                                  ? BaseStyles.grey3Normal12
-                                  : BaseStyles.whitenormal12,
+                return InkWell(
+                  onTap: () {
+                    Get.to(HelpdetailView());
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            // widthSpace10,
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Text(
+                                      '#808097977954333',
+                                      style: BaseStyles.blackMedium16,
+                                    ),
+                                    widthSpace5,
+                                    index == 1
+                                        ? Container()
+                                        : Container(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 8, vertical: 3),
+                                            decoration: decorationbox2(
+                                                color: AppColors.primaryColor2
+                                                    .withOpacity(0.2),
+                                                radius: 30.0),
+                                            child: Text(
+                                              'New',
+                                              style: BaseStyles.greennormal12,
+                                            ),
+                                          )
+                                  ],
+                                ),
+                                heightSpace3,
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.alarm,
+                                      color: AppColors.greycolor3,
+                                      size: 15,
+                                    ),
+                                    widthSpace3,
+                                    Text(
+                                      '07/02/2023',
+                                      style: BaseStyles.grey2normal12,
+                                    ),
+                                    widthSpace5,
+                                    Icon(
+                                      Icons.flag_outlined,
+                                      color: AppColors.redcolor,
+                                      size: 15,
+                                    ),
+                                    widthSpace3,
+                                    Text(
+                                      'Urgent',
+                                      style: BaseStyles.grey2normal12,
+                                    ),
+                                  ],
+                                ),
+                                heightSpace5,
+                              ],
                             ),
-                          )
-                        ],
-                      ),
-                      Divider(
-                        thickness: 10.0,
-                        height: 25,
-                        color: AppColors.greyprimarycolor.shade100,
-                      ),
-                    ],
+
+                            Container(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 5),
+                              decoration: decorationbox2(
+                                  color: index == 1
+                                      ? AppColors.greyprimarycolor.shade200
+                                      : AppColors.primaryColor2,
+                                  radius: 30.0),
+                              child: Text(
+                                index == 1 ? 'Close' : 'Open',
+                                style: index == 1
+                                    ? BaseStyles.grey3Normal12
+                                    : BaseStyles.whitenormal12,
+                              ),
+                            )
+                          ],
+                        ),
+                        Divider(
+                          thickness: 10.0,
+                          height: 25,
+                          color: AppColors.greyprimarycolor.shade100,
+                        ),
+                      ],
+                    ),
                   ),
                 );
               }),

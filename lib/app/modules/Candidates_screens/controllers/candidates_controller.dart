@@ -26,12 +26,7 @@ class CandidatesController extends GetxController {
     "CTC",
     "Experience"
   ].obs;
-  final sortlist = [
-    "Job",
-    "Created Date",
-    "Location",
-    "Company",
-  ].obs;
+  final sortlist = ["Name", "Created Date", "Location", "Experince", "CTC"].obs;
   final save = [].obs;
 
   @override

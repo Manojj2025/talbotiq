@@ -111,7 +111,7 @@ class GroupView extends GetView<GroupController> {
                     ),
                     InkWell(
                       onTap: () {
-                        sortby(context, controller);
+                        // sortby(context: context, controller: controller);
                       },
                       child: Row(
                         children: [

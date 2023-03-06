@@ -17,6 +17,7 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
 import '../../../widgets/jobdetailwidget.dart';
+
 import '../../../widgets/search.dart';
 import '../../../widgets/textfiled.dart';
 import '../controllers/projectdetail_controller.dart';

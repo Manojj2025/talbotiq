@@ -15,6 +15,7 @@ class HelpController extends GetxController {
     {"icon": Icons.add, "name": "New Meeting"},
     {"icon": Icons.calendar_today_outlined, "name": "Schedule"},
   ].obs;
+  final addattachment = false.obs;
   @override
   void onInit() {
     super.onInit();

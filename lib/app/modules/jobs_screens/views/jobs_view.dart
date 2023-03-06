@@ -7,6 +7,7 @@ import '../../../constants/values.dart';
 import '../../../widgets/appbar.dart';
 import '../../../widgets/filters.dart';
 import '../controllers/jobs_controller.dart';
+import 'invitecandidate.dart';
 import 'jobdetail_view.dart';
 
 class JobsView extends GetView<JobsController> {
@@ -63,7 +64,7 @@ class JobsView extends GetView<JobsController> {
                     ),
                     InkWell(
                       onTap: () {
-                        sortby(context, controller);
+                        sortby(context: context, controller: controller);
                       },
                       child: Row(
                         children: [
@@ -217,9 +218,115 @@ class JobsView extends GetView<JobsController> {
                                     BoxConstraints(minWidth: 0, minHeight: 0),
                                 onPressed: () {
                                   jobedit(
+                                    height: 0.45,
                                     ontab: (value) {
                                       switch (value) {
                                         case 0:
+                                          Get.back();
+                                          Get.to(JobdetailView());
+                                          break;
+                                        case 1:
+                                          Get.back();
+                                          Get.to(InviteCandidateView());
+                                          break;
+                                        case 5:
+                                          Get.back();
+                                          showDialog(
+                                              context: context,
+                                              builder: (context) => AlertDialog(
+                                                    titlePadding:
+                                                        EdgeInsets.only(
+                                                            left: 15,
+                                                            right: 15),
+                                                    contentPadding:
+                                                        EdgeInsets.only(
+                                                            left: 15,
+                                                            right: 15),
+                                                    // <-- SEE HERE
+                                                    title: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Text(
+                                                          'Are you sure want to delete?',
+                                                          style: BaseStyles
+                                                              .blackMedium16,
+                                                        ),
+                                                        IconButton(
+                                                            onPressed: () {
+                                                              Get.back();
+                                                            },
+                                                            icon: Icon(
+                                                              Icons.close,
+                                                              color: AppColors
+                                                                  .greyprimarycolor,
+                                                            ))
+                                                      ],
+                                                    ),
+                                                    content:
+                                                        SingleChildScrollView(
+                                                      child: ListBody(
+                                                        children: <Widget>[
+                                                          Text(
+                                                            'Reference site about Loerm ipusm, giving information on the on.',
+                                                            style: BaseStyles
+                                                                .grey2normal14,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    actions: <Widget>[
+                                                      TextButton(
+                                                        child: Container(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
+                                                                    horizontal:
+                                                                        20,
+                                                                    vertical:
+                                                                        8),
+                                                            decoration: decorationbox(
+                                                                border: Border.all(
+                                                                    color: AppColors
+                                                                        .greyprimarycolor
+                                                                        .shade200),
+                                                                radius: 5.0),
+                                                            child: Text(
+                                                              'Close',
+                                                              style: BaseStyles
+                                                                  .blacNormal14,
+                                                            )),
+                                                        onPressed: () {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        },
+                                                      ),
+                                                      TextButton(
+                                                        child: Container(
+                                                            padding: EdgeInsets
+                                                                .symmetric(
+                                                                    horizontal:
+                                                                        30,
+                                                                    vertical:
+                                                                        8),
+                                                            decoration: decorationbox(
+                                                                color: AppColors
+                                                                    .secondarydarkColor,
+                                                                radius: 5.0),
+                                                            child: Text(
+                                                              'Delete',
+                                                              style: BaseStyles
+                                                                  .whitenormal14,
+                                                            )),
+                                                        onPressed: () {
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                          Navigator.of(context)
+                                                              .pop();
+                                                        },
+                                                      ),
+                                                    ],
+                                                  ));
                                           // Get.to(LeadNewTaskView());
 
                                           break;

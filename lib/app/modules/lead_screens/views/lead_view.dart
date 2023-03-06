@@ -107,7 +107,10 @@ class LeadView extends GetView<LeadController> {
                     ),
                     InkWell(
                       onTap: () {
-                        sortby(context, controller);
+                        sortby(
+                            context: context,
+                            controller: controller,
+                            height: 0.3);
                       },
                       child: Row(
                         children: [

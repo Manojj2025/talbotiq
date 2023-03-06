@@ -572,7 +572,7 @@ _listrecomWidget() {
 }
 
 ///////// textfiled///////////////////////////////////////////////////
-Container singlefiled({name, width, color, style, height}) {
+Container singlefiled({name, width, color, style, height, show}) {
   return Container(
     decoration: decorationbox3(
       border: Border.all(color: AppColors.greyprimarycolor.shade100),
@@ -592,11 +592,12 @@ Container singlefiled({name, width, color, style, height}) {
             style: style ?? BaseStyles.grey1Medium14,
           ),
         ),
-        Icon(
-          Icons.keyboard_arrow_down_sharp,
-          color: AppColors.greyprimarycolor,
-          size: 20,
-        )
+        show ??
+            Icon(
+              Icons.keyboard_arrow_down_sharp,
+              color: AppColors.greyprimarycolor,
+              size: 20,
+            )
       ],
     ),
   );

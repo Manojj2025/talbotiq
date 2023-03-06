@@ -28,12 +28,8 @@ class ClientController extends GetxController {
     "CTC",
     "Experience"
   ].obs;
-  final sortlist = [
-    "Job",
-    "Created Date",
-    "Location",
-    "Company",
-  ].obs;
+  final sortlist = ["Name", "Created Date", "Location", "Experince", "CTC"].obs;
+
   final editlist = [
     {"icon": Icons.remove_red_eye_outlined, "name": "View client"},
     {"icon": Icons.business_center_rounded, "name": "Create Job"},

@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import 'package:Talbotiq/app/widgets/decoration.dart';
 
 import '../../../constants/values.dart';
+import '../../Candidates_screens/views/candidateNewtask_view.dart';
+import '../../clients_screens/views/addnewclient_view.dart';
 import '../../interview_screens/views/createnewinterview.dart';
 import '../controllers/bottombar_controller.dart';
 import 'bottom_nav_item.dart';
@@ -109,37 +111,49 @@ class BottombarView extends GetView<BottombarController> {
                                   ),
                                 ),
                                 heightSpace20,
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15.0),
-                                  child: Row(
-                                    children: [
-                                      Image.asset(MyImages.createcandidate,
-                                          height: 20,
-                                          width: 20,
-                                          color: AppColors.greycolor2),
-                                      widthSpace8,
-                                      Text(
-                                        HomeName.createcandidate,
-                                        style: BaseStyles.blacNormal14,
-                                      ),
-                                    ],
+                                InkWell(
+                                  onTap: () {
+                                    Get.back();
+                                    Get.to(CandidateNewTaskView());
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 15.0),
+                                    child: Row(
+                                      children: [
+                                        Image.asset(MyImages.createcandidate,
+                                            height: 20,
+                                            width: 20,
+                                            color: AppColors.greycolor2),
+                                        widthSpace8,
+                                        Text(
+                                          HomeName.createcandidate,
+                                          style: BaseStyles.blacNormal14,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 heightSpace20,
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15.0),
-                                  child: Row(
-                                    children: [
-                                      Image.asset(MyImages.createclient,
-                                          height: 20,
-                                          width: 20,
-                                          color: AppColors.greycolor2),
-                                      widthSpace8,
-                                      Text(
-                                        HomeName.createclient,
-                                        style: BaseStyles.blacNormal14,
-                                      ),
-                                    ],
+                                InkWell(
+                                  onTap: () {
+                                    Get.back();
+                                    Get.to(AddNewClientView());
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 15.0),
+                                    child: Row(
+                                      children: [
+                                        Image.asset(MyImages.createclient,
+                                            height: 20,
+                                            width: 20,
+                                            color: AppColors.greycolor2),
+                                        widthSpace8,
+                                        Text(
+                                          HomeName.createclient,
+                                          style: BaseStyles.blacNormal14,
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ],

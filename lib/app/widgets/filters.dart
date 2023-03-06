@@ -1,6 +1,7 @@
 import 'package:Talbotiq/app/constants/app_basestyles.dart';
 import 'package:Talbotiq/app/constants/values.dart';
 import 'package:Talbotiq/app/widgets/buttons.dart';
+import 'package:Talbotiq/app/widgets/search.dart';
 import 'package:Talbotiq/app/widgets/textfiled.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -50,22 +51,22 @@ filter(context, controller) {
                       itemBuilder: (BuildContext context, int index) {
                         controller.selectfilter.value = '';
                         return Obx(
-                          () => InkWell(
-                            onTap: () {
-                              if (controller.selectfilter.value !=
-                                  controller.filterlist[index]) {
-                                controller.selectfilter.value =
-                                    controller.filterlist[index];
-                              } else {
-                                controller.selectfilter.value = '';
-                              }
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
+                          () => Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    if (controller.selectfilter.value !=
+                                        controller.filterlist[index]) {
+                                      controller.selectfilter.value =
+                                          controller.filterlist[index];
+                                    } else {
+                                      controller.selectfilter.value = '';
+                                    }
+                                  },
+                                  child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
@@ -100,157 +101,190 @@ filter(context, controller) {
                                       ),
                                     ],
                                   ),
-                                  heightSpace10,
-                                  Divider(
-                                    thickness: 0.5,
-                                    height: 4.8,
-                                  ),
-                                  controller.filterlist[index] ==
-                                              'Experience' &&
-                                          controller.selectfilter.value ==
-                                              'Experience'
-                                      ? Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            heightSpace10,
-                                            Text(
-                                              'Experience (In Years)*',
-                                              style: BaseStyles.blacNormal14,
-                                            ),
-                                            SfSlider(
-                                              labelPlacement:
-                                                  LabelPlacement.onTicks,
-                                              // stepDuration:
-                                              //     SliderStepDuration(years: 5),
-                                              // stepSize: 0.0,
-                                              showDividers: true,
+                                ),
+                                heightSpace10,
+                                index == 0 &&
+                                        controller.selectfilter.value ==
+                                            controller.filterlist[index]
+                                    ? mysearch(
+                                        width: Get.width * 0.90,
+                                        readonly: true,
+                                        decoration: decorationbox2(
+                                            radius: 5.0,
+                                            color: AppColors
+                                                .greyprimarycolor.shade200))
+                                    : Container(),
+                                heightSpace10,
+                                controller.filterlist[index] == 'Experience' &&
+                                        controller.selectfilter.value ==
+                                            'Experience'
+                                    ? Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          heightSpace10,
+                                          Text(
+                                            'Experience (In Years)*',
+                                            style: BaseStyles.blacNormal14,
+                                          ),
+                                          Theme(
+                                            data: ThemeData(
+                                                accentColor: Colors.black),
+                                            child: SfRangeSelector(
                                               activeColor:
                                                   AppColors.primaryColor,
-                                              min: 0.0,
-                                              max: 10.0,
-                                              value: controller
-                                                  .experienceyear.value,
-                                              interval: 20,
+                                              min: 0,
+                                              max: 10,
+                                              initialValues:
+                                                  SfRangeValues(0, 10),
+                                              labelPlacement:
+                                                  LabelPlacement.onTicks,
+                                              interval: 2,
                                               showTicks: true,
                                               showLabels: true,
-                                              enableTooltip: true,
-                                              dividerShape: SfDividerShape(),
-                                              minorTicksPerInterval: 5,
-                                              onChanged: (dynamic value) {
-                                                controller.experienceyear
-                                                    .value = value;
-                                              },
-                                            ),
-                                          ],
-                                        )
-                                      : Container(),
-                                  controller.filterlist[index] == 'CTC' &&
-                                          controller.selectfilter.value == 'CTC'
-                                      ? Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(
-                                                  "CTC per Annum *",
-                                                  style:
-                                                      BaseStyles.grey1Medium14,
-                                                ),
-                                                singlefiled(
-                                                    height: 25.0,
-                                                    name: 'Currency',
-                                                    color: AppColors
-                                                        .greyprimarycolor
-                                                        .shade300,
-                                                    style: BaseStyles
-                                                        .blacNormal14),
-                                              ],
-                                            ),
-                                            heightSpace5,
-                                            Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Expanded(
-                                                  child: singlefiled(
-                                                    name: 'From',
-                                                  ),
-                                                ),
-                                                widthSpace10,
-                                                Expanded(
-                                                  child:
-                                                      singlefiled(name: 'To'),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        )
-                                      : Container(),
-                                  controller.selectfilter.value ==
-                                              controller.filterlist[index] &&
-                                          controller.filterlist[index] !=
-                                              'CTC' &&
-                                          controller.filterlist[index] !=
-                                              'Experience'
-                                      ? Column(
-                                          children: List.generate(
-                                            controller.subfilterlist.length,
-                                            (i) => Column(
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    Theme(
-                                                        data: Theme.of(context)
-                                                            .copyWith(
-                                                                unselectedWidgetColor:
-                                                                    AppColors
-                                                                        .greyprimarycolor),
-                                                        child: SizedBox(
-                                                            height: 20.0,
-                                                            width: 20.0,
-                                                            child: Checkbox(
-                                                              shape: RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              5.0)),
-                                                              splashRadius: 5.0,
-                                                              materialTapTargetSize:
-                                                                  MaterialTapTargetSize
-                                                                      .shrinkWrap,
-                                                              activeColor: AppColors
-                                                                  .primaryColor,
-                                                              // checkColor: AppColors.secondary2Color,
-                                                              value: false,
-                                                              onChanged:
-                                                                  (value) {
-                                                                // controller.agree.value = value ?? false;
-                                                              },
-                                                            ))),
-                                                    widthSpace5,
-                                                    Expanded(
-                                                        child: Text(
-                                                      controller
-                                                          .subfilterlist[i]
-                                                          .toString(),
-                                                      style: BaseStyles
-                                                          .blacNormal14,
-                                                    ))
-                                                  ],
-                                                ),
-                                                heightSpace10,
-                                              ],
+                                              child: Container(),
                                             ),
                                           ),
-                                        )
-                                      : Container()
-                                ],
-                              ),
+
+                                          // SfRangeSelector(
+                                          //   labelPlacement:
+                                          //       LabelPlacement.onTicks,
+                                          //   // stepDuration:
+                                          //   //     SliderStepDuration(years: 5),
+                                          //   // stepSize: 0.0,
+                                          //   showDividers: false,
+                                          //   activeColor: AppColors.primaryColor,
+                                          //   min: 0,
+                                          //   max: 10,
+                                          //   initialValues: SfRangeValues(0, 10),
+                                          //   // value:
+                                          //   //     controller.experienceyear.value,
+                                          //   interval: 20,
+                                          //   showTicks: true,
+                                          //   showLabels: true,
+                                          //   enableTooltip: true,
+                                          //   dividerShape: SfDividerShape(),
+                                          //   child: Container(),
+
+                                          //   minorTicksPerInterval: 5,
+                                          //   onChanged: (dynamic value) {
+                                          //     controller.experienceyear.value =
+                                          //         value;
+                                          //   },
+                                          // ),
+                                        ],
+                                      )
+                                    : Container(),
+                                controller.filterlist[index] == 'CTC' &&
+                                        controller.selectfilter.value == 'CTC'
+                                    ? Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                "CTC per Annum *",
+                                                style: BaseStyles.grey1Medium14,
+                                              ),
+                                              singlefiled(
+                                                  height: 25.0,
+                                                  name: 'Currency',
+                                                  color: AppColors
+                                                      .greyprimarycolor
+                                                      .shade300,
+                                                  style:
+                                                      BaseStyles.blacNormal14),
+                                            ],
+                                          ),
+                                          heightSpace5,
+                                          Row(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Expanded(
+                                                child: singlefiled(
+                                                  show: Container(),
+                                                  name: 'From',
+                                                ),
+                                              ),
+                                              widthSpace10,
+                                              Expanded(
+                                                child: singlefiled(
+                                                  name: 'To',
+                                                  show: Container(),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      )
+                                    : Container(),
+                                controller.selectfilter.value ==
+                                            controller.filterlist[index] &&
+                                        controller.filterlist[index] != 'CTC' &&
+                                        controller.filterlist[index] !=
+                                            'Experience'
+                                    ? Column(
+                                        children: List.generate(
+                                          controller.subfilterlist.length,
+                                          (i) => Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Theme(
+                                                      data: Theme.of(context).copyWith(
+                                                          unselectedWidgetColor:
+                                                              AppColors
+                                                                  .greyprimarycolor),
+                                                      child: SizedBox(
+                                                          height: 20.0,
+                                                          width: 20.0,
+                                                          child: Checkbox(
+                                                            shape: RoundedRectangleBorder(
+                                                                borderRadius:
+                                                                    BorderRadius
+                                                                        .circular(
+                                                                            5.0)),
+                                                            splashRadius: 5.0,
+                                                            materialTapTargetSize:
+                                                                MaterialTapTargetSize
+                                                                    .shrinkWrap,
+                                                            activeColor: AppColors
+                                                                .primaryColor,
+                                                            // checkColor: AppColors.secondary2Color,
+                                                            value: false,
+                                                            onChanged: (value) {
+                                                              // controller.agree.value = value ?? false;
+                                                            },
+                                                          ))),
+                                                  widthSpace5,
+                                                  Expanded(
+                                                      child: Text(
+                                                    controller.subfilterlist[i]
+                                                        .toString(),
+                                                    style:
+                                                        BaseStyles.blacNormal14,
+                                                  ))
+                                                ],
+                                              ),
+                                              heightSpace10,
+                                            ],
+                                          ),
+                                        ),
+                                      )
+                                    : Container(),
+                                controller.selectfilter.value ==
+                                        controller.filterlist[index]
+                                    ? heightSpace10
+                                    : Container(),
+                                Divider(
+                                  thickness: 0.5,
+                                  height: 4.8,
+                                ),
+                              ],
                             ),
                           ),
                         );
@@ -309,7 +343,7 @@ filter(context, controller) {
       });
 }
 
-sortby(context, controller) {
+sortby({context, controller, sortlist, height}) {
   return showModalBottomSheet(
       isDismissible: true,
       backgroundColor: Colors.transparent,
@@ -322,7 +356,7 @@ sortby(context, controller) {
       ),
       builder: (context) {
         return FractionallySizedBox(
-          heightFactor: 0.4,
+          heightFactor: height ?? 0.4,
           child: Container(
             // height: 300,
             decoration: MyDecoration.radiusonlydecoration(
@@ -380,14 +414,18 @@ sortby(context, controller) {
                   child: ListView.builder(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: controller.sortlist.length,
+                      itemCount: sortlist == null
+                          ? controller.sortlist.length
+                          : sortlist.length,
                       itemBuilder: (BuildContext context, int index) {
                         return ListTile(
                           horizontalTitleGap: 2.0,
                           dense: true,
                           contentPadding: const EdgeInsets.only(left: 5),
                           title: Text(
-                            controller.sortlist[index].toString(),
+                            sortlist == null
+                                ? controller.sortlist[index].toString()
+                                : sortlist[index],
                             style: BaseStyles.blacNormal14,
                           ),
                           leading: Radio(
@@ -586,19 +624,30 @@ jobedit({
                             ontab(index);
                           },
 
-                          child: ListTile(
-                              horizontalTitleGap: 2.0,
-                              dense: true,
-                              contentPadding: const EdgeInsets.only(left: 15),
-                              title: Text(
-                                listname[index]['name'].toString(),
-                                style: BaseStyles.blacNormal14,
-                              ),
-                              leading: Icon(
-                                icon[index]['icon'],
-                                size: 16,
-                                color: AppColors.lightblackColor,
-                              )),
+                          child: Column(
+                            children: [
+                              ListTile(
+                                  horizontalTitleGap: 2.0,
+                                  dense: true,
+                                  contentPadding:
+                                      const EdgeInsets.only(left: 15),
+                                  title: Text(
+                                    listname[index]['name'].toString(),
+                                    style: BaseStyles.blacNormal14,
+                                  ),
+                                  leading: Icon(
+                                    icon[index]['icon'],
+                                    size: 16,
+                                    color: AppColors.lightblackColor,
+                                  )),
+                              index == 2
+                                  ? Divider(
+                                      thickness: 0.5,
+                                      height: 0.5,
+                                    )
+                                  : Container(),
+                            ],
+                          ),
                         );
                       }),
                 ),

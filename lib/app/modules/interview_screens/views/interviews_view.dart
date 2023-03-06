@@ -68,7 +68,7 @@ class InterviewsView extends GetView<InterviewsController> {
                     ),
                     InkWell(
                       onTap: () {
-                        sortby(context, controller);
+                        sortby(context: context, controller: controller);
                       },
                       child: Row(
                         children: [

@@ -108,7 +108,11 @@ class CandidatesView extends GetView<CandidatesController> {
                     ),
                     InkWell(
                       onTap: () {
-                        sortby(context, controller);
+                        sortby(
+                            height: 0.5,
+                            context: context,
+                            controller: controller,
+                            sortlist: controller.sortlist);
                       },
                       child: Row(
                         children: [
@@ -236,6 +240,14 @@ class CandidatesView extends GetView<CandidatesController> {
                                           'Nikita Sharma',
                                           style: BaseStyles.blackMedium16,
                                         ),
+                                        widthSpace3,
+                                        index == 0
+                                            ? Icon(
+                                                Icons.info,
+                                                color: AppColors.redcolor,
+                                                size: 16,
+                                              )
+                                            : Container()
                                       ],
                                     ),
                                     heightSpace5,

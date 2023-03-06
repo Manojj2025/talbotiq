@@ -105,7 +105,11 @@ class ClientView extends GetView<ClientController> {
                     ),
                     InkWell(
                       onTap: () {
-                        sortby(context, controller);
+                        sortby(
+                            height: 0.5,
+                            context: context,
+                            controller: controller,
+                            sortlist: controller.sortlist);
                       },
                       child: Row(
                         children: [
