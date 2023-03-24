@@ -11,6 +11,7 @@ import '../../../widgets/decoration.dart';
 import '../../../widgets/filters.dart';
 import '../../../widgets/jobdetailwidget.dart';
 import '../controllers/interviews_controller.dart';
+import '../videocall_screens/views/videocall2_view.dart';
 import '../videocall_screens/views/videocall_view.dart';
 import 'interviewdetail_view.dart';
 
@@ -547,7 +548,12 @@ class InterviewsView extends GetView<InterviewsController> {
                                   heightSpace10,
                                   InkWell(
                                     onTap: () {
-                                      Get.to(VideoCallView());
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (_) => MyVideoCall()),
+                                      );
+                                      // Get.to(MyVideoCall());
                                     },
                                     child: Container(
                                       alignment: Alignment.center,

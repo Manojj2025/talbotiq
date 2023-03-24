@@ -64,7 +64,10 @@ class JobsView extends GetView<JobsController> {
                     ),
                     InkWell(
                       onTap: () {
-                        sortby(context: context, controller: controller);
+                        sortby(
+                            context: context,
+                            controller: controller,
+                            height: 0.4);
                       },
                       child: Row(
                         children: [

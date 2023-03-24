@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../constants/values.dart';
 
 mybuttons(
-    {required name,
+    {name,
     action,
     color,
     gradient,
@@ -13,6 +13,7 @@ mybuttons(
     style,
     height,
     width,
+    widget,
     fontSize,
     radius}) {
   return InkWell(
@@ -27,11 +28,12 @@ mybuttons(
         color: color ?? AppColors.primaryColor,
         borderRadius: BorderRadius.circular(radius ?? 4.0),
       ),
-      child: Text(
-        name,
-        style: style ?? BaseStyles.whitelarge16,
-        textAlign: TextAlign.center,
-      ),
+      child: widget ??
+          Text(
+            name,
+            style: style ?? BaseStyles.whitelarge16,
+            textAlign: TextAlign.center,
+          ),
     ),
   );
 }

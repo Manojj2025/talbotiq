@@ -11,6 +11,8 @@ class MoreController extends GetxController {
     {"image": "assets/image/6.png", "name": "My Notes"},
     {"image": "assets/image/7.png", "name": "Chat"},
     {"image": "assets/image/8.png", "name": "Help"},
+    {"image": "assets/image/8.png", "name": "Reminder"},
+    {"image": "assets/image/8.png", "name": "Planner"},
     {"image": "assets/image/9.png", "name": "Log out"},
   ].obs;
 

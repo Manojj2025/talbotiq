@@ -19,6 +19,8 @@ class BottombarView extends GetView<BottombarController> {
   @override
   Widget build(BuildContext context) {
     Get.lazyPut(() => BottombarController());
+
+    controller.showTutorial(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       floatingActionButton: FloatingActionButton(

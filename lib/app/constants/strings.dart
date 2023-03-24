@@ -4,12 +4,16 @@ class BottombarName {
   static const home = 'Home';
   static const jobs = 'Jobs';
   static const interviews = 'Interviews';
+
   static const more = 'More';
+  static const Resume = 'Resume';
 }
 
 class MyImages {
+  static const v = 'assets/image/v.png';
+  static const cv = 'assets/image/cv.png';
   static const job2 = 'assets/image/job2.png';
-  static const client = 'assets/image/client.png';
+  static const client = 'assets/image/client2.png';
   static const interview = 'assets/image/interview.png';
   static const job = 'assets/image/job.png';
   static const candidate = 'assets/image/candidate.png';
@@ -50,7 +54,11 @@ class HomeName {
   static const HelpDesk = 'Help Desk';
   static const InterviewDetail = 'Interview Detail';
   static const RecentChats = 'Recent Chats';
+  static const Reminder = 'Reminder';
+
+  static const Planner = 'Planner';
   static const Members = 'Members';
+  static const AddNewReminder = 'Add New Reminder';
 
   static const ScheduleMeeting = 'Schedule Meeting';
   static const createNewGroup = 'Create New Group';
@@ -101,6 +109,7 @@ class HomeName {
   static const opportunityDetails = 'Opportunity Details';
   static const candidateDetail = 'Candidate Detail';
   static const oppurtunity = 'Oppurtunity';
+  static const Report = 'Report';
 }
 
 class JobsName {

@@ -18,132 +18,196 @@ class InviteCandidateView extends GetView<JobdetailController> {
     Get.lazyPut(() => JobdetailController());
     return Scaffold(
         appBar: myappbar2(show: false, title: JobsName.InviteCandidate),
-        body: Column(
-          children: [
-            Container(
-              color: AppColors.whiteColor,
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CircleAvatar(
-                          // backgroundColor: AppColors.primaryColor,
-                          radius: 20,
-                          child: Image.asset('assets/image/bajaj.png'),
-                        ),
-                        widthSpace10,
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  'UI/UX Designer',
-                                  style: BaseStyles.blackMedium16,
-                                ),
-                                widthSpace5,
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 8, vertical: 3),
-                                  decoration: decorationbox2(
-                                      color: AppColors.primaryColor2
-                                          .withOpacity(0.2),
-                                      radius: 30.0),
-                                  child: Text(
-                                    '6 new',
-                                    style: BaseStyles.greenMedium11,
-                                  ),
-                                )
-                              ],
-                            ),
-                            heightSpace5,
-                            Text(
-                              'Tech Mahindra, Posted 2 days ago',
-                              style: BaseStyles.blackMedium12,
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            // heightSpace10,
-            _jobrecommaneded(),
-            mybuttons(
-                width: Get.width * 0.95,
-                action: () {
-                  showModalBottomSheet(
-                      isDismissible: true,
-                      backgroundColor: Colors.transparent,
-                      context: context,
-                      isScrollControlled: true,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.vertical(
-                          top: Radius.circular(25.0),
-                        ),
-                      ),
-                      builder: (context) {
-                        return FractionallySizedBox(
-                          heightFactor: 0.45,
-                          child: Container(
-                            // height: 300,
-                            decoration: MyDecoration.radiusonlydecoration(
-                                tlradius: 25.0, trradius: 25.0),
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(
-                                // crossAxisAlignment: CrossAxisAlignment.start,
+        body: Obx(
+          () => Column(
+            children: [
+              Container(
+                color: AppColors.whiteColor,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        // crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CircleAvatar(
+                            // backgroundColor: AppColors.primaryColor,
+                            radius: 20,
+                            child: Image.asset('assets/image/bajaj.png'),
+                          ),
+                          widthSpace10,
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
                                 children: [
-                                  heightSpace20,
-                                  Align(
-                                    child: Container(
-                                      height: 4,
-                                      width: 160,
-                                      decoration: MyDecoration.simpledecoration(
-                                          color: AppColors.greyprimarycolor),
-                                    ),
-                                  ),
-                                  Image.asset(
-                                    'assets/image/invite.png',
-                                    height: 180,
-                                    width: Get.width,
-                                  ),
-                                  heightSpace10,
                                   Text(
-                                    'Invitation Sent Successfully!',
+                                    'UI/UX Designer',
                                     style: BaseStyles.blackMedium16,
                                   ),
-                                  heightSpace3,
-                                  Text(
-                                    'information on its origins, as well as a random Lipsum generator.',
-                                    style: BaseStyles.grey2normal14,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                  heightSpace20,
+                                  widthSpace5,
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 8, vertical: 3),
+                                    decoration: decorationbox2(
+                                        color: AppColors.primaryColor2
+                                            .withOpacity(0.2),
+                                        radius: 30.0),
+                                    child: Text(
+                                      '4 Selected',
+                                      style: BaseStyles.greenMedium11,
+                                    ),
+                                  )
                                 ],
                               ),
+                              heightSpace5,
+                              Text(
+                                'Tech Mahindra',
+                                style: BaseStyles.grey2normal12,
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              heightSpace10,
+              _name(),
+              // heightSpace10,
+              controller.selectinvitelist.value == 'Recommended Candidates'
+                  ? _jobrecommaneded('Recommended Candidates')
+                  : controller.selectinvitelist.value == 'All Candidates'
+                      ? _jobrecommaneded('All Candidates')
+                      : _jobrecommaneded('Search for Candidate'),
+              mybuttons(
+                  width: Get.width * 0.95,
+                  action: () {
+                    showModalBottomSheet(
+                        isDismissible: true,
+                        backgroundColor: Colors.transparent,
+                        context: context,
+                        isScrollControlled: true,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(25.0),
+                          ),
+                        ),
+                        builder: (context) {
+                          return FractionallySizedBox(
+                            heightFactor: 0.45,
+                            child: Container(
+                              // height: 300,
+                              decoration: MyDecoration.radiusonlydecoration(
+                                  tlradius: 25.0, trradius: 25.0),
+                              child: Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Column(
+                                  // crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    heightSpace20,
+                                    Align(
+                                      child: Container(
+                                        height: 4,
+                                        width: 160,
+                                        decoration:
+                                            MyDecoration.simpledecoration(
+                                                color:
+                                                    AppColors.greyprimarycolor),
+                                      ),
+                                    ),
+                                    Image.asset(
+                                      'assets/image/invite.png',
+                                      height: 180,
+                                      width: Get.width,
+                                    ),
+                                    heightSpace10,
+                                    Text(
+                                      'Invitation Sent Successfully!',
+                                      style: BaseStyles.blackMedium16,
+                                    ),
+                                    heightSpace3,
+                                    Text(
+                                      'information on its origins, as well as a random Lipsum generator.',
+                                      style: BaseStyles.grey2normal14,
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    heightSpace20,
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        });
+                  },
+                  name: 'Invite Candidates',
+                  color: AppColors.orangecolor,
+                  height: 40.0),
+            ],
+          ),
+        ));
+  }
+
+  //////////////////// job name list widget ui////////////////////////////////
+  _name() {
+    return Container(
+      height: 50,
+      width: Get.width,
+      color: AppColors.whiteColor,
+      margin: EdgeInsets.zero,
+      child: ListView.builder(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          itemCount: controller.invitelist.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Obx(
+              (() => Row(
+                    children: [
+                      widthSpace10,
+                      InkWell(
+                        onTap: () {
+                          controller.selectinvitelist.value =
+                              controller.invitelist[index]['name'].toString();
+                        },
+                        child: Container(
+                          height: 30,
+                          // width: 100,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: controller.selectinvitelist.value ==
+                                      controller.invitelist[index]['name']
+                                  ? AppColors.primaryColor
+                                  : AppColors.whiteColor,
+                              border: Border.all(
+                                  color: AppColors.greyprimarycolor,
+                                  width: 0.2),
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.only(left: 10.0, right: 10.0),
+                            child: Text(
+                              "${controller.invitelist[index]['name'].toString()}",
+                              style: controller.selectinvitelist.value ==
+                                      controller.invitelist[index]['name']
+                                  ? BaseStyles.whitemedium14
+                                  : BaseStyles.greyMedium14,
                             ),
                           ),
-                        );
-                      });
-                },
-                name: 'Invite Candidates',
-                color: AppColors.orangecolor,
-                height: 40.0),
-          ],
-        ));
+                        ),
+                      ),
+                    ],
+                  )),
+            );
+          }),
+    );
   }
 
   ////////jobrecomm////////////////////////////////
 
-  Widget _jobrecommaneded() {
+  Widget _jobrecommaneded(name) {
     return Expanded(
       child: Container(
         margin: const EdgeInsets.only(top: 10),
@@ -154,63 +218,99 @@ class InviteCandidateView extends GetView<JobdetailController> {
           child: Column(
             children: [
               heightSpace10,
-              Obx(
-                () => Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    controller.showseach.value == true
-                        ? Expanded(
-                            child: textfiled(
+              name == 'Search for Candidate'
+                  ? Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Search for Candidate',
+                            style: BaseStyles.blackMedium14,
+                          ),
+                          heightSpace10,
+                          heightSpace5,
+                          textfiled(
+                            prifixshow: true,
+                            prefixtext: Icon(
+                              Icons.search,
+                              size: 25,
+                            ),
+                            prifixiconshow: true,
+                            // prefixicon: Icon(Icons.search),
                             suffixsize: 20.0,
-                            eyeshow: true,
-                            suffixontab: () {
-                              controller.showseach.value = false;
-                            },
+                            eyeshow: false,
+                            // suffixontab: () {
+                            //   // controller.showseach.value = false;
+                            // },
 
                             style: BaseStyles.grey3Normal16,
                             // controller: controller.emailtxt,
                             readonly: false,
                             text: 'Search',
-                            suffixicon: Icons.close,
-                            suffixIconcolor: AppColors.greyprimarycolor,
-                          ))
-                        : Row(
+                            suffixicon: null,
+                            // suffixIconcolor: AppColors.greyprimarycolor,
+                          )
+                        ],
+                      ),
+                    )
+                  : Obx(
+                      () => Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          controller.showseach.value == true
+                              ? Expanded(
+                                  child: textfiled(
+                                  suffixsize: 20.0,
+                                  eyeshow: true,
+                                  suffixontab: () {
+                                    controller.showseach.value = false;
+                                  },
+
+                                  style: BaseStyles.grey3Normal16,
+                                  // controller: controller.emailtxt,
+                                  readonly: false,
+                                  text: 'Search',
+                                  suffixicon: Icons.close,
+                                  suffixIconcolor: AppColors.greyprimarycolor,
+                                ))
+                              : Row(
+                                  children: [
+                                    Text(
+                                      name ?? '',
+                                      style: BaseStyles.blackMedium14,
+                                    )
+                                  ],
+                                ),
+                          Row(
                             children: [
-                              Text(
-                                'Invite Candidates',
-                                style: BaseStyles.blackMedium14,
-                              )
+                              controller.showseach.value != true
+                                  ? IconButton(
+                                      padding: EdgeInsets.zero,
+                                      constraints: BoxConstraints(
+                                          minWidth: 0, minHeight: 0),
+                                      onPressed: () {
+                                        controller.showseach.value = true;
+                                      },
+                                      icon: Icon(
+                                        Icons.search,
+                                        color: AppColors.greyprimarycolor,
+                                      ))
+                                  : Container(),
+                              widthSpace20,
+                              Image.asset(
+                                MyImages.filter,
+                                height: 20,
+                                width: 20,
+                                color: AppColors.greyprimarycolor,
+                              ),
+                              widthSpace10
                             ],
                           ),
-                    Row(
-                      children: [
-                        controller.showseach.value != true
-                            ? IconButton(
-                                padding: EdgeInsets.zero,
-                                constraints:
-                                    BoxConstraints(minWidth: 0, minHeight: 0),
-                                onPressed: () {
-                                  controller.showseach.value = true;
-                                },
-                                icon: Icon(
-                                  Icons.search,
-                                  color: AppColors.greyprimarycolor,
-                                ))
-                            : Container(),
-                        widthSpace20,
-                        Image.asset(
-                          MyImages.filter,
-                          height: 20,
-                          width: 20,
-                          color: AppColors.greyprimarycolor,
-                        ),
-                        widthSpace10
-                      ],
+                          // widthSpace10
+                        ],
+                      ),
                     ),
-                    // widthSpace10
-                  ],
-                ),
-              ),
               _listrecomWidget()
             ],
           ),

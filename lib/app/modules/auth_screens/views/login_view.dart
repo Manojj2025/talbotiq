@@ -8,6 +8,7 @@ import 'package:Talbotiq/app/modules/jobs_screens/views/bottombar_view.dart';
 import 'package:Talbotiq/app/widgets/decoration.dart';
 import 'package:Talbotiq/app/widgets/textfiled.dart';
 import '../../../constants/values.dart';
+import '../../../modules2/bottomnav/views/bottombar2_view.dart';
 import '../../../widgets/appbar.dart';
 import '../../../widgets/buttons.dart';
 import '../controllers/login_controller.dart';
@@ -76,6 +77,7 @@ class LoginView extends GetView<LoginController> {
                   mybuttons(
                     action: () {
                       Get.to(BottombarView());
+                      // Get.to(BottomBar2View());
                     },
                     // height: 45.0,
                     color: AppColors.orangecolor,

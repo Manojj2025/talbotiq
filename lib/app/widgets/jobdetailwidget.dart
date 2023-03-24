@@ -603,7 +603,8 @@ Container singlefiled({name, width, color, style, height, show}) {
   );
 }
 
-Column textwidget2({name, text, width, icon, onTap, textwidget, nameicon}) {
+Column textwidget2(
+    {name, text, width, icon, onTap, textwidget, nameicon, iconwidget}) {
   return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
     Row(
       children: [
@@ -640,11 +641,12 @@ Column textwidget2({name, text, width, icon, onTap, textwidget, nameicon}) {
                 ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                icon ?? Icons.keyboard_arrow_down_sharp,
-                color: AppColors.greyprimarycolor,
-                size: 20,
-              ),
+              child: iconwidget ??
+                  Icon(
+                    icon ?? Icons.keyboard_arrow_down_sharp,
+                    color: AppColors.greyprimarycolor,
+                    size: 20,
+                  ),
             )
           ],
         ),

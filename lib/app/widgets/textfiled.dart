@@ -22,6 +22,7 @@ textfiled(
     ontap,
     suffixsize,
     onchange,
+    prefixtext,
     focusNode,
     eyeshow,
     readonly,
@@ -63,36 +64,37 @@ textfiled(
           )),
       prefixStyle: BaseStyles.grey1Medium14,
       prefixIcon: prifixshow == true
-          ? Container(
-              width: 50,
-              margin: EdgeInsets.only(right: 10),
-              decoration: MyDecoration.radiusonlydecoration(
-                  color: prifixcolor ?? AppColors.greyprimarycolor.shade300,
-                  tlradius: 4.0,
-                  blradius: 4.0),
-              alignment: Alignment.center,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: prifixiconshow != true ? 0.0 : 8.0),
-                    child: Text(
-                      prifixtext ?? '+91',
-                      style: BaseStyles.grey1Medium14,
+          ? prefixtext ??
+              Container(
+                width: 50,
+                margin: EdgeInsets.only(right: 10),
+                decoration: MyDecoration.radiusonlydecoration(
+                    color: prifixcolor ?? AppColors.greyprimarycolor.shade300,
+                    tlradius: 4.0,
+                    blradius: 4.0),
+                alignment: Alignment.center,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: prifixiconshow != true ? 0.0 : 8.0),
+                      child: Text(
+                        prifixtext ?? '+91',
+                        style: BaseStyles.grey1Medium14,
+                      ),
                     ),
-                  ),
-                  prifixiconshow == true
-                      ? Icon(
-                          prefixicon ?? Icons.keyboard_arrow_down_sharp,
-                          color: AppColors.greyprimarycolor,
-                          size: 20,
-                        )
-                      : Container()
-                ],
-              ),
-            )
+                    prifixiconshow == true
+                        ? Icon(
+                            prefixicon ?? Icons.keyboard_arrow_down_sharp,
+                            color: AppColors.greyprimarycolor,
+                            size: 20,
+                          )
+                        : Container()
+                  ],
+                ),
+              )
           : null,
       suffixIcon: eyeshow == true
           ? IconButton(

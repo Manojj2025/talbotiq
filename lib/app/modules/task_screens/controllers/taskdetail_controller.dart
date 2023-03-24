@@ -11,8 +11,23 @@ class TaskdetailController extends GetxController {
   ].obs;
   final selectname = 'Details'.obs;
   final selected = 0.obs;
-
+  final editlist = [
+    {"icon": Icons.settings, "name": "Settings"},
+    {"icon": Icons.delete_outline, "name": "Delete"},
+  ].obs;
   final agree = false.obs;
+  final onday = 0.obs;
+  final repeat = 'Weekly'.obs;
+  final days = ['M', 'T', 'W', 'T', 'F', 'S', 'S'].obs;
+  final repeatlist = [
+    'Do not Repeat',
+    'Every Day (Mo-Fri)',
+    'Daily',
+    'Weekly',
+    'Monthly',
+    'Yearly',
+    'Custom'
+  ].obs;
   @override
   void onInit() {
     super.onInit();

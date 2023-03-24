@@ -23,6 +23,13 @@ class JobdetailController extends GetxController {
     {"name": "Recommended Candidates", "value": "2"},
     {"name": "Job Analytics", "value": ""},
   ].obs;
+
+  final invitelist = [
+    {"name": "Recommended Candidates", "value": ""},
+    {"name": "All Candidates", "value": "1"},
+    {"name": "Search for Candidate", "value": ""},
+  ].obs;
+  final selectinvitelist = 'Recommended Candidates'.obs;
   final joblist2 = ["Photoshop", "Ptototype", "Figma", "UX/UI", "Adobe"].obs;
   final jobselectname = 'Description'.obs;
   final jobselectname2 = 'Photoshop'.obs;
