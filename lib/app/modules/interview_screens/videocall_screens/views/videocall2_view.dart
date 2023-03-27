@@ -41,14 +41,20 @@ class _MyVideoCallState extends State<MyVideoCall> {
 
   // mediaStream for localPeer
   MediaStream? _localStream;
-
   // MediaStream? _localStream2;
   // RTC peer connection
   RTCPeerConnection? _rtcPeerConnection;
 
   // list of rtcCandidates to be sent over signalling
   List<RTCIceCandidate> rtcIceCadidates = [];
-
+  List list = [
+    {'title': 'Share Screen', 'img': Icons.file_upload_outlined},
+    {'title': 'Chat', 'img': Icons.chat},
+    {'title': 'People', 'img': Icons.people_outline},
+    {'title': 'Views', 'img': Icons.view_comfy_outlined},
+    {'title': 'Change Background', 'img': Icons.app_registration_sharp},
+    {'title': 'Report Problem', 'img': Icons.report_gmailerrorred_outlined},
+  ];
   @override
   void initState() {
     // initializing renderers
@@ -191,6 +197,21 @@ class _MyVideoCallState extends State<MyVideoCall> {
     //     "sdpOffer": offer.toMap(),
     //   });
     // }
+  }
+
+  Future<void> makeScreenSharing() async {
+    final mediaConstraints = <String, dynamic>{'audio': true, 'video': true};
+
+    try {
+      var stream =
+          await navigator.mediaDevices.getDisplayMedia(mediaConstraints);
+
+      _localStream = stream;
+      _localRTCVideoRenderer.srcObject = _localStream;
+      setState(() {});
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   _leaveCall() {
@@ -366,12 +387,39 @@ class _MyVideoCallState extends State<MyVideoCall> {
                                     width: MediaQuery.of(context).size.width,
                                     height: MediaQuery.of(context).size.height *
                                         0.50,
-                                    child: RTCVideoView(
-                                      _remoteRTCVideoRenderer,
-                                      mirror: true,
-                                      objectFit: RTCVideoViewObjectFit
-                                          .RTCVideoViewObjectFitCover,
-                                    ),
+                                    child: !isVideoOn
+                                        ? !isVideoOn
+                                            ? Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  CircleAvatar(
+                                                    radius: 60,
+                                                    backgroundImage: AssetImage(
+                                                      'assets/image/p.webp',
+                                                    ),
+                                                    // child: Image.asset(
+                                                    //   'assets/image/pic.png',
+                                                    //   fit: BoxFit.fill,
+                                                    // ),
+                                                  ),
+                                                  heightSpace10,
+                                                  Text(
+                                                    'Rajat Kumar',
+                                                    style:
+                                                        BaseStyles.whitelarge16,
+                                                  )
+                                                ],
+                                              )
+                                            : Container()
+                                        : RTCVideoView(
+                                            _remoteRTCVideoRenderer,
+                                            mirror: true,
+                                            objectFit: RTCVideoViewObjectFit
+                                                .RTCVideoViewObjectFitCover,
+                                          ),
                                   ),
                                 ],
                               ),
@@ -610,25 +658,87 @@ class _MyVideoCallState extends State<MyVideoCall> {
                           alignment: Alignment.topRight,
                           child: Padding(
                             padding: const EdgeInsets.only(right: 20),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: SizedBox(
-                                height: 150,
-                                width: 120,
-                                child: RTCVideoView(
-                                  _localRTCVideoRenderer,
-                                  mirror: isFrontCameraSelected,
-                                  objectFit: RTCVideoViewObjectFit
-                                      .RTCVideoViewObjectFitCover,
-                                ),
-                              ),
-                              // Image.asset(
-                              //   'assets/image/pic.png',
-                              //   height: 150,
-                              //   width: 120,
-                              //   fit: BoxFit.cover,
-                              // ),
-                            ),
+                            child: !isVideoOn
+                                ? Container(
+                                    height: 150,
+                                    width: 120,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: Color(0xff202020),
+                                    ),
+                                    child: Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        isAudioOn
+                                            ? Container()
+                                            : Positioned(
+                                                right: 5,
+                                                top: 5,
+                                                child: GestureDetector(
+                                                  onTap: _toggleMic,
+                                                  child: CircleAvatar(
+                                                    radius: 15,
+                                                    backgroundColor:
+                                                        Colors.black,
+                                                    child: Icon(
+                                                      isAudioOn
+                                                          ? Icons.mic_rounded
+                                                          : Icons.mic_off,
+                                                      size: 18,
+                                                      color:
+                                                          AppColors.whiteColor,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                        !isVideoOn
+                                            ? Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  CircleAvatar(
+                                                    radius: 20,
+                                                    backgroundImage: AssetImage(
+                                                      'assets/image/p.webp',
+                                                    ),
+                                                    // child: Image.asset(
+                                                    //   'assets/image/pic.png',
+                                                    //   fit: BoxFit.fill,
+                                                    // ),
+                                                  ),
+                                                  heightSpace5,
+                                                  Text(
+                                                    'Rajat Kumar',
+                                                    style:
+                                                        BaseStyles.whitebold12,
+                                                  )
+                                                ],
+                                              )
+                                            : Container(),
+                                      ],
+                                    ))
+                                : ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Container(
+                                      color: Color(0xff202020),
+                                      height: 150,
+                                      width: 120,
+                                      child: RTCVideoView(
+                                        _localRTCVideoRenderer,
+                                        mirror: isFrontCameraSelected,
+                                        objectFit: RTCVideoViewObjectFit
+                                            .RTCVideoViewObjectFitCover,
+                                      ),
+                                    ),
+                                    // Image.asset(
+                                    //   'assets/image/pic.png',
+                                    //   height: 150,
+                                    //   width: 120,
+                                    //   fit: BoxFit.cover,
+                                    // ),
+                                  ),
                           ),
                         ),
                         heightSpace20,
@@ -685,17 +795,157 @@ class _MyVideoCallState extends State<MyVideoCall> {
                             // widthSpace20,
                             GestureDetector(
                               onTap: () {
-                                // int? displayId =
-                                //     int.tryParse(_indexToShareController.text);
-                                // if (displayId != null) {
-                                //   for (final display in displays) {
-                                //     if (display?.displayId == displayId) {
-                                displayManager.showSecondaryDisplay(
-                                    displayId: 123456,
-                                    routerName: "presentation");
-                                //   }
-                                // }
-                                // }
+                                showModalBottomSheet(
+                                    isDismissible: true,
+                                    backgroundColor: Colors.transparent,
+                                    context: context,
+                                    isScrollControlled: true,
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(25.0),
+                                      ),
+                                    ),
+                                    builder: (context) {
+                                      return FractionallySizedBox(
+                                        heightFactor: 0.42,
+                                        child: Container(
+                                          // height: 300,
+                                          decoration:
+                                              MyDecoration.radiusonlydecoration(
+                                                  color: Color(0xff282828),
+                                                  tlradius: 25.0,
+                                                  trradius: 25.0),
+                                          child: Column(
+                                            children: [
+                                              heightSpace20,
+                                              Container(
+                                                height: 4,
+                                                width: 80,
+                                                decoration: MyDecoration
+                                                    .simpledecoration(
+                                                        color: AppColors
+                                                            .greyprimarycolor),
+                                              ),
+                                              heightSpace20,
+                                              Expanded(
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 8.0, right: 8),
+                                                  child: GridView.builder(
+                                                      physics:
+                                                          NeverScrollableScrollPhysics(),
+                                                      shrinkWrap: true,
+                                                      gridDelegate:
+                                                          const SliverGridDelegateWithMaxCrossAxisExtent(
+                                                              maxCrossAxisExtent:
+                                                                  180,
+                                                              childAspectRatio:
+                                                                  3 / 1.5,
+                                                              crossAxisSpacing:
+                                                                  0,
+                                                              mainAxisSpacing:
+                                                                  0),
+                                                      itemCount: list.length,
+                                                      itemBuilder:
+                                                          (BuildContext ctx,
+                                                              index) {
+                                                        return GestureDetector(
+                                                          onTap: () {
+                                                            switch (index) {
+                                                              case 0:
+                                                                Navigator.pop(
+                                                                    context);
+                                                                makeScreenSharing();
+
+                                                                break;
+                                                              default:
+                                                            }
+                                                          },
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(5.0),
+                                                            child: Container(
+                                                              decoration: decorationbox(
+                                                                  color: Color
+                                                                      .fromRGBO(
+                                                                          252,
+                                                                          252,
+                                                                          252,
+                                                                          0.05),
+                                                                  radius: 4.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                            .only(
+                                                                        left:
+                                                                            10.0),
+                                                                child: Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .center,
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .center,
+                                                                  children: [
+                                                                    // Image.asset(
+                                                                    //   list[index][
+                                                                    //           'img']
+                                                                    //       .toString(),
+                                                                    //   height: 30,
+                                                                    //   width: 30,
+                                                                    // ),
+                                                                    // heightSpace3,
+                                                                    // // ImageIcon(
+                                                                    // //     AssetImage(
+                                                                    // //   list[index][
+                                                                    // //           'img']
+                                                                    // //       .toString(),
+                                                                    // // ))
+                                                                    Icon(
+                                                                      list[index]
+                                                                          [
+                                                                          'img'],
+                                                                      color: AppColors
+                                                                          .whiteColor,
+                                                                    ),
+                                                                    heightSpace5,
+                                                                    Text(
+                                                                      list[index]
+                                                                              [
+                                                                              'title']
+                                                                          .toString(),
+                                                                      style: BaseStyles
+                                                                          .whitenormal14,
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      }),
+                                                ),
+                                              ),
+                                              heightSpace10
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    });
+                                // makeScreenSharing();
+                                // // // int? displayId =
+                                // // //     int.tryParse(_indexToShareController.text);
+                                // // // if (displayId != null) {
+                                // // //   for (final display in displays) {
+                                // // //     if (display?.displayId == displayId) {
+                                // // displayManager.showSecondaryDisplay(
+                                // //     displayId: 123456,
+                                // //     routerName: "presentation");
+                                // // //   }
+                                // // // }
+                                // // // }
                               },
                               child: CircleAvatar(
                                 backgroundColor:
